@@ -23,9 +23,6 @@ import android.view.SurfaceView;
 
 import gam.org.com.leidianzhanji.R;
 
-import static android.R.id.content;
-import static gam.org.com.leidianzhanji.R.drawable.bg11;
-
 /**
  * 总游戏绘制
  */
@@ -54,13 +51,9 @@ public class GameDraw extends SurfaceView implements Runnable {
     public static final byte CANVAS_GAME_EXIT = 30;// 退出游戏界面
 
     public static boolean isRun = true;
-
-    //    public static final int WIDTH = 480;
-//    public static final int HEIGHT = 800;
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 480;
+    public static final int WIDTH = 1920;
+    public static final int HEIGHT = 1080;
     public static final int WITE_TIME = 55;
-    // public static final int UPDATA_NUM = 1000 / WITE_TIME;
 
     public static GameDraw gameDraw;
     public static Random random = new Random();
@@ -72,7 +65,6 @@ public class GameDraw extends SurfaceView implements Runnable {
     private SurfaceHolder mSurfaceHolder;
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    // InputMethodManager input;
 
     // 申请部分
     public Menu menu;
@@ -137,17 +129,21 @@ public class GameDraw extends SurfaceView implements Runnable {
         getGift = new GetGift(this);
         npcIntroduce = new NPCIntroduce(this);
         gameExit = new GameExit(this);
-
+        // 构建Paint时直接加上去锯齿属性
         red = new Paint(Paint.ANTI_ALIAS_FLAG);
         ColorMatrix cm = new ColorMatrix();
-        cm.set(new float[]{1, 0, 0, 0, 100, 0, 1, 0, 0, 100, 0, 0, 1, 0, 100,
+        cm.set(new float[]{1, 0, 0, 0, 100,
+                0, 1, 0, 0, 100,
+                0, 0, 1, 0, 100,
                 0, 0, 0, 1, 0});
         red.setColorFilter(new ColorMatrixColorFilter(cm));
 
         black = new Paint(Paint.ANTI_ALIAS_FLAG);
         cm = new ColorMatrix();
-        cm.set(new float[]{0.08f, 0, 0, 0, 0, 0, 0.08f, 0, 0, 0, 0, 0, 0.08f,
-                0, 0, 0, 0, 0, 1, 0});
+        cm.set(new float[]{0.08f, 0, 0, 0, 0,
+                0, 0.08f, 0, 0, 0,
+                0, 0, 0.08f, 0, 0,
+                0, 0, 0, 1, 0});
         black.setColorFilter(new ColorMatrixColorFilter(cm));
 
         canvasIndex = CANVAS_PROGRESS;
@@ -160,47 +156,20 @@ public class GameDraw extends SurfaceView implements Runnable {
 
     /**
      * 判断是否开启音乐
+     *
      */
-    // public void start2StopMusic(float x, float y) {
-    // if (x < 80 && y > 760) {
-    // System.out.println("是");
-    // if (time <= 0) {
-    // menu.reset();
-    // }
-    // } else if (x > 400 && y > 760) {
-    // System.out.println("否");
-    // if (time <= 0) {
-    // menu.reset();
-    // }
-    // }
-    // }
-    public void paint(Canvas g, int canvasIndex) // 绘制
-    {
+    public void paint(Canvas g, int canvasIndex) {     // 绘制
         Paint mPaint = new Paint();
         mPaint.setAntiAlias(true);
         switch (canvasIndex) {
             case CANVAS_PROGRESS:
-                //白色画笔
-                g.drawBitmap(BitmapFactory.decodeResource(res, R.drawable.bg_ff), null, new Rect(0, 0, 800, 480), mPaint);
-
-//                g.drawColor(0xffacacac);
-                mPaint.setColor(0xff000000);
-
+//                g.drawColor(0xffffffff);
+                g.drawBitmap(BitmapFactory.decodeResource(res, R.drawable.sl_background), null, new Rect(0, 0, 1920, 1080), mPaint);
+                mPaint.setColor(0xffffffff);
                 if (time > 0) {
-                    //  g.drawRect(100, 790, 40 + (10 - time) * 20, 793, mPaint);
-                    // 绘制进度
-                    mPaint.setTextSize(30);
-
-                    // 文字内容位置
-                    g.drawText("加载中...", WIDTH / 2 - 37, HEIGHT / 2 - 15, mPaint);
+                    mPaint.setTextSize(50);
+                    g.drawText("加载中...", 1920 / 2 - 30, 1080 / 2 - 10, mPaint);
                 }
-
-                // else {
-                // paint.setTextSize(30);
-                // g.drawText("是否开启声音", 150, 600, paint);
-                // g.drawText("是", 10, 780, paint);
-                // g.drawText("否", 440, 780, paint);
-                // }
                 break;
             case CANVAS_NPC_INTRODUCE:
                 npcIntroduce.render(g, mPaint);
@@ -226,9 +195,6 @@ public class GameDraw extends SurfaceView implements Runnable {
             case CANVAS_SETTING:
                 setting.render(g, mPaint);
                 break;
-            // case CANVAS_LOADING:
-            // load.render(g, paint);
-            // break;
             case CANVAS_ACHIEVE:
                 achieve.render(g, mPaint);
                 break;
@@ -252,9 +218,6 @@ public class GameDraw extends SurfaceView implements Runnable {
                 break;
             case CANVAS_GAME:
                 game.render(g, mPaint);
-                // paint.setColor(0xffff0000) ;
-                // paint.setTextSize(40) ;
-                // g.drawText(" "+game.nm.zl.t, 10, 200, paint) ;
                 break;
             case CANVAS_GAME_WIN:
                 gameWin.render(g, mPaint);
@@ -269,9 +232,6 @@ public class GameDraw extends SurfaceView implements Runnable {
                 gameExit.render(g, mPaint);
                 break;
         }
-        // paint.setColor(0xffffffff) ;
-        // paint.setTextSize(40) ;
-        // g.drawText("触底  "+NPCManager.num, 10, 50, paint) ;
     }
 
     public void upData() {
@@ -287,15 +247,15 @@ public class GameDraw extends SurfaceView implements Runnable {
                         // isSound = PaymentJoy.isMusicon();
                         MainActivity.isYD = MainActivity.main.isCM();
                     } else if (time <= 0) {
-                        if (Game.isFrist) {
-                            storyLine.init(res);
-                            storyLine.reset();
-                        } else {
-                            menu.init(res);
-                            menu.reset();
-                            isPlayMusic(bossMediaPlayer, gameMediaPlayer,
-                                    menuMediaPlayer);
-                        }
+//                        if (Game.isFrist) {
+                        storyLine.init(res);
+                        storyLine.reset();
+//                        } else {
+//                            menu.init(res);
+//                            menu.reset();
+//                            isPlayMusic(bossMediaPlayer, gameMediaPlayer,
+//                                    menuMediaPlayer);
+//                        }
                     }
                 }
                 break;
@@ -323,9 +283,6 @@ public class GameDraw extends SurfaceView implements Runnable {
             case CANVAS_SETTING:
                 setting.upData();
                 break;
-            // case CANVAS_LOADING:
-            // load.upData();
-            // break;
             case CANVAS_ACHIEVE:
                 achieve.upData();
                 break;
@@ -365,8 +322,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
-    public void run() // 更新
-    {
+    public void run() {      // 更新
         long startTime, endTime;
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -420,9 +376,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
-
-    public boolean onTouchEvent(MotionEvent e) // 控制
-    {
+    public boolean onTouchEvent(MotionEvent e) {      // 控制
         float x = e.getX(), y = e.getY();
         if (WIDTH != MainActivity.SCREEN_WIDTH
                 || HEIGHT != MainActivity.SCREEN_HEIGHT) {
@@ -432,10 +386,8 @@ public class GameDraw extends SurfaceView implements Runnable {
 
         if (e.getAction() == MotionEvent.ACTION_DOWN) // 按下
         {
-            // Log.d("HL", "-----    " + Player.hl) ;
             switch (canvasIndex) {
                 case CANVAS_PROGRESS:
-                    // start2StopMusic(x, y);
                     break;
                 case CANVAS_NPC_INTRODUCE:
                     npcIntroduce.touchDown(x, y);
@@ -478,8 +430,6 @@ public class GameDraw extends SurfaceView implements Runnable {
                     break;
                 case CANVAS_GAME:
                     game.touchDown(x, y);
-                    // Log.d("****  yy  ****",
-                    // "----------  t  ----------    "+game.nm.zl.t) ;
                     break;
                 case CANVAS_GAME_WIN:
                     gameWin.touchDown(x, y);
@@ -574,7 +524,6 @@ public class GameDraw extends SurfaceView implements Runnable {
     }
 
     public boolean keyDown(int k) {
-
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
@@ -593,6 +542,7 @@ public class GameDraw extends SurfaceView implements Runnable {
                 switch (canvasIndex) {
                     case CANVAS_GAME_EXIT:
                         gameExit.touchDown(200, 500);
+                        gameExit.touchUp(200, 500);
                         break;
                 }
                 break;
@@ -643,36 +593,21 @@ public class GameDraw extends SurfaceView implements Runnable {
         bossMediaPlayer.setLooping(true);
 
         spool = new SoundPool(6, AudioManager.STREAM_MUSIC, 100);
+
         soundID[0] = GameDraw.spool.load(MainActivity.main, R.raw.bao1, 1);
         soundID[1] = GameDraw.spool.load(MainActivity.main, R.raw.bao2, 1);
-
         soundID[2] = GameDraw.spool.load(MainActivity.main, R.raw.dianan, 1);
-
         soundID[3] = GameDraw.spool.load(MainActivity.main, R.raw.kaimen, 1);
-
-        // soundID[4] = GameDraw.spool.load(MainActivity.main, R.raw.dianliu,
-        // 1);
-        //
-        // soundID[5] = GameDraw.spool.load(MainActivity.main, R.raw.pzidan, 1);
-
-        soundID[6] = GameDraw.spool.load(MainActivity.main, R.raw.chishuijing,
-                1);
-
+        soundID[6] = GameDraw.spool.load(MainActivity.main, R.raw.chishuijing, 1);
         soundID[7] = GameDraw.spool.load(MainActivity.main, R.raw.chidaoju, 1);
-
         soundID[8] = GameDraw.spool.load(MainActivity.main, R.raw.jineng, 1);
-
-        soundID[9] = GameDraw.spool.load(MainActivity.main, R.raw.bossbianshen,
-                1);
-
+        soundID[9] = GameDraw.spool.load(MainActivity.main, R.raw.bossbianshen, 1);
         soundID[10] = GameDraw.spool.load(MainActivity.main, R.raw.bs, 1);
         soundID[11] = GameDraw.spool.load(MainActivity.main, R.raw.npcbao2, 1);
         soundID[12] = GameDraw.spool.load(MainActivity.main, R.raw.npcbao3, 1);
         soundID[13] = GameDraw.spool.load(MainActivity.main, R.raw.zdbao1, 1);
         soundID[14] = GameDraw.spool.load(MainActivity.main, R.raw.zdbao2, 1);
-
-        soundID[15] = GameDraw.spool
-                .load(MainActivity.main, R.raw.explode01, 1);
+        soundID[15] = GameDraw.spool.load(MainActivity.main, R.raw.explode01, 1);
     }
 
     public static void playSound(int id) {
@@ -740,8 +675,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
-    public static void isPlayMusic(MediaPlayer m1, MediaPlayer m2,
-                                   MediaPlayer m3) {
+    public static void isPlayMusic(MediaPlayer m1, MediaPlayer m2, MediaPlayer m3) {
         if (m1.isPlaying()) {
             m1.pause();
         }
