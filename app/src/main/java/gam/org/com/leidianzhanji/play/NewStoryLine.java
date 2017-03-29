@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
+import android.view.KeyEvent;
 
 import gam.org.com.leidianzhanji.R;
 
@@ -147,10 +149,45 @@ public class NewStoryLine {
     }
 
     public void touchDown(float tx, float ty) {
-        if (tx > 330 && ty > 730 && (mode == 2 || mode == 3 || mode == 5)) {
+        if (tx > 810 && ty > 860 && (mode == 2 || mode == 3 || mode == 5)) {
             GameDraw.gameSound(1);
             time = 0;
             mode = 5;
+        }
+    }
+
+    public void keyDown(int k) {
+        switch (k) {
+            case KeyEvent.KEYCODE_DPAD_UP://向上
+                Log.e("jamie", "－－－－－向上－－－－－");
+                break;
+            case KeyEvent.KEYCODE_DPAD_DOWN://向下
+                Log.e("jamie", "－－－－－向下－－－－－");
+                break;
+            case KeyEvent.KEYCODE_DPAD_LEFT://向左
+                Log.e("jamie", "－－－－－向左－－－－－");
+                break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT://向右
+                Log.e("jamie", "－－－－－向右－－－－－");
+                break;
+            case KeyEvent.KEYCODE_ENTER://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
+                GameDraw.gameSound(1);
+                time = 0;
+                mode = 5;
+                break;
+            case KeyEvent.KEYCODE_BACK://返回
+                Log.e("jamie", "－－－－－返回－－－－－");
+                GameDraw.gameSound(1);
+                time = 0;
+                mode = 5;
+                break;
+            case KeyEvent.KEYCODE_HOME://房子
+                Log.e("jamie", "－－－－－房子－－－－－");
+                break;
+            case KeyEvent.KEYCODE_MENU://菜单
+                Log.e("jamie", "－－－－－菜单－－－－－");
+                break;
         }
     }
 }
