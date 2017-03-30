@@ -207,29 +207,31 @@ public class ChooseAirplane {
                 }
             }
         }
-        g.drawBitmap(im1, 19, 57, paint);
-        Tools.paintMImage(g, im1, 240, 57, paint);
-        g.drawBitmap(kuang1, 32, 330, paint);
-        Tools.paintMImage(g, kuang1, 240, 330, paint);
-        Tools.paintM2Image(g, kuang1, 32, 493, paint);
-        Tools.paintRotateImage(g, kuang1, 240, 494, 180, paint);
+        g.drawBitmap(im1, 739, 45, paint);
+        Tools.paintMImage(g, im1, 960, 45, paint);
+        g.drawBitmap(kuang1, 754, 336, paint);
+        Tools.paintMImage(g, kuang1, 960, 336, paint);
+        Tools.paintM2Image(g, kuang1, 754, 496, paint);
+        Tools.paintRotateImage(g, kuang1, 960, 496, 180, paint);
         if (isDownPlay)
-            g.drawBitmap(hui, 153, 650, paint);
+//            g.drawBitmap(hui, 153, 650, paint);
+            g.drawBitmap(hui, 820, 702, paint);
         else
-            g.drawBitmap(an, 153, 650, paint);
+//        g.drawBitmap(an, 153, 650, paint);
+            g.drawBitmap(an, 820, 702, paint);
         paint.setAlpha(alp);
         switch (id) {
             case 0:
-                g.drawBitmap(kuang2, 32, 330, paint);
+                g.drawBitmap(kuang2, 773, 354, paint);
                 break;
             case 1:
-                Tools.paintMImage(g, kuang2, 240, 330, paint);
+                Tools.paintMImage(g, kuang2, 963, 354, paint);
                 break;
             case 2:
-                Tools.paintM2Image(g, kuang2, 32, 493, paint);
+                Tools.paintM2Image(g, kuang2, 773, 501, paint);
                 break;
             case 3:
-                Tools.paintRotateImage(g, kuang2, 240, 494, 180, paint);
+                Tools.paintRotateImage(g, kuang2, 963, 501, 180, paint);
                 break;
         }
         paint.setAlpha(a);
