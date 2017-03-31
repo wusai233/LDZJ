@@ -21,6 +21,7 @@ public class ChooseAirplane {
     Bitmap an, hui;
     Bitmap suo;
     Bitmap kuang1, kuang2;
+    Bitmap sp_back1, sp_back2;
     // Bitmap guang1, guang2, guang3;
 
     Bitmap[] kaihuo = new Bitmap[2];
@@ -28,8 +29,8 @@ public class ChooseAirplane {
     Bitmap[] fei = new Bitmap[4];
     int[] x = new int[]{32, 240, 32, 240};
     int[] y = new int[]{330, 330, 493, 493};
-    int[] zx = new int[]{255, 65, 255};
-    int[] zy = new int[]{360, 505, 505};
+    int[] zx = new int[]{971, 781, 971};
+    int[] zy = new int[]{363, 510, 510};
 
     int mode, t, id;
 
@@ -60,6 +61,7 @@ public class ChooseAirplane {
         // im4 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im4);
         // bg = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im5);
 
+        // 返回按钮
         kuang1 = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.sp_kuang1);
         kuang2 = BitmapFactory.decodeResource(gameDraw.res,
@@ -75,6 +77,8 @@ public class ChooseAirplane {
         // R.drawable.sp_jiaodeng2);
 
         an = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_an);
+        sp_back1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_back1);
+        sp_back2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_back2);
 
         guang[0] = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.sp_liang3);
@@ -106,7 +110,8 @@ public class ChooseAirplane {
         kuang1 = null;
         kuang2 = null;
         an = null;
-
+        sp_back1 = null;
+        sp_back2 = null;
         for (int i = 0; i < guang.length; i++) {
             guang[i] = null;
             fei[i] = null;
@@ -185,29 +190,30 @@ public class ChooseAirplane {
         paint.setAlpha(a);
         airPlaneBullet.render(g, paint);
         if (id == 2) {
-            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)],
-                    240 - 108, 230 - 105, paint);
+            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 960 - 108, 230 - 125, paint);
         } else if (id == 3) {
-            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)],
-                    240 - 108, 230 - 153, paint);
+            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 240 - 108, 230 - 173, paint);
         }
-        g.drawBitmap(fei[id], 240 - fei[id].getWidth() / 2,
-                230 - fei[id].getHeight() / 2, paint);
+        g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 250 - fei[id].getHeight(), paint);
 
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; j < 27; j++) {
-                if (j < 2) {
-                    g.drawBitmap(im2, i * 30, 5 + j * 30, paint);
-                }
-                if ((i == 0 || i == 15) && j < 10 && j >= 2) {
-                    g.drawBitmap(im2, i * 30, j * 30, paint);
-                }
-                if (j >= 10) {
-                    g.drawBitmap(im2, i * 30, j * 30, paint);
-                }
-            }
-        }
+        // 背景格子
+//        for (int i = 0; i < 16; i++) {
+//            for (int j = 0; j < 27; j++) {
+//                if (j < 2) {
+//                    g.drawBitmap(im2, i * 30, 5 + j * 30, paint);
+//                }
+//                if ((i == 0 || i == 15) && j < 10 && j >= 2) {
+//                    g.drawBitmap(im2, i * 30, j * 30, paint);
+//                }
+//                if (j >= 10) {
+//                    g.drawBitmap(im2, i * 30, j * 30, paint);
+//                }
+//            }
+//        }
         g.drawBitmap(im1, 739, 45, paint);
+        // 返回按钮
+        g.drawBitmap(sp_back1, 850, 874, paint);
+        g.drawBitmap(sp_back2, 850, 874, paint);
         Tools.paintMImage(g, im1, 960, 45, paint);
         g.drawBitmap(kuang1, 754, 336, paint);
         Tools.paintMImage(g, kuang1, 960, 336, paint);
@@ -222,23 +228,23 @@ public class ChooseAirplane {
         paint.setAlpha(alp);
         switch (id) {
             case 0:
-                g.drawBitmap(kuang2, 773, 354, paint);
+                g.drawBitmap(kuang2, 753, 335, paint);
                 break;
             case 1:
-                Tools.paintMImage(g, kuang2, 963, 354, paint);
+                Tools.paintMImage(g, kuang2, 963, 335, paint);
                 break;
             case 2:
-                Tools.paintM2Image(g, kuang2, 773, 501, paint);
+                Tools.paintM2Image(g, kuang2, 753, 496, paint);
                 break;
             case 3:
-                Tools.paintRotateImage(g, kuang2, 963, 501, 180, paint);
+                Tools.paintRotateImage(g, kuang2, 963, 496, 180, paint);
                 break;
         }
         paint.setAlpha(a);
-        g.drawBitmap(guang[0], 75, 385, paint);
-        g.drawBitmap(guang[1], 250, 380, paint);
-        g.drawBitmap(guang[2], 75, 515, paint);
-        g.drawBitmap(guang[3], 300, 500, paint);
+        g.drawBitmap(guang[0], 810, 383, paint);
+        g.drawBitmap(guang[1], 1005, 383, paint);
+        g.drawBitmap(guang[2], 810, 521, paint);
+        g.drawBitmap(guang[3], 1010, 506, paint);
 
         for (int i = 0; i < haveAirplane.length; i++) {
             if (!haveAirplane[i]) {
