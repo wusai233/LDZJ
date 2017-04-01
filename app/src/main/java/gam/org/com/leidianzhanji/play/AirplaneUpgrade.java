@@ -215,10 +215,10 @@ public class AirplaneUpgrade {
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
                 Game.drawTop(g, paint, 10);
-                g.drawBitmap(gouim, 8, 68, paint);
-                Tools.paintMImage(g, gouim, 240, 68, paint);
-                Tools.paintM2Image(g, gouim, 8, 420, paint);
-                Tools.paintRotateImage(g, gouim, 240, 420, 180, 232, 352, paint);
+                g.drawBitmap(gouim, 663, 149, paint);
+                Tools.paintMImage(g, gouim, 960, 149, paint);
+                Tools.paintM2Image(g, gouim, 663, 597, paint);
+                Tools.paintRotateImage(g, gouim, 960, 597, 180, 298, 450, paint);
                 if (MainActivity.isYD == true) {
                     g.drawBitmap(gou1, 55, 100, paint);
                 } else {
@@ -227,9 +227,9 @@ public class AirplaneUpgrade {
                     // g.drawBitmap(gouzi, 185, 616, paint);
                 }
                 if (isDownReturn)
-                    g.drawBitmap(gouback, 390, 78, paint);
+                    g.drawBitmap(gouback, 1118, 189, paint);
                 else
-                    g.drawBitmap(gouback, 390, 78, paint);
+                    g.drawBitmap(gouback, 1118, 189, paint);
 
                 // g.drawBitmap(Game.top, 0, 0, paint);
                 // g.drawBitmap(Game.left, 182, 0, paint);
@@ -242,17 +242,17 @@ public class AirplaneUpgrade {
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
                 Game.drawTop(g, paint, 10);
-                g.drawBitmap(gouim, 8, 68, paint);
-                Tools.paintMImage(g, gouim, 240, 68, paint);
-                Tools.paintM2Image(g, gouim, 8, 420, paint);
-                Tools.paintRotateImage(g, gouim, 240, 420, 180, 232, 352, paint);
-                g.drawBitmap(gou2, 55, 100, paint);
+                g.drawBitmap(gouim, 663, 149, paint);
+                Tools.paintMImage(g, gouim, 959, 149, paint);
+                Tools.paintM2Image(g, gouim, 663, 597, paint);
+                Tools.paintRotateImage(g, gouim, 959, 597, 180, 298, 450, paint);
+                g.drawBitmap(gou2, 737, 242, paint);
                 g.drawBitmap(an31, 141, 610, paint);
                 // g.drawBitmap(gouzi, 185, 616, paint);
                 if (isDownReturn)
-                    g.drawBitmap(gouback, 390, 78, paint);
+                    g.drawBitmap(gouback, 1118, 189, paint);
                 else
-                    g.drawBitmap(gouback, 390, 78, paint);
+                    g.drawBitmap(gouback, 1118, 189, paint);
 
                 // g.drawBitmap(Game.top, 0, 0, paint);
                 // g.drawBitmap(Game.left, 182, 0, paint);
@@ -270,45 +270,49 @@ public class AirplaneUpgrade {
             l = 4;
         switch (id) {
             case 0:
-                g.drawBitmap(js[0], 250, 150, paint);
-                g.drawBitmap(shu[1][l], 355, 190, paint);
+//                g.drawBitmap(js[0], 250, 150, paint);
+//                g.drawBitmap(shu[1][l], 355, 190, paint);
+                g.drawBitmap(js[0], 1009, 189, paint);
+                g.drawBitmap(shu[1][l], 1142, 246, paint);
                 break;
             case 1:
                 if (l % 2 == 0) {
-                    g.drawBitmap(js[1], 250, 150, paint);
-                    g.drawBitmap(shu[2][l / 2], 310, 150, paint);
+                    g.drawBitmap(js[0], 1009, 189, paint);
+                    g.drawBitmap(shu[2][l / 2], 1164, 246, paint);
                 } else if (l % 2 == 1) {
-                    g.drawBitmap(js[2], 250, 150, paint);
+                    g.drawBitmap(js[0], 1009, 189, paint);
                     g.drawBitmap(shu[3][0], 310, 150, paint);
                 } else {
-                    g.drawBitmap(js[2], 250, 150, paint);
+                    g.drawBitmap(js[0], 1009, 189, paint);
                     g.drawBitmap(shu[1][4], 310, 150, paint);
                 }
                 break;
             case 2:
                 if (l % 2 == 0) {
-                    g.drawBitmap(js[3], 250, 150, paint);
+                    g.drawBitmap(js[0], 1009, 189, paint);
                     g.drawBitmap(shu[4][l / 2], 310, 190, paint);
                 } else if (l % 2 == 1) {
-                    g.drawBitmap(js[4], 250, 150, paint);
+                    g.drawBitmap(js[0], 1009, 189, paint);
                     g.drawBitmap(shu[3][0], 310, 150, paint);
                 } else {
-                    g.drawBitmap(js[4], 250, 150, paint);
+                    g.drawBitmap(js[0], 1009, 189, paint);
                     g.drawBitmap(shu[1][4], 310, 150, paint);
                 }
                 break;
             case 3:
-                g.drawBitmap(js[5], 250, 150, paint);
+                g.drawBitmap(js[0], 1009, 189, paint);
+                // 上面的数字
+//                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 360, 185, paint);
                 g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 360, 185, paint);
                 // Tools.paintNum(g, shu[0][0], 360, 185, l + 1, 0, paint);
                 break;
             case 4:
-                g.drawBitmap(js[6], 250, 150, paint);
+                g.drawBitmap(js[0], 1009, 189, paint);
                 g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 310, 185, paint);
                 // Tools.paintNum(g, shu[0][0], 310, 185, l + 1, 0, paint);
                 break;
             case 5:
-                g.drawBitmap(js[7], 250, 150, paint);
+                g.drawBitmap(js[0], 1009, 189, paint);
                 g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 360, 185, paint);
                 // Tools.paintNum(g, shu[0][0], 360, 185, l + 1, 0, paint);
                 break;
@@ -321,12 +325,12 @@ public class AirplaneUpgrade {
         g.drawBitmap(mBitmap1, 300 - mBitmap1.getWidth() / 2, 75, paint);
         mBitmap1 = null;
         // Tools.paintNum(g, shu[0][0], 225, 75, (int) Game.mnuey, 0, paint);
-        g.drawBitmap(im, 38, 115, paint);
-        Tools.paintMImage(g, im, 240, 115, paint);
-        Tools.paintM2Image(g, im, 38, 177, paint);
-        Tools.paintRotateImage(g, im, 240, 177, 180, 202, 62, paint);
-        g.drawBitmap(ms[id], 145 - ms[id].getWidth() / 2,
-                177 - ms[id].getHeight() / 2, paint);
+        g.drawBitmap(im, 644, 129, paint);
+        Tools.paintMImage(g, im, 960, 129, paint);
+        Tools.paintM2Image(g, im, 644, 226, paint);
+        Tools.paintRotateImage(g, im, 960, 226, 180, 316, 97, paint);
+        g.drawBitmap(ms[id], 830 - ms[id].getWidth() / 2,
+                225 - ms[id].getHeight() / 2, paint);
         renderJS(g, paint);
 
         for (int i = 0; i < 6; i++) {
@@ -351,16 +355,17 @@ public class AirplaneUpgrade {
     public void renderPai(Canvas g, int id, float x, float y, boolean xuan,
                           int t, Paint paint) {
         if (xuan) {
-            g.drawBitmap(di2, x, y, paint);
+            g.drawBitmap(di2, x + 650, y + 120, paint);
         } else {
-            g.drawBitmap(di1, x, y, paint);
+            g.drawBitmap(di1, x + 650, y + 120, paint);
         }
-        g.drawBitmap(zi[id], x + 30, y + 22, paint);
+        g.drawBitmap(zi[id], x + 702, y + 140, paint);
         for (int i = 0; i < 5; i++) {
             if (i < dj[id]) {
-                g.drawBitmap(dian2, x + 30 + i * 25, y + 45, paint);
+//                g.drawBitmap(dian2, x + 30 + i * 25, y + 45, paint);
+                g.drawBitmap(dian2, x + 702 + i * 25, y + 159, paint);
             } else {
-                g.drawBitmap(dian1, x + 30 + i * 25, y + 45, paint);
+                g.drawBitmap(dian1, x + 702 + i * 25, y + 159, paint);
             }
         }
         if (getJZ(dj[id]) != 0) {
@@ -371,13 +376,13 @@ public class AirplaneUpgrade {
             // paint);
         }
         if (dj[id] >= 5) {
-            g.drawBitmap(an13, x + 315, y + 8, paint);
+            g.drawBitmap(an13, x + 1100, y + 100, paint);
             // g.drawBitmap(anzi3, x + 317, y + 15, paint);
         } else {
             if (isDown[id])
-                g.drawBitmap(an12, x + 315, y + 8, paint);
+                g.drawBitmap(an12, x + 1100, y + 100, paint);
             else
-                g.drawBitmap(an11, x + 315, y + 8, paint);
+                g.drawBitmap(an11, x + 1100, y + 100, paint);
             // if (t > 0 && mode == MODE_JING) {
             // paint.setAlpha(t * 60 + 15);
             // g.drawBitmap(an12, x + 315, y + 8, paint);
