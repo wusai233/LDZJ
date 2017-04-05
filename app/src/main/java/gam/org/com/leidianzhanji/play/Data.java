@@ -46,8 +46,13 @@ public class Data {
             MainActivity.isFirstPlay = dis.readBoolean();
             MainActivity.isEndPlay = dis.readBoolean();
             level = dis.readByte();
+//            Game.score = dis.readInt();
+//            Game.mnuey = dis.readInt();
+//            Game.zmnuey = dis.readInt();
+//            Game.npcNum = dis.readInt();
+//            Game.bisha = dis.readInt();
             Game.score = dis.readInt();
-            Game.mnuey = dis.readInt();
+            Game.mnuey = 999999;
             Game.zmnuey = dis.readInt();
             Game.npcNum = dis.readInt();
             Game.bisha = dis.readInt();

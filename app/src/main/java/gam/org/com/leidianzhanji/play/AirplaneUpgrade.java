@@ -285,43 +285,42 @@ public class AirplaneUpgrade {
                 break;
             case 1:
                 if (l % 2 == 0) {
-                    g.drawBitmap(js[1], 1009, 217, paint);
-                    g.drawBitmap(shu[2][l / 2], 1085, 217, paint);
+                    g.drawBitmap(js[1], 1009, 197, paint);
+                    g.drawBitmap(shu[2][l / 2], 1085, 197, paint);
                 } else if (l % 2 == 1) {
-                    g.drawBitmap(js[2], 1009, 217, paint);
-                    g.drawBitmap(shu[3][0], 1085, 217, paint);
+                    g.drawBitmap(js[2], 1009, 197, paint);
+                    g.drawBitmap(shu[3][0], 1085, 197, paint);
                 } else {
-                    g.drawBitmap(js[2], 1009, 217, paint);
-                    g.drawBitmap(shu[1][4], 1085, 217, paint);
+                    g.drawBitmap(js[2], 1009, 197, paint);
+                    g.drawBitmap(shu[1][4], 1085, 197, paint);
                 }
                 break;
             case 2:
                 if (l % 2 == 0) {
                     g.drawBitmap(js[3], 1009, 189, paint);
-                    g.drawBitmap(shu[4][l / 2], 1080, 243, paint);
+                    g.drawBitmap(shu[4][l / 2], 1080, 185, paint);
                 } else if (l % 2 == 1) {
                     g.drawBitmap(js[4], 1009, 189, paint);
-                    g.drawBitmap(shu[3][0], 1080, 243, paint);
+                    g.drawBitmap(shu[3][0], 1080, 185, paint);
                 } else {
                     g.drawBitmap(js[4], 1009, 189, paint);
-                    g.drawBitmap(shu[1][4], 1142, 243, paint);
+                    g.drawBitmap(shu[1][4], 1142, 185, paint);
                 }
                 break;
             case 3:
-                g.drawBitmap(js[5], 1009, 189, paint);
-                // 上面的数字
+                g.drawBitmap(js[5], 980, 175, paint);
 //                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 360, 185, paint);
-                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 360, 185, paint);
+                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 1150, 230, paint);
                 // Tools.paintNum(g, shu[0][0], 360, 185, l + 1, 0, paint);
                 break;
             case 4:
-                g.drawBitmap(js[6], 1009, 189, paint);
-                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 310, 185, paint);
+                g.drawBitmap(js[6], 980, 175, paint);
+                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 1070, 230, paint);
                 // Tools.paintNum(g, shu[0][0], 310, 185, l + 1, 0, paint);
                 break;
             case 5:
-                g.drawBitmap(js[7], 1009, 189, paint);
-                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 360, 185, paint);
+                g.drawBitmap(js[7], 980, 175, paint);
+                g.drawBitmap(Tools.paintNum(shu[0][0], l + 1, 0), 1150, 230, paint);
                 // Tools.paintNum(g, shu[0][0], 360, 185, l + 1, 0, paint);
                 break;
         }
