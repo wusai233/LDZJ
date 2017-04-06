@@ -34,6 +34,7 @@ public class Level {
     Bitmap wdan, wdliang;
     Bitmap anRight, guangRight;
     Bitmap wenhao;
+    Bitmap back_an1, back_an2;
 
     private int mode, time;// time:次数
     private final int maxTime = 10;// 次数的最大值
@@ -57,6 +58,8 @@ public class Level {
         anRight = BitmapFactory.decodeResource(res, R.drawable.sl_right1);
         guangRight = BitmapFactory.decodeResource(res, R.drawable.sl_right2);
         wenhao = BitmapFactory.decodeResource(res, R.drawable.level_wenhao);
+        back_an1 = BitmapFactory.decodeResource(res, R.drawable.back_an1);
+        back_an2 = BitmapFactory.decodeResource(res, R.drawable.back_an2);
         initBg(res);
         // guang1 = BitmapFactory.decodeResource(res, R.drawable.sl_guang1);
         // guang2 = BitmapFactory.decodeResource(res, R.drawable.sl_guang2);
@@ -113,28 +116,36 @@ public class Level {
     }
 
     public void draw(Canvas g, Paint paint, int time) {
-        g.drawBitmap(im1, 0, -423 + time * (float) 42.3, paint);
-        Tools.paintMImage(g, im1, 240, -423 + time * (float) 42.3, paint);
-        g.drawBitmap(im2, 0, 800 - time * (float) 39.7, paint);
-        Tools.paintMImage(g, im2, 240, 800 - time * (float) 39.7, paint);
+//        g.drawBitmap(im1, 0, -423 + time * (float) 42.3, paint);
+//        Tools.paintMImage(g, im1, 240, -423 + time * (float) 42.3, paint);
+//        g.drawBitmap(im2, 0, 800 - time * (float) 39.7, paint);
+//        Tools.paintMImage(g, im2, 240, 800 - time * (float) 39.7, paint);
+//        Game.drawTop(g, paint, time);
+//        Game.drawDown(g, paint, time, isDownReturn);
+        g.drawBitmap(im1, 960 - im1.getWidth(), 69, paint);
+        Tools.paintMImage(g, im1, 960, 69, paint);
+        g.drawBitmap(im2, 960 - im2.getWidth(), 553, paint);
+        Tools.paintMImage(g, im2, 960, 553, paint);
         Game.drawTop(g, paint, time);
         Game.drawDown(g, paint, time, isDownReturn);
+        g.drawBitmap(back_an1, back_an1.getWidth() / 2, 873, paint);
+        g.drawBitmap(back_an2, back_an2.getWidth() / 2, 873, paint);
         if (isDownPlay)
-            g.drawBitmap(liang, 259, 800 - time * 18, paint);
+            g.drawBitmap(liang, 1101, 873, paint);
         else
-            g.drawBitmap(an, 259, 800 - time * 18, paint);
+            g.drawBitmap(an, 1101, 873, paint);
         if (isDownWD)
-            g.drawBitmap(wdliang, 51, 800 - time * 18, paint);
+            g.drawBitmap(wdliang, 619, 873, paint);
         else
-            g.drawBitmap(wdan, 51, 800 - time * 18, paint);
+            g.drawBitmap(wdan, 619, 873, paint);
         if (isDownRight)
-            g.drawBitmap(guangRight, 370, 800 - time * 33, paint);
+            g.drawBitmap(guangRight, 1175, 645, paint);
         else
-            g.drawBitmap(guangRight, 370, 800 - time * 33, paint);
+            g.drawBitmap(guangRight, 1175, 645, paint);
         if (isDownLeft)
-            Tools.paintMImage(g, guangRight, 42, 800 - time * 33, paint);
+            Tools.paintMImage(g, guangRight, 701, 645, paint);
         else
-            Tools.paintMImage(g, guangRight, 42, 800 - time * 33, paint);
+            Tools.paintMImage(g, guangRight, 701, 645, paint);
     }
 
     public void render(Canvas g, Paint paint) {
@@ -146,14 +157,14 @@ public class Level {
                 initBg(gameDraw.res);
                 draw(g, paint, 10);
                 paint.setAlpha((time - 5) * 50 + 5);
-                g.drawBitmap(bt, 42, 111, paint);
-                g.drawBitmap(ms, 70, 465, paint);
+                g.drawBitmap(bt, 960 - bt.getWidth() / 2, 83, paint);
+                g.drawBitmap(ms, 960 - ms.getWidth() / 2, 631, paint);
                 paint.setAlpha(255);
                 break;
             case 2:
                 draw(g, paint, 10);
-                g.drawBitmap(bt, 42, 111, paint);
-                g.drawBitmap(ms, 70, 465, paint);
+                g.drawBitmap(bt, 960 - bt.getWidth() / 2, 83, paint);
+                g.drawBitmap(ms, 960 - ms.getWidth() / 2, 631, paint);
                 npc.render(g, paint);
                 paint.setAlpha(alp);
                 renderGuang(g, paint);
@@ -173,8 +184,8 @@ public class Level {
     }
 
     public void renderGuang(Canvas g, Paint paint) {
-        g.drawBitmap(anRight, 370, 470, paint);
-        Tools.paintMImage(g, anRight, 42, 470, paint);
+        g.drawBitmap(anRight, 1151, 622, paint);
+        Tools.paintMImage(g, anRight, 676, 622, paint);
     }
 
     public void upData() {
@@ -202,61 +213,61 @@ public class Level {
                     Game.cx = 0;
                     Game.mx = 0;
                     if (Game.level == Data.level && !MainActivity.isEndPlay) {
-                        npc = new NullBOSS(wenhao, 176f, 111f, 0);
+                        npc = new NullBOSS(wenhao, 877, 141, 0);
                         break;
                     }
                     switch (Game.level) {
                         case 1:
-                            npc = new BOSS1(gameDraw.game.npcManager.im[1], 240, 245,
+                            npc = new BOSS1(gameDraw.game.npcManager.im[1], 960, 245,
                                     101);
                             break;
                         case 2:
-                            npc = new BOSS2(gameDraw.game.npcManager.im[2], 240, 240,
+                            npc = new BOSS2(gameDraw.game.npcManager.im[2], 960, 240,
                                     102);
                             break;
                         case 3:
                             npc = new BOSS4(
                                     Tools.getScale(gameDraw.game.npcManager.im[4]),
-                                    240, 245, 103);
+                                    960, 245, 103);
                             break;
                         case 4:
                             npc = new BOSS6(
                                     Tools.getScale(gameDraw.game.npcManager.im[6]),
-                                    240, 265, 104);
+                                    960, 265, 104);
                             break;
                         case 5:
-                            npc = new BOSS5(gameDraw.game.npcManager.im[5], 240, 250,
+                            npc = new BOSS5(gameDraw.game.npcManager.im[5], 960, 250,
                                     105);
                             break;
                         case 6:
-                            npc = new BOSS3(gameDraw.game.npcManager.im[3], 240, 250,
+                            npc = new BOSS3(gameDraw.game.npcManager.im[3], 960, 250,
                                     106);
                             break;
 
                         case 7:
-                            npc = new BOSS1(gameDraw.game.npcManager.im[7], 240, 245,
+                            npc = new BOSS1(gameDraw.game.npcManager.im[7], 960, 245,
                                     107);
                             break;
                         case 8:
-                            npc = new BOSS2(gameDraw.game.npcManager.im[8], 240, 240,
+                            npc = new BOSS2(gameDraw.game.npcManager.im[8], 960, 240,
                                     108);
                             break;
                         case 9:
                             npc = new BOSS4(
                                     Tools.getScale(gameDraw.game.npcManager.im[10]),
-                                    240, 245, 109);
+                                    960, 245, 109);
                             break;
                         case 10:
                             npc = new BOSS6(
                                     Tools.getScale(gameDraw.game.npcManager.im[12]),
-                                    240, 265, 110);
+                                    960, 265, 110);
                             break;
                         case 11:
-                            npc = new BOSS5(gameDraw.game.npcManager.im[11], 240, 250,
+                            npc = new BOSS5(gameDraw.game.npcManager.im[11], 960, 250,
                                     111);
                             break;
                         case 12:
-                            npc = new BOSS3(gameDraw.game.npcManager.im[9], 240, 250,
+                            npc = new BOSS3(gameDraw.game.npcManager.im[9], 960, 250,
                                     112);
                             break;
                         // case 13:
@@ -323,7 +334,7 @@ public class Level {
             if (ty > 620 && ty < 705 && tx > 255 && tx < 430) {// 开始
                 isDownPlay = true;
                 GameDraw.gameSound(1);
-            } else if (ty > 620 && ty < 705 && tx > 50 && tx < 220) {// 无敌
+            } else if (ty > 873 && ty < wdan.getHeight() && tx > 619 && tx < wdan.getWidth()) {// 无敌
                 isDownWD = true;
                 GameDraw.gameSound(1);
             } else if (ty > 470 && ty < 570 && tx > 50 && tx < 120) {// 上一关
@@ -332,7 +343,7 @@ public class Level {
             } else if (ty > 470 && ty < 570 && tx > 350 && tx < 420) {// 下一关
                 GameDraw.gameSound(1);
                 isDownRight = true;
-            } else if (ty > 730 && tx > 320) {// 返回
+            } else if (ty > 730 && ty < 967 && tx > 849 && tx < 1067) {// 返回
                 GameDraw.gameSound(1);
                 isDownReturn = true;
             }

@@ -298,7 +298,7 @@ public class AirplaneUpgrade {
             case 2:
                 if (l % 2 == 0) {
                     g.drawBitmap(js[3], 1009, 189, paint);
-                    g.drawBitmap(shu[4][l / 2], 1080, 185, paint);
+                    g.drawBitmap(shu[4][l / 2], 1080, 240, paint);
                 } else if (l % 2 == 1) {
                     g.drawBitmap(js[4], 1009, 189, paint);
                     g.drawBitmap(shu[3][0], 1080, 185, paint);
