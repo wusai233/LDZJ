@@ -375,10 +375,10 @@ public class ChooseAirplane {
                             // return;
                         }
                     }
-                    if (ty > 730 && tx > 320) {// 返回
+                    if (ty > 874 && ty < 968 && tx > 850 && tx < 1070) {// 返回
                         isDownReturn = true;
                         GameDraw.gameSound(1);
-                    } else if (tx > 150 && ty > 640 && ty < 730 && tx < 330) {// 出击
+                    } else if (tx > 824 && ty > 702 && ty < 831 && tx < 1097) {// 出击
                         if ((id == 3 && Data.level < 3)
                                 || (id == 1 && !haveAirplane[0])
                                 || (id == 2 && !haveAirplane[1])
@@ -397,11 +397,11 @@ public class ChooseAirplane {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if ((ty > 730 && tx > 320) && isDownReturn) {// 返回
+                    if ((ty > 874 && ty < 968 && tx > 850 && tx < 1070) && isDownReturn) {// 返回
                         isDownReturn = false;
                         mode = 20;
                         t = 10;
-                    } else if ((tx > 150 && ty > 640 && ty < 730 && tx < 330)
+                    } else if ((tx > 824 && ty > 702 && ty < 831 && tx < 1097)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
                         t = 3;
@@ -416,9 +416,9 @@ public class ChooseAirplane {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (!(ty > 730 && tx > 320) && isDownReturn) {// 返回
+                    if (!(ty > 874 && ty < 968 && tx > 850 && tx < 1070) && isDownReturn) {// 返回
                         isDownReturn = false;
-                    } else if (!(tx > 150 && ty > 640 && ty < 730 && tx < 330)
+                    } else if (!(tx > 824 && ty > 702 && ty < 831 && tx < 1097)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
                     }

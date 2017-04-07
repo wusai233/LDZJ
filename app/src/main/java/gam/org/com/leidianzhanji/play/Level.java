@@ -331,16 +331,16 @@ public class Level {
 
     public void touchDown(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if (ty > 620 && ty < 705 && tx > 255 && tx < 430) {// 开始
+            if (ty > 873 && ty < 967 && tx > 1101 && tx < 1298) {// 开始
                 isDownPlay = true;
                 GameDraw.gameSound(1);
-            } else if (ty > 873 && ty < wdan.getHeight() && tx > 619 && tx < wdan.getWidth()) {// 无敌
+            } else if (ty > 873 && ty < 967 && tx > 619 && tx < 816) {// 无敌
                 isDownWD = true;
                 GameDraw.gameSound(1);
-            } else if (ty > 470 && ty < 570 && tx > 50 && tx < 120) {// 上一关
+            } else if (ty > 654 && ty < 747 && tx > 701 && tx < 753) {// 上一关
                 GameDraw.gameSound(1);
                 isDownLeft = true;
-            } else if (ty > 470 && ty < 570 && tx > 350 && tx < 420) {// 下一关
+            } else if (ty > 654 && ty < 747 && tx > 1175 && tx < 1227) {// 下一关
                 GameDraw.gameSound(1);
                 isDownRight = true;
             } else if (ty > 730 && ty < 967 && tx > 849 && tx < 1067) {// 返回
@@ -352,14 +352,14 @@ public class Level {
 
     public void touchUp(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if ((ty > 620 && ty < 705 && tx > 255 && tx < 430) && isDownPlay) {// 开始
+            if ((ty > 873 && ty < 967 && tx > 1101 && tx < 1298) && isDownPlay) {// 开始
                 isDownPlay = false;
                 time = 3;
-            } else if ((ty > 620 && ty < 705 && tx > 50 && tx < 220)
+            } else if ((ty > 873 && ty < 967 && tx > 619 && tx < 816)
                     && isDownWD) {// 无敌
                 isDownWD = false;
 //				PaymentJoy.getInstance(this).startCharge(new PaymentParam(8));
-            } else if ((ty > 470 && ty < 570 && tx > 50 && tx < 120)
+            } else if ((ty > 654 && ty < 747 && tx > 701 && tx < 753)
                     && isDownLeft) {// 上一关
                 isDownLeft = false;
                 if (Game.level != 1) {
@@ -367,7 +367,7 @@ public class Level {
                     mode = 1;
                     time = 8;
                 }
-            } else if ((ty > 470 && ty < 570 && tx > 350 && tx < 4200)
+            } else if ((ty > 654 && ty < 747 && tx > 1175 && tx < 1227)
                     && isDownRight) {// 下一关
                 isDownRight = false;
                 if (Game.level < Data.level) {
@@ -375,7 +375,7 @@ public class Level {
                     mode = 1;
                     time = 8;
                 }
-            } else if ((ty > 730 && tx > 320) && isDownReturn) {// 返回
+            } else if ((ty > 730 && ty < 967 && tx > 849 && tx < 1067) && isDownReturn) {// 返回
                 isDownReturn = false;
                 isBack = true;
                 mode = 3;
@@ -387,18 +387,18 @@ public class Level {
 
     public void touchMove(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if (!(ty > 620 && ty < 705 && tx > 255 && tx < 430) && isDownPlay) {// 开始
+            if (!(ty > 873 && ty < 967 && tx > 1101 && tx < 1298) && isDownPlay) {// 开始
                 isDownPlay = false;
-            } else if (!(ty > 620 && ty < 705 && tx > 50 && tx < 220)
+            } else if (!(ty > 873 && ty < 967 && tx > 619 && tx < 816)
                     && isDownWD) {// 无敌
                 isDownWD = false;
-            } else if (!(ty > 470 && ty < 570 && tx > 50 && tx < 120)
+            } else if (!(ty > 654 && ty < 747 && tx > 701 && tx < 753)
                     && isDownLeft) {// 上一关
                 isDownLeft = false;
-            } else if (!(ty > 470 && ty < 570 && tx > 350 && tx < 420)
+            } else if (!(ty > 654 && ty < 747 && tx > 1175 && tx < 1227)
                     && isDownRight) {// 下一关
                 isDownRight = false;
-            } else if (!(ty > 730 && tx > 320) && isDownReturn) {// 返回
+            } else if (!(ty > 730 && ty < 967 && tx > 849 && tx < 1067) && isDownReturn) {// 返回
                 isDownReturn = false;
             }
         }
