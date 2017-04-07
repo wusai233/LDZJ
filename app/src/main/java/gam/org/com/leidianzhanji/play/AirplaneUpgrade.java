@@ -517,7 +517,7 @@ public class AirplaneUpgrade {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (tx > 320 && ty > 740) {// 返回
+                if (tx > 874 && tx < 1041 && ty > 943 && ty < 1014) {// 返回
                     isDownReturn = true;
                     GameDraw.gameSound(1);
                 } else if (tx > 30 && tx < 360 && ty > 245 && ty < 245 + 70 * 6
@@ -532,19 +532,17 @@ public class AirplaneUpgrade {
                     if (dj[n] < 5) {
                         isDown[n] = true;
                     }
-                } else if (ty > 650 && ty < 730) {
+                } else if (tx > 1058 && tx < 1253 && ty > 943 && ty < 1014) {// 一键满级
                     GameDraw.gameSound(1);
-                    if (tx < 240) {// 一键满级
+                    isDownMJ = true;
+                } else if (tx > 665 && tx < 860 && ty > 943 && ty < 1014) {// 获取水晶
+                    if (dj[id] < 5) {
                         isDownSJ = true;
-                    } else {// 获取水晶
-                        if (dj[id] < 5) {
-                            isDownMJ = true;
-                        }
                     }
                 }
                 break;
             case 10:
-                if (tx > 390 && ty > 75 && ty < 140) {
+                if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
                     GameDraw.gameSound(1);
                     isDownReturn = true;
                 }
@@ -585,7 +583,7 @@ public class AirplaneUpgrade {
     public void touchUp(float tx, float ty) {
         switch (mode) {
             case 1:
-                if ((tx > 320 && ty > 740) && isDownReturn) {// 返回
+                if ((tx > 874 && tx < 1041 && ty > 943 && ty < 1014) && isDownReturn) {// 返回
                     isDownReturn = false;
                     mode = 20;
                     t = 10;
@@ -602,8 +600,8 @@ public class AirplaneUpgrade {
                             gameDraw.smallDialog.reset(2, 240, 300, 18);
                         }
                     }
-                } else if (ty > 650 && ty < 730) {
-                    if (tx < 240 && isDownSJ) {// 获取水晶
+                } else if (ty > 943 && ty < 1014) {
+                    if (tx > 665 && tx < 860 && ty > 943 && ty < 1014 && isDownSJ) {// 获取水晶
                         isDownSJ = false;
                         if (MainActivity.isShowBuyMessage) {
                             mode = 10;
@@ -612,7 +610,7 @@ public class AirplaneUpgrade {
 //						PaymentJoy.getInstance(this).startCharge(
 //								new PaymentParam(2));
                         }
-                    } else if (isDownMJ) {// 一键满级
+                    } else if (tx > 1058 && tx < 1253 && ty > 943 && ty < 1014 && isDownMJ) {// 一键满级
                         isDownMJ = false;
                         if (dj[id] < 5) {
                             if (MainActivity.isShowBuyMessage) {
@@ -629,14 +627,14 @@ public class AirplaneUpgrade {
                 }
                 break;
             case 10:
-                if ((tx > 390 && ty > 75 && ty < 140) && isDownReturn) {
+                if ((tx > 1118 && tx < 1202 && ty > 189 && ty < 265)  && isDownReturn) {
                     isDownReturn = false;
                     mode = MODE_JING;
                     t = 0;
                 }
                 break;
             case 11:
-                if ((tx > 390 && ty > 75 && ty < 140) && isDownReturn) {
+                if ((tx > 1118 && tx < 1202 && ty > 189 && ty < 265) && isDownReturn) {
                     isDownReturn = false;
                     mode = MODE_JING;
                     t = 0;
@@ -649,7 +647,7 @@ public class AirplaneUpgrade {
     public void touchMove(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (!(tx > 320 && ty > 740) && isDownReturn) {// 返回
+                if (!(tx > 874 && tx < 1041 && ty > 943 && ty < 1014) && isDownReturn) {// 返回
                     isDownReturn = false;
                 } else if (!(ty > 650 && ty < 730 && tx < 240) && isDownSJ) {
                     isDownSJ = false;
@@ -681,12 +679,12 @@ public class AirplaneUpgrade {
                 }
                 break;
             case 10:
-                if (!(tx > 390 && ty > 75 && ty < 140) && isDownReturn) {
+                if (!(tx > 1118 && tx < 1202 && ty > 189 && ty < 265)  && isDownReturn) {
                     isDownReturn = false;
                 }
                 break;
             case 11:
-                if (!(tx > 390 && ty > 75 && ty < 140) && isDownReturn) {
+                if (!(tx > 1118 && tx < 1202 && ty > 189 && ty < 265)  && isDownReturn) {
                     isDownReturn = false;
                 }
                 break;

@@ -74,26 +74,26 @@ public class DayGift {
 
     public void renderJM(Canvas g, int a, Paint paint) {
         paint.setAlpha(a);
-        g.drawBitmap(im, 728, 104, paint);   //左上
-        Tools.paintMImage(g, im, 960, 104, paint);   //右上
-        Tools.paintM2Image(g, im, 728, 456, paint);   //左下
-        Tools.paintRotateImage(g, im, 960, 456, 180, 232, 352, paint);  //右下
+        g.drawBitmap(im, 660, 73, paint);   //左上
+        Tools.paintMImage(g, im, 960, 73, paint);   //右上
+        Tools.paintM2Image(g, im, 660, 531, paint);   //左下
+        Tools.paintRotateImage(g, im, 960, 531, 180, 302, 458, paint);  //右下
 
         for (int i = 0; i < 8; i++) {
             if (i < id) {
-                g.drawBitmap(di2, 776, 290 + 51 * i, paint);
+                g.drawBitmap(di2, 724, 300 + 65 * i, paint);
             } else if (i == id) {
-                g.drawBitmap(di3, 776, 290 + 51 * i, paint);
+                g.drawBitmap(di3, 724, 300 + 65 * i, paint);
                 paint.setAlpha(a * alp / 100);
-                g.drawBitmap(di1, 776, 290 + 51 * i, paint);
+                g.drawBitmap(di1, 724, 300 + 65 * i, paint);
                 paint.setAlpha(a);
             } else {
-                g.drawBitmap(di3, 776, 290 + 51 * i, paint);
+                g.drawBitmap(di3, 724, 300 + 65 * i, paint);
             }
         }
 
-        g.drawBitmap(zi, 795, 138, paint);
-        g.drawBitmap(an1, 883, 700, paint);
+        g.drawBitmap(zi, 748, 116, paint);
+        g.drawBitmap(an1, 863, 837, paint);
         paint.setAlpha(255);
     }
 

@@ -3,21 +3,93 @@
 
     <item
         is-multidex="true"
-        jar="F:\Android\LDZJ\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="12aa9d6623b00c169239723c5e2f0e4c46066b4b">
-        <dex dex="F:\Android\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f5c322cd85e128955f91389020997e3193a83ebd\classes.dex" />
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_0f169bd98fa3d6c8c7b271bdd5e625af79843362\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="F:\Android\LDZJ\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\leanback-v17\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="F:\Android\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1bd7ee4f04383e88ec9197911a098f7b6454c056\classes.dex" />
+        sha1="af390582512dcb2ecf1ec7d6108525f07363ba27">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-leanback-v17-25.1.0_75ab454d5740e768cafa3f04ccbe61cdfea6e40c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_a4c6ea6839fb6d7cf78ff5fa88a737ee651a4c4a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0860d13015ef4039f3dad214712be2d2cdea7d2e">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_965db51984114fd0738b3dc6fa5b6858997d2e8c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Android\SDK\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_9937a1a4e98033d0aaa5a9d284d37eaa21ec9a48\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_a3832eb8069364658019e34c611546010d31e547\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_3b13ffc8d1cf76b66445888a2466ae899fd8e9d3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_3287e339a7d1e63d7fb62be0f7a6d8ca175a28e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_d6bd1f2cd4f4c4153b1f9712f678ce9c22e401da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\LDZJ\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="81ef58516ab75114f59ae6fb1bf0834ef157ae48">
+        <dex dex="D:\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_4c75bb685d762d28bda4065580bbd2462894419a\classes.dex" />
     </item>
 
 </items>

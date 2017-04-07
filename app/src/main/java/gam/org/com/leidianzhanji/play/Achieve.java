@@ -233,7 +233,7 @@ public class Achieve {
 
         switch (mode) {
             case 1:
-                if (tx > 320 && ty > 740) {// 返回
+                if (tx > 857 && tx < 1079 && ty > 954 && ty < 1048) {// 返回
                     isDownReturn = true;
                     GameDraw.gameSound(1);
                 } else if (ty > 130 && ty < 720 && dx == 0) {
@@ -245,7 +245,7 @@ public class Achieve {
     }
 
     public void touchUp(float tx, float ty) {
-        if ((tx > 320 && ty > 740) && isDownReturn) {// 返回
+        if ((tx > 857 && tx < 1079 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
             isDownReturn = false;
             mode = 20;
             time = 10;
@@ -256,7 +256,7 @@ public class Achieve {
     }
 
     public void touchMove(float tx, float ty) {
-        if (!(tx > 320 && ty > 740) && isDownReturn) {// 返回
+        if (!(tx > 857 && tx < 1079 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
             isDownReturn = false;
         }
         if (isDown) {
