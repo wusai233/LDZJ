@@ -189,7 +189,7 @@ public class DayGift {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 2:
-                if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                if (tx > 883 && tx < 883 + 153 && ty > 700 && ty < 700 + 78) {
                     GameDraw.gameSound(1);
                     mode = 20;
                     t = 10;
