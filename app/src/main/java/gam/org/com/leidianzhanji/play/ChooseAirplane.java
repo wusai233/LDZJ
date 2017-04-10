@@ -27,10 +27,10 @@ public class ChooseAirplane {
     Bitmap[] kaihuo = new Bitmap[2];
     Bitmap[] guang = new Bitmap[4];
     Bitmap[] fei = new Bitmap[4];
-    int[] x = new int[]{32, 240, 32, 240};
-    int[] y = new int[]{330, 330, 493, 493};
-    int[] zx = new int[]{971, 781, 971};
-    int[] zy = new int[]{363, 510, 510};
+    int[] x = new int[]{671, 960, 671, 960};
+    int[] y = new int[]{460, 460, 686, 686};
+    int[] zx = new int[]{1068, 801, 1068};
+    int[] zy = new int[]{547, 747, 747};
 
     int mode, t, id;
 
@@ -77,8 +77,6 @@ public class ChooseAirplane {
         // R.drawable.sp_jiaodeng2);
 
         an = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_an);
-        sp_back1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_back1);
-        sp_back2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_back2);
 
         guang[0] = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.sp_liang3);
@@ -122,6 +120,7 @@ public class ChooseAirplane {
         airPlaneBullet.free();
     }
 
+    // 子弹位置
     public void reset() {
         mode = 0;
         t = 0;
@@ -167,20 +166,18 @@ public class ChooseAirplane {
             case 20:
                 renderJM(g, 25 * t, paint);
                 paint.setAlpha(255);
-                Game.drawTop(g, paint, t);
+//                Game.drawTop(g, paint, t);
                 Game.drawDown(g, paint, t, isDownReturn);
                 break;
             case 1:
             case 2:
                 renderJM(g, 255, paint);
                 paint.setAlpha(255);
-                Game.drawTop(g, paint, 10);
+//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
                 if ((id == 3 && Data.level < 3) || (id == 1 && !haveAirplane[0])
                         || (id == 2 && !haveAirplane[1])
                         || (id == 3 && !haveAirplane[2])) {
-//                    g.drawBitmap(hui, 153, 650, paint);
-                    g.drawBitmap(hui, 820, 702, paint);
                 }
                 break;
         }
@@ -190,65 +187,53 @@ public class ChooseAirplane {
         paint.setAlpha(a);
         airPlaneBullet.render(g, paint);
         if (id == 2) {
-            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 960 - 108, 230 - 125, paint);
+            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 960 - 108, 310 - 115, paint);
         } else if (id == 3) {
-            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 240 - 108, 230 - 173, paint);
+            g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 960 - 108, 310 - 220, paint);
         }
-        g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 250 - fei[id].getHeight(), paint);
 
-        // 背景格子
-//        for (int i = 0; i < 16; i++) {
-//            for (int j = 0; j < 27; j++) {
-//                if (j < 2) {
-//                    g.drawBitmap(im2, i * 30, 5 + j * 30, paint);
-//                }
-//                if ((i == 0 || i == 15) && j < 10 && j >= 2) {
-//                    g.drawBitmap(im2, i * 30, j * 30, paint);
-//                }
-//                if (j >= 10) {
-//                    g.drawBitmap(im2, i * 30, j * 30, paint);
-//                }
-//            }
-//        }
-        g.drawBitmap(im1, 739, 45, paint);
-        // 返回按钮
-        g.drawBitmap(sp_back1, 850, 874, paint);
-        g.drawBitmap(sp_back2, 850, 874, paint);
-        Tools.paintMImage(g, im1, 960, 45, paint);
-        g.drawBitmap(kuang1, 754, 336, paint);
-        Tools.paintMImage(g, kuang1, 960, 336, paint);
-        Tools.paintM2Image(g, kuang1, 754, 496, paint);
-        Tools.paintRotateImage(g, kuang1, 960, 496, 180, paint);
-        if (isDownPlay)
+        if (id < 3) {
+            g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 360 - fei[id].getHeight(), paint);
+        } else {
+            g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 390 - fei[id].getHeight(), paint);
+        }
+
+        g.drawBitmap(im1, 960 - im1.getWidth(), 53, paint);
+        Tools.paintMImage(g, im1, 960, 53, paint);
+        g.drawBitmap(kuang1, 671, 460, paint);
+        Tools.paintMImage(g, kuang1, 960, 460, paint);
+        Tools.paintM2Image(g, kuang1, 671, 686, paint);
+        Tools.paintRotateImage(g, kuang1, 960, 686, 180, paint);
+//        if (isDownPlay)
 //            g.drawBitmap(hui, 153, 650, paint);
-            g.drawBitmap(hui, 820, 702, paint);
-        else
+//        g.drawBitmap(hui, 820, 702, paint);
+//        else
 //        g.drawBitmap(an, 153, 650, paint);
-            g.drawBitmap(an, 820, 702, paint);
-        paint.setAlpha(alp);
+//        g.drawBitmap(an, 820, 702, paint);
+//        paint.setAlpha(alp);
         switch (id) {
             case 0:
-                g.drawBitmap(kuang2, 753, 335, paint);
+                g.drawBitmap(kuang2, 696, 487, paint);
                 break;
             case 1:
-                Tools.paintMImage(g, kuang2, 963, 335, paint);
+                Tools.paintMImage(g, kuang2, 963, 487, paint);
                 break;
             case 2:
-                Tools.paintM2Image(g, kuang2, 753, 496, paint);
+                Tools.paintM2Image(g, kuang2, 696, 693, paint);
                 break;
             case 3:
-                Tools.paintRotateImage(g, kuang2, 963, 496, 180, paint);
+                Tools.paintRotateImage(g, kuang2, 963, 693, 180, paint);
                 break;
         }
         paint.setAlpha(a);
-        g.drawBitmap(guang[0], 810, 383, paint);
-        g.drawBitmap(guang[1], 1005, 383, paint);
-        g.drawBitmap(guang[2], 810, 521, paint);
-        g.drawBitmap(guang[3], 1010, 506, paint);
+        g.drawBitmap(guang[0], 750, 527, paint);
+        g.drawBitmap(guang[1], 1023, 520, paint);
+        g.drawBitmap(guang[2], 749, 721, paint);
+        g.drawBitmap(guang[3], 1029, 700, paint);
 
         for (int i = 0; i < haveAirplane.length; i++) {
             if (!haveAirplane[i]) {
-                g.drawBitmap(suo, zx[i], zy[i], paint);
+                g.drawBitmap(suo, zx[i] , zy[i] , paint);
             }
         }
     }
@@ -294,7 +279,7 @@ public class ChooseAirplane {
                 if (Achieve.cj[8] == false) {
                     if (haveAirplane[2] == true) {
                         Achieve.cj[8] = true;
-                        gameDraw.smallDialog.reset(18, 240, Game.GG + 60, 15);
+                        gameDraw.smallDialog.reset(18, 960, Game.GG + 60, 15);
                     }
                 }
 
@@ -330,37 +315,20 @@ public class ChooseAirplane {
             case 1:
                 if (t == 0) {
                     for (int i = 0; i < x.length; i++) {
-                        if (tx > x[i] && tx < x[i] + 208 && ty > y[i]
-                                && ty < y[i] + 163) {
+                        if (tx > x[i] && tx < x[i] + 290 && ty > y[i] && ty < y[i] + 226) {
                             if (i == 1 || i == 2) {
                                 if (!haveAirplane[i - 1]) {
-                                    // mc.ts.reset(i+1, x[i]+60, y[i], 15) ;
-                                    // GameDraw.gameSound(1);
-//								PaymentJoy.getInstance(this).startCharge(
-//										new PaymentParam(5));
                                     buyID = i;
                                 }
                             } else if (i == 3) {
                                 if (Data.level < 3) {
-                                    // GameDraw.gameSound(1);
-                                    gameDraw.smallDialog.reset(3, x[3] + 60, y[3],
+                                    gameDraw.smallDialog.reset(3, 960, y[3],
                                             15);
                                 } else {
                                     if (!haveAirplane[2]) {
-                                        // PaymentJoy.getInstance(this).startCharge(new
-                                        // PaymentParam(11));
-                                        // GameDraw.gameSound(1);
                                         gameDraw.billingDialog.reset(30, 15);
                                         buyID = i;
                                     }
-                                    // else {
-                                    // GameDraw.gameSound(1);
-                                    // id = 3;
-                                    // Airplane.id = id + 1;
-                                    // airPlaneBullet.reset();
-                                    // Airplane.y = 210;
-                                    // return;
-                                    // }
                                 }
                             }
                             id = i;
@@ -375,10 +343,10 @@ public class ChooseAirplane {
                             // return;
                         }
                     }
-                    if (ty > 874 && ty < 968 && tx > 850 && tx < 1070) {// 返回
+                    if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {// 返回
                         isDownReturn = true;
                         GameDraw.gameSound(1);
-                    } else if (tx > 824 && ty > 702 && ty < 831 && tx < 1097) {// 出击
+                    } else if (tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075) {// 出击
                         if ((id == 3 && Data.level < 3)
                                 || (id == 1 && !haveAirplane[0])
                                 || (id == 2 && !haveAirplane[1])
@@ -397,11 +365,11 @@ public class ChooseAirplane {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if ((ty > 874 && ty < 968 && tx > 850 && tx < 1070) && isDownReturn) {// 返回
+                    if ((ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
                         isDownReturn = false;
                         mode = 20;
                         t = 10;
-                    } else if ((tx > 824 && ty > 702 && ty < 831 && tx < 1097)
+                    } else if ((tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
                         t = 3;
@@ -416,9 +384,9 @@ public class ChooseAirplane {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (!(ty > 874 && ty < 968 && tx > 850 && tx < 1070) && isDownReturn) {// 返回
+                    if (!(ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
                         isDownReturn = false;
-                    } else if (!(tx > 824 && ty > 702 && ty < 831 && tx < 1097)
+                    } else if (!(tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
                     }

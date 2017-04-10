@@ -126,8 +126,8 @@ public class Level {
         Tools.paintMImage(g, im1, 960, 69, paint);
         g.drawBitmap(im2, 960 - im2.getWidth(), 553, paint);
         Tools.paintMImage(g, im2, 960, 553, paint);
-        Game.drawTop(g, paint, time);
-        Game.drawDown(g, paint, time, isDownReturn);
+//        Game.drawTop(g, paint, time);
+//        Game.drawDown(g, paint, time, isDownReturn);
         g.drawBitmap(back_an1, back_an1.getWidth() / 2, 873, paint);
         g.drawBitmap(back_an2, back_an2.getWidth() / 2, 873, paint);
         if (isDownPlay)

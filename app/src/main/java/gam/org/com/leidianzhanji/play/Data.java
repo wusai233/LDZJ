@@ -45,14 +45,9 @@ public class Data {
             Game.isFrist = dis.readBoolean();
             MainActivity.isFirstPlay = dis.readBoolean();
             MainActivity.isEndPlay = dis.readBoolean();
-            level = dis.readByte();
-//            Game.score = dis.readInt();
-//            Game.mnuey = dis.readInt();
-//            Game.zmnuey = dis.readInt();
-//            Game.npcNum = dis.readInt();
-//            Game.bisha = dis.readInt();
+            level = dis.readInt();
             Game.score = dis.readInt();
-            Game.mnuey = 999999;
+            Game.mnuey = 99999;
             Game.zmnuey = dis.readInt();
             Game.npcNum = dis.readInt();
             Game.bisha = dis.readInt();
@@ -77,9 +72,9 @@ public class Data {
             dis.close();
             bis.close();
         } catch (Exception e) {
-            DayGift.day = 1;
+            DayGift.day = 0;
             DayGift.id = 0;
-            bh = 1;
+            bh = 0;
 
             bs[0] = 0;
             bs[1] = 0;
@@ -91,12 +86,12 @@ public class Data {
             Game.isFrist = true;
             MainActivity.isFirstPlay = true;
             MainActivity.isEndPlay = false;
-            level = 1;
+            level = 0;
             Game.score = 0;
             Game.mnuey = 0;
             Game.zmnuey = 0;
             Game.npcNum = 0;
-            Game.bisha = 3;
+            Game.bisha = 99;
 
             Menu.s[0] = false;
             Menu.s[1] = false;

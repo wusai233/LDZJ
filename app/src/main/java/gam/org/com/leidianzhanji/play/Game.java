@@ -87,7 +87,8 @@ public class Game {
     public BiShaManager skillManager;
 
     public static Bitmap top, down;
-    public static Bitmap back, back2;
+    public static Bitmap back, back2, sp_an, sp_an_hui;
+    ;
     Bitmap df, sj, anBiSha, anHuDun, anPause, liangPause, shu;
 
     Bitmap uib1, uib2, uib3;
@@ -128,6 +129,10 @@ public class Game {
                 .decodeResource(gameDraw.res, R.drawable.game_back1);
         back2 = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.game_back2);
+        sp_an = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.sp_an);
+        sp_an_hui = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.sp_an_hui);
 
         isWD = false;
     }
@@ -604,12 +609,18 @@ public class Game {
     }
 
     public static void drawDown(Canvas g, Paint paint, int t, boolean isDown) {
-        g.drawBitmap(down, 0, 800 - t * (float) 13.7, paint);
-        Tools.paintMImage(g, down, 240, 800 - t * (float) 13.7, paint);
-        if (isDown)
-            g.drawBitmap(back2, 325, 800 - t * (float) 13.7, paint);
-        else
-            g.drawBitmap(back, 325, 800 - t * (float) 13.7, paint);
+        g.drawBitmap(down, 605, 1018 - t * (float) 13.7, paint);
+        Tools.paintMImage(g, down, 960, 1018 - t * (float) 13.7, paint);
+        if (isDown) {
+            g.drawBitmap(back2, 666, 1146 - t * (float) 13.7, paint);
+        } else {
+            g.drawBitmap(back, 666, 1146 - t * (float) 13.7, paint);
+        }
+        if (isDown) {
+            g.drawBitmap(sp_an_hui, 1108, 1146 - t * (float) 13.7, paint);
+        } else {
+            g.drawBitmap(sp_an, 1108, 1146 - t * (float) 13.7, paint);
+        }
     }
 
     public void keyDown(int k) {
