@@ -98,6 +98,7 @@ public class AirplaneUpgrade {
         shu[0][0] = BitmapFactory.decodeResource(res, R.drawable.qh_shu);
         shu[1] = new Bitmap[5];
         shu[1][0] = BitmapFactory.decodeResource(res, R.drawable.qh_js11);
+
         shu[1][1] = BitmapFactory.decodeResource(res, R.drawable.qh_js12);
         shu[1][2] = BitmapFactory.decodeResource(res, R.drawable.qh_js13);
         shu[1][3] = BitmapFactory.decodeResource(res, R.drawable.qh_js14);
@@ -192,14 +193,6 @@ public class AirplaneUpgrade {
                 paint.setAlpha(255);
                 Game.drawTop(g, paint, t);
                 g.drawBitmap(qh_back1, 874, 943, paint);
-//                g.drawBitmap(Game.back, 325, 800 - t * (float) 13.7, paint);
-
-                // g.drawBitmap(Game.top, -300 + t * 30, 0, paint);
-                // g.drawBitmap(Game.left, 182 + 300 - t * 30, 0, paint);
-                // g.drawBitmap(Game.top, -300 + t * 30, 736, paint);
-                // Game.drawDown(g, paint, t);
-                // g.drawBitmap(bt, -300 + t * 30, 736, paint);
-                // g.drawBitmap(Game.left, 182 + 300 - t * 30, 736, paint);
                 break;
             case MODE_JING:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
@@ -207,17 +200,8 @@ public class AirplaneUpgrade {
                 Game.drawTop(g, paint, 10);
                 if (isDownReturn)
                     g.drawBitmap(qh_back2, 874, 943, paint);
-//                    g.drawBitmap(Game.back2, 325, 800 - 137, paint);
                 else
                     g.drawBitmap(qh_back1, 874, 943, paint);
-//                    g.drawBitmap(Game.back, 325, 800 - 137, paint);
-
-                // g.drawBitmap(Game.top, 0, 0, paint);
-                // g.drawBitmap(Game.left, 182, 0, paint);
-                // g.drawBitmap(Game.top, 0, 736, paint);
-                // Game.drawDown(g, paint, 10);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.left, 182, 736, paint);
                 break;
             case 10:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
@@ -231,21 +215,11 @@ public class AirplaneUpgrade {
                     g.drawBitmap(gou1, 738, 280, paint);
                 } else {
                     g.drawBitmap(gou1, 738, 280, paint);
-
-//                    g.drawBitmap(an31, 141, 610, paint);
-                    // g.drawBitmap(gouzi, 185, 616, paint);
                 }
                 if (isDownReturn)
                     g.drawBitmap(gouback, 1118, 189, paint);
                 else
                     g.drawBitmap(gouback, 1118, 189, paint);
-
-                // g.drawBitmap(Game.top, 0, 0, paint);
-                // g.drawBitmap(Game.left, 182, 0, paint);
-                // g.drawBitmap(Game.top, 0, 736, paint);
-                // Game.drawDown(g, paint, 10);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.left, 182, 736, paint);
                 break;
             case 11:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
@@ -627,7 +601,7 @@ public class AirplaneUpgrade {
                 }
                 break;
             case 10:
-                if ((tx > 1118 && tx < 1202 && ty > 189 && ty < 265)  && isDownReturn) {
+                if ((tx > 1118 && tx < 1202 && ty > 189 && ty < 265) && isDownReturn) {
                     isDownReturn = false;
                     mode = MODE_JING;
                     t = 0;
@@ -679,12 +653,12 @@ public class AirplaneUpgrade {
                 }
                 break;
             case 10:
-                if (!(tx > 1118 && tx < 1202 && ty > 189 && ty < 265)  && isDownReturn) {
+                if (!(tx > 1118 && tx < 1202 && ty > 189 && ty < 265) && isDownReturn) {
                     isDownReturn = false;
                 }
                 break;
             case 11:
-                if (!(tx > 1118 && tx < 1202 && ty > 189 && ty < 265)  && isDownReturn) {
+                if (!(tx > 1118 && tx < 1202 && ty > 189 && ty < 265) && isDownReturn) {
                     isDownReturn = false;
                 }
                 break;

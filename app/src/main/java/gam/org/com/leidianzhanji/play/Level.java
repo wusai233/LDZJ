@@ -18,6 +18,8 @@ import android.graphics.Paint;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import static gam.org.com.leidianzhanji.play.ChooseAirplane.haveAirplane;
+
 /**
  * 关卡的选择
  */
@@ -41,6 +43,7 @@ public class Level {
     private boolean isBack = false;// 用于判断是否返回
 
     int alp, av;// alp:透明度
+    int t, id;
 
     NPC npc;
 
@@ -51,27 +54,16 @@ public class Level {
     public void init(Resources res) {
         im1 = BitmapFactory.decodeResource(res, R.drawable.sl_bg1);
         im2 = BitmapFactory.decodeResource(res, R.drawable.sl_bg2);
-        wdan = BitmapFactory.decodeResource(res, R.drawable.wd_an1);
-        wdliang = BitmapFactory.decodeResource(res, R.drawable.wd_an2);
-        an = BitmapFactory.decodeResource(res, R.drawable.cj_an1);
-        liang = BitmapFactory.decodeResource(res, R.drawable.cj_an2);
+//        wdan = BitmapFactory.decodeResource(res, R.drawable.wd_an1);
+//        wdliang = BitmapFactory.decodeResource(res, R.drawable.wd_an2);
+//        an = BitmapFactory.decodeResource(res, R.drawable.cj_an1);
+//        liang = BitmapFactory.decodeResource(res, R.drawable.cj_an2);
         anRight = BitmapFactory.decodeResource(res, R.drawable.sl_right1);
         guangRight = BitmapFactory.decodeResource(res, R.drawable.sl_right2);
         wenhao = BitmapFactory.decodeResource(res, R.drawable.level_wenhao);
-        back_an1 = BitmapFactory.decodeResource(res, R.drawable.back_an1);
-        back_an2 = BitmapFactory.decodeResource(res, R.drawable.back_an2);
+//        back_an1 = BitmapFactory.decodeResource(res, R.drawable.back_an1);
+//        back_an2 = BitmapFactory.decodeResource(res, R.drawable.back_an2);
         initBg(res);
-        // guang1 = BitmapFactory.decodeResource(res, R.drawable.sl_guang1);
-        // guang2 = BitmapFactory.decodeResource(res, R.drawable.sl_guang2);
-
-        // wdzi = BitmapFactory.decodeResource(res, R.drawable.wd_zi1);
-
-        // anzi = BitmapFactory.decodeResource(res, R.drawable.cj_zi1);
-        // bt = BitmapFactory.decodeResource(res, res.getIdentifier("sl_dt"
-        // + ((Game.level - 1) % 4 + 1), "drawable",
-        // GameDraw.context.getPackageName()));
-        // ms = BitmapFactory.decodeResource(res, res.getIdentifier("sl_ms"
-        // + Game.level, "drawable", GameDraw.context.getPackageName()));
     }
 
     public void initBg(Resources res) {
@@ -80,13 +72,6 @@ public class Level {
                 GameDraw.context.getPackageName()));
         ms = BitmapFactory.decodeResource(res, res.getIdentifier("sl_ms"
                 + Game.level, "drawable", GameDraw.context.getPackageName()));
-
-        // if (Game.level > 12) {
-        // ms = BitmapFactory.decodeResource(
-        // res,
-        // res.getIdentifier("sl_ms" + 5, "drawable",
-        // GameDraw.context.getPackageName()));
-        // }
     }
 
     public void free() {
@@ -101,11 +86,6 @@ public class Level {
         anRight = null;
         guangRight = null;
         wenhao = null;
-        // anzi = null;
-        // guang1 = null;
-        // guang2 = null;
-
-        // wdzi = null;
     }
 
     public void reset(int _m) {
@@ -116,36 +96,34 @@ public class Level {
     }
 
     public void draw(Canvas g, Paint paint, int time) {
-//        g.drawBitmap(im1, 0, -423 + time * (float) 42.3, paint);
-//        Tools.paintMImage(g, im1, 240, -423 + time * (float) 42.3, paint);
-//        g.drawBitmap(im2, 0, 800 - time * (float) 39.7, paint);
-//        Tools.paintMImage(g, im2, 240, 800 - time * (float) 39.7, paint);
-//        Game.drawTop(g, paint, time);
-//        Game.drawDown(g, paint, time, isDownReturn);
         g.drawBitmap(im1, 960 - im1.getWidth(), 69, paint);
         Tools.paintMImage(g, im1, 960, 69, paint);
         g.drawBitmap(im2, 960 - im2.getWidth(), 553, paint);
         Tools.paintMImage(g, im2, 960, 553, paint);
-//        Game.drawTop(g, paint, time);
-//        Game.drawDown(g, paint, time, isDownReturn);
-        g.drawBitmap(back_an1, back_an1.getWidth() / 2, 873, paint);
-        g.drawBitmap(back_an2, back_an2.getWidth() / 2, 873, paint);
-        if (isDownPlay)
-            g.drawBitmap(liang, 1101, 873, paint);
-        else
-            g.drawBitmap(an, 1101, 873, paint);
-        if (isDownWD)
-            g.drawBitmap(wdliang, 619, 873, paint);
-        else
-            g.drawBitmap(wdan, 619, 873, paint);
-        if (isDownRight)
-            g.drawBitmap(guangRight, 1175, 645, paint);
-        else
-            g.drawBitmap(guangRight, 1175, 645, paint);
-        if (isDownLeft)
-            Tools.paintMImage(g, guangRight, 701, 645, paint);
-        else
-            Tools.paintMImage(g, guangRight, 701, 645, paint);
+        Game.drawTop(g, paint, time);
+        Game.drawDown(g, paint, time, isDownReturn);
+
+        g.drawBitmap(guangRight, 1175, 645, paint);
+        g.drawBitmap(guangRight, 1175, 645, paint);
+        Tools.paintMImage(g, guangRight, 701, 645, paint);
+        Tools.paintMImage(g, guangRight, 701, 645, paint);
+
+//        if (isDownPlay)
+//            g.drawBitmap(liang, 1101, 873, paint);
+//        else
+//            g.drawBitmap(an, 1101, 873, paint);
+//        if (isDownWD)
+//            g.drawBitmap(wdliang, 619, 873, paint);
+//        else
+//            g.drawBitmap(wdan, 619, 873, paint);
+//        if (isDownRight)
+//            g.drawBitmap(guangRight, 1175, 645, paint);
+//        else
+//            g.drawBitmap(guangRight, 1175, 645, paint);
+//        if (isDownLeft)
+//            Tools.paintMImage(g, guangRight, 701, 645, paint);
+//        else
+//            Tools.paintMImage(g, guangRight, 701, 645, paint);
     }
 
     public void render(Canvas g, Paint paint) {
@@ -331,11 +309,8 @@ public class Level {
 
     public void touchDown(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if (ty > 873 && ty < 967 && tx > 1101 && tx < 1298) {// 开始
+            if (tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075) {// 开始
                 isDownPlay = true;
-                GameDraw.gameSound(1);
-            } else if (ty > 873 && ty < 967 && tx > 619 && tx < 816) {// 无敌
-                isDownWD = true;
                 GameDraw.gameSound(1);
             } else if (ty > 654 && ty < 747 && tx > 701 && tx < 753) {// 上一关
                 GameDraw.gameSound(1);
@@ -343,7 +318,7 @@ public class Level {
             } else if (ty > 654 && ty < 747 && tx > 1175 && tx < 1227) {// 下一关
                 GameDraw.gameSound(1);
                 isDownRight = true;
-            } else if (ty > 730 && ty < 967 && tx > 849 && tx < 1067) {// 返回
+            } else if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {// 返回
                 GameDraw.gameSound(1);
                 isDownReturn = true;
             }
@@ -352,13 +327,9 @@ public class Level {
 
     public void touchUp(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if ((ty > 873 && ty < 967 && tx > 1101 && tx < 1298) && isDownPlay) {// 开始
+            if ((tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075)) {// 开始
                 isDownPlay = false;
                 time = 3;
-            } else if ((ty > 873 && ty < 967 && tx > 619 && tx < 816)
-                    && isDownWD) {// 无敌
-                isDownWD = false;
-//				PaymentJoy.getInstance(this).startCharge(new PaymentParam(8));
             } else if ((ty > 654 && ty < 747 && tx > 701 && tx < 753)
                     && isDownLeft) {// 上一关
                 isDownLeft = false;
@@ -375,7 +346,7 @@ public class Level {
                     mode = 1;
                     time = 8;
                 }
-            } else if ((ty > 730 && ty < 967 && tx > 849 && tx < 1067) && isDownReturn) {// 返回
+            } else if ((ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
                 isDownReturn = false;
                 isBack = true;
                 mode = 3;
@@ -387,18 +358,15 @@ public class Level {
 
     public void touchMove(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if (!(ty > 873 && ty < 967 && tx > 1101 && tx < 1298) && isDownPlay) {// 开始
+            if (!(tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075) && isDownPlay) {// 开始
                 isDownPlay = false;
-            } else if (!(ty > 873 && ty < 967 && tx > 619 && tx < 816)
-                    && isDownWD) {// 无敌
-                isDownWD = false;
             } else if (!(ty > 654 && ty < 747 && tx > 701 && tx < 753)
                     && isDownLeft) {// 上一关
                 isDownLeft = false;
             } else if (!(ty > 654 && ty < 747 && tx > 1175 && tx < 1227)
                     && isDownRight) {// 下一关
                 isDownRight = false;
-            } else if (!(ty > 730 && ty < 967 && tx > 849 && tx < 1067) && isDownReturn) {// 返回
+            } else if (!(ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
                 isDownReturn = false;
             }
         }
