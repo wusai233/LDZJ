@@ -128,46 +128,43 @@ public class BillingDialog {
         }
 
         if (id != 20 && id != 30 && id != 40) {
-            g.drawBitmap(im, 35, 200, paint);
-            Tools.paintMImage(g, im, 240, 200, paint);
+            g.drawBitmap(im, 960 - im.getWidth(), 200, paint);
+            Tools.paintMImage(g, im, 960, 213, paint);
         }
 
         switch (id) {
             case 1:
             case 2:
             case 10:
-                g.drawBitmap(zi, 130, 255, paint);
+                g.drawBitmap(zi, 738, 320, paint);
                 break;
             case 30:
-                g.drawBitmap(im, 8, 48, paint);
-                Tools.paintMImage(g, im, 240, 48, paint);
-                Tools.paintM2Image(g, im, 8, 400, paint);
-                Tools.paintRotateImage(g, im, 240, 400, 180, 232, 352, paint);
+                g.drawBitmap(im, 664, 150, paint);
+                Tools.paintMImage(g, im, 960, 150, paint);
+                Tools.paintM2Image(g, im, 664, 597, paint);
+                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
 
-                g.drawBitmap(zi, 70, 180, paint);
+                g.drawBitmap(zi, 738, 320, paint);
 
-                g.drawBitmap(an2, 400, 48, paint);
-                g.drawBitmap(an1, 162, 610, paint);
-                // g.drawBitmap(an3, 186, 622, paint);
+                g.drawBitmap(an2, 1118, 189, paint);
+                g.drawBitmap(an1, 863, 837, paint);
                 break;
             case 40:
-                g.drawBitmap(im, 8, 48, paint);
-                Tools.paintMImage(g, im, 240, 48, paint);
-                Tools.paintM2Image(g, im, 8, 400, paint);
-                Tools.paintRotateImage(g, im, 240, 400, 180, 232, 352, paint);
+                g.drawBitmap(im, 664, 150, paint);
+                Tools.paintMImage(g, im, 960, 150, paint);
+                Tools.paintM2Image(g, im, 664, 597, paint);
+                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
 
-                g.drawBitmap(zi, 20, 160, paint);
+                g.drawBitmap(zi, 746, 302, paint);
 
-                g.drawBitmap(an2, 400, 48, paint);
-                g.drawBitmap(an1, 162, 610, paint);
-                // g.drawBitmap(an3, 186, 622, paint);
+                g.drawBitmap(an2, 1118, 189, paint);
+                g.drawBitmap(an1, 863, 837, paint);
                 break;
         }
 
         if (id != 20 && id != 30 && id != 40) {
             g.drawBitmap(an2, 372, 200, paint);
             g.drawBitmap(an1, 162, 450, paint);
-            // g.drawBitmap(an3, 186, 462, paint);
         }
     }
 
@@ -189,8 +186,6 @@ public class BillingDialog {
                         t = 0;
                         mode = 2;
                     } else if (id == 10) {
-//					PaymentJoy.getInstance(this).startCharge(
-//							new PaymentParam(10));
                         t = 0;
                         mode = 3;
                     }
@@ -262,47 +257,37 @@ public class BillingDialog {
         switch (mode) {
             case 2:
                 if (id == 30) {
-                    if (tx > 100 && tx < 380 && ty > 600 && ty < 750) {
+                    if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
                         GameDraw.gameSound(1);
-//					PaymentJoy.getInstance(gameDraw.chooseAirplane)
-//							.startCharge(new PaymentParam(11));
                         gameDraw.chooseAirplane.buyID = 3;
                         t = 5;
                         mode = 20;
-                    } else if (tx > 370 && ty < 120) {
+                    } else if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
                         GameDraw.gameSound(1);
                         t = 5;
                         mode = 20;
                     }
                 } else if (id == 40) {
-                    if (tx > 100 && tx < 380 && ty > 600 && ty < 750) {
+                    if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
                         GameDraw.gameSound(1);
-//					PaymentJoy.getInstance(this).startCharge(
-//							new PaymentParam(12));
-                    } else if (tx > 370 && ty < 120) {
+                    } else if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
                         GameDraw.gameSound(1);
                         t = 5;
                         mode = 20;
                     }
                 } else if (id != 20) {
-                    if (tx > 100 && tx < 380 && ty > 440 && ty < 550) {
+                    if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
                         switch (id) {
                             case 1:
                                 GameDraw.gameSound(1);
-//						PaymentJoy.getInstance(this).startCharge(
-//								new PaymentParam(7));
                                 mode = 3;
                                 break;
                             case 2:
                                 GameDraw.gameSound(1);
-//						PaymentJoy.getInstance(this).startCharge(
-//								new PaymentParam(6));
                                 mode = 3;
                                 break;
                             case 10:
                                 GameDraw.gameSound(1);
-//						PaymentJoy.getInstance(this).startCharge(
-//								new PaymentParam(10));
                                 mode = 3;
                                 break;
                         }
@@ -316,12 +301,6 @@ public class BillingDialog {
                                 GameDraw.gameSound(1);
                                 break;
                             case 10:
-                                // if (Game.level <= GameWin.MAX_LEVEL) {
-                                // GameDraw.gameSound(1);
-                                // t = 0;
-                                // mode = 29;
-                                // } else {
-                                // }
                                 GameDraw.gameSound(1);
                                 t = 0;
                                 mode = 30;
@@ -329,12 +308,10 @@ public class BillingDialog {
                         }
                     }
                 } else {
-                    if (tx > 100 && tx < 380 && ty > 600 && ty < 750) {
-//					PaymentJoy.getInstance(this).startCharge(
-//							new PaymentParam(1));
+                    if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
                         mode = 3;
                         GameDraw.gameSound(1);
-                    } else if (tx > 370 && ty < 120) {
+                    } else if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
                         GameDraw.gameSound(1);
                         t = 0;
                         mode = 30;
@@ -342,10 +319,9 @@ public class BillingDialog {
                 }
                 break;
             case 29:
-                if (tx > 100 && tx < 380 && ty > 200 && ty < 380) {
+                if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
                     GameDraw.gameSound(1);
-//				PaymentJoy.getInstance(this).startCharge(new PaymentParam(8));
-                } else if (tx > 100 && tx < 380 && ty > 380 && ty < 560) {
+                } else if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
                     GameDraw.gameSound(1);
                     t = 0;
                     mode = 30;

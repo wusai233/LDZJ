@@ -210,7 +210,7 @@ public class AirplaneUpgrade {
                 g.drawBitmap(gouim, 664, 150, paint);
                 Tools.paintMImage(g, gouim, 960, 150, paint);
                 Tools.paintM2Image(g, gouim, 664, 597, paint);
-                Tools.paintRotateImage(g, gouim, 960, 597, 180, 298, 450, paint);
+                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
                 if (MainActivity.isYD == true) {
                     g.drawBitmap(gou1, 738, 280, paint);
                 } else {
@@ -228,7 +228,7 @@ public class AirplaneUpgrade {
                 g.drawBitmap(gouim, 663, 149, paint);
                 Tools.paintMImage(g, gouim, 959, 149, paint);
                 Tools.paintM2Image(g, gouim, 663, 597, paint);
-                Tools.paintRotateImage(g, gouim, 959, 597, 180, 298, 450, paint);
+                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
                 g.drawBitmap(gou2, 750, 242, paint);
 //                g.drawBitmap(an31, 141, 610, paint);
                 g.drawBitmap(an31, 960 - (an31.getWidth() / 2), 860, paint);

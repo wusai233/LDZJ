@@ -32,11 +32,9 @@ public class Level {
     GameDraw gameDraw;
     Bitmap im1, im2;
     Bitmap bt, ms, an, liang;
-    // Bitmap guang1, guang2;
     Bitmap wdan, wdliang;
     Bitmap anRight, guangRight;
     Bitmap wenhao;
-    Bitmap back_an1, back_an2;
 
     private int mode, time;// time:次数
     private final int maxTime = 10;// 次数的最大值
@@ -54,15 +52,9 @@ public class Level {
     public void init(Resources res) {
         im1 = BitmapFactory.decodeResource(res, R.drawable.sl_bg1);
         im2 = BitmapFactory.decodeResource(res, R.drawable.sl_bg2);
-//        wdan = BitmapFactory.decodeResource(res, R.drawable.wd_an1);
-//        wdliang = BitmapFactory.decodeResource(res, R.drawable.wd_an2);
-//        an = BitmapFactory.decodeResource(res, R.drawable.cj_an1);
-//        liang = BitmapFactory.decodeResource(res, R.drawable.cj_an2);
         anRight = BitmapFactory.decodeResource(res, R.drawable.sl_right1);
         guangRight = BitmapFactory.decodeResource(res, R.drawable.sl_right2);
         wenhao = BitmapFactory.decodeResource(res, R.drawable.level_wenhao);
-//        back_an1 = BitmapFactory.decodeResource(res, R.drawable.back_an1);
-//        back_an2 = BitmapFactory.decodeResource(res, R.drawable.back_an2);
         initBg(res);
     }
 
@@ -100,30 +92,13 @@ public class Level {
         Tools.paintMImage(g, im1, 960, 69, paint);
         g.drawBitmap(im2, 960 - im2.getWidth(), 553, paint);
         Tools.paintMImage(g, im2, 960, 553, paint);
-        Game.drawTop(g, paint, time);
-        Game.drawDown(g, paint, time, isDownReturn);
+//        Game.drawTop(g, paint, time);
+        Game.drawDown(g, paint, t, isDownReturn);
 
         g.drawBitmap(guangRight, 1175, 645, paint);
         g.drawBitmap(guangRight, 1175, 645, paint);
         Tools.paintMImage(g, guangRight, 701, 645, paint);
         Tools.paintMImage(g, guangRight, 701, 645, paint);
-
-//        if (isDownPlay)
-//            g.drawBitmap(liang, 1101, 873, paint);
-//        else
-//            g.drawBitmap(an, 1101, 873, paint);
-//        if (isDownWD)
-//            g.drawBitmap(wdliang, 619, 873, paint);
-//        else
-//            g.drawBitmap(wdan, 619, 873, paint);
-//        if (isDownRight)
-//            g.drawBitmap(guangRight, 1175, 645, paint);
-//        else
-//            g.drawBitmap(guangRight, 1175, 645, paint);
-//        if (isDownLeft)
-//            Tools.paintMImage(g, guangRight, 701, 645, paint);
-//        else
-//            Tools.paintMImage(g, guangRight, 701, 645, paint);
     }
 
     public void render(Canvas g, Paint paint) {
@@ -248,14 +223,6 @@ public class Level {
                             npc = new BOSS3(gameDraw.game.npcManager.im[9], 960, 250,
                                     112);
                             break;
-                        // case 13:
-                        // npc = new BOSS1(gameDraw.game.npcManager.im[1], 240, 245,
-                        // 113);
-                        // break;
-                        // case 14:
-                        // npc = new BOSS2(gameDraw.game.npcManager.im[2], 240, 240,
-                        // 114);
-                        // break;
                     }
                 }
                 break;

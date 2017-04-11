@@ -71,48 +71,22 @@ public class SmallDialog {
             case 1:
             case 21:
                 g.drawColor(180 << 24);
-                g.drawBitmap(im, null, new RectF(
-                                x - im.getWidth() / 2,
-                                y - im.getHeight() * t / 10,
-                                x + im.getWidth() / 2,
-                                y + im.getHeight() * t / 10),
-                        paint);
-                g.drawBitmap(im, null, new RectF(
-                                x - im.getWidth() / 2,
-                                y - im.getHeight() * t / 10,
-                                x + im.getWidth() / 2,
-                                y + im.getHeight() * t / 10),
-                        paint);
-
+                g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
+                g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
                 paint.setAlpha(t * 30 + 100);
                 if (id > 5) {
-                    g.drawBitmap(ry, null, new RectF(
-                                    x - ry.getWidth() / 2 - (5 - t) * 20,
-                                    y - 52 - ry.getHeight() * t / 10,
-                                    x + ry.getWidth() / 2 + (5 - t) * 20,
-                                    y - 52 + ry.getHeight() * t / 10),
-                            paint);
+                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 510, paint);
                 }
                 paint.setAlpha(255);
                 break;
             case 2:
                 g.drawColor(180 << 24);
-                g.drawBitmap(im, x - im.getWidth() / 2, y - im.getHeight() / 2,
-                        paint);
+                g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
                 if (id < 5) {
-                    g.drawBitmap(zi, x - zi.getWidth() / 2, y - zi.getHeight() / 2,
-                            paint);
+                    g.drawBitmap(zi, 960 - zi.getWidth() / 2, 538, paint);
                 } else if (id < 40) {
-                    g.drawBitmap(ry, x - ry.getWidth() / 2, y - 70, paint);
-                    g.drawBitmap(
-                            zi,
-                            new Rect(0, 0, zi.getWidth(), 22),
-                            new RectF(
-                                    x - im.getWidth() / 2 + 18,
-                                    y - im.getHeight() / 2 + 20,
-                                    x - im.getWidth() / 2 + 18 + zi.getWidth(),
-                                    y - im.getHeight() / 2 + 42),
-                            paint);
+                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 510, paint);
+                    g.drawBitmap(zi, 960 - zi.getWidth() / 2, 538, paint);
                 }
                 break;
         }

@@ -68,8 +68,8 @@ public class ChooseBoss {
         shu2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_shu2);
         suo = BitmapFactory.decodeResource(gameDraw.res, R.drawable.menu_suo);
 
-        an1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_an1);
-        an2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_an2);
+//        an1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_an1);
+//        an2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_an2);
         an3 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3);
 
         ban1[0] = BitmapFactory.decodeResource(gameDraw.res,
@@ -122,8 +122,8 @@ public class ChooseBoss {
         im = null;
         // bt = null;
         guang = null;
-        an1 = null;
-        an2 = null;
+//        an1 = null;
+//        an2 = null;
         an3 = null;
         shu1 = null;
         shu2 = null;
@@ -164,25 +164,15 @@ public class ChooseBoss {
 
     public void render(Canvas g, Paint paint) {
         g.drawBitmap(Menu.bg, 0, 0, paint);
-        // Game.drawLeft(g, paint);
         switch (mode) {
             case 0:
             case 20:
-
                 paint.setAlpha(t * 25 + 5);
                 renderJM(g, paint);
                 renderBOSS(g, id, 240, t * 25 + 5, paint);
                 paint.setAlpha(255);
-
-                // g.drawBitmap(Game.top1, -300 + t * 30, 0, paint);
-                // g.drawBitmap(Game.top2, 182 + 300 - t * 30, 0, paint);
-                // g.drawBitmap(Game.top1, -300 + t * 30, 736, paint);
-                // g.drawBitmap(bt, -300 + t * 30, 736, paint);
-                // g.drawBitmap(Game.top2, 182 + 300 - t * 30, 736, paint);
-
-                Game.drawTop(g, paint, t);
+//                Game.drawTop(g, paint, t);
                 Game.drawDown(g, paint, t, isDownReturn);
-                // g.drawBitmap(Game.back1, 182 + 300 - t * 30, 736, paint);
                 break;
             case 1:
                 renderJM(g, paint);
@@ -192,7 +182,6 @@ public class ChooseBoss {
                     // Boss名字的位置
                     g.drawBitmap(name[BOSS_NUM], 814, 145, paint);
                 }
-
                 renderBOSS(g, id, 960, 189, paint);
 
                 // if (jd[id] > 1) {
@@ -212,7 +201,7 @@ public class ChooseBoss {
                 // g.drawBitmap(Game.top1, 0, 736, paint);
                 // g.drawBitmap(bt, 0, 736, paint);
                 // g.drawBitmap(Game.top2, 182, 736, paint);
-                Game.drawTop(g, paint, 10);
+//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
                 // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
@@ -306,11 +295,11 @@ public class ChooseBoss {
 
         g.drawBitmap(guang, 683, 323, paint);
         Tools.paintMImage(g, guang, 960, 323, paint);
-        if (isDownPK)
-            g.drawBitmap(an2, 832, 770, paint);
-        else
-            g.drawBitmap(an1, 832, 770, paint);
-        // g.drawBitmap(zi[0], 173, 646, paint);
+//        if (isDownPK)
+//            g.drawBitmap(an2, 832, 770, paint);
+//        else
+//            g.drawBitmap(an1, 832, 770, paint);
+//        // g.drawBitmap(zi[0], 173, 646, paint);
         g.drawBitmap(an3, 672, 789, paint);
         Tools.paintMImage(g, an3, 1118, 789, paint);
     }
@@ -322,7 +311,7 @@ public class ChooseBoss {
             boss[id].render(g, paint);
             paint.setAlpha(255);
         } else {
-            g.drawBitmap(an2, 832, 770, paint);
+//            g.drawBitmap(an2, 832, 770, paint);
             GameDraw.black.setAlpha(alp);
             boss[id].render(g, GameDraw.black);
             GameDraw.black.setAlpha(255);
@@ -368,10 +357,6 @@ public class ChooseBoss {
                             bossID = 101 + id - 6;
                             level = anid + 3 + id;
                         }
-                        // else {
-                        // bossID = 101 + id - 12;
-                        // level = anid + 6;
-                        // }
                         Game.level = 121 + id;
                         gameDraw.chooseAirplane.init(gameDraw.res);
                         gameDraw.chooseAirplane.reset();
@@ -436,7 +421,7 @@ public class ChooseBoss {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (tx > 320 && ty > 740) {// 返回键
+                if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {// 返回键
                     isDownReturn = true;
                     GameDraw.gameSound(1);
                 } else if (ty > 620 && ty < 710) {
@@ -462,7 +447,7 @@ public class ChooseBoss {
                 }
                 break;
             case 10:
-                if (tx > 320 && ty > 740) {
+                if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {
                     GameDraw.gameSound(1);
                     isDownReturn = true;
                 } else if (tx > 120 && tx < 360 && ty > 220 && ty < 220 + 3 * 120
@@ -482,7 +467,7 @@ public class ChooseBoss {
     public void touchUp(float tx, float ty) {
         switch (mode) {
             case 1:
-                if ((tx > 320 && ty > 740) && isDownReturn) {// 返回键
+                if ((ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回键
                     isDownReturn = false;
                     mode = 20;
                     t = 10;
@@ -518,7 +503,7 @@ public class ChooseBoss {
     public void touchMove(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (!(tx > 320 && ty > 740) && isDownReturn) {// 返回键
+                if (!(ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回键
                     isDownReturn = false;
                 } else if (!(ty > 620 && ty < 710 && tx >= 148 && tx <= 320)
                         && isDownPK) {
