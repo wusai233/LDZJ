@@ -133,21 +133,21 @@ public class GetGift {
             case 0:
                 break;
             case 1:
-                g.drawBitmap(im, 261 + time * 44, 198, paint);
+                g.drawBitmap(im, 961 + time * 44, 198, paint);
                 break;
             case 2:
-                g.drawBitmap(im, 261, 198, paint);
+                g.drawBitmap(im, 961, 198, paint);
                 g.drawBitmap(di, null,
                         new RectF(x, y + 96 - time * 19, x + di.getWidth(), y + 96),
                         paint);
                 break;
             case 3:
-                g.drawBitmap(im, 261, 198, paint);
+                g.drawBitmap(im, 961, 198, paint);
                 g.drawBitmap(di, x, y, paint);
                 renderZI(g, id, paint);
                 break;
             case 4:
-                g.drawBitmap(im, 261 + time * 44, 198, paint);
+                g.drawBitmap(im, 961 + time * 44, 198, paint);
                 paint.setAlpha(255 - time * 50);
                 g.drawBitmap(di, x, y, paint);
                 renderZI(g, id, paint);
@@ -156,7 +156,7 @@ public class GetGift {
         }
     }
 
-    final int x = 12, y = 246;
+    final int x = 712, y = 246;
 
     public void renderZI(Canvas g, int id, Paint paint) {
         switch (id) {

@@ -233,7 +233,7 @@ public class ChooseAirplane {
 
         for (int i = 0; i < haveAirplane.length; i++) {
             if (!haveAirplane[i]) {
-                g.drawBitmap(suo, zx[i] , zy[i] , paint);
+                g.drawBitmap(suo, zx[i], zy[i], paint);
             }
         }
     }
@@ -343,10 +343,10 @@ public class ChooseAirplane {
                             // return;
                         }
                     }
-                    if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {// 返回
+                    if (tx > 631 && tx < 858 && ty > 975 && ty < 1070) {// 返回
                         isDownReturn = true;
                         GameDraw.gameSound(1);
-                    } else if (tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075) {// 出击
+                    } else if (tx > 1055 && tx < 1288 && ty > 975 && ty < 1068) {// 出击
                         if ((id == 3 && Data.level < 3)
                                 || (id == 1 && !haveAirplane[0])
                                 || (id == 2 && !haveAirplane[1])
@@ -365,11 +365,11 @@ public class ChooseAirplane {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if ((ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
+                    if ((tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回
                         isDownReturn = false;
                         mode = 20;
                         t = 10;
-                    } else if ((tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075)
+                    } else if ((tx > 1055 && tx < 1288 && ty > 975 && ty < 1068)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
                         t = 3;
@@ -384,9 +384,9 @@ public class ChooseAirplane {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (!(ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
+                    if (!(tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回
                         isDownReturn = false;
-                    } else if (!(tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075)
+                    } else if (!(tx > 1055 && tx < 1288 && ty > 975 && ty < 1068)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
                     }

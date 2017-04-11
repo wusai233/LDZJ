@@ -276,7 +276,7 @@ public class Level {
 
     public void touchDown(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if (tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075) {// 开始
+            if (tx > 1055 && tx < 1288 && ty > 975 && ty < 1068) {// 开始
                 isDownPlay = true;
                 GameDraw.gameSound(1);
             } else if (ty > 654 && ty < 747 && tx > 701 && tx < 753) {// 上一关
@@ -285,7 +285,7 @@ public class Level {
             } else if (ty > 654 && ty < 747 && tx > 1175 && tx < 1227) {// 下一关
                 GameDraw.gameSound(1);
                 isDownRight = true;
-            } else if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {// 返回
+            } else if (tx > 631 && tx < 858 && ty > 975 && ty < 1070) {// 返回
                 GameDraw.gameSound(1);
                 isDownReturn = true;
             }
@@ -294,7 +294,7 @@ public class Level {
 
     public void touchUp(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if ((tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075)) {// 开始
+            if ((tx > 1055 && tx < 1288 && ty > 975 && ty < 1068)) {// 开始
                 isDownPlay = false;
                 time = 3;
             } else if ((ty > 654 && ty < 747 && tx > 701 && tx < 753)
@@ -313,7 +313,7 @@ public class Level {
                     mode = 1;
                     time = 8;
                 }
-            } else if ((ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
+            } else if ((tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回
                 isDownReturn = false;
                 isBack = true;
                 mode = 3;
@@ -325,7 +325,7 @@ public class Level {
 
     public void touchMove(float tx, float ty) {
         if (mode == 2 && time == 0) {
-            if (!(tx > 1108 && tx < 1250 && ty > 1008 && ty < 1075) && isDownPlay) {// 开始
+            if (!(tx > 1055 && tx < 1288 && ty > 975 && ty < 1068) && isDownPlay) {// 开始
                 isDownPlay = false;
             } else if (!(ty > 654 && ty < 747 && tx > 701 && tx < 753)
                     && isDownLeft) {// 上一关
@@ -333,7 +333,7 @@ public class Level {
             } else if (!(ty > 654 && ty < 747 && tx > 1175 && tx < 1227)
                     && isDownRight) {// 下一关
                 isDownRight = false;
-            } else if (!(ty > 1008 && ty < 1075 && tx > 666 && tx < 824) && isDownReturn) {// 返回
+            } else if (!(tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回
                 isDownReturn = false;
             }
         }

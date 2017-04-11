@@ -16,8 +16,8 @@ import gam.org.com.leidianzhanji.npc.ZL;
 public class Game {
     private boolean isDownPause = false;
     public static final int TOP = 0;
-    public static final int BOTEM = 800;
-    public static final int CW = 480;
+    public static final int BOTEM = 1920;
+    public static final int CW = 1080;
 
     public static final int GG = 0;
 
@@ -609,17 +609,17 @@ public class Game {
     }
 
     public static void drawDown(Canvas g, Paint paint, int t, boolean isDown) {
-        g.drawBitmap(down, 605, 1018 - t * (float) 13.7, paint);
-        Tools.paintMImage(g, down, 960, 1018 - t * (float) 13.7, paint);
+        g.drawBitmap(down, 572, 811 - t * (float) 13.7, paint);
+        Tools.paintMImage(g, down, 960, 811 - t * (float) 13.7, paint);
         if (isDown) {
-            g.drawBitmap(back2, 666, 1146 - t * (float) 13.7, paint);
+            g.drawBitmap(back2, 631, 974 - t * (float) 13.7, paint);
         } else {
-            g.drawBitmap(back, 666, 1146 - t * (float) 13.7, paint);
+            g.drawBitmap(back, 631, 974 - t * (float) 13.7, paint);
         }
         if (isDown) {
-            g.drawBitmap(sp_an_hui, 1108, 1146 - t * (float) 13.7, paint);
+            g.drawBitmap(sp_an_hui, 1055, 974 - t * (float) 13.7, paint);
         } else {
-            g.drawBitmap(sp_an, 1108, 1146 - t * (float) 13.7, paint);
+            g.drawBitmap(sp_an, 1055, 974 - t * (float) 13.7, paint);
         }
     }
 
