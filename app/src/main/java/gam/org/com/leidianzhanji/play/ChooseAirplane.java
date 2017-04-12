@@ -127,7 +127,7 @@ public class ChooseAirplane {
         id = 0;
         Airplane.id = 1;
         Airplane.hl = 3;
-        Airplane.x = 240;
+        Airplane.x = 400;
         Airplane.y = 230;
         Game.cx = 0;
         Game.mx = 0;
@@ -148,7 +148,7 @@ public class ChooseAirplane {
         id = 0;
         Airplane.id = 1;
         Airplane.hl = 3;
-        Airplane.x = 240;
+        Airplane.x = 400;
         Airplane.y = 230;
         Game.cx = 0;
         Game.mx = 0;
@@ -198,19 +198,12 @@ public class ChooseAirplane {
             g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 390 - fei[id].getHeight(), paint);
         }
 
-        g.drawBitmap(im1, 960 - im1.getWidth(), 53, paint);
-        Tools.paintMImage(g, im1, 960, 53, paint);
+//        g.drawBitmap(im1, 960 - im1.getWidth(), 53, paint);
+//        Tools.paintMImage(g, im1, 960, 53, paint);
         g.drawBitmap(kuang1, 671, 460, paint);
         Tools.paintMImage(g, kuang1, 960, 460, paint);
         Tools.paintM2Image(g, kuang1, 671, 686, paint);
         Tools.paintRotateImage(g, kuang1, 960, 686, 180, paint);
-//        if (isDownPlay)
-//            g.drawBitmap(hui, 153, 650, paint);
-//        g.drawBitmap(hui, 820, 702, paint);
-//        else
-//        g.drawBitmap(an, 153, 650, paint);
-//        g.drawBitmap(an, 820, 702, paint);
-//        paint.setAlpha(alp);
         switch (id) {
             case 0:
                 g.drawBitmap(kuang2, 696, 487, paint);
@@ -346,7 +339,7 @@ public class ChooseAirplane {
                     if (tx > 631 && tx < 858 && ty > 975 && ty < 1070) {// 返回
                         isDownReturn = true;
                         GameDraw.gameSound(1);
-                    } else if (tx > 1055 && tx < 1288 && ty > 975 && ty < 1068) {// 出击
+                    } else if (tx > 1055 && tx < 1288 && ty > 975 && ty < 1065) {// 出击
                         if ((id == 3 && Data.level < 3)
                                 || (id == 1 && !haveAirplane[0])
                                 || (id == 2 && !haveAirplane[1])

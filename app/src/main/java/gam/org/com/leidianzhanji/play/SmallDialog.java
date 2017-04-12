@@ -75,7 +75,7 @@ public class SmallDialog {
                 g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
                 paint.setAlpha(t * 30 + 100);
                 if (id > 5) {
-                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 510, paint);
+                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 490, paint);
                 }
                 paint.setAlpha(255);
                 break;
@@ -85,7 +85,7 @@ public class SmallDialog {
                 if (id < 5) {
                     g.drawBitmap(zi, 960 - zi.getWidth() / 2, 538, paint);
                 } else if (id < 40) {
-                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 510, paint);
+                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 490, paint);
                     g.drawBitmap(zi, 960 - zi.getWidth() / 2, 538, paint);
                 }
                 break;
