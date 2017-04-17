@@ -127,7 +127,7 @@ public class ChooseAirplane {
         id = 0;
         Airplane.id = 1;
         Airplane.hl = 3;
-        Airplane.x = 400;
+        Airplane.x = 960;
         Airplane.y = 230;
         Game.cx = 0;
         Game.mx = 0;
@@ -148,7 +148,7 @@ public class ChooseAirplane {
         id = 0;
         Airplane.id = 1;
         Airplane.hl = 3;
-        Airplane.x = 400;
+        Airplane.x = 960;
         Airplane.y = 230;
         Game.cx = 0;
         Game.mx = 0;

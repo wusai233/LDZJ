@@ -210,10 +210,9 @@ public class ChooseBoss {
 
                 renderBOSS(g, id, 240 + dx, 255, paint);
                 if (vx > 0) {
-                    renderBOSS(g, (id + BOSS_NUM - 1) % BOSS_NUM, 240 + dx - 480,
-                            255, paint);
+                    renderBOSS(g, (id + BOSS_NUM - 1) % BOSS_NUM, 960 + dx - 1080, 255, paint);
                 } else {
-                    renderBOSS(g, (id + 1) % BOSS_NUM, 240 + dx + 480, 255, paint);
+                    renderBOSS(g, (id + 1) % BOSS_NUM, 960 + dx + 1080, 255, paint);
                 }
 
                 g.drawBitmap(shu2, 946, 650, paint);
@@ -229,19 +228,19 @@ public class ChooseBoss {
                 // g.drawBitmap(Game.top1, 0, 736, paint);
                 // g.drawBitmap(bt, 0, 736, paint);
                 // g.drawBitmap(Game.top2, 182, 736, paint);
-                Game.drawTop(g, paint, 10);
+//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
                 // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
             case 10:
                 renderJM(g, paint);
                 if (jd[id] > 0) {
-                    g.drawBitmap(name[id], 112, 160, paint);
+                    g.drawBitmap(name[id], 814, 145, paint);
                 } else {
-                    g.drawBitmap(name[BOSS_NUM], 112, 160, paint);
+                    g.drawBitmap(name[BOSS_NUM], 814, 145, paint);
                 }
 
-                renderBOSS(g, id, 240, 255, paint);
+                renderBOSS(g, id, 960, 255, paint);
 
                 g.drawBitmap(shu2, 229, 520, paint);
                 g.drawBitmap(bossNum, 250, 520, paint);
@@ -290,8 +289,8 @@ public class ChooseBoss {
     public void renderJM(Canvas g, Paint paint) {
         g.drawBitmap(im, 638, 84, paint);
         Tools.paintMImage(g, im, 960, 84, paint);
-        Tools.paintM2Image(g, im, 638, 415, paint);
-        Tools.paintRotateImage(g, im, 960, 415, 180, 322, 331, paint);
+        Tools.paintM2Image(g, im, 638, 466, paint);
+        Tools.paintRotateImage(g, im, 960, 466, 180, 322, 382, paint);
 
         g.drawBitmap(guang, 683, 323, paint);
         Tools.paintMImage(g, guang, 960, 323, paint);
@@ -300,8 +299,8 @@ public class ChooseBoss {
 //        else
 //            g.drawBitmap(an1, 832, 770, paint);
 //        // g.drawBitmap(zi[0], 173, 646, paint);
-        g.drawBitmap(an3, 672, 789, paint);
-        Tools.paintMImage(g, an3, 1118, 789, paint);
+        g.drawBitmap(an3, 672, 688, paint);
+        Tools.paintMImage(g, an3, 1118, 688, paint);
     }
 
     public void renderBOSS(Canvas g, int id, float x, int alp, Paint paint) {
@@ -421,16 +420,16 @@ public class ChooseBoss {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 1:
-                if ( tx >631 && tx <858 && ty > 975&& ty < 1070 ) {// 返回键
+                if (tx > 631 && tx < 858 && ty > 975 && ty < 1070) {// 返回键
                     isDownReturn = true;
                     GameDraw.gameSound(1);
-                } else if (ty > 620 && ty < 710) {
-                    if (tx < 148) {// 点击左键向右滑动
+                } else if (ty > 688 && ty < 772) {
+                    if (tx > 672 && tx < 802) {// 点击左键向右滑动
                         dx = 0;
                         vx = 50;
                         mode = 2;
                         GameDraw.gameSound(1);
-                    } else if (tx > 320) {// 点击右键向左滑动
+                    } else if (tx > 1118 && tx < 1248) {// 点击右键向左滑动
                         dx = 0;
                         vx = -50;
                         mode = 2;
@@ -467,11 +466,11 @@ public class ChooseBoss {
     public void touchUp(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (( tx >631 && tx <858 && ty > 975&& ty < 1070 )&& isDownReturn) {// 返回键
+                if ((tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回键
                     isDownReturn = false;
                     mode = 20;
                     t = 10;
-                } else if (( tx > 1055 && tx <1288 && ty > 975 && ty < 1068 )
+                } else if ((tx > 1055 && tx < 1288 && ty > 975 && ty < 1068)
                         && isDownPK) { // 挑战键
                     isDownPK = false;
                     mode = 10;
@@ -503,7 +502,7 @@ public class ChooseBoss {
     public void touchMove(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (!( tx >631 && tx <858 && ty > 975&& ty < 1070 ) && isDownReturn) {// 返回键
+                if (!(tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回键
                     isDownReturn = false;
                 } else if (!(ty > 620 && ty < 710 && tx >= 148 && tx <= 320)
                         && isDownPK) {

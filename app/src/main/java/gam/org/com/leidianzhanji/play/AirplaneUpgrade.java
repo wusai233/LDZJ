@@ -494,12 +494,12 @@ public class AirplaneUpgrade {
                 if (tx > 874 && tx < 1041 && ty > 943 && ty < 1014) {// 返回
                     isDownReturn = true;
                     GameDraw.gameSound(1);
-                } else if (tx > 30 && tx < 360 && ty > 245 && ty < 245 + 70 * 6
+                } else if (tx > 667 && tx < 1077 && ty > 345 && ty < 415 + 70 * 6
                         && t == 0) {
                     GameDraw.gameSound(1);
                     int n = (int) ((ty - 245) / 70);
                     id = n;
-                } else if (tx > 360 && tx < 450 && ty > 245 && ty < 245 + 70 * 6
+                } else if (tx > 1123 && tx < 1248 && ty > 340 && ty < 418 + 96 * 6
                         && t == 0) {// 升级按钮
                     GameDraw.gameSound(1);
                     int n = (int) ((ty - 245) / 70);
@@ -561,7 +561,7 @@ public class AirplaneUpgrade {
                     isDownReturn = false;
                     mode = 20;
                     t = 10;
-                } else if (tx > 360 && tx < 450 && ty > 245 && ty < 245 + 70 * 6
+                } else if (tx > 1123 && tx < 1248 && ty > 340 && ty < 418 + 96 * 6
                         && t == 0) {// 升级按钮
                     int n = (int) ((ty - 245) / 70);
                     if (isDown[n]) {
