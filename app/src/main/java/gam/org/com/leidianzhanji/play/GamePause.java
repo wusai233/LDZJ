@@ -70,10 +70,10 @@ public class GamePause {
                 g.drawColor((t * 15) << 24);
                 for (int i = 0; i < rid.length; i++) {
                     if (i % 2 == 0) {
-                        g.drawBitmap(an[rid[i]], 83 - 400 + t * 40, 200 + i * 120,
+                        g.drawBitmap(an[rid[i]], 960-an[rid[i]].getWidth()/2 - 400 + t * 40, 200 + i * 150,
                                 paint);
                     } else {
-                        g.drawBitmap(an[rid[i]], 83 + 400 - t * 40, 200 + i * 120,
+                        g.drawBitmap(an[rid[i]], 960-an[rid[i]].getWidth()/2 + 400 - t * 40, 200 + i * 150,
                                 paint);
                     }
                 }
@@ -83,9 +83,9 @@ public class GamePause {
                 g.drawColor(150 << 24);
                 for (int i = 0; i < rid.length; i++) {
                     if (isDown[i])
-                        g.drawBitmap(liang[rid[i]], 83, 200 + i * 120, paint);
+                        g.drawBitmap(liang[rid[i]], 960-an[rid[i]].getWidth()/2, 200 + i * 150, paint);
                     else
-                        g.drawBitmap(an[rid[i]], 83, 200 + i * 120, paint);
+                        g.drawBitmap(an[rid[i]], 960-an[rid[i]].getWidth()/2, 200 + i * 150, paint);
                     // if (t > 0 && id == i) {
                     // paint.setAlpha(t * 80 + 15);
                     // g.drawBitmap(liang[rid[i]], 83, 200 + i * 120, paint);

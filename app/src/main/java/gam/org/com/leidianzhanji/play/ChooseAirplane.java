@@ -232,6 +232,7 @@ public class ChooseAirplane {
     }
 
     public void upData() {
+        Log.e("data","wusai233------1");
         alp += av;
         if (alp >= 255) {
             alp = 255;
@@ -300,6 +301,19 @@ public class ChooseAirplane {
                     gameDraw.menu.reset2();
                 }
                 break;
+            case 30:
+                t--;
+                if (t <= 0) {
+                    if (Menu.isLevelOrBoss == 1) {
+                        gameDraw.level.init(gameDraw.res);
+                        gameDraw.level.reset(0);
+                    } else {
+                        gameDraw.loading.init(gameDraw.res);
+                        gameDraw.loading.reset(0);
+                    }
+                    gameDraw.game.newGame();
+                }
+                break;
         }
     }
 
@@ -347,7 +361,9 @@ public class ChooseAirplane {
                             return;
                         }
                         GameDraw.gameSound(1);
+                        isDownReturn = true;
                         isDownPlay = true;
+
                     }
                 }
                 break;
@@ -365,6 +381,8 @@ public class ChooseAirplane {
                     } else if ((tx > 1055 && tx < 1288 && ty > 975 && ty < 1068)
                             && isDownPlay) {// 出击
                         isDownPlay = false;
+                        isDownReturn = false;
+                        mode = 30;
                         t = 3;
                     }
                 }

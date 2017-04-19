@@ -93,7 +93,8 @@ public class Level {
         g.drawBitmap(im2, 960 - im2.getWidth(), 553, paint);
         Tools.paintMImage(g, im2, 960, 553, paint);
 //        Game.drawTop(g, paint, time);
-        Game.drawDown(g, paint, t, isDownReturn);
+//        Game.drawDown(g, paint, t, isDownReturn);
+        Game.drawDown(g, paint, time, isDownReturn);
 
         g.drawBitmap(guangRight, 1175, 645, paint);
         g.drawBitmap(guangRight, 1175, 645, paint);
@@ -277,15 +278,19 @@ public class Level {
     public void touchDown(float tx, float ty) {
         if (mode == 2 && time == 0) {
             if (tx > 1055 && tx < 1288 && ty > 975 && ty < 1068) {// 开始
+                Log.e("wusai", "－－－－－开始－－－－－");
                 isDownPlay = true;
                 GameDraw.gameSound(1);
             } else if (ty > 654 && ty < 747 && tx > 701 && tx < 753) {// 上一关
+                Log.e("wusai", "－－－－－上一关－－－－－");
                 GameDraw.gameSound(1);
                 isDownLeft = true;
             } else if (ty > 654 && ty < 747 && tx > 1175 && tx < 1227) {// 下一关
+                Log.e("wusai", "－－－－－下一关－－－－－");
                 GameDraw.gameSound(1);
                 isDownRight = true;
             } else if (tx > 631 && tx < 858 && ty > 975 && ty < 1070) {// 返回
+                Log.e("wusai", "－－－－－返回－－－－－");
                 GameDraw.gameSound(1);
                 isDownReturn = true;
             }
@@ -320,7 +325,7 @@ public class Level {
                 time = maxTime;
             }
         }
-
+        Log.e("wusai", "－－－－－touchUp－－－－－");
     }
 
     public void touchMove(float tx, float ty) {
@@ -337,7 +342,7 @@ public class Level {
                 isDownReturn = false;
             }
         }
-
+        Log.e("wusai", "－－－－－touchMove－－－－－");
     }
 
     public void keyDown(int k) {
