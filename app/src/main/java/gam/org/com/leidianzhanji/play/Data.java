@@ -45,7 +45,7 @@ public class Data {
             Game.isFrist = dis.readBoolean();
             MainActivity.isFirstPlay = dis.readBoolean();
             MainActivity.isEndPlay = dis.readBoolean();
-            level = dis.readByte();
+            level = 2;
             Game.score = dis.readInt();
             Game.mnuey = dis.readInt();
             Game.zmnuey = dis.readInt();
@@ -86,7 +86,7 @@ public class Data {
             Game.isFrist = true;
             MainActivity.isFirstPlay = true;
             MainActivity.isEndPlay = false;
-            level = 1;
+            level = 2;
             Game.score = 0;
             Game.mnuey = 0;
             Game.zmnuey = 0;

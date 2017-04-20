@@ -55,45 +55,45 @@ public class NewStoryLine {
                 paint.setAlpha(255);
                 g.drawBitmap(background, 0, 0, paint);
                 paint.setAlpha(time * 10);
-                g.drawBitmap(an, 810, 860, paint);
-                g.drawBitmap(zi1, 615, 70, paint);
+                g.drawBitmap(an, 960 - an.getWidth() / 2, 860, paint);
+                g.drawBitmap(zi1, 960 - zi1.getWidth() / 2, 70, paint);
                 break;
             case 2:
                 paint.setAlpha(255);
                 g.drawBitmap(background, 0, 0, paint);
-                g.drawBitmap(an, 810, 860, paint);
-                g.drawBitmap(zi1, 615, 70, paint);
+                g.drawBitmap(an, 960 - an.getWidth() / 2, 860, paint);
+                g.drawBitmap(zi1, 960 - zi1.getWidth() / 2, 70, paint);
                 paint.setAlpha(time * 10);
-                g.drawBitmap(zi2, 700, 225, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 225, paint);
                 break;
             case 3:
                 paint.setAlpha(255);
                 g.drawBitmap(background, 0, 0, paint);
-                g.drawBitmap(an, 810, 860, paint);
-                g.drawBitmap(zi1, 615, 70, paint);
-                g.drawBitmap(zi2, 700, 225, paint);
+                g.drawBitmap(an, 960 - an.getWidth() / 2, 860, paint);
+                g.drawBitmap(zi1, 960 - zi1.getWidth() / 2, 70, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 225, paint);
                 paint.setAlpha(time * 10);
-                g.drawBitmap(zi3, 615, 385, paint);
+                g.drawBitmap(zi3, 960 - zi3.getWidth() / 2, 385, paint);
                 break;
             case 4:
                 paint.setAlpha(255);
                 g.drawBitmap(background, 0, 0, paint);
-                g.drawBitmap(zi1, 615, 70, paint);
-                g.drawBitmap(zi2, 700, 225, paint);
-                g.drawBitmap(zi3, 615, 385, paint);
-                g.drawBitmap(an, 810, 860, paint);
+                g.drawBitmap(zi1, 960 - zi1.getWidth() / 2, 70, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 225, paint);
+                g.drawBitmap(zi3, 960 - zi3.getWidth() / 2, 385, paint);
+                g.drawBitmap(an, 960 - an.getWidth() / 2, 860, paint);
                 paint.setAlpha(time * 10);
-                g.drawBitmap(zi4, 795, 695, paint);
+                g.drawBitmap(zi4, 960 - zi4.getWidth() / 2, 695, paint);
                 break;
             case 5:
                 paint.setAlpha(255 - time * 10);
                 g.drawBitmap(background, 0, 0, paint);
-                g.drawBitmap(an, 810, 860, paint);
+                g.drawBitmap(an, 960 - an.getWidth() / 2, 860, paint);
                 paint.setAlpha(255);
-                g.drawBitmap(zi1, 615, 70, paint);
-                g.drawBitmap(zi2, 700, 225, paint);
-                g.drawBitmap(zi3, 615, 385, paint);
-                g.drawBitmap(zi4, 795, 695, paint);
+                g.drawBitmap(zi1, 960 - zi1.getWidth() / 2, 70, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 225, paint);
+                g.drawBitmap(zi3, 960 - zi3.getWidth() / 2, 385, paint);
+                g.drawBitmap(zi4, 960 - zi4.getWidth() / 2, 695, paint);
                 break;
         }
     }
@@ -149,7 +149,7 @@ public class NewStoryLine {
     }
 
     public void touchDown(float tx, float ty) {
-        if (tx > 810 && ty > 860 && (mode == 2 || mode == 3 || mode == 5)) {
+        if (tx > 884 && tx < 1033 && ty > 860 && ty < 914 && (mode == 2 || mode == 3 || mode == 5)) {
             GameDraw.gameSound(1);
             time = 0;
             mode = 5;
