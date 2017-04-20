@@ -191,13 +191,13 @@ public class AirplaneUpgrade {
                 paint.setAlpha(t * 25);
                 renderJM(g, paint);
                 paint.setAlpha(255);
-                Game.drawTop(g, paint, t);
+//                Game.drawTop(g, paint, t);
                 g.drawBitmap(qh_back1, 874, 943, paint);
                 break;
             case MODE_JING:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
-                Game.drawTop(g, paint, 10);
+//                Game.drawTop(g, paint, 10);
                 if (isDownReturn)
                     g.drawBitmap(qh_back2, 874, 943, paint);
                 else
@@ -224,7 +224,7 @@ public class AirplaneUpgrade {
             case 11:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
-                Game.drawTop(g, paint, 10);
+//                Game.drawTop(g, paint, 10);
                 g.drawBitmap(gouim, 663, 149, paint);
                 Tools.paintMImage(g, gouim, 959, 149, paint);
                 Tools.paintM2Image(g, gouim, 663, 597, paint);
@@ -351,7 +351,7 @@ public class AirplaneUpgrade {
         }
         if (getJZ(dj[id]) != 0) {
             Bitmap bitmap2 = Tools.paintNum(shu[0][0], getJZ(dj[id]), -3);
-            g.drawBitmap(bitmap2, x + 250 - bitmap2.getWidth() / 2, y + 22,
+            g.drawBitmap(bitmap2, x + 950 - bitmap2.getWidth() / 2, y + 125,
                     paint);
             // Tools.paintNum(g, shu[0][0], x + 290, y + 22, getJZ(dj[id]), 0,
             // paint);

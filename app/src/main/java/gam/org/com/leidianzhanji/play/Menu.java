@@ -480,25 +480,25 @@ public class Menu {
                     mode = 6;
                     time = -1;
                 } else if (ty > 355 && ty < 500 && tx > 680 && tx < 1250) {// 挑战BOSS
-                    if (s[0] && isDownBoss) {
+//                    if (s[0] && isDownBoss) {
                         isDownBoss = false;
                         isLevelOrBoss = 2;
                         index = BOSS;
                         mode = 6;
                         time = -1;
-                    } else if (!s[0] && isDownBoss) {
-                        gameDraw.smallDialog.reset(1, 240, 380, 10);
-                    }
+//                    } else if (!s[0] && isDownBoss) {
+//                        gameDraw.smallDialog.reset(1, 240, 380, 10);
+//                    }
                     isDownBoss = false;
                 } else if (ty > 500 && ty < 650 && tx > 680 && tx < 1250) {// 战机升级
-                    if (s[1] && isDownUpgrade) {
+//                    if (s[1] && isDownUpgrade) {
                         isDownUpgrade = false;
                         index = UPGRADE;
                         mode = 6;
                         time = -1;
-                    } else if (!s[1] && isDownUpgrade) {
-                        gameDraw.smallDialog.reset(1, 240, 380, 10);
-                    }
+//                    } else if (!s[1] && isDownUpgrade) {
+//                        gameDraw.smallDialog.reset(1, 240, 380, 10);
+//                    }
                     isDownUpgrade = false;
                 } else if ((ty > 650 && ty < 700 && tx > 680 && tx < 1250)
                         && isDownHelp) {// 帮助

@@ -93,8 +93,8 @@ public class Achieve {
 
     public void render(Canvas g, Paint paint) {
         g.drawBitmap(Menu.bg, 0, 0, paint);
-        g.drawBitmap(back_2, 857, 954, paint);
-        g.drawBitmap(back_1, 857, 954, paint);
+        g.drawBitmap(back_2, 960-back_2.getWidth()/2, 954, paint);
+        g.drawBitmap(back_1, 960-back_1.getWidth()/2, 954, paint);
         switch (mode) {
             case 0:
             case 20:
@@ -103,7 +103,7 @@ public class Achieve {
                 // g.drawBitmap(bt, -300 + t * 30, 736, paint);
                 // g.drawBitmap(Game.top2, 182 + 300 - t * 30, 736, paint);
                 // g.drawBitmap(Game.back, 330, 800 - time * 6, paint);
-                Game.drawDown(g, paint, time, isDownReturn);
+//                Game.drawDown(g, paint, time, isDownReturn);
                 paint.setAlpha(time * 25);
                 for (int i = 0; i < 5; i++) {
                     renderPai(g, id * 5 + i, 732, 250 + i * 120, paint);
@@ -116,7 +116,7 @@ public class Achieve {
                 // g.drawBitmap(bt, 0, 736, paint);
                 // g.drawBitmap(Game.top2, 182, 736, paint);
                 // g.drawBitmap(Game.back, 330, 740, paint);
-                Game.drawDown(g, paint, 10, isDownReturn);
+//                Game.drawDown(g, paint, 10, isDownReturn);
                 for (int i = 0; i < 5; i++) {
                     renderPai(g, id * 5 + i, 732, 250 + i * 120, paint);
                 }
@@ -127,7 +127,7 @@ public class Achieve {
                 // g.drawBitmap(bt, 0, 736, paint);
                 // g.drawBitmap(Game.top2, 182, 736, paint);
                 // g.drawBitmap(Game.back, 330, 740, paint);
-                Game.drawDown(g, paint, 10, isDownReturn);
+//                Game.drawDown(g, paint, 10, isDownReturn);
                 for (int i = 0; i < 5; i++) {
                     renderPai(g, id * 5 + i, 25 + dx + 100, 140 + i * 120, paint);
                     if (vx < 0) {
@@ -233,7 +233,7 @@ public class Achieve {
 
         switch (mode) {
             case 1:
-                if (tx > 857 && tx < 1079 && ty > 954 && ty < 1048) {// 返回
+                if (tx >960- back_1.getWidth()/2 && tx < 960+back_1.getWidth()/2 && ty > 954 && ty < 1048) {// 返回
                     isDownReturn = true;
                     GameDraw.gameSound(1);
                 } else if (ty > 130 && ty < 720 && dx == 0) {
@@ -245,7 +245,7 @@ public class Achieve {
     }
 
     public void touchUp(float tx, float ty) {
-        if ((tx > 857 && tx < 1079 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
+        if ((tx >960- back_1.getWidth()/2 && tx < 960+back_1.getWidth()/2 && ty > 954 && ty < 1048)&& isDownReturn) {// 返回
             isDownReturn = false;
             mode = 20;
             time = 10;
@@ -256,7 +256,7 @@ public class Achieve {
     }
 
     public void touchMove(float tx, float ty) {
-        if (!(tx > 857 && tx < 1079 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
+        if (!(tx >960- back_1.getWidth()/2 && tx < 960+back_1.getWidth()/2 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
             isDownReturn = false;
         }
         if (isDown) {
