@@ -280,14 +280,14 @@ public class Game {
      * 左下角必杀技能的绘制
      */
     public void renderBS(Canvas g, boolean huan, Paint paint) {
-        g.drawBitmap(anBiSha, 8, 700, paint);
-        g.drawBitmap(Tools.paintNum(shu, bisha, -4), 82, 737, paint);
+        g.drawBitmap(anBiSha, 51, 914, paint);
+        g.drawBitmap(Tools.paintNum(shu, bisha, -4), 195, 987, paint);
         // Tools.paintNum(g, shu, 97, 740, bisha, -4, paint);
         if (huan) {
-            g.drawBitmap(bs_huan, null, new RectF(49 - (bs_huan_t * 10 + 40),
-                    740 - (bs_huan_t * 10 + 40), 49 + (bs_huan_t * 10 + 40),
-                    740 + (bs_huan_t * 10 + 40)), paint);
-            bs_huan_t--;
+            g.drawBitmap(bs_huan, null, new RectF(123 - (bs_huan_t * 10 + 40),
+                    985 - (bs_huan_t * 10 + 40), 123 + (bs_huan_t * 10 + 40),
+                    985 + (bs_huan_t * 10 + 40)), paint);
+             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
         }
@@ -299,13 +299,13 @@ public class Game {
      * 右下角护盾技能的绘制
      */
     public void renderBH(Canvas g, boolean huan, Paint paint) {
-        g.drawBitmap(anHuDun, 360, 700, paint);
-        g.drawBitmap(Tools.paintNum(shu, baohu, -4), 370, 737, paint);
+        g.drawBitmap(anHuDun, 1665, 914, paint);
+        g.drawBitmap(Tools.paintNum(shu, baohu, -4), 1690, 987, paint);
         // Tools.paintNum(g, shu, 390, 740, baohu, -4, paint);
         if (huan) {
-            g.drawBitmap(bh_huan, null, new RectF(431 - (bh_huan_t * 10 + 40),
-                    740 - (bh_huan_t * 10 + 40), 431 + (bh_huan_t * 10 + 40),
-                    740 + (bh_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bh_huan, null, new RectF(1791 - (bh_huan_t * 10 + 40),
+                    985 - (bh_huan_t * 10 + 40), 1791 + (bh_huan_t * 10 + 40),
+                    985 + (bh_huan_t * 10 + 40)), paint);
             bh_huan_t--;
             if (bh_huan_t < 0)
                 bh_huan_t = 10;
@@ -316,16 +316,16 @@ public class Game {
         renderBS(g, bisha <= 0, paint);
         renderBH(g, baohu <= 0, paint);
         if (isDownPause)
-            g.drawBitmap(liangPause, 430, GG + 6, paint);
+            g.drawBitmap(liangPause, 1788, GG + 20, paint);
         else
-            g.drawBitmap(anPause, 430, GG + 6, paint);
+            g.drawBitmap(anPause, 1788, GG + 20, paint);
 
-        g.drawBitmap(df, 0, GG + 6, paint);// 得分的绘制
-        g.drawBitmap(Tools.paintNum(shu, (int) Game.score, -3), 65, GG + 6,
+        g.drawBitmap(df, 27, GG + 20, paint);// 得分的绘制
+        g.drawBitmap(Tools.paintNum(shu, (int) Game.score, -3), 136, GG + 29,
                 paint);
         // Tools.paintNum(g, shu, 65, GG + 6, (int) Game.score, -3, paint);
-        g.drawBitmap(sj, 220, GG + 6, paint);// 水晶的绘制
-        g.drawBitmap(Tools.paintNum(shu, (int) Game.mnuey, -3), 315, GG + 6,
+        g.drawBitmap(sj, 380, GG + 20, paint);// 水晶的绘制
+        g.drawBitmap(Tools.paintNum(shu, (int) Game.mnuey, -3), 538, GG + 29,
                 paint);
         // Tools.paintNum(g, shu, 285, GG + 6, (int) Game.mnuey, -3, paint);
 
@@ -345,13 +345,13 @@ public class Game {
         }
 
         for (int i = 0; i < sm - 1; i++) {
-            g.drawBitmap(smim[Airplane.id - 1], 30 + i * 50, GG + 40 + bosst
+            g.drawBitmap(smim[Airplane.id - 1], 30 + i * 50, GG + 80 + bosst
                     * 4.5f, paint);
         }
 
-        g.drawBitmap(lb[0], 0, GG + 100 + bosst * 4.5f, paint);
+        g.drawBitmap(lb[0], 0, GG + 173 + bosst * 4.5f, paint);
         paint.setAlpha(lb_alp);
-        g.drawBitmap(lb[1], 0, GG + 100 + bosst * 4.5f, paint);
+        g.drawBitmap(lb[1], 0, GG + 174 + bosst * 4.5f, paint);
         paint.setAlpha(255);
 
         if (bjt > 0) {
@@ -365,7 +365,7 @@ public class Game {
 
         if (tcbs_x > 0) {
             // paint.setAlpha(150) ;
-            g.drawBitmap(tcbs[(int) (tcbs_fi / 3)], 480 - tcbs_x, 150, paint);
+            g.drawBitmap(tcbs[(int) (tcbs_fi / 3)], 1920 - tcbs_x, 228, paint);
             tcbs_fi++;
             if (tcbs_fi >= 6)
                 tcbs_fi = 0;

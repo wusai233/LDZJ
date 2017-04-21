@@ -101,19 +101,19 @@ public class ChooseBoss {
         name[BOSS_NUM] = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.boss_name12);
 
-        boss[0] = new BOSS1(gameDraw.game.npcManager.im[1], 240, 350, 101);
-        boss[1] = new BOSS2(gameDraw.game.npcManager.im[2], 240, 350, 102);
-        boss[2] = new BOSS4(gameDraw.game.npcManager.im[4], 240, 350, 103);
-        boss[3] = new BOSS6(gameDraw.game.npcManager.im[6], 240, 350, 104);
-        boss[4] = new BOSS5(gameDraw.game.npcManager.im[5], 240, 350, 105);
-        boss[5] = new BOSS3(gameDraw.game.npcManager.im[3], 240, 350, 106);
+        boss[0] = new BOSS1(gameDraw.game.npcManager.im[1], 960, 350, 101);
+        boss[1] = new BOSS2(gameDraw.game.npcManager.im[2], 960, 350, 102);
+        boss[2] = new BOSS4(gameDraw.game.npcManager.im[4], 960, 350, 103);
+        boss[3] = new BOSS6(gameDraw.game.npcManager.im[6], 960, 350, 104);
+        boss[4] = new BOSS5(gameDraw.game.npcManager.im[5], 960, 350, 105);
+        boss[5] = new BOSS3(gameDraw.game.npcManager.im[3], 960, 350, 106);
 
-        boss[6] = new BOSS1(gameDraw.game.npcManager.im[7], 240, 350, 107);
-        boss[7] = new BOSS2(gameDraw.game.npcManager.im[8], 240, 350, 108);
-        boss[8] = new BOSS4(gameDraw.game.npcManager.im[10], 240, 350, 109);
-        boss[9] = new BOSS6(gameDraw.game.npcManager.im[12], 240, 350, 110);
-        boss[10] = new BOSS5(gameDraw.game.npcManager.im[11], 240, 350, 111);
-        boss[11] = new BOSS3(gameDraw.game.npcManager.im[9], 240, 350, 112);
+        boss[6] = new BOSS1(gameDraw.game.npcManager.im[7], 960, 350, 107);
+        boss[7] = new BOSS2(gameDraw.game.npcManager.im[8], 960, 350, 108);
+        boss[8] = new BOSS4(gameDraw.game.npcManager.im[10], 960, 350, 109);
+        boss[9] = new BOSS6(gameDraw.game.npcManager.im[12], 960, 350, 110);
+        boss[10] = new BOSS5(gameDraw.game.npcManager.im[11], 960, 350, 111);
+        boss[11] = new BOSS3(gameDraw.game.npcManager.im[9], 960, 350, 112);
         // boss[12] = new BOSS1(gameDraw.game.npcManager.im[1], 240, 350, 113);
         // boss[13] = boss[1];
     }
@@ -216,7 +216,7 @@ public class ChooseBoss {
                 }
 
                 g.drawBitmap(shu2, 946, 650, paint);
-                g.drawBitmap(bossNum, 250, 520, paint);
+                g.drawBitmap(bossNum, 946, 650, paint);
                 Bitmap mBitmap2 = Tools.paintNum(shu1, id + 1, -3);
                 g.drawBitmap(mBitmap2, 792 + 128, 650, paint);
                 mBitmap2 = null;
@@ -242,7 +242,7 @@ public class ChooseBoss {
 
                 renderBOSS(g, id, 960, 255, paint);
 
-                g.drawBitmap(shu2, 229, 520, paint);
+                g.drawBitmap(shu2, 946, 650, paint);
                 g.drawBitmap(bossNum, 250, 520, paint);
                 Bitmap mBitmap3 = Tools.paintNum(shu1, id + 1, -3);
                 g.drawBitmap(mBitmap3, 210 - mBitmap3.getWidth() / 2, 520, paint);
@@ -279,7 +279,7 @@ public class ChooseBoss {
                 // g.drawBitmap(Game.top1, 0, 736, paint);
                 // g.drawBitmap(bt, 0, 736, paint);
                 // g.drawBitmap(Game.top2, 182, 736, paint);
-                Game.drawTop(g, paint, 10);
+//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
                 // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
