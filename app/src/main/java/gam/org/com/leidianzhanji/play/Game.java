@@ -287,7 +287,7 @@ public class Game {
             g.drawBitmap(bs_huan, null, new RectF(123 - (bs_huan_t * 10 + 40),
                     985 - (bs_huan_t * 10 + 40), 123 + (bs_huan_t * 10 + 40),
                     985 + (bs_huan_t * 10 + 40)), paint);
-             bs_huan_t--;
+            bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
         }
@@ -489,18 +489,18 @@ public class Game {
     }
 
     public void touchDown(float tx, float ty) {
-        if (tcbs_x >= 280) {
-            if (tx > 200 && ty > 150 && ty < 150 + 107) {
-                touchDown(100, 750);
-                return;
-            }
-        }
+//        if (tcbs_x >= 280) {   // 提示使用必杀的按钮
+//            if (tx > 200 && ty > 150 && ty < 150 + 107) {
+//                touchDown(100, 750);
+//                return;
+//            }
+//        }
         if (tx < 156 && ty > GG + 100 + bosst * 4.5f
                 && ty < GG + 100 + bosst * 4.5f + 134) {
             gameDraw.billingDialog.reset(40, 20);
             return;
         }
-        if (tx > 370 && ty > 720) {// 右下角护盾
+        if (tx > 1665 && tx < 1920 && ty > 914 && ty < 1080) {// 右下角护盾
             if (baohu > 0) {
                 baohu--;
                 npcBulletManager.bs(bumpManager);
@@ -518,10 +518,10 @@ public class Game {
 //							new PaymentParam(7));
                 }
             }
-        } else if (tx > 420 && ty > GG && ty < GG + 60) {// 右上角暂停
+        } else if (tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92) {// 右上角暂停
             isDownPause = true;
             GameDraw.gameSound(1);
-        } else if (tx < 110 && ty > 720) {// 左下角必杀
+        } else if (tx < 250 && ty > 914 && ty < 1080) {// 左下角必杀
             if (Airplane.mode == 0 || Airplane.mode == 15) {
                 if (bisha > 0) {
                     GameDraw.gameSound(7);
@@ -548,7 +548,7 @@ public class Game {
     }
 
     public void touchUp(float tx, float ty) {
-        if ((tx > 420 && ty > GG && ty < GG + 60) && isDownPause) {// 右上角暂停
+        if ( (tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92)  && isDownPause) {// 右上角暂停
             isDownPause = false;
             gameDraw.pause.reset();
         }
@@ -556,7 +556,7 @@ public class Game {
     }
 
     public void touchMove(float tx, float ty) {
-        if (!(tx > 420 && ty > GG && ty < GG + 60) && isDownPause) {// 右上角暂停
+        if (! (tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92)  && isDownPause) {// 右上角暂停
             isDownPause = false;
         }
         airplane.touchMove(tx, ty);

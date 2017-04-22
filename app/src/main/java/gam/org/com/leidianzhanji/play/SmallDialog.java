@@ -71,22 +71,22 @@ public class SmallDialog {
             case 1:
             case 21:
                 g.drawColor(180 << 24);
-                g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
-                g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
+                g.drawBitmap(im, 960 - im.getWidth() / 2, 540 - im.getHeight() / 2, paint);
+                g.drawBitmap(im, 960 - im.getWidth() / 2, 540 - im.getHeight() / 2, paint);
                 paint.setAlpha(t * 30 + 100);
                 if (id > 5) {
-                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 490, paint);
+                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 460, paint);
                 }
                 paint.setAlpha(255);
                 break;
             case 2:
                 g.drawColor(180 << 24);
-                g.drawBitmap(im, 960 - im.getWidth() / 2, 520, paint);
+                g.drawBitmap(im, 960 - im.getWidth() / 2, 540 - im.getHeight() / 2, paint);
                 if (id < 5) {
-                    g.drawBitmap(zi, 960 - zi.getWidth() / 2, 538, paint);
+                    g.drawBitmap(zi, 960 - zi.getWidth() / 2, 540 - zi.getHeight() / 2, paint);
                 } else if (id < 40) {
-                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 490, paint);
-                    g.drawBitmap(zi, 960 - zi.getWidth() / 2, 538, paint);
+                    g.drawBitmap(ry, 960 - ry.getWidth() / 2, 460, paint);
+                    g.drawBitmap(zi, 960 - zi.getWidth() / 2, 540 - zi.getHeight() / 2, paint);
                 }
                 break;
         }

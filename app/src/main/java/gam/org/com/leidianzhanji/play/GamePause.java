@@ -70,10 +70,10 @@ public class GamePause {
                 g.drawColor((t * 15) << 24);
                 for (int i = 0; i < rid.length; i++) {
                     if (i % 2 == 0) {
-                        g.drawBitmap(an[rid[i]], 960-an[rid[i]].getWidth()/2 - 400 + t * 40, 200 + i * 150,
+                        g.drawBitmap(an[rid[i]], 960 - an[rid[i]].getWidth() / 2 - 400 + t * 40, 200 + i * 150,
                                 paint);
                     } else {
-                        g.drawBitmap(an[rid[i]], 960-an[rid[i]].getWidth()/2 + 400 - t * 40, 200 + i * 150,
+                        g.drawBitmap(an[rid[i]], 960 - an[rid[i]].getWidth() / 2 + 400 - t * 40, 200 + i * 150,
                                 paint);
                     }
                 }
@@ -83,9 +83,9 @@ public class GamePause {
                 g.drawColor(150 << 24);
                 for (int i = 0; i < rid.length; i++) {
                     if (isDown[i])
-                        g.drawBitmap(liang[rid[i]], 960-an[rid[i]].getWidth()/2, 200 + i * 150, paint);
+                        g.drawBitmap(liang[rid[i]], 960 - an[rid[i]].getWidth() / 2, 200 + i * 150, paint);
                     else
-                        g.drawBitmap(an[rid[i]], 960-an[rid[i]].getWidth()/2, 200 + i * 150, paint);
+                        g.drawBitmap(an[rid[i]], 960 - an[rid[i]].getWidth() / 2, 200 + i * 150, paint);
                     // if (t > 0 && id == i) {
                     // paint.setAlpha(t * 80 + 15);
                     // g.drawBitmap(liang[rid[i]], 83, 200 + i * 120, paint);
@@ -182,7 +182,7 @@ public class GamePause {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (ty > 175 && ty < 175 + 120 * 4 && tx > 80 && tx < 400) {
+                    if (ty > 200 && ty < 200 + 150 * 4 && tx > 960 - 214 && tx < 960 + 214) {
                         int n = (int) ((ty - 175) / 120);
                         isDown[n] = true;
                         GameDraw.gameSound(1);
@@ -196,7 +196,7 @@ public class GamePause {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (ty > 175 && ty < 175 + 120 * 4 && tx > 80 && tx < 400) {
+                    if (ty > 200 && ty < 200 + 150 * 4 && tx > 960 - 214 && tx < 960 + 214) {
                         int n = (int) ((ty - 175) / 120);
                         if (isDown[n]) {
                             isDown[n] = false;
@@ -213,16 +213,16 @@ public class GamePause {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (!(ty > 175 && ty < 175 + 120 * 1 && tx > 80 && tx < 400)
+                    if (!(ty > 200 && ty < 200 + 150 * 1 && tx > 960 - 214 && tx < 960 + 214)
                             && isDown[0])
                         isDown[0] = false;
-                    if (!(ty > 175 + 120 && ty < 175 + 120 * 2 && tx > 80 && tx < 400)
+                    if (!(ty > 200 + 150 * 1 + 40 * 1 && ty < 200 + 150 * 2 && tx > 960 - 214 && tx < 960 + 214)
                             && isDown[1])
                         isDown[1] = false;
-                    if (!(ty > 175 + 120 * 2 && ty < 175 + 120 * 3 && tx > 80 && tx < 400)
+                    if (!(ty > 200 + 150 * 2 + 40 * 2 && ty < 200 + 150 * 3 && tx > 960 - 214 && tx < 960 + 214)
                             && isDown[2])
                         isDown[2] = false;
-                    if (!(ty > 175 + 120 * 3 && ty < 175 + 120 * 4 && tx > 80 && tx < 400)
+                    if (!(ty > 200 + 150 * 3 + 40 * 3 && ty < 200 + 150 * 4 && tx > 960 - 214 && tx < 960 + 214)
                             && isDown[3])
                         isDown[3] = false;
                     break;
