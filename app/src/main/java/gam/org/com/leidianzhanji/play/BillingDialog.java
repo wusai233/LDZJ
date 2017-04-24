@@ -129,42 +129,42 @@ public class BillingDialog {
 
         if (id != 20 && id != 30 && id != 40) {
             g.drawBitmap(im, 960 - im.getWidth(), 200, paint);
-            Tools.paintMImage(g, im, 960, 213, paint);
+            Tools.paintMImage(g, im, 960, 200, paint);
         }
 
         switch (id) {
             case 1:
             case 2:
             case 10:
-                g.drawBitmap(zi, 738, 320, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, 320, paint);
                 break;
             case 30:
                 g.drawBitmap(im, 664, 150, paint);
                 Tools.paintMImage(g, im, 960, 150, paint);
-                Tools.paintM2Image(g, im, 664, 597, paint);
-                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
+                Tools.paintM2Image(g, im, 664, 550, paint);
+                Tools.paintRotateImage(g, im, 960, 550, 180, 302, 458, paint);
 
-                g.drawBitmap(zi, 738, 320, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, 320, paint);
 
-                g.drawBitmap(an2, 1118, 189, paint);
-                g.drawBitmap(an1, 863, 837, paint);
+                g.drawBitmap(an2, 1085, 233, paint);
+                g.drawBitmap(an1, 960 - an1.getWidth() / 2, 840, paint);
                 break;
             case 40:
-                g.drawBitmap(im, 664, 150, paint);
-                Tools.paintMImage(g, im, 960, 150, paint);
-                Tools.paintM2Image(g, im, 664, 597, paint);
-                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
+                g.drawBitmap(im, 664, 170, paint);
+                Tools.paintMImage(g, im, 960, 170, paint);
+                Tools.paintM2Image(g, im, 664, 550, paint);
+                Tools.paintRotateImage(g, im, 960, 550, 180, 302, 458, paint);
 
-                g.drawBitmap(zi, 746, 302, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, 310, paint);
 
-                g.drawBitmap(an2, 1118, 189, paint);
-                g.drawBitmap(an1, 863, 837, paint);
+                g.drawBitmap(an2, 1085, 233, paint);
+                g.drawBitmap(an1, 960 - an1.getWidth() / 2, 840, paint);
                 break;
         }
 
         if (id != 20 && id != 30 && id != 40) {
-            g.drawBitmap(an2, 372, 200, paint);
-            g.drawBitmap(an1, 162, 450, paint);
+            g.drawBitmap(an2, 1085, 233, paint);
+            g.drawBitmap(an1, 960 - an1.getWidth() / 2, 700, paint);
         }
     }
 
@@ -258,25 +258,30 @@ public class BillingDialog {
             case 2:
                 if (id == 30) {
                     if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                        Log.e("touchDown", ".....1");
                         GameDraw.gameSound(1);
                         gameDraw.chooseAirplane.buyID = 3;
                         t = 5;
                         mode = 20;
-                    } else if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
+                    } else if (tx > 1085 && tx < 1085 + 84 && ty > 233 && ty < 233 + 76) {
+                        Log.e("touchDown", ".....2");
                         GameDraw.gameSound(1);
                         t = 5;
                         mode = 20;
                     }
                 } else if (id == 40) {
                     if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                        Log.e("touchDown", ".....3");
                         GameDraw.gameSound(1);
-                    } else if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
+                    } else if (tx > 1085 && tx < 1085 + 84 && ty > 233 && ty < 233 + 76) {
+                        Log.e("touchDown", ".....4");
                         GameDraw.gameSound(1);
                         t = 5;
                         mode = 20;
                     }
                 } else if (id != 20) {
                     if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                        Log.e("touchDown", ".....5");
                         switch (id) {
                             case 1:
                                 GameDraw.gameSound(1);
@@ -291,7 +296,8 @@ public class BillingDialog {
                                 mode = 3;
                                 break;
                         }
-                    } else if (tx > 340 && tx < 460 && ty > 200 && ty < 280) {
+                    } else if (tx > 1085 && tx < 1085 + 84 && ty > 233 && ty < 233 + 76) {
+                        Log.e("touchDown", ".....6");
                         switch (id) {
                             case 1:
                             case 2:
@@ -301,6 +307,12 @@ public class BillingDialog {
                                 GameDraw.gameSound(1);
                                 break;
                             case 10:
+                                // if (Game.level <= GameWin.MAX_LEVEL) {
+                                // GameDraw.gameSound(1);
+                                // t = 0;
+                                // mode = 29;
+                                // } else {
+                                // }
                                 GameDraw.gameSound(1);
                                 t = 0;
                                 mode = 30;
@@ -309,9 +321,11 @@ public class BillingDialog {
                     }
                 } else {
                     if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                        Log.e("touchDown", ".....7");
                         mode = 3;
                         GameDraw.gameSound(1);
-                    } else if (tx > 1118 && tx < 1202 && ty > 189 && ty < 265) {
+                    } else if (tx > 1085 && tx < 1085 + 84 && ty > 233 && ty < 233 + 76) {
+                        Log.e("touchDown", ".....8");
                         GameDraw.gameSound(1);
                         t = 0;
                         mode = 30;
@@ -319,9 +333,11 @@ public class BillingDialog {
                 }
                 break;
             case 29:
-                if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                if (tx > 100 && tx < 380 && ty > 200 && ty < 380) {
+                    Log.e("touchDown", ".....9");
                     GameDraw.gameSound(1);
-                } else if (tx > 863 && tx < 1068 && ty > 837 && ty < 932) {
+                } else if (tx > 100 && tx < 380 && ty > 380 && ty < 560) {
+                    Log.e("touchDown", ".....10");
                     GameDraw.gameSound(1);
                     t = 0;
                     mode = 30;

@@ -182,7 +182,7 @@ public class GamePause {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (ty > 200 && ty < 200 + 150 * 4 && tx > 960 - 214 && tx < 960 + 214) {
+                    if (ty > 175 && ty < 175 + 120 * 4 && tx > 80 && tx < 400) {
                         int n = (int) ((ty - 175) / 120);
                         isDown[n] = true;
                         GameDraw.gameSound(1);
@@ -196,7 +196,7 @@ public class GamePause {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (ty > 200 && ty < 200 + 150 * 4 && tx > 960 - 214 && tx < 960 + 214) {
+                    if (ty > 175 && ty < 175 + 120 * 4 && tx > 80 && tx < 400) {
                         int n = (int) ((ty - 175) / 120);
                         if (isDown[n]) {
                             isDown[n] = false;
@@ -213,22 +213,23 @@ public class GamePause {
         switch (mode) {
             case 1:
                 if (t == 0) {
-                    if (!(ty > 200 && ty < 200 + 150 * 1 && tx > 960 - 214 && tx < 960 + 214)
+                    if (!(ty > 175 && ty < 175 + 120 * 1 && tx > 80 && tx < 400)
                             && isDown[0])
                         isDown[0] = false;
-                    if (!(ty > 200 + 150 * 1 + 40 * 1 && ty < 200 + 150 * 2 && tx > 960 - 214 && tx < 960 + 214)
+                    if (!(ty > 175 + 120 && ty < 175 + 120 * 2 && tx > 80 && tx < 400)
                             && isDown[1])
                         isDown[1] = false;
-                    if (!(ty > 200 + 150 * 2 + 40 * 2 && ty < 200 + 150 * 3 && tx > 960 - 214 && tx < 960 + 214)
+                    if (!(ty > 175 + 120 * 2 && ty < 175 + 120 * 3 && tx > 80 && tx < 400)
                             && isDown[2])
                         isDown[2] = false;
-                    if (!(ty > 200 + 150 * 3 + 40 * 3 && ty < 200 + 150 * 4 && tx > 960 - 214 && tx < 960 + 214)
+                    if (!(ty > 175 + 120 * 3 && ty < 175 + 120 * 4 && tx > 80 && tx < 400)
                             && isDown[3])
                         isDown[3] = false;
                     break;
                 }
         }
     }
+
 
     public void keyDown(int k) {
         switch (k) {

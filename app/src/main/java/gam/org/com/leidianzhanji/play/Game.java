@@ -495,8 +495,8 @@ public class Game {
 //                return;
 //            }
 //        }
-        if (tx < 156 && ty > GG + 100 + bosst * 4.5f
-                && ty < GG + 100 + bosst * 4.5f + 134) {
+        if (tx < 283 && ty > GG + 172 + bosst * 4.5f
+                && ty < GG + 416 + bosst * 4.5f + 134) {
             gameDraw.billingDialog.reset(40, 20);
             return;
         }
@@ -548,7 +548,7 @@ public class Game {
     }
 
     public void touchUp(float tx, float ty) {
-        if ( (tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92)  && isDownPause) {// 右上角暂停
+        if ((tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92) && isDownPause) {// 右上角暂停
             isDownPause = false;
             gameDraw.pause.reset();
         }
@@ -556,7 +556,7 @@ public class Game {
     }
 
     public void touchMove(float tx, float ty) {
-        if (! (tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92)  && isDownPause) {// 右上角暂停
+        if (!(tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92) && isDownPause) {// 右上角暂停
             isDownPause = false;
         }
         airplane.touchMove(tx, ty);
