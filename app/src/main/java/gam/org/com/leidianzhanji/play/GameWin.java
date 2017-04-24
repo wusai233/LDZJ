@@ -35,7 +35,7 @@ public class GameWin {
 
     public void init(Resources res) {
         im1 = BitmapFactory.decodeResource(res, R.drawable.sl_bg1);
-        im2 = BitmapFactory.decodeResource(res, R.drawable.sl_bg2);
+        im2 = BitmapFactory.decodeResource(res, R.drawable.sl_bg3);
         an1 = BitmapFactory.decodeResource(res, R.drawable.cj_cj1);
         an2 = BitmapFactory.decodeResource(res, R.drawable.cj_cj2);
         an3 = BitmapFactory.decodeResource(res, R.drawable.cj_upground1);
@@ -100,13 +100,13 @@ public class GameWin {
     }
 
     public void draw(Canvas g, Paint paint, int time) {
-        g.drawBitmap(im1, 960 - im1.getWidth(), -423 + time * (float) 42.3, paint);
-        Tools.paintMImage(g, im1, 960, -423 + time * (float) 42.3, paint);
-        g.drawBitmap(im2, 960 - im2.getWidth(), 800 - time * (float) 39.7, paint);
-        Tools.paintMImage(g, im2, 960, 800 - time * (float) 39.7, paint);
+        g.drawBitmap(im1, 960 - im1.getWidth(),34, paint);
+        Tools.paintMImage(g, im1, 960, 34, paint);
+        g.drawBitmap(im2, 960 - im2.getWidth(),455, paint);
+        Tools.paintMImage(g, im2, 960, 455, paint);
 //        Game.drawTop(g, paint, time);
-        g.drawBitmap(Game.down, 960 - Game.down.getWidth(), 800 - time * (float) 13.7, paint);
-        Tools.paintMImage(g, Game.down, 960, 800 - time * (float) 13.7, paint);
+        g.drawBitmap(Game.down, 960 - Game.down.getWidth(), 1000 - time * (float) 13.7, paint);
+        Tools.paintMImage(g, Game.down, 960, 1000 - time * (float) 13.7, paint);
     }
 
     public void render(Canvas g, Paint paint) {
@@ -120,44 +120,44 @@ public class GameWin {
                 paint.setAlpha(time * 25 + 5);
                 renderJM(g, paint);
                 paint.setAlpha(255);
-                g.drawBitmap(an1, 154, 620, paint);
+                g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 2:
                 draw(g, paint, 10);
                 renderJM(g, paint);
                 if (isDownCJ)
-                    g.drawBitmap(an2, 154, 620, paint);
+                    g.drawBitmap(an1, 847, 762, paint);
                 else
-                    g.drawBitmap(an1, 154, 620, paint);
+                    g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 3:
                 draw(g, paint, 10);
                 renderJM(g, paint);
-                g.drawBitmap(an2, 154, 620, paint);
+                g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 4:
                 draw(g, paint, 10);
                 renderJM(g, paint);
-                g.drawBitmap(an2, 154, 620, paint);
+                g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 5:
                 draw(g, paint, 10);
                 renderJM(g, paint);
                 if (isDownUpgrade)
-                    g.drawBitmap(an4, 51, 620, paint);
+                    g.drawBitmap(an4, 682, 760, paint);
                 else
-                    g.drawBitmap(an3, 51, 620, paint);
+                    g.drawBitmap(an3, 682, 760, paint);
                 if (isDownGoOn)
-                    g.drawBitmap(an6, 261, 620, paint);
+                    g.drawBitmap(an6, 1003, 759, paint);
                 else
-                    g.drawBitmap(an5, 261, 620, paint);
+                    g.drawBitmap(an5, 1003, 759, paint);
                 break;
             case 10:
                 draw(g, paint, 10);
                 paint.setAlpha(time * 25 + 5);
                 renderJM(g, paint);
-                g.drawBitmap(an3, 51, 620, paint);
-                g.drawBitmap(an5, 261, 620, paint);
+                g.drawBitmap(an3, 682, 760, paint);
+                g.drawBitmap(an5, 1003, 759, paint);
                 paint.setAlpha(255);
                 break;
             case 21:
@@ -174,39 +174,54 @@ public class GameWin {
     public void renderJM(Canvas g, Paint paint) {
         // g.drawBitmap(bt, 156, 130, paint);
         for (int i = 0; i < 3; i++) {
-            g.drawBitmap(di, 80, 140 + 70 * i, paint);
-            Tools.paintMImage(g, di, 240, 140 + 70 * i, paint);
-            g.drawBitmap(fs[i], 100, 150 + 70 * i, paint);
+            g.drawBitmap(di, 800, 115 + 76 * i, paint);
+            Tools.paintMImage(g, di, 960, 115 + 76 * i, paint);
+            g.drawBitmap(fs[i], 820, 123 + 76 * i, paint);
         }
         Bitmap bitmap = Tools.paintNum(shu, (int) Game.score, -2);
-        g.drawBitmap(bitmap, 330 - bitmap.getWidth() / 2, 150, paint);
+        g.drawBitmap(bitmap, 930, 121, paint);
         bitmap = Tools.paintNum(shu, (int) Game.mnuey, -2);
-        g.drawBitmap(bitmap, 330 - bitmap.getWidth() / 2, 220, paint);
+        g.drawBitmap(bitmap, 930 , 199, paint);
         bitmap = Tools.paintNum(shu, (int) Game.npcNum, -2);
-        g.drawBitmap(bitmap, 330 - bitmap.getWidth() / 2, 290, paint);
+        g.drawBitmap(bitmap, 930 , 273, paint);
         bitmap = null;
 
         renderCJ(g, id, dx, paint);
         // g.drawBitmap(jl, 186, 440, paint);
-        g.drawBitmap(kuang, 166, 460, paint);
-        Tools.paintMImage(g, kuang, 240, 460, paint);
+        g.drawBitmap(kuang, 960 - kuang.getWidth(), 505, paint);
+        Tools.paintMImage(g, kuang, 960, 505, paint);
 
         // g.drawBitmap(gai, 0, 440, paint);
         // Tools.paintMImage(g, gai, 409, 440, paint);
     }
 
+//    public void renderCJ(Canvas g, int id, float dx, Paint paint) {
+//        if (dx == 0) {
+//            renderJiang(g, id, 240, 517, paint);
+//            renderJiang(g, (id + 1) % l, 390, 517, paint);
+//            renderJiang(g, (id + l - 1) % l, 90, 517, paint);
+//        } else if (dx < 0) {
+//            renderJiang(g, id, 240 + dx, 517, paint);
+//            renderJiang(g, (id + 1) % l, 390 + dx, 517, paint);
+//            renderJiang(g, (id + 2) % l, 540 + dx, 517, paint);
+//            renderJiang(g, (id + l - 1) % l, 90 + dx, 517, paint);
+//        }
+//    }
+
     public void renderCJ(Canvas g, int id, float dx, Paint paint) {
         if (dx == 0) {
-            renderJiang(g, id, 240, 517, paint);
-            renderJiang(g, (id + 1) % l, 390, 517, paint);
-            renderJiang(g, (id + l - 1) % l, 90, 517, paint);
+            renderJiang(g, id, 960, 590, paint);
+            renderJiang(g, (id + 1) % l, 1200, 590, paint);
+            renderJiang(g, (id + l - 1) % l, 760, 590, paint);
         } else if (dx < 0) {
-            renderJiang(g, id, 240 + dx, 517, paint);
-            renderJiang(g, (id + 1) % l, 390 + dx, 517, paint);
-            renderJiang(g, (id + 2) % l, 540 + dx, 517, paint);
-            renderJiang(g, (id + l - 1) % l, 90 + dx, 517, paint);
+            renderJiang(g, id, 960 + dx, 517, paint);
+            renderJiang(g, (id + 1) % l, 1200 + dx, 590, paint);
+            renderJiang(g, (id + 2) % l, 1200 + dx, 590, paint);
+            renderJiang(g, (id + l - 1) % l, 760 + dx, 590, paint);
         }
     }
+
+
 
     public void renderJiang(Canvas g, int id, float x, float y, Paint paint) {
         Bitmap bitmap = null;
@@ -513,16 +528,16 @@ public class GameWin {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 2:
-                if (tx > 150 && tx < 330 && ty > 620 && ty < 710) {// 抽奖
+                if ((tx > 847 && tx < 1073 && ty > 762 && ty < 869) ){// 抽奖
                     isDownCJ = true;
                     GameDraw.gameSound(1);
                 }
                 break;
             case 5:
-                if (tx > 50 && tx < 225 && ty > 620 && ty < 710) {// 升级战机界面
+                if (tx > 687 && tx < 920 && ty > 759 && ty < 870) {// 升级战机界面
                     isDownUpgrade = true;
                     GameDraw.gameSound(1);
-                } else if (tx > 216 && tx < 390 && ty > 620 && ty < 710) {// 选择战机界面
+                } else if (tx > 1004 && tx < 1237  && ty > 759 && ty < 870) {// 选择战机界面
                     isDownGoOn = true;
                     GameDraw.gameSound(1);
                 }
@@ -533,7 +548,7 @@ public class GameWin {
     public void touchUp(float tx, float ty) {
         switch (mode) {
             case 2:
-                if ((tx > 150 && tx < 330 && ty > 620 && ty < 710) && isDownCJ) {// 抽奖
+                if ((tx > 847 && tx < 1073 && ty > 762 && ty < 869) && isDownCJ) {// 抽奖
                     isDownCJ = false;
                     mode = 3;
                     time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
@@ -544,12 +559,12 @@ public class GameWin {
                 }
                 break;
             case 5:
-                if ((tx > 50 && tx < 225 && ty > 620 && ty < 710) && isDownUpgrade) {
+                if ((tx > 687 && tx < 920 && ty > 759 && ty < 870) && isDownUpgrade) {
                     isDownUpgrade = false;
                     anid = 1;
                     time = 10;
                     mode = 10;
-                } else if ((tx > 216 && tx < 390 && ty > 620 && ty < 710)
+                } else if ( (tx > 1004 && tx < 1237  && ty > 759 && ty < 870)
                         && isDownGoOn) {
                     isDownGoOn = false;
                     anid = 2;
@@ -563,14 +578,14 @@ public class GameWin {
     public void touchMove(float tx, float ty) {
         switch (mode) {
             case 2:
-                if (!(tx > 150 && tx < 330 && ty > 620 && ty < 710) && isDownCJ) {// 抽奖
+                if (!(tx > 847 && tx < 1073 && ty > 762 && ty < 869)  && isDownCJ) {// 抽奖
                     isDownCJ = false;
                 }
                 break;
             case 5:
-                if (!(tx > 50 && tx < 225 && ty > 620 && ty < 710) && isDownUpgrade) {
+                if (!(tx > 687 && tx < 920 && ty > 759 && ty < 870) && isDownUpgrade) {
                     isDownUpgrade = false;
-                } else if (!(tx > 216 && tx < 390 && ty > 620 && ty < 710)
+                } else if (! (tx > 1004 && tx < 1237  && ty > 759 && ty < 870)
                         && isDownGoOn) {
                     isDownGoOn = false;
                 }
