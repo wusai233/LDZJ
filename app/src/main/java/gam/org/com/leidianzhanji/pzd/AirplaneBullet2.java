@@ -86,7 +86,7 @@ public class AirplaneBullet2 extends Bullet {
 			move();
 			break;
 		}
-		if (x < -10 || x > Game.CW || y < -10 || y > 810) {
+		if (x < -10 || x > Game.CW || y < -10 || y > 1090) {
 			visible = false;
 		}
 	}

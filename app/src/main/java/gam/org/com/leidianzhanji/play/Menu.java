@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -42,6 +43,7 @@ public class Menu {
     Bitmap bt1;
     Bitmap[] an_a = new Bitmap[3];
     Bitmap[] an_l = new Bitmap[3];
+    Bitmap bs_huan;
     public static byte isLevelOrBoss = 0;
     int alp, av;
 
@@ -70,6 +72,8 @@ public class Menu {
         an_l[0] = BitmapFactory.decodeResource(res, R.drawable.menu_an62);
         an_l[1] = BitmapFactory.decodeResource(res, R.drawable.menu_an72);
         an_l[2] = BitmapFactory.decodeResource(res, R.drawable.menu_an82);
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
 
     public void initPart(Resources res) {
@@ -92,7 +96,20 @@ public class Menu {
         an_l[1] = BitmapFactory.decodeResource(res, R.drawable.menu_an72);
         an_l[2] = BitmapFactory.decodeResource(res, R.drawable.menu_an82);
     }
+    int bs_huan_t = 0;
+    /**
+     * 左下角必杀技能的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
 
+
+            g.drawBitmap(bs_huan, null, new RectF(200 - (bs_huan_t * 10 + 40), 200 - (bs_huan_t * 10 + 40), 200 + (bs_huan_t * 10 + 40), 200 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
     public void free() {
         Log.i("Menu", "----------free----------------");
         an2 = null;
@@ -143,6 +160,7 @@ public class Menu {
     }
 
     public void render(Canvas g, Paint paint) {
+
         Log.i("Menu", "----------render----------------" + mode);
         switch (mode) {
             case 0:// 静态
@@ -278,9 +296,12 @@ public class Menu {
                     g.drawBitmap(anStart, 860, 870 + time * 32, paint);
                     g.drawBitmap(anAchieve, 490, 920 + time * 32, paint);
                     g.drawBitmap(anSetting, 1270, 920 + time * 32, paint);
+
                 }
                 break;
+
         }
+        renderAN(g, true, paint);
     }
 
     public void renderBT(Canvas g, int time, Paint paint) {
