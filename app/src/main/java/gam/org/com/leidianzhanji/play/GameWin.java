@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -545,6 +547,7 @@ public class GameWin {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB_MR1)
     public void touchUp(float tx, float ty) {
         switch (mode) {
             case 2:

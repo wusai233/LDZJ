@@ -16,6 +16,8 @@ import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -377,6 +379,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB_MR1)
     public boolean onTouchEvent(MotionEvent e) {      // 控制
         float x = e.getX(), y = e.getY();
         if (WIDTH != MainActivity.SCREEN_WIDTH
