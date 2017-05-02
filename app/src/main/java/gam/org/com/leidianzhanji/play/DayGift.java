@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -18,6 +19,7 @@ public class DayGift {
     Bitmap im, zi;
     Bitmap di1, di2, di3;
     Bitmap an1;
+    Bitmap bs_huan;
 
     int mode, t;
 
@@ -34,7 +36,24 @@ public class DayGift {
         di2 = BitmapFactory.decodeResource(res, R.drawable.mr_di2);
         di3 = BitmapFactory.decodeResource(res, R.drawable.mr_di3);
         an1 = BitmapFactory.decodeResource(res, R.drawable.mr_an1);
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
+
+    int bs_huan_t = 0;
+
+    /**
+     * 左下角必杀技能的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            g.drawBitmap(bs_huan, null, new RectF(863 - (bs_huan_t * 10 + 40), 837 - (bs_huan_t * 10 + 40), 863 + (bs_huan_t * 10 + 40), 837 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
+
 
     public void free() {
         im = null;
@@ -68,6 +87,7 @@ public class DayGift {
             case 2:
                 g.drawColor(((100) << 24) | 0xffffff);
                 renderJM(g, 255, paint);
+                renderAN(g, true, paint);
                 break;
         }
     }

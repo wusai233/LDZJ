@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -14,6 +15,7 @@ public class NewStoryLine {
     GameDraw gameDraw;
     Bitmap background;
     Bitmap zi1, zi2, zi3, zi4, an;
+    Bitmap bs_huan;
     int mode, time;
 
     public NewStoryLine(GameDraw gd) {
@@ -27,6 +29,23 @@ public class NewStoryLine {
         zi3 = BitmapFactory.decodeResource(res, R.drawable.sl_zi3);
         zi4 = BitmapFactory.decodeResource(res, R.drawable.sl_zi4);
         an = BitmapFactory.decodeResource(res, R.drawable.jq_tiao);
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
+    }
+
+    int bs_huan_t = 0;
+
+    /**
+     * 左下角必杀技能的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 865 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 865 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
     }
 
     public void free() {
@@ -46,6 +65,7 @@ public class NewStoryLine {
     }
 
     public void render(Canvas g, Paint paint) {
+        renderAN(g, mode > 2, paint);
         switch (mode) {
             case 0:
                 paint.setAlpha(time * 10);
@@ -172,15 +192,19 @@ public class NewStoryLine {
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                GameDraw.gameSound(1);
-                time = 0;
-                mode = 5;
+                if ((mode == 2 || mode == 3 || mode == 5)) {
+                    GameDraw.gameSound(1);
+                    time = 0;
+                    mode = 5;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
-                GameDraw.gameSound(1);
-                time = 0;
-                mode = 5;
+                if ((mode == 2 || mode == 3 || mode == 5)) {
+                    GameDraw.gameSound(1);
+                    time = 0;
+                    mode = 5;
+                }
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");
