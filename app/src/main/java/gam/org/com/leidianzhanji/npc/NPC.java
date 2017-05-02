@@ -32,19 +32,19 @@ public abstract class NPC {
 			if (Achieve.cj[10] == false) {
 				if (Game.npcNum >= 500) {
 					Achieve.cj[10] = true;
-					game.gameDraw.smallDialog.reset(20, 240, Game.GG + 60, 20);
+					game.gameDraw.smallDialog.reset(20, 960, Game.GG + 60, 20);
 				}
 			}
 			if (Achieve.cj[11] == false) {
 				if (Game.npcNum >= 1000) {
 					Achieve.cj[11] = true;
-					game.gameDraw.smallDialog.reset(21, 240, Game.GG + 60, 20);
+					game.gameDraw.smallDialog.reset(21, 960, Game.GG + 60, 20);
 				}
 			}
 			if (Achieve.cj[12] == false) {
 				if (Game.npcNum >= 2000) {
 					Achieve.cj[12] = true;
-					game.gameDraw.smallDialog.reset(22, 240, Game.GG + 60, 20);
+					game.gameDraw.smallDialog.reset(22, 960, Game.GG + 60, 20);
 				}
 			}
 			switch (level) {

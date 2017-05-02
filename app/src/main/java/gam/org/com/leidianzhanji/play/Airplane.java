@@ -25,7 +25,7 @@ public class Airplane {
 
     public static int mode;
     int fi, fm;
-    private final int xx = 480;
+    private final int xx = 1920;
     float v = 30;
     public static float x, y;
     float vx, vy, mx, my, ox, oy;
@@ -354,8 +354,8 @@ public class Airplane {
         switch (mode) {
             case -1:
                 y -= v;
-                if (y <= 540) {
-                    y = 540;
+                if (y <= 1080) {
+                    y = 1080;
                     mode = 0;
 
                     if (Data.jx == true && Data.level == 1
@@ -366,12 +366,12 @@ public class Airplane {
 
                     if (Achieve.cj[1] == false && Game.level == 2) {
                         Achieve.cj[1] = true;
-                        gameDraw.smallDialog.reset(11, 240, Game.GG + 60, 20);
+                        gameDraw.smallDialog.reset(11, 960, Game.GG + 60, 20);
                     }
 
                     if (Achieve.cj[7] == false && Airplane.fh == true) {
                         Achieve.cj[7] = true;
-                        gameDraw.smallDialog.reset(17, 240, Game.GG + 60, 20);
+                        gameDraw.smallDialog.reset(17, 960, Game.GG + 60, 20);
                     }
                     Airplane.fh = false;
                 }
@@ -512,7 +512,7 @@ public class Airplane {
                 break;
             case 11: // 玩家死亡
                 y += 10;
-                if (y >= 1200) {
+                if (y >= 1920) {
                     gameDraw.billingDialog.reset(10, 20);
                 }
                 break;
@@ -540,7 +540,7 @@ public class Airplane {
                     if (Game.level == GameWin.MAX_LEVEL) {
                         if (Achieve.cj[5] == false) {
                             Achieve.cj[5] = true;
-                            gameDraw.smallDialog.reset(15, 240, Game.GG + 60, 20);
+                            gameDraw.smallDialog.reset(15, 960, Game.GG + 60, 20);
                         }
                     }
                 }
@@ -561,7 +561,7 @@ public class Airplane {
                         if (Achieve.cj[4] == false) {
                             if (ZL.tn >= ZL.allNPCNum + 1) {
                                 Achieve.cj[4] = true;
-                                gameDraw.smallDialog.reset(14, 240, Game.GG + 60,
+                                gameDraw.smallDialog.reset(14, 960, Game.GG + 60,
                                         20);
                             }
                         }
@@ -625,7 +625,7 @@ public class Airplane {
                 }
                 if (Achieve.cj[6] == false) {
                     Achieve.cj[6] = true;
-                    gameDraw.smallDialog.reset(16, 240, Game.GG + 60, 20);
+                    gameDraw.smallDialog.reset(16, 960, Game.GG + 60, 20);
                 }
                 Data.chackBH();
                 Data.save();
@@ -652,18 +652,18 @@ public class Airplane {
         Game.isWD = false;
         if (Achieve.cj[0] == false) {
             Achieve.cj[0] = true;
-            gameDraw.smallDialog.reset(10, 240, Game.GG + 60, 20);
+            gameDraw.smallDialog.reset(10, 960, Game.GG + 60, 20);
         }
         if (Achieve.cj[2] == false) {
             if (Game.level == 6) {
                 Achieve.cj[2] = true;
-                gameDraw.smallDialog.reset(12, 240, Game.GG + 60, 20);
+                gameDraw.smallDialog.reset(12, 960, Game.GG + 60, 20);
             }
         }
         if (Achieve.cj[3] == false) {
             if (Game.level == GameWin.MAX_LEVEL) {
                 Achieve.cj[3] = true;
-                gameDraw.smallDialog.reset(12, 240, Game.GG + 60, 20);
+                gameDraw.smallDialog.reset(12, 960, Game.GG + 60, 20);
             }
         }
     }
