@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -17,6 +18,7 @@ public class Setting {
     Bitmap bt;
     Bitmap back1;
     Bitmap an1, an2, sk, sg;
+    Bitmap bs_huan;
 
     int mode, t, id;
 
@@ -33,6 +35,40 @@ public class Setting {
         an2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sz_an1);
         sk = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sz_ka);
         sg = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sz_guan);
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
+    }
+
+    int bs_huan_t = 0;
+
+    /**
+     * 选择光圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            // 返回
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1078 - (bs_huan_t * 10 + 40),
+                    442 - (bs_huan_t * 10 + 40),
+                    1078 + (bs_huan_t * 10 + 40),
+                    442 + (bs_huan_t * 10 + 40)), paint);
+
+            g.drawBitmap(bs_huan, null, new RectF(
+                    885 - (bs_huan_t * 10 + 40),
+                    643 - (bs_huan_t * 10 + 40),
+                    885 + (bs_huan_t * 10 + 40),
+                    643 + (bs_huan_t * 10 + 40)), paint);
+
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1060 - (bs_huan_t * 10 + 40),
+                    643 - (bs_huan_t * 10 + 40),
+                    1060 + (bs_huan_t * 10 + 40),
+                    643 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
     }
 
     public void free() {
@@ -74,8 +110,9 @@ public class Setting {
             g.drawBitmap(an1, 865, 618, paint);
         }
 
-        g.drawBitmap(sk, 803, 618, paint);
-        g.drawBitmap(sg, 978, 618, paint);
+        g.drawBitmap(sk, 803, 620, paint);
+        g.drawBitmap(sg, 978, 620, paint);
+        renderAN(g, true, paint);
     }
 
     public void upData() {

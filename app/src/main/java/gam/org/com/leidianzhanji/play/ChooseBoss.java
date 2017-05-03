@@ -43,6 +43,7 @@ public class ChooseBoss {
     Bitmap shu1, shu2;
     // Bitmap[] zi = new Bitmap[4];
     Bitmap[] name = new Bitmap[BOSS_NUM + 1];
+    Bitmap bs_huan;
 
     /**
      * id:代表第几个BOSS
@@ -116,6 +117,9 @@ public class ChooseBoss {
         boss[11] = new BOSS3(gameDraw.game.npcManager.im[9], 960, 350, 112);
         // boss[12] = new BOSS1(gameDraw.game.npcManager.im[1], 240, 350, 113);
         // boss[13] = boss[1];
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
 
     public void free() {

@@ -47,7 +47,7 @@ public class DayGift {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            g.drawBitmap(bs_huan, null, new RectF(965 - (bs_huan_t * 10 + 40), 884 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 884 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 884 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 884 + (bs_huan_t * 10 + 40)), paint);
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -113,7 +113,7 @@ public class DayGift {
         }
 
         g.drawBitmap(zi, 748, 116, paint);
-        g.drawBitmap(an1, 863, 837, paint);
+        g.drawBitmap(an1, 960 - an1.getWidth() / 2, 837, paint);
         paint.setAlpha(255);
     }
 

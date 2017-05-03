@@ -37,11 +37,11 @@ public class NewStoryLine {
     int bs_huan_t = 0;
 
     /**
-     * 左下角必杀技能的绘制
+     * 选择光圈的绘制
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 865 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 865 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 884 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 884 + (bs_huan_t * 10 + 40)), paint);
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;

@@ -96,20 +96,33 @@ public class Menu {
         an_l[1] = BitmapFactory.decodeResource(res, R.drawable.menu_an72);
         an_l[2] = BitmapFactory.decodeResource(res, R.drawable.menu_an82);
     }
+
     int bs_huan_t = 0;
+
     /**
-     * 左下角必杀技能的绘制
+     * 选择光圈的绘制
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
 
-
-            g.drawBitmap(bs_huan, null, new RectF(200 - (bs_huan_t * 10 + 40), 200 - (bs_huan_t * 10 + 40), 200 + (bs_huan_t * 10 + 40), 200 + (bs_huan_t * 10 + 40)), paint);
+            //挑战Bss
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 425 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 425 + (bs_huan_t * 10 + 40)), paint);
+            //战斗升级
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 573 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 573 + (bs_huan_t * 10 + 40)), paint);
+            //帮助关于
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 718 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 718 + (bs_huan_t * 10 + 40)), paint);
+            //开始按钮
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 968 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 968 + (bs_huan_t * 10 + 40)), paint);
+            //成就
+            g.drawBitmap(bs_huan, null, new RectF(566 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 579 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
+            //设置
+            g.drawBitmap(bs_huan, null, new RectF(1349 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 1349 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
         }
     }
+
     public void free() {
         Log.i("Menu", "----------free----------------");
         an2 = null;
@@ -165,13 +178,13 @@ public class Menu {
         switch (mode) {
             case 0:// 静态
                 g.drawBitmap(bg, 0, 0, paint);
-                g.drawBitmap(an2, 550, 855, paint);
-                Tools.paintMImage(g, an2, 939, 855, paint);
+                g.drawBitmap(an2, 960 - an2.getWidth(), 855, paint);
+                Tools.paintMImage(g, an2, 960, 855, paint);
                 g.drawBitmap(gai2, 673, 0, paint);
                 Tools.paintMImage(g, gai2, 969, 0, paint);
                 g.drawBitmap(fei2, 845, 399, paint);
                 g.drawBitmap(bt1, 760, 98, paint);
-                g.drawBitmap(anStart, 845, 870, paint);
+                g.drawBitmap(anStart, 960 - anStart.getWidth() / 2, 870, paint);
                 g.drawBitmap(anAchieve, 500, 920, paint);
                 g.drawBitmap(anSetting, 1270, 920, paint);
                 g.drawBitmap(gai1, 510, -10, paint);
@@ -185,8 +198,8 @@ public class Menu {
                 Tools.paintMImage(g, gai1, 950, -68 - time * 100, paint);
                 g.drawBitmap(fei2, 845, 399, paint);
                 g.drawBitmap(bt1, 760, 98, paint);
-                g.drawBitmap(an2, 550, 855 + time * 19, paint);
-                Tools.paintMImage(g, an2, 939, 855 + time * 19, paint);
+                g.drawBitmap(an2, 960 - an2.getWidth(), 855 + time * 19, paint);
+                Tools.paintMImage(g, an2, 960, 855 + time * 19, paint);
                 g.drawBitmap(anStart, 845, 870 + time * 19, paint);
                 g.drawBitmap(anAchieve, 500, 920 + time * 19, paint);
                 g.drawBitmap(anSetting, 1270, 920 + time * 19, paint);
@@ -200,8 +213,8 @@ public class Menu {
                 g.drawBitmap(gai1, 510, -10 * 100, paint);
                 Tools.paintMImage(g, gai1, 950, -10 * 100, paint);
 
-                g.drawBitmap(an2, 550, 855 + time2 * 22, paint);
-                Tools.paintMImage(g, an2, 939, 855 + time2 * 22, paint);
+                g.drawBitmap(an2, 960 - an2.getWidth(), 855 + time2 * 22, paint);
+                Tools.paintMImage(g, an2, 960, 855 + time2 * 22, paint);
                 g.drawBitmap(anStart, 845, 870 + time2 * 22, paint);
                 g.drawBitmap(anAchieve, 500, 920 + time2 * 22, paint);
                 g.drawBitmap(anSetting, 1270, 920 + time2 * 22, paint);
@@ -214,8 +227,8 @@ public class Menu {
                 Tools.paintMImage(g, gai2, 969, 0, paint);
                 g.drawBitmap(bt1, 760, 98, paint);
                 g.drawBitmap(fei2, 845 - time * 120, 399 - time * 100, paint);
-                g.drawBitmap(an2, 550, 855, paint);
-                Tools.paintMImage(g, an2, 939, 855, paint);
+                g.drawBitmap(an2, 960 - an2.getWidth(), 855, paint);
+                Tools.paintMImage(g, an2, 960, 855, paint);
                 g.drawBitmap(anStart, 860, 870, paint);
                 g.drawBitmap(anAchieve, 490, 920, paint);
                 g.drawBitmap(anSetting, 1270, 920, paint);
@@ -228,8 +241,8 @@ public class Menu {
                 g.drawBitmap(gai2, 673, 0, paint);
                 Tools.paintMImage(g, gai2, 969, 0, paint);
                 g.drawBitmap(bt1, 760, 98, paint);
-                g.drawBitmap(an2, 550, 855, paint);
-                Tools.paintMImage(g, an2, 939, 855, paint);
+                g.drawBitmap(an2, 960 - an2.getWidth(), 855, paint);
+                Tools.paintMImage(g, an2, 960, 855, paint);
                 g.drawBitmap(anStart, 860, 870, paint);
                 g.drawBitmap(anAchieve, 490, 920, paint);
                 g.drawBitmap(anSetting, 1270, 920, paint);
@@ -251,8 +264,8 @@ public class Menu {
                 g.drawBitmap(gai2, 673, 0, paint);
                 Tools.paintMImage(g, gai2, 969, 0, paint);
                 g.drawBitmap(bt1, 760, 98, paint);
-                g.drawBitmap(an2, 550, 855, paint);
-                Tools.paintMImage(g, an2, 939, 855, paint);
+                g.drawBitmap(an2, 960 - an2.getWidth(), 855, paint);
+                Tools.paintMImage(g, an2, 960, 855, paint);
                 if (isDownStart)
                     g.drawBitmap(liangStart, 860, 870, paint);
                 else
@@ -291,8 +304,8 @@ public class Menu {
                     g.drawBitmap(gai1, 510, -10 - time * 15, paint);
                     Tools.paintMImage(g, gai1, 950, -10 - time * 15, paint);
 
-                    g.drawBitmap(an2, 550, 855 + time * 32, paint);
-                    Tools.paintMImage(g, an2, 939, 855 + time * 32, paint);
+                    g.drawBitmap(an2, 960 - an2.getWidth(), 855 + time * 32, paint);
+                    Tools.paintMImage(g, an2, 960, 855 + time * 32, paint);
                     g.drawBitmap(anStart, 860, 870 + time * 32, paint);
                     g.drawBitmap(anAchieve, 490, 920 + time * 32, paint);
                     g.drawBitmap(anSetting, 1270, 920 + time * 32, paint);
@@ -311,6 +324,7 @@ public class Menu {
         g.drawBitmap(bt1, 96, 150 - time * 25, paint);
         g.drawBitmap(gai1, 0, -568 - time * 15, paint);
         Tools.paintMImage(g, gai1, 240, -568 - time * 15, paint);
+
     }
 
     public void upData() {
@@ -460,7 +474,7 @@ public class Menu {
                     isDownExit = true;
                     GameDraw.gameSound(1);
                     touchUp(-100, -100);
-                } else if (tx > 660 && tx < 1230 && ty > 900) {// 开始
+                } else if (tx > 960 - anStart.getWidth() / 2 && tx < 960 + anStart.getWidth() / 2 && ty > 900) {// 开始
                     isDownStart = true;
                     GameDraw.gameSound(1);
                 } else if (ty > 355 && ty < 500 && tx > 680 && tx < 1250) {// 挑战BOSS
@@ -470,7 +484,7 @@ public class Menu {
                     isDownUpgrade = true;
                     GameDraw.gameSound(1);
                 } else if (ty > 650 && ty < 700 && tx > 680 && tx < 1250) {// 帮助
-                    isDownHelp = true;
+//                    isDownHelp = true;
                     GameDraw.gameSound(1);
                 }
         }
@@ -502,33 +516,34 @@ public class Menu {
                     time = -1;
                 } else if (ty > 355 && ty < 500 && tx > 680 && tx < 1250) {// 挑战BOSS
 //                    if (s[0] && isDownBoss) {
-                        isDownBoss = false;
-                        isLevelOrBoss = 2;
-                        index = BOSS;
-                        mode = 6;
-                        time = -1;
+                    isDownBoss = false;
+                    isLevelOrBoss = 2;
+                    index = BOSS;
+                    mode = 6;
+                    time = -1;
 //                    } else if (!s[0] && isDownBoss) {
 //                        gameDraw.smallDialog.reset(1, 240, 380, 10);
 //                    }
                     isDownBoss = false;
                 } else if (ty > 500 && ty < 650 && tx > 680 && tx < 1250) {// 战机升级
 //                    if (s[1] && isDownUpgrade) {
-                        isDownUpgrade = false;
-                        index = UPGRADE;
-                        mode = 6;
-                        time = -1;
+                    isDownUpgrade = false;
+                    index = UPGRADE;
+                    mode = 6;
+                    time = -1;
 //                    } else if (!s[1] && isDownUpgrade) {
 //                        gameDraw.smallDialog.reset(1, 240, 380, 10);
 //                    }
                     isDownUpgrade = false;
-                } else if ((ty > 650 && ty < 700 && tx > 680 && tx < 1250)
-                        && isDownHelp) {// 帮助
-                    isDownHelp = false;
-                    index = HELP;
-                    mode = 6;
-                    time = -1;
-
                 }
+//                else if ((ty > 650 && ty < 700 && tx > 680 && tx < 1250)
+//                        && isDownHelp) {// 帮助
+//                    isDownHelp = false;
+//                    index = HELP;
+//                    mode = 6;
+//                    time = -1;
+//
+//                }
         }
     }
 
@@ -551,10 +566,11 @@ public class Menu {
                         && isDownUpgrade) {// 战机升级
                     isDownUpgrade = false;
                     isDownUpgrade = false;
-                } else if (!(ty > 650 && ty < 700 && tx > 680 && tx < 1250)
-                        && isDownHelp) {// 帮助
-                    isDownHelp = false;
                 }
+//                else if (!(ty > 650 && ty < 700 && tx > 680 && tx < 1250)
+//                        && isDownHelp) {// 帮助
+//                    isDownHelp = false;
+//                }
         }
     }
 

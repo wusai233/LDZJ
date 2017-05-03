@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -24,6 +25,7 @@ public class Achieve {
     Bitmap shu;
     Bitmap back_1;
     Bitmap back_2;
+    Bitmap bs_huan;
 
     int mode, time, id;
     float dx, tx, ox, vx;
@@ -59,6 +61,29 @@ public class Achieve {
         for (int i = 0; i < zi.length; i++) {
             zi[i] = BitmapFactory.decodeResource(
                     res, res.getIdentifier("ry_zi" + i, "drawable", GameDraw.context.getPackageName()));
+
+            bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                    R.drawable.bs_huan_im);
+        }
+    }
+
+
+    int bs_huan_t = 0;
+
+    /**
+     * 选择光圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            // 返回
+            g.drawBitmap(bs_huan, null, new RectF(
+                    960 - (bs_huan_t * 10 + 40),
+                    1001 - (bs_huan_t * 10 + 40),
+                    960 + (bs_huan_t * 10 + 40),
+                    1001 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
         }
     }
 
@@ -93,8 +118,8 @@ public class Achieve {
 
     public void render(Canvas g, Paint paint) {
         g.drawBitmap(Menu.bg, 0, 0, paint);
-        g.drawBitmap(back_2, 960-back_2.getWidth()/2, 954, paint);
-        g.drawBitmap(back_1, 960-back_1.getWidth()/2, 954, paint);
+        g.drawBitmap(back_2, 960 - back_2.getWidth() / 2, 954, paint);
+        g.drawBitmap(back_1, 960 - back_1.getWidth() / 2, 954, paint);
         switch (mode) {
             case 0:
             case 20:
@@ -156,6 +181,7 @@ public class Achieve {
             g.drawBitmap(bitmap, 1115 - bitmap.getWidth() / 2, 154, paint);
             bitmap = null;
         }
+        renderAN(g, true, paint);
     }
 
     public void renderPai(Canvas g, int id, float x, float y, Paint paint) {
@@ -233,7 +259,7 @@ public class Achieve {
 
         switch (mode) {
             case 1:
-                if (tx >960- back_1.getWidth()/2 && tx < 960+back_1.getWidth()/2 && ty > 954 && ty < 1048) {// 返回
+                if (tx > 960 - back_1.getWidth() / 2 && tx < 960 + back_1.getWidth() / 2 && ty > 954 && ty < 1048) {// 返回
                     isDownReturn = true;
                     GameDraw.gameSound(1);
                 } else if (ty > 130 && ty < 720 && dx == 0) {
@@ -245,7 +271,7 @@ public class Achieve {
     }
 
     public void touchUp(float tx, float ty) {
-        if ((tx >960- back_1.getWidth()/2 && tx < 960+back_1.getWidth()/2 && ty > 954 && ty < 1048)&& isDownReturn) {// 返回
+        if ((tx > 960 - back_1.getWidth() / 2 && tx < 960 + back_1.getWidth() / 2 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
             isDownReturn = false;
             mode = 20;
             time = 10;
@@ -256,7 +282,7 @@ public class Achieve {
     }
 
     public void touchMove(float tx, float ty) {
-        if (!(tx >960- back_1.getWidth()/2 && tx < 960+back_1.getWidth()/2 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
+        if (!(tx > 960 - back_1.getWidth() / 2 && tx < 960 + back_1.getWidth() / 2 && ty > 954 && ty < 1048) && isDownReturn) {// 返回
             isDownReturn = false;
         }
         if (isDown) {
