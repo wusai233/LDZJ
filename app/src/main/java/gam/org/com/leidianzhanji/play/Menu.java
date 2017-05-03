@@ -189,6 +189,7 @@ public class Menu {
                 g.drawBitmap(anSetting, 1270, 920, paint);
                 g.drawBitmap(gai1, 510, -10, paint);
                 Tools.paintMImage(g, gai1, 950, -10, paint);
+                Log.e("mode","______________"+mode);
                 break;
             case 1:// 上拉、下滑
                 g.drawBitmap(bg, 0, 0, paint);
@@ -203,6 +204,7 @@ public class Menu {
                 g.drawBitmap(anStart, 845, 870 + time * 19, paint);
                 g.drawBitmap(anAchieve, 500, 920 + time * 19, paint);
                 g.drawBitmap(anSetting, 1270, 920 + time * 19, paint);
+                Log.e("mode","______________"+mode);
                 break;
             case 2:// 下拉，上滑
                 g.drawBitmap(bg, 0, 0, paint);
@@ -218,6 +220,7 @@ public class Menu {
                 g.drawBitmap(anStart, 845, 870 + time2 * 22, paint);
                 g.drawBitmap(anAchieve, 500, 920 + time2 * 22, paint);
                 g.drawBitmap(anSetting, 1270, 920 + time2 * 22, paint);
+                Log.e("mode","______________"+mode);
                 break;
             case 3:// 飞行
                 g.drawBitmap(bg, 0, 0, paint);
@@ -232,6 +235,7 @@ public class Menu {
                 g.drawBitmap(anStart, 860, 870, paint);
                 g.drawBitmap(anAchieve, 490, 920, paint);
                 g.drawBitmap(anSetting, 1270, 920, paint);
+                Log.e("mode","______________"+mode);
                 break;
             case 4:// 文字
                 freePart();
@@ -256,6 +260,7 @@ public class Menu {
                     }
                 }
                 paint.setAlpha(255);
+                Log.e("mode","______________"+mode);
                 break;
             case 5:// 静态
                 g.drawBitmap(bg, 0, 0, paint);
@@ -293,6 +298,7 @@ public class Menu {
                 for (int i = 0; i < 2; i++) {
                     if (!s[i])
                         g.drawBitmap(suo, 743, 389 + i * 150, paint);
+                    Log.e("mode","______________"+mode);
                 }
                 break;
             case 6:// 状态的切换
@@ -309,7 +315,7 @@ public class Menu {
                     g.drawBitmap(anStart, 860, 870 + time * 32, paint);
                     g.drawBitmap(anAchieve, 490, 920 + time * 32, paint);
                     g.drawBitmap(anSetting, 1270, 920 + time * 32, paint);
-
+                    Log.e("mode","______________"+mode);
                 }
                 break;
 

@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -16,6 +17,7 @@ public class GamePause {
     GameDraw gameDraw;
     Bitmap[] an = new Bitmap[5];// 暗
     Bitmap[] liang = new Bitmap[5];// 亮
+    Bitmap bs_huan;
 
     byte[] rid = new byte[]{0, 1, 2, 4};
 
@@ -37,6 +39,24 @@ public class GamePause {
         liang[2] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.gm_l3);
         liang[3] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.gm_l4);
         liang[4] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.gm_l5);
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
+    }
+    int bs_huan_t = 0;
+
+    /**
+     * 选择圈圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 270 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 270 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 420 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 420 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 570 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 570 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 720 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 720 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
     }
 
     public void free() {
@@ -94,6 +114,7 @@ public class GamePause {
                 }
                 break;
         }
+        renderAN(g, true, paint);
     }
 
     public void upData() {

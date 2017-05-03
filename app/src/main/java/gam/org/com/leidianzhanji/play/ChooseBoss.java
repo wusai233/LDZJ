@@ -195,7 +195,7 @@ public class ChooseBoss {
             case 20:
                 paint.setAlpha(t * 25 + 5);
                 renderJM(g, paint);
-                renderBOSS(g, id, 240, t * 25 + 5, paint);
+                renderBOSS(g, id, 960, t * 25 + 5, paint);
                 paint.setAlpha(255);
 //                Game.drawTop(g, paint, t);
                 Game.drawDown(g, paint, t, isDownReturn);
@@ -234,7 +234,7 @@ public class ChooseBoss {
             case 2:
                 renderJM(g, paint);
 
-                renderBOSS(g, id, 240 + dx, 255, paint);
+                renderBOSS(g, id, 960 + dx, 255, paint);
                 if (vx > 0) {
                     renderBOSS(g, (id + BOSS_NUM - 1) % BOSS_NUM, 960 + dx - 1080, 255, paint);
                 } else {
