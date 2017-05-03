@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -122,6 +123,27 @@ public class ChooseBoss {
                 R.drawable.bs_huan_im);
     }
 
+
+    int bs_huan_t = 0;
+
+    /**
+     * 选择圈圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            //左
+            g.drawBitmap(bs_huan, null, new RectF(737 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 737 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
+            //右
+            g.drawBitmap(bs_huan, null, new RectF(1183 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 1183 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
+            //返回
+            g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            //出击
+            g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
     public void free() {
         im = null;
         // bt = null;
@@ -288,6 +310,7 @@ public class ChooseBoss {
                 // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
         }
+        renderAN(g, true, paint);
     }
 
     public void renderJM(Canvas g, Paint paint) {

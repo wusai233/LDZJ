@@ -15,6 +15,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -35,6 +36,7 @@ public class Level {
     Bitmap wdan, wdliang;
     Bitmap anRight, guangRight;
     Bitmap wenhao;
+    Bitmap bs_huan;
 
     private int mode, time;// time:次数
     private final int maxTime = 10;// 次数的最大值
@@ -56,6 +58,9 @@ public class Level {
         guangRight = BitmapFactory.decodeResource(res, R.drawable.sl_right2);
         wenhao = BitmapFactory.decodeResource(res, R.drawable.level_wenhao);
         initBg(res);
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
 
     public void initBg(Resources res) {
@@ -101,7 +106,31 @@ public class Level {
         Tools.paintMImage(g, guangRight, 701, 645, paint);
         Tools.paintMImage(g, guangRight, 701, 645, paint);
     }
+    int bs_huan_t = 0;
 
+    /**
+     * 选择圈圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+
+//            g.drawBitmap(guangRight, 1175, 645, paint);
+//            g.drawBitmap(guangRight, 1175, 645, paint);
+//            Tools.paintMImage(g, guangRight, 701, 645, paint);
+//            Tools.paintMImage(g, guangRight, 701, 645, paint);
+            //左
+            g.drawBitmap(bs_huan, null, new RectF(1201 - (bs_huan_t * 10 + 40), 696- (bs_huan_t * 10 + 40), 1201+ (bs_huan_t * 10 + 40), 696 + (bs_huan_t * 10 + 40)), paint);
+            //右
+            g.drawBitmap(bs_huan, null, new RectF(727 - (bs_huan_t * 10 + 40), 696 - (bs_huan_t * 10 + 40), 727 + (bs_huan_t * 10 + 40), 696 + (bs_huan_t * 10 + 40)), paint);
+            //返回
+            g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            //出击
+            g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
     public void render(Canvas g, Paint paint) {
         switch (mode) {
             case 0:
@@ -135,6 +164,7 @@ public class Level {
                 draw(g, paint, time);
                 break;
         }
+        renderAN(g, true, paint);
     }
 
     public void renderGuang(Canvas g, Paint paint) {

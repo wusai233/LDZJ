@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -27,6 +28,7 @@ public class ChooseAirplane {
     Bitmap[] kaihuo = new Bitmap[2];
     Bitmap[] guang = new Bitmap[4];
     Bitmap[] fei = new Bitmap[4];
+    Bitmap bs_huan;
     int[] x = new int[]{671, 960, 671, 960};
     int[] y = new int[]{460, 460, 686, 686};
     int[] zx = new int[]{1068, 801, 1068};
@@ -100,7 +102,31 @@ public class ChooseAirplane {
                 R.drawable.fire2_1);
         kaihuo[1] = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.fire2_2);
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
+    int bs_huan_t = 0;
+
+    /**
+     * 选择圈圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 574- (bs_huan_t * 10 + 40), 826+ (bs_huan_t * 10 + 40), 574+ (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 574- (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 574+ (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 789- (bs_huan_t * 10 + 40),826 + (bs_huan_t * 10 + 40), 789+ (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(1093- (bs_huan_t * 10 + 40), 789- (bs_huan_t * 10 + 40), 1093+ (bs_huan_t * 10 + 40),789+ (bs_huan_t * 10 + 40)), paint);
+            //返回
+            g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            //出击
+            g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
+
 
     public void free() {
         im1 = null;
@@ -110,7 +136,7 @@ public class ChooseAirplane {
         an = null;
         sp_back1 = null;
         sp_back2 = null;
-        for (int i = 0; i < guang.length; i++) {
+        for (int i = 0; i      < guang.length;  i++) {
             guang[i] = null;
             fei[i] = null;
         }
@@ -181,6 +207,7 @@ public class ChooseAirplane {
                 }
                 break;
         }
+        renderAN(g, true, paint);
     }
 
     public void renderJM(Canvas g, int a, Paint paint) {
