@@ -1,6 +1,5 @@
 package gam.org.com.leidianzhanji.play;
 
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -32,6 +31,12 @@ public class Menu {
     private boolean isDownExit = false;
     GameDraw gameDraw;
     int mode, time, id, time2;
+
+    /**
+     * 按钮类型 0：挑战BOSS   1：战斗升级  2：帮助   3：开始   4：成就   5：设置
+     */
+    int keyType = 3;
+
 
     public static Bitmap bg;
     Bitmap an2;
@@ -104,19 +109,26 @@ public class Menu {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-
-            //挑战Bss
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 425 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 425 + (bs_huan_t * 10 + 40)), paint);
-            //战斗升级
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 573 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 573 + (bs_huan_t * 10 + 40)), paint);
-            //帮助关于
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 718 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 718 + (bs_huan_t * 10 + 40)), paint);
-            //开始按钮
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 968 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 968 + (bs_huan_t * 10 + 40)), paint);
-            //成就
-            g.drawBitmap(bs_huan, null, new RectF(566 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 579 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
-            //设置
-            g.drawBitmap(bs_huan, null, new RectF(1349 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 1349 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType) {
+                case 0://挑战Bss
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 425 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 425 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1://战斗升级
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 573 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 573 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2: //帮助关于
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 718 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 718 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3: //开始按钮
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 968 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 968 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 4:  //成就
+                    g.drawBitmap(bs_huan, null, new RectF(566 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 579 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 5: //设置
+                    g.drawBitmap(bs_huan, null, new RectF(1349 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 1349 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -189,7 +201,6 @@ public class Menu {
                 g.drawBitmap(anSetting, 1270, 920, paint);
                 g.drawBitmap(gai1, 510, -10, paint);
                 Tools.paintMImage(g, gai1, 950, -10, paint);
-                Log.e("mode","______________"+mode);
                 break;
             case 1:// 上拉、下滑
                 g.drawBitmap(bg, 0, 0, paint);
@@ -204,7 +215,6 @@ public class Menu {
                 g.drawBitmap(anStart, 845, 870 + time * 19, paint);
                 g.drawBitmap(anAchieve, 500, 920 + time * 19, paint);
                 g.drawBitmap(anSetting, 1270, 920 + time * 19, paint);
-                Log.e("mode","______________"+mode);
                 break;
             case 2:// 下拉，上滑
                 g.drawBitmap(bg, 0, 0, paint);
@@ -220,7 +230,6 @@ public class Menu {
                 g.drawBitmap(anStart, 845, 870 + time2 * 22, paint);
                 g.drawBitmap(anAchieve, 500, 920 + time2 * 22, paint);
                 g.drawBitmap(anSetting, 1270, 920 + time2 * 22, paint);
-                Log.e("mode","______________"+mode);
                 break;
             case 3:// 飞行
                 g.drawBitmap(bg, 0, 0, paint);
@@ -235,7 +244,6 @@ public class Menu {
                 g.drawBitmap(anStart, 860, 870, paint);
                 g.drawBitmap(anAchieve, 490, 920, paint);
                 g.drawBitmap(anSetting, 1270, 920, paint);
-                Log.e("mode","______________"+mode);
                 break;
             case 4:// 文字
                 freePart();
@@ -260,7 +268,6 @@ public class Menu {
                     }
                 }
                 paint.setAlpha(255);
-                Log.e("mode","______________"+mode);
                 break;
             case 5:// 静态
                 g.drawBitmap(bg, 0, 0, paint);
@@ -298,7 +305,6 @@ public class Menu {
                 for (int i = 0; i < 2; i++) {
                     if (!s[i])
                         g.drawBitmap(suo, 743, 389 + i * 150, paint);
-                    Log.e("mode","______________"+mode);
                 }
                 break;
             case 6:// 状态的切换
@@ -315,7 +321,7 @@ public class Menu {
                     g.drawBitmap(anStart, 860, 870 + time * 32, paint);
                     g.drawBitmap(anAchieve, 490, 920 + time * 32, paint);
                     g.drawBitmap(anSetting, 1270, 920 + time * 32, paint);
-                    Log.e("mode","______________"+mode);
+
                 }
                 break;
 
@@ -581,20 +587,141 @@ public class Menu {
     }
 
     public void keyDown(int k) {
+        GameDraw.gameSound(1);
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                switch (keyType) {
+                    case 0://挑战Bss
+                        keyType = 3;
+                        break;
+                    case 1://战斗升级
+                        keyType = 0;
+                        break;
+                    case 2: //帮助关于
+                        keyType = 1;
+                        break;
+                    case 3: //开始按钮
+                        keyType = 2;
+                        break;
+                    case 4:  //成就
+                        keyType = 2;
+                        break;
+                    case 5: //设置
+                        keyType = 2;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType) {
+                    case 0://挑战Bss
+                        keyType = 1;
+                        break;
+                    case 1://战斗升级
+                        keyType = 2;
+                        break;
+                    case 2: //帮助关于
+                        keyType = 3;
+                        break;
+                    case 3: //开始按钮
+                        keyType = 0;
+                        break;
+                    case 4:  //成就
+                        keyType = 0;
+                        break;
+                    case 5: //设置
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType) {
+                    case 0://挑战Bss
+                        keyType = 4;
+                        break;
+                    case 1://战斗升级
+                        keyType = 4;
+                        break;
+                    case 2: //帮助关于
+                        keyType = 4;
+                        break;
+                    case 3: //开始按钮
+                        keyType = 4;
+                        break;
+                    case 4:  //成就
+                        keyType = 5;
+                        break;
+                    case 5: //设置
+                        keyType = 3;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType) {
+                    case 0://挑战Bss
+                        keyType = 5;
+                        break;
+                    case 1://战斗升级
+                        keyType = 5;
+                        break;
+                    case 2: //帮助关于
+                        keyType = 5;
+                        break;
+                    case 3: //开始按钮
+                        keyType = 5;
+                        break;
+                    case 4:  //成就
+                        keyType = 3;
+                        break;
+                    case 5: //设置
+                        keyType = 4;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
+                switch (keyType) {
+                    case 0://挑战Bss
+                        isDownBoss = false;
+                        isLevelOrBoss = 2;
+                        index = BOSS;
+                        mode = 6;
+                        time = -1;
+                        isDownBoss = false;
+                        break;
+                    case 1://战斗升级
+                        isDownUpgrade = false;
+                        index = UPGRADE;
+                        mode = 6;
+                        time = -1;
+                        isDownUpgrade = false;
+                        break;
+                    case 2: //帮助关于
+                        isDownHelp = false;
+                        index = HELP;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 3: //开始按钮
+                        isDownStart = false;
+                        isLevelOrBoss = 1;
+                        index = PLAYGAME;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 4:  //成就
+                        isDownAchieve = false;
+                        index = ACHIEVE;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 5: //设置
+                        isDownSetting = false;
+                        index = SETTING;
+                        break;
+                }
                 Log.e("jamie", "－－－－－确定－－－－－");
                 break;
             case KeyEvent.KEYCODE_BACK://返回
