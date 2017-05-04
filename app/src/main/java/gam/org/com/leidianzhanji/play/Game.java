@@ -96,6 +96,7 @@ public class Game {
     Bitmap bs_huan, bh_huan;
     Bitmap[] smim = new Bitmap[4];
 
+
     public static int isShuijing = 0;
 
     int tcbs_t, tcbs_fi, tcbs_x;
@@ -272,9 +273,27 @@ public class Game {
         npcBulletManager.render(g, paint);
         bombManager.render(g, paint);
         renderUI(g, paint);
+
+//        renderAN(g, true, paint);
     }
 
     int bs_huan_t = 0;
+//    /**
+//     * 右上角暂停的光圈
+//     * */
+//    public void renderAN(Canvas g, boolean huan, Paint paint) {
+//        if (huan) {
+//            // 返回
+//            g.drawBitmap(bh_huan, null, new RectF(
+//                    1822 - (bh_huan_t * 10 + 40),
+//                    58 - (bh_huan_t * 10 + 40),
+//                    1822 + (bh_huan_t * 10 + 40),
+//                    58 + (bh_huan_t * 10 + 40)), paint);
+//            bs_huan_t--;
+//            if (bs_huan_t < 0)
+//                bs_huan_t = 10;
+//        }
+//    }
 
     /**
      * 左下角必杀技能的绘制
@@ -303,14 +322,18 @@ public class Game {
         g.drawBitmap(Tools.paintNum(shu, baohu, -4), 1690, 987, paint);
         // Tools.paintNum(g, shu, 390, 740, baohu, -4, paint);
         if (huan) {
-            g.drawBitmap(bh_huan, null, new RectF(1791 - (bh_huan_t * 10 + 40),
-                    985 - (bh_huan_t * 10 + 40), 1791 + (bh_huan_t * 10 + 40),
+            g.drawBitmap(bh_huan, null, new RectF(
+                    1791 - (bh_huan_t * 10 + 40),
+                    985 - (bh_huan_t * 10 + 40),
+                    1791 + (bh_huan_t * 10 + 40),
                     985 + (bh_huan_t * 10 + 40)), paint);
+            bh_huan_t--;
             bh_huan_t--;
             if (bh_huan_t < 0)
                 bh_huan_t = 10;
         }
     }
+
 
     public void renderUI(Canvas g, Paint paint) {
         renderBS(g, bisha <= 0, paint);

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class GameWin {
     Bitmap di;
     Bitmap[] fs = new Bitmap[3];
     Bitmap[] jiang = new Bitmap[6];
+    Bitmap bs_huan;
 
     int mode, time, id, anid;
     float dx, vx;
@@ -56,6 +58,9 @@ public class GameWin {
         jiang[3] = BitmapFactory.decodeResource(res, R.drawable.cj_i4);
         jiang[4] = BitmapFactory.decodeResource(res, R.drawable.sp_liang1);
         jiang[5] = BitmapFactory.decodeResource(res, R.drawable.sp_liang2);
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
 
     public void free() {
@@ -102,13 +107,42 @@ public class GameWin {
     }
 
     public void draw(Canvas g, Paint paint, int time) {
-        g.drawBitmap(im1, 960 - im1.getWidth(),34, paint);
+        g.drawBitmap(im1, 960 - im1.getWidth(), 34, paint);
         Tools.paintMImage(g, im1, 960, 34, paint);
-        g.drawBitmap(im2, 960 - im2.getWidth(),455, paint);
+        g.drawBitmap(im2, 960 - im2.getWidth(), 455, paint);
         Tools.paintMImage(g, im2, 960, 455, paint);
 //        Game.drawTop(g, paint, time);
         g.drawBitmap(Game.down, 960 - Game.down.getWidth(), 1000 - time * (float) 13.7, paint);
         Tools.paintMImage(g, Game.down, 960, 1000 - time * (float) 13.7, paint);
+    }
+
+    int bs_huan_t = 0;
+
+    /**
+     * 选择光圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            //  抽奖
+            g.drawBitmap(bs_huan, null, new RectF(
+                    960 - (bs_huan_t * 10 + 40),
+                    816 + -(bs_huan_t * 10 + 40),
+                    960 + (bs_huan_t * 10 + 40),
+                    816 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    799 - (bs_huan_t * 10 + 40),
+                    816 - (bs_huan_t * 10 + 40),
+                    799 + (bs_huan_t * 10 + 40),
+                    816 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1120 - (bs_huan_t * 10 + 40),
+                    816 - (bs_huan_t * 10 + 40),
+                    1120 + (bs_huan_t * 10 + 40),
+                    816 + (bs_huan_t * 10 + 40)), paint);
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
     }
 
     public void render(Canvas g, Paint paint) {
@@ -171,6 +205,7 @@ public class GameWin {
                 draw(g, paint, time);
                 break;
         }
+        renderAN(g, true, paint);
     }
 
     public void renderJM(Canvas g, Paint paint) {
@@ -183,9 +218,9 @@ public class GameWin {
         Bitmap bitmap = Tools.paintNum(shu, (int) Game.score, -2);
         g.drawBitmap(bitmap, 930, 121, paint);
         bitmap = Tools.paintNum(shu, (int) Game.mnuey, -2);
-        g.drawBitmap(bitmap, 930 , 199, paint);
+        g.drawBitmap(bitmap, 930, 199, paint);
         bitmap = Tools.paintNum(shu, (int) Game.npcNum, -2);
-        g.drawBitmap(bitmap, 930 , 273, paint);
+        g.drawBitmap(bitmap, 930, 273, paint);
         bitmap = null;
 
         renderCJ(g, id, dx, paint);
@@ -222,7 +257,6 @@ public class GameWin {
             renderJiang(g, (id + l - 1) % l, 760 + dx, 590, paint);
         }
     }
-
 
 
     public void renderJiang(Canvas g, int id, float x, float y, Paint paint) {
@@ -530,7 +564,7 @@ public class GameWin {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 2:
-                if ((tx > 847 && tx < 1073 && ty > 762 && ty < 869) ){// 抽奖
+                if ((tx > 847 && tx < 1073 && ty > 762 && ty < 869)) {// 抽奖
                     isDownCJ = true;
                     GameDraw.gameSound(1);
                 }
@@ -539,7 +573,7 @@ public class GameWin {
                 if (tx > 687 && tx < 920 && ty > 759 && ty < 870) {// 升级战机界面
                     isDownUpgrade = true;
                     GameDraw.gameSound(1);
-                } else if (tx > 1004 && tx < 1237  && ty > 759 && ty < 870) {// 选择战机界面
+                } else if (tx > 1004 && tx < 1237 && ty > 759 && ty < 870) {// 选择战机界面
                     isDownGoOn = true;
                     GameDraw.gameSound(1);
                 }
@@ -567,7 +601,7 @@ public class GameWin {
                     anid = 1;
                     time = 10;
                     mode = 10;
-                } else if ( (tx > 1004 && tx < 1237  && ty > 759 && ty < 870)
+                } else if ((tx > 1004 && tx < 1237 && ty > 759 && ty < 870)
                         && isDownGoOn) {
                     isDownGoOn = false;
                     anid = 2;
@@ -581,14 +615,14 @@ public class GameWin {
     public void touchMove(float tx, float ty) {
         switch (mode) {
             case 2:
-                if (!(tx > 847 && tx < 1073 && ty > 762 && ty < 869)  && isDownCJ) {// 抽奖
+                if (!(tx > 847 && tx < 1073 && ty > 762 && ty < 869) && isDownCJ) {// 抽奖
                     isDownCJ = false;
                 }
                 break;
             case 5:
                 if (!(tx > 687 && tx < 920 && ty > 759 && ty < 870) && isDownUpgrade) {
                     isDownUpgrade = false;
-                } else if (! (tx > 1004 && tx < 1237  && ty > 759 && ty < 870)
+                } else if (!(tx > 1004 && tx < 1237 && ty > 759 && ty < 870)
                         && isDownGoOn) {
                     isDownGoOn = false;
                 }

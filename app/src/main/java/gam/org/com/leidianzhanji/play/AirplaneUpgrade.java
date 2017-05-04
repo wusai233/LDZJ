@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -35,6 +36,8 @@ public class AirplaneUpgrade {
     Bitmap qh_back1, qh_back2;
 
     Bitmap gou1, gou2, gouim, gouback;
+
+    Bitmap bs_huan;
 
     int mode, t, id, anid;
 
@@ -122,6 +125,71 @@ public class AirplaneUpgrade {
         js[5] = BitmapFactory.decodeResource(res, R.drawable.qh_js40);
         js[6] = BitmapFactory.decodeResource(res, R.drawable.qh_js50);
         js[7] = BitmapFactory.decodeResource(res, R.drawable.qh_js60);
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
+    }
+
+    int bs_huan_t = 0;
+
+    /**
+     * 选择光圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            g.drawBitmap(bs_huan, null, new RectF(
+                    958 - (bs_huan_t * 10 + 40),
+                    979 - (bs_huan_t * 10 + 40),
+                    958 + (bs_huan_t * 10 + 40),
+                    979 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    763 - (bs_huan_t * 10 + 40),
+                    979 - (bs_huan_t * 10 + 40),
+                    763 + (bs_huan_t * 10 + 40),
+                    979 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1156 - (bs_huan_t * 10 + 40),
+                    979 - (bs_huan_t * 10 + 40),
+                    1156 + (bs_huan_t * 10 + 40),
+                    979 + (bs_huan_t * 10 + 40)), paint);
+            // 升级按钮
+//            g.drawBitmap(an11, x + 1100, y + 115, paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1190 - (bs_huan_t * 10 + 40),
+                    395 - (bs_huan_t * 10 + 40),
+                    1190 + (bs_huan_t * 10 + 40),
+                    395 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1190 - (bs_huan_t * 10 + 40),
+                    484 - (bs_huan_t * 10 + 40),
+                    1190 + (bs_huan_t * 10 + 40),
+                    484 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1190 - (bs_huan_t * 10 + 40),
+                    572 - (bs_huan_t * 10 + 40),
+                    1190 + (bs_huan_t * 10 + 40),
+                    572 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1190 - (bs_huan_t * 10 + 40),
+                    670 - (bs_huan_t * 10 + 40),
+                    1190 + (bs_huan_t * 10 + 40),
+                    670 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1190 - (bs_huan_t * 10 + 40),
+                    748 - (bs_huan_t * 10 + 40),
+                    1190 + (bs_huan_t * 10 + 40),
+                    748 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1190 - (bs_huan_t * 10 + 40),
+                    839 - (bs_huan_t * 10 + 40),
+                    1190 + (bs_huan_t * 10 + 40),
+                    839 + (bs_huan_t * 10 + 40)), paint);
+
+
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
     }
 
     public void free() {
@@ -246,6 +314,8 @@ public class AirplaneUpgrade {
                 // g.drawBitmap(Game.left, 182, 736, paint);
                 break;
         }
+
+        renderAN(g, true, paint);
     }
 
     public void renderJS(Canvas g, Paint paint) {

@@ -25,6 +25,7 @@ public class Achieve {
     Bitmap shu;
     Bitmap back_1;
     Bitmap back_2;
+    Bitmap boss_an3_A;
     Bitmap bs_huan;
 
     int mode, time, id;
@@ -55,8 +56,10 @@ public class Achieve {
         pai[1] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_xz2);
         pai[2] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_xz3);
 
-        back_1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_back1);
-        back_2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_back2);
+        back_1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.qh_back1);
+        back_2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.qh_back2);
+
+        boss_an3_A = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3_1);
 
         for (int i = 0; i < zi.length; i++) {
             zi[i] = BitmapFactory.decodeResource(
@@ -78,9 +81,19 @@ public class Achieve {
             // 返回
             g.drawBitmap(bs_huan, null, new RectF(
                     960 - (bs_huan_t * 10 + 40),
-                    1001 - (bs_huan_t * 10 + 40),
+                    1016 - (bs_huan_t * 10 + 40),
                     960 + (bs_huan_t * 10 + 40),
-                    1001 + (bs_huan_t * 10 + 40)), paint);
+                    1016 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    814 - (bs_huan_t * 10 + 40),
+                    1016 - (bs_huan_t * 10 + 40),
+                    814 + (bs_huan_t * 10 + 40),
+                    1016 + (bs_huan_t * 10 + 40)), paint);
+            g.drawBitmap(bs_huan, null, new RectF(
+                    1120 - (bs_huan_t * 10 + 40),
+                    1016 - (bs_huan_t * 10 + 40),
+                    1120 + (bs_huan_t * 10 + 40),
+                    1016 + (bs_huan_t * 10 + 40)), paint);
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -118,8 +131,10 @@ public class Achieve {
 
     public void render(Canvas g, Paint paint) {
         g.drawBitmap(Menu.bg, 0, 0, paint);
-        g.drawBitmap(back_2, 960 - back_2.getWidth() / 2, 954, paint);
-        g.drawBitmap(back_1, 960 - back_1.getWidth() / 2, 954, paint);
+        g.drawBitmap(back_2, 960 - back_2.getWidth() / 2, 980, paint);
+        g.drawBitmap(back_1, 960 - back_1.getWidth() / 2, 980, paint);
+        g.drawBitmap(boss_an3_A, 1064, 980, paint);
+        Tools.paintMImage(g, boss_an3_A, 758, 980, paint);
         switch (mode) {
             case 0:
             case 20:
