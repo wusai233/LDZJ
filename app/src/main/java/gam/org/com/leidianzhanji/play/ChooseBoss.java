@@ -60,6 +60,11 @@ public class ChooseBoss {
         gameDraw = _mc;
     }
 
+    /**
+     * 按钮类型 0：返回  1：出击  2：左滑动  3：右滑动
+     */
+    int keyType = 1;
+
     public void init(Resources res) {
         im = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_im);
         // bt = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_bt);
@@ -131,19 +136,30 @@ public class ChooseBoss {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            //左
-            g.drawBitmap(bs_huan, null, new RectF(737 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 737 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
-            //右
-            g.drawBitmap(bs_huan, null, new RectF(1183 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 1183 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
-            //返回
-            g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
-            //出击
-            g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType) {
+                case 0:
+                    //返回
+                    g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    //出击
+                    g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
+                    //左
+                    g.drawBitmap(bs_huan, null, new RectF(737 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 737 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3:
+                    //右
+                    g.drawBitmap(bs_huan, null, new RectF(1183 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 1183 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
         }
     }
+
     public void free() {
         im = null;
         // bt = null;
@@ -214,22 +230,12 @@ public class ChooseBoss {
                 // g.drawBitmap(xing[jd[id] - 2], 50, 220, paint);
                 // }
                 // 数字的位置
-                g.drawBitmap(shu2, 946, 650, paint);
-                g.drawBitmap(bossNum, 975, 650, paint);
+                g.drawBitmap(shu2, 950, 721, paint);
+                g.drawBitmap(bossNum, 975, 721, paint);
                 Bitmap mBitmap1 = Tools.paintNum(shu1, id + 1, -3);
-                g.drawBitmap(mBitmap1, 792 + 95, 650, paint);
+                g.drawBitmap(mBitmap1, 910, 721, paint);
                 mBitmap1 = null;
-                // Tools.paintNum(g, shu1, 251, 520, BOSS_NUM, 0, paint);
-                // Tools.paintNum(g, shu1, 229, 520, id + 1, 0, paint);
-
-                // g.drawBitmap(Game.top1, 0, 0, paint);
-                // g.drawBitmap(Game.top2, 182, 0, paint);
-                // g.drawBitmap(Game.top1, 0, 736, paint);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.top2, 182, 736, paint);
-//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
-                // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
             case 2:
                 renderJM(g, paint);
@@ -241,22 +247,12 @@ public class ChooseBoss {
                     renderBOSS(g, (id + 1) % BOSS_NUM, 960 + dx + 1080, 255, paint);
                 }
 
-                g.drawBitmap(shu2, 946, 650, paint);
-                g.drawBitmap(bossNum, 946, 650, paint);
+                g.drawBitmap(shu2, 950, 721, paint);
+                g.drawBitmap(bossNum, 975, 721, paint);
                 Bitmap mBitmap2 = Tools.paintNum(shu1, id + 1, -3);
-                g.drawBitmap(mBitmap2, 792 + 128, 650, paint);
+                g.drawBitmap(mBitmap2, 910, 721, paint);
                 mBitmap2 = null;
-                // Tools.paintNum(g, shu1, 251, 520, BOSS_NUM, 0, paint);
-                // Tools.paintNum(g, shu1, 229, 520, id + 1, 0, paint);
-
-                // g.drawBitmap(Game.top1, 0, 0, paint);
-                // g.drawBitmap(Game.top2, 182, 0, paint);
-                // g.drawBitmap(Game.top1, 0, 736, paint);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.top2, 182, 736, paint);
-//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
-                // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
             case 10:
                 renderJM(g, paint);
@@ -268,13 +264,11 @@ public class ChooseBoss {
 
                 renderBOSS(g, id, 960, 255, paint);
 
-                g.drawBitmap(shu2, 946, 650, paint);
-                g.drawBitmap(bossNum, 250, 520, paint);
+                g.drawBitmap(shu2, 950, 721, paint);
+                g.drawBitmap(bossNum, 975, 721, paint);
                 Bitmap mBitmap3 = Tools.paintNum(shu1, id + 1, -3);
-                g.drawBitmap(mBitmap3, 210 - mBitmap3.getWidth() / 2, 520, paint);
+                g.drawBitmap(mBitmap3, 910, 721, paint);
                 mBitmap3 = null;
-                // Tools.paintNum(g, shu1, 251, 520, BOSS_NUM, 0, paint);
-                // Tools.paintNum(g, shu1, 229, 520, id + 1, 0, paint);
 
                 g.drawColor(0x88000000);
                 for (int i = 0; i < 3; i++) {
@@ -282,30 +276,16 @@ public class ChooseBoss {
                         g.drawBitmap(ban2[i], 685, 198 + i * 152, paint);
                     else
                         g.drawBitmap(ban1[i], 685, 198 + i * 152, paint);
-                    // Tools.paintMImage(g, ban1[i], 240, 230 + i * 152, paint);
-                    // if (t > 0 && i + 1 == anid) {
-                    // paint.setAlpha(t * 60 + 15);
-                    // g.drawBitmap(ban2[i], 68, 230 + i * 152, paint);
-                    // // Tools.paintMImage(g, ban2[i], 240, 230 + i * 152, paint);
-                    // paint.setAlpha(255);
-                    // }
-                    // g.drawBitmap(zi[i + 1], 176, 248 + i * 152, paint);
                     if (i >= jd[id]) {
                         if (i == 1) {
                             g.drawBitmap(hui1, 685, 198 + i * 152, paint);
                         } else if (i == 2) {
                             g.drawBitmap(hui2, 685, 198 + i * 152, paint);
                         }
-                        g.drawBitmap(suo, 1140, 586 + i * 152, paint);
+                        g.drawBitmap(suo, 1140, 223 + i * 152, paint);
                     }
                 }
 
-                // g.drawBitmap(Game.top1, 0, 0, paint);
-                // g.drawBitmap(Game.top2, 182, 0, paint);
-                // g.drawBitmap(Game.top1, 0, 736, paint);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.top2, 182, 736, paint);
-//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
                 // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
@@ -394,8 +374,9 @@ public class ChooseBoss {
                                 && jd[7] >= 2 && jd[8] >= 2 && jd[9] >= 2
                                 && jd[10] >= 2 && jd[11] >= 2) {
                             Achieve.cj[27] = true;
-                            GameDraw.gameDraw.smallDialog.reset(37, 240,
-                                    Game.GG + 60, 14);
+                            //  ===================
+                            GameDraw.gameDraw.smallDialog.reset(37, 960,
+                                    Game.GG + 650, 14);
                         }
                     }
                     if (Achieve.cj[28] == false) {
@@ -404,8 +385,8 @@ public class ChooseBoss {
                                 && jd[7] >= 3 && jd[8] >= 3 && jd[9] >= 3
                                 && jd[10] >= 3 && jd[11] >= 3) {
                             Achieve.cj[28] = true;
-                            GameDraw.gameDraw.smallDialog.reset(38, 240,
-                                    Game.GG + 60, 14);
+                            GameDraw.gameDraw.smallDialog.reset(38, 960,
+                                    Game.GG + 650, 14);
                         }
                     }
                     if (Achieve.cj[29] == false) {
@@ -414,8 +395,8 @@ public class ChooseBoss {
                                 && jd[7] >= 4 && jd[8] >= 4 && jd[9] >= 4
                                 && jd[10] >= 4 && jd[11] >= 4) {
                             Achieve.cj[29] = true;
-                            GameDraw.gameDraw.smallDialog.reset(39, 240,
-                                    Game.GG + 60, 14);
+                            GameDraw.gameDraw.smallDialog.reset(39, 960,
+                                    Game.GG + 650, 14);
                         }
                     }
                 }
@@ -568,18 +549,104 @@ public class ChooseBoss {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 2;
+                        break;
+                    case 1:
+                        keyType = 3;
+                        break;
+                    case 2:
+                        keyType = 0;
+                        break;
+                    case 3:
+                        keyType = 1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 2;
+                        break;
+                    case 1:
+                        keyType = 3;
+                        break;
+                    case 2:
+                        keyType = 0;
+                        break;
+                    case 3:
+                        keyType = 1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                    case 2:
+                        keyType = 3;
+                        break;
+                    case 3:
+                        keyType = 2;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                    case 2:
+                        keyType = 3;
+                        break;
+                    case 3:
+                        keyType = 2;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        isDownReturn = true;
+                        GameDraw.gameSound(1);
+                        isDownReturn = false;
+                        mode = 20;
+                        t = 10;
+                        break;
+                    case 1:
+                        if (jd[id] > 0) {
+                            isDownPK = true;
+                            GameDraw.gameSound(1);
+                        }
+                        isDownPK = false;
+                        mode = 10;
+                        t = 0;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        dx = 0;
+                        vx = 50;
+                        mode = 2;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        dx = 0;
+                        vx = -50;
+                        mode = 2;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

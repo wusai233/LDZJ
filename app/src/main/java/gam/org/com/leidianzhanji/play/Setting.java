@@ -22,6 +22,11 @@ public class Setting {
 
     int mode, t, id;
 
+    /**
+     * 按钮类型 0：左边   1：右边  2：返回
+     */
+    int keyType = 1;
+
     public Setting(GameDraw _mc) {
         gameDraw = _mc;
     }
@@ -47,24 +52,32 @@ public class Setting {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            // 返回
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1078 - (bs_huan_t * 10 + 40),
-                    442 - (bs_huan_t * 10 + 40),
-                    1078 + (bs_huan_t * 10 + 40),
-                    442 + (bs_huan_t * 10 + 40)), paint);
-
-            g.drawBitmap(bs_huan, null, new RectF(
-                    885 - (bs_huan_t * 10 + 40),
-                    643 - (bs_huan_t * 10 + 40),
-                    885 + (bs_huan_t * 10 + 40),
-                    643 + (bs_huan_t * 10 + 40)), paint);
-
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1060 - (bs_huan_t * 10 + 40),
-                    643 - (bs_huan_t * 10 + 40),
-                    1060 + (bs_huan_t * 10 + 40),
-                    643 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType) {
+                case 0:
+                    // 左边
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            885 - (bs_huan_t * 10 + 40),
+                            643 - (bs_huan_t * 10 + 40),
+                            885 + (bs_huan_t * 10 + 40),
+                            643 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    // 右边
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1060 - (bs_huan_t * 10 + 40),
+                            643 - (bs_huan_t * 10 + 40),
+                            1060 + (bs_huan_t * 10 + 40),
+                            643 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
+                    // 返回
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1078 - (bs_huan_t * 10 + 40),
+                            442 - (bs_huan_t * 10 + 40),
+                            1078 + (bs_huan_t * 10 + 40),
+                            442 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -157,18 +170,96 @@ public class Setting {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 2;
+                        break;
+                    case 1:
+                        keyType = 2;
+                        break;
+                    case 2:
+                        keyType = 1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 2;
+                        break;
+                    case 1:
+                        keyType = 2;
+                        break;
+                    case 2:
+                        keyType = 1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                    case 2:
+                        keyType = 1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                    case 2:
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        if (!GameDraw.isSound) {
+                            GameDraw.isSound = true;
+                            GameDraw.isPlayMusic(GameDraw.gameMediaPlayer,
+                                    GameDraw.bossMediaPlayer, GameDraw.menuMediaPlayer);
+                            GameDraw.gameSound(1);
+                        } else if (GameDraw.isSound) {
+                            GameDraw.isSound = false;
+                            GameDraw.isPlayMusic(GameDraw.gameMediaPlayer,
+                                    GameDraw.bossMediaPlayer, GameDraw.menuMediaPlayer);
+                        }
+                        break;
+                    case 1:
+                        if (!GameDraw.isSound) {
+                            GameDraw.isSound = true;
+                            GameDraw.isPlayMusic(GameDraw.gameMediaPlayer,
+                                    GameDraw.bossMediaPlayer, GameDraw.menuMediaPlayer);
+                            GameDraw.gameSound(1);
+                        } else if (GameDraw.isSound) {
+                            GameDraw.isSound = false;
+                            GameDraw.isPlayMusic(GameDraw.gameMediaPlayer,
+                                    GameDraw.bossMediaPlayer, GameDraw.menuMediaPlayer);
+                        }
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        isDownExit = true;
+                        isDownExit = false;
+                        gameDraw.canvasIndex = GameDraw.CANVAS_MENU;
+                        Menu.index = Menu.NULL;
+
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

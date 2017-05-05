@@ -22,6 +22,7 @@ public class Help {
 
     int t1, t2;
 
+
     public Help(GameDraw _mc) {
         gameDraw = _mc;
     }

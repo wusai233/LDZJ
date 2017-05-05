@@ -42,6 +42,10 @@ public class ChooseAirplane {
     AirplaneBullet airPlaneBullet;
 
     int buyID = 0;
+    /**
+     * 按钮类型 0：战机1   1：战机1  2：战机1   3：战机1   4：返回   5：出击
+     */
+    int keyType = 5;
 
     public ChooseAirplane(GameDraw _mc) {
         gameDraw = _mc;
@@ -106,6 +110,7 @@ public class ChooseAirplane {
         bs_huan = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.bs_huan_im);
     }
+
     int bs_huan_t = 0;
 
     /**
@@ -113,14 +118,28 @@ public class ChooseAirplane {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 574- (bs_huan_t * 10 + 40), 826+ (bs_huan_t * 10 + 40), 574+ (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 574- (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 574+ (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 789- (bs_huan_t * 10 + 40),826 + (bs_huan_t * 10 + 40), 789+ (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(1093- (bs_huan_t * 10 + 40), 789- (bs_huan_t * 10 + 40), 1093+ (bs_huan_t * 10 + 40),789+ (bs_huan_t * 10 + 40)), paint);
-            //返回
-            g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
-            //出击
-            g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType) {
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 574 - (bs_huan_t * 10 + 40), 826 + (bs_huan_t * 10 + 40), 574 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 574 - (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 574 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
+                    g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 789 - (bs_huan_t * 10 + 40), 826 + (bs_huan_t * 10 + 40), 789 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3:
+                    g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 789 - (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 789 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 4:
+                    //返回
+                    g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 5:
+                    //出击
+                    g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -136,7 +155,7 @@ public class ChooseAirplane {
         an = null;
         sp_back1 = null;
         sp_back2 = null;
-        for (int i = 0; i      < guang.length;  i++) {
+        for (int i = 0; i < guang.length; i++) {
             guang[i] = null;
             fei[i] = null;
         }
@@ -259,7 +278,7 @@ public class ChooseAirplane {
     }
 
     public void upData() {
-        Log.e("data","wusai233------1");
+        Log.e("data", "wusai233------1");
         alp += av;
         if (alp >= 255) {
             alp = 255;
@@ -438,18 +457,250 @@ public class ChooseAirplane {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        isDownReturn = true;
+                        isDownReturn = false;
+                        mode = 20;
+                        t = 10;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        if ((id == 3 && Data.level < 3)
+                                || (id == 1 && !haveAirplane[0])
+                                || (id == 2 && !haveAirplane[1])
+                                || (id == 3 && !haveAirplane[2])) {
+                            return;
+                        }
+                        isDownReturn = true;
+                        isDownPlay = true;
+                        isDownPlay = false;
+                        isDownReturn = false;
+                        mode = 30;
+                        t = 3;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

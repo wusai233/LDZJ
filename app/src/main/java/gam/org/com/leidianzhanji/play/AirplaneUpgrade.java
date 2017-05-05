@@ -48,6 +48,11 @@ public class AirplaneUpgrade {
     Bitmap[][] shu = new Bitmap[5][];
     Bitmap[] js = new Bitmap[8];
 
+    /**
+     * 按钮类型 0：升级1   1：升级2  2：升级3   3：升级4   4：升级15  5：升级6  6：获取水晶  7：返回  8：一键满级
+     */
+    int keyType = 7;
+
     public AirplaneUpgrade(GameDraw _mc) {
         gameDraw = _mc;
         jx = false;
@@ -137,54 +142,73 @@ public class AirplaneUpgrade {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            g.drawBitmap(bs_huan, null, new RectF(
-                    958 - (bs_huan_t * 10 + 40),
-                    979 - (bs_huan_t * 10 + 40),
-                    958 + (bs_huan_t * 10 + 40),
-                    979 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    763 - (bs_huan_t * 10 + 40),
-                    979 - (bs_huan_t * 10 + 40),
-                    763 + (bs_huan_t * 10 + 40),
-                    979 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1156 - (bs_huan_t * 10 + 40),
-                    979 - (bs_huan_t * 10 + 40),
-                    1156 + (bs_huan_t * 10 + 40),
-                    979 + (bs_huan_t * 10 + 40)), paint);
-            // 升级按钮
-//            g.drawBitmap(an11, x + 1100, y + 115, paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1190 - (bs_huan_t * 10 + 40),
-                    395 - (bs_huan_t * 10 + 40),
-                    1190 + (bs_huan_t * 10 + 40),
-                    395 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1190 - (bs_huan_t * 10 + 40),
-                    484 - (bs_huan_t * 10 + 40),
-                    1190 + (bs_huan_t * 10 + 40),
-                    484 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1190 - (bs_huan_t * 10 + 40),
-                    572 - (bs_huan_t * 10 + 40),
-                    1190 + (bs_huan_t * 10 + 40),
-                    572 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1190 - (bs_huan_t * 10 + 40),
-                    670 - (bs_huan_t * 10 + 40),
-                    1190 + (bs_huan_t * 10 + 40),
-                    670 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1190 - (bs_huan_t * 10 + 40),
-                    748 - (bs_huan_t * 10 + 40),
-                    1190 + (bs_huan_t * 10 + 40),
-                    748 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1190 - (bs_huan_t * 10 + 40),
-                    839 - (bs_huan_t * 10 + 40),
-                    1190 + (bs_huan_t * 10 + 40),
-                    839 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType) {
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1190 - (bs_huan_t * 10 + 40),
+                            395 - (bs_huan_t * 10 + 40),
+                            1190 + (bs_huan_t * 10 + 40),
+                            395 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1190 - (bs_huan_t * 10 + 40),
+                            484 - (bs_huan_t * 10 + 40),
+                            1190 + (bs_huan_t * 10 + 40),
+                            484 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
 
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1190 - (bs_huan_t * 10 + 40),
+                            572 - (bs_huan_t * 10 + 40),
+                            1190 + (bs_huan_t * 10 + 40),
+                            572 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1190 - (bs_huan_t * 10 + 40),
+                            670 - (bs_huan_t * 10 + 40),
+                            1190 + (bs_huan_t * 10 + 40),
+                            670 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 4:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1190 - (bs_huan_t * 10 + 40),
+                            748 - (bs_huan_t * 10 + 40),
+                            1190 + (bs_huan_t * 10 + 40),
+                            748 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 5:
+
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1190 - (bs_huan_t * 10 + 40),
+                            839 - (bs_huan_t * 10 + 40),
+                            1190 + (bs_huan_t * 10 + 40),
+                            839 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 6:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            763 - (bs_huan_t * 10 + 40),
+                            979 - (bs_huan_t * 10 + 40),
+                            763 + (bs_huan_t * 10 + 40),
+                            979 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 7:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            958 - (bs_huan_t * 10 + 40),
+                            979 - (bs_huan_t * 10 + 40),
+                            958 + (bs_huan_t * 10 + 40),
+                            979 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 8:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1156 - (bs_huan_t * 10 + 40),
+                            979 - (bs_huan_t * 10 + 40),
+                            1156 + (bs_huan_t * 10 + 40),
+                            979 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
 
             bs_huan_t--;
             if (bs_huan_t < 0)
@@ -278,7 +302,7 @@ public class AirplaneUpgrade {
                 g.drawBitmap(gouim, 664, 150, paint);
                 Tools.paintMImage(g, gouim, 960, 150, paint);
                 Tools.paintM2Image(g, gouim, 664, 597, paint);
-                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
+                Tools.paintRotateImage(g, gouim, 960, 597, 180, 302, 458, paint);
                 if (MainActivity.isYD == true) {
                     g.drawBitmap(gou1, 738, 280, paint);
                 } else {
@@ -296,7 +320,7 @@ public class AirplaneUpgrade {
                 g.drawBitmap(gouim, 663, 149, paint);
                 Tools.paintMImage(g, gouim, 959, 149, paint);
                 Tools.paintM2Image(g, gouim, 663, 597, paint);
-                Tools.paintRotateImage(g, im, 960, 597, 180, 302, 458, paint);
+                Tools.paintRotateImage(g, gouim, 960, 597, 180, 302, 458, paint);
                 g.drawBitmap(gou2, 750, 242, paint);
 //                g.drawBitmap(an31, 141, 610, paint);
                 g.drawBitmap(an31, 960 - (an31.getWidth() / 2), 860, paint);
@@ -801,18 +825,279 @@ public class AirplaneUpgrade {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 8;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                    case 2:
+                        keyType = 1;
+                        break;
+                    case 3:
+                        keyType = 2;
+                        break;
+                    case 4:
+                        keyType = 3;
+                        break;
+                    case 5:
+                        keyType = 4;
+                        break;
+                    case 6:
+                        keyType = 5;
+                        break;
+                    case 7:
+                        keyType = 5;
+                        break;
+                    case 8:
+                        keyType = 5;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 2;
+                        break;
+                    case 2:
+                        keyType = 3;
+                        break;
+                    case 3:
+                        keyType = 4;
+                        break;
+                    case 4:
+                        keyType = 5;
+                        break;
+                    case 5:
+                        keyType = 8;
+                        break;
+                    case 6:
+                        keyType = 0;
+                        isDown[0] = true;
+                        break;
+                    case 7:
+                        keyType = 0;
+                        break;
+                    case 8:
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType) {
+                    case 0:
+                        keyType = 6;
+                        break;
+                    case 1:
+                        keyType = 6;
+                        break;
+                    case 2:
+                        keyType = 6;
+                        break;
+                    case 3:
+                        keyType = 6;
+                        break;
+                    case 4:
+                        keyType = 6;
+                        break;
+                    case 5:
+                        keyType = 6;
+                        break;
+                    case 6:
+                        keyType = 8;
+                        break;
+                    case 7:
+                        keyType = 6;
+                        break;
+                    case 8:
+                        keyType = 7;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 7;
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        keyType = 8;
+                        break;
+                    case 8:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 960, 520, 18);
+                            }
+                        }
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        if (dj[id] < 5) {
+                            isDownSJ = true;
+                        }
+                        isDownSJ = false;
+                        if (MainActivity.isShowBuyMessage) {
+                            mode = 10;
+                            t = 0;
+                        } else {
+//						PaymentJoy.getInstance(this).startCharge(
+//								new PaymentParam(2));
+                        }
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        isDownReturn = true;
+                        isDownReturn = false;
+                        mode = 20;
+                        t = 10;
+                        break;
+                    case 8:
+                        GameDraw.gameSound(1);
+                        isDownMJ = true;
+                        isDownMJ = false;
+                        if (dj[id] < 5) {
+                            if (MainActivity.isShowBuyMessage) {
+                                mode = 11;
+                                t = 0;
+                            } else {
+//							PaymentJoy.getInstance(this).startCharge(
+//									new PaymentParam(9));
+                            }
+                        } else {
+//                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+                        }
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

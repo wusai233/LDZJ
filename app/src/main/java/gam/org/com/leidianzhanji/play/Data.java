@@ -45,9 +45,9 @@ public class Data {
             Game.isFrist = dis.readBoolean();
             MainActivity.isFirstPlay = dis.readBoolean();
             MainActivity.isEndPlay = dis.readBoolean();
-            level = 2;
+            level = 3;
             Game.score = dis.readInt();
-            Game.mnuey = dis.readInt();
+            Game.mnuey = 399999;
             Game.zmnuey = dis.readInt();
             Game.npcNum = dis.readInt();
             Game.bisha = dis.readInt();
