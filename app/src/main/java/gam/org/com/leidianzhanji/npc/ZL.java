@@ -91,40 +91,40 @@ public class ZL {
 			if (time >= bosst && isBoss == false) {
 				switch (Game.level) {
 				case 1:
-					nm.create(101, 240, -130, 0, 201);
+					nm.create(101, 960, -130, 0, 201);
 					break;
 				case 2:
-					nm.create(102, 240, -130, 0, 202);
+					nm.create(102, 960, -130, 0, 202);
 					break;
 				case 3:
-					nm.create(103, 240, -130, 0, 204);
+					nm.create(103, 960, -130, 0, 204);
 					break;
 				case 4:
-					nm.create(104, 240, -130, 0, 206);
+					nm.create(104, 960, -130, 0, 206);
 					break;
 				case 5:
-					nm.create(105, 240, -130, 0, 205);
+					nm.create(105, 960, -130, 0, 205);
 					break;
 				case 6:
-					nm.create(106, 240, -130, 0, 203);
+					nm.create(106, 960, -130, 0, 203);
 					break;
 				case 7:
-					nm.create(107, 240, -130, 0, 207);
+					nm.create(107, 960, -130, 0, 207);
 					break;
 				case 8:
-					nm.create(108, 240, -130, 0, 208);
+					nm.create(108, 960, -130, 0, 208);
 					break;
 				case 9:
-					nm.create(109, 240, -130, 0, 210);
+					nm.create(109, 960, -130, 0, 210);
 					break;
 				case 10:
-					nm.create(110, 240, -130, 0, 212);
+					nm.create(110, 960, -130, 0, 212);
 					break;
 				case 11:
-					nm.create(111, 240, -130, 0, 211);
+					nm.create(111, 960, -130, 0, 211);
 					break;
 				case 12:
-					nm.create(112, 240, -130, 0, 209);
+					nm.create(112, 960, -130, 0, 209);
 					break;
 				// case 13:
 				// nm.create(113, Game.CW / 2, -130, 0, 103);

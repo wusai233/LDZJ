@@ -1067,7 +1067,7 @@ public class AirplaneUpgrade {
                         }
                         isDownSJ = false;
                         if (MainActivity.isShowBuyMessage) {
-                            mode = 10;
+//                            mode = 10;
                             t = 0;
                         } else {
 //						PaymentJoy.getInstance(this).startCharge(
@@ -1087,7 +1087,7 @@ public class AirplaneUpgrade {
                         isDownMJ = false;
                         if (dj[id] < 5) {
                             if (MainActivity.isShowBuyMessage) {
-                                mode = 11;
+//                                mode = 11;
                                 t = 0;
                             } else {
 //							PaymentJoy.getInstance(this).startCharge(

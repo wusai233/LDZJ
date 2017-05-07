@@ -650,15 +650,24 @@ public class Game {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                airplane.touchDown(100, 100);
+                airplane.touchMove(100, 70);
+
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                airplane.touchDown(100, 100);
+                airplane.touchMove(100, 130);
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                airplane.touchDown(100, 100);
+                airplane.touchMove(70, 100);
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                airplane.touchDown(100, 100);
+                airplane.touchMove(130, 100);
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");

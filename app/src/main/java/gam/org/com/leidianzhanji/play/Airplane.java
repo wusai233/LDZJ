@@ -145,8 +145,8 @@ public class Airplane {
 
         ft = 0;
         bh = 40;
-        x = 240;
-        y = 940;
+        x = 960;
+        y = 900;
 
         huan_t = 0;
         isGuo = false;

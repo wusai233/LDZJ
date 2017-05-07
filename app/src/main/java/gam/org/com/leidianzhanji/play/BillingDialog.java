@@ -181,7 +181,6 @@ public class BillingDialog {
 
                 g.drawBitmap(an2, 1085, 233, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() / 2, 840, paint);
-                flag = 0;
                 renderAN(g, true, paint);
                 break;
             case 40:
@@ -194,7 +193,6 @@ public class BillingDialog {
 
                 g.drawBitmap(an2, 1085, 233, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() / 2, 840, paint);
-                flag = 1;
                 renderAN(g, true, paint);
                 break;
         }
@@ -400,7 +398,7 @@ public class BillingDialog {
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
                 GameDraw.gameSound(1);
-                //
+                //   这里要写两种确定按钮的事件
                 switch (keyType){
                     case 0:
                         keyType=1;
@@ -418,10 +416,16 @@ public class BillingDialog {
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+
+                /**
+                 *   这里要写两种确定按钮的事件 分别触发两个购买任务
+                 */
+
                 GameDraw.gameSound(1);
                 switch (keyType){
                     case 0:
-                        keyType=1;
+                        t = 5;
+                        mode = 20;
                         break;
                     case 1:
 //                        keyType=0;

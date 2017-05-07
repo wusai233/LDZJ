@@ -47,12 +47,23 @@ public class GamePause {
     /**
      * 选择圈圈的绘制
      */
+    int keyType = 0;
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 270 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 270 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 420 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 420 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 570 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 570 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 720 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 720 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType){
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 270 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 270 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 420 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 420 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 570 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 570 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 720 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 720 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -255,10 +266,40 @@ public class GamePause {
     public void keyDown(int k) {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向上－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType = 3;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                    case 2:
+                        keyType = 1;
+                        break;
+                    case 3:
+                        keyType = 2;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 2;
+                        break;
+                    case 2:
+                        keyType = 3;
+                        break;
+                    case 3:
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
@@ -268,6 +309,25 @@ public class GamePause {
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                GameDraw.gameSound(1);
+                switch (keyType){
+                    case 0:
+                        id = 0;
+                        t = 4;
+                        break;
+                    case 1:
+                        id = 1;
+                        t = 4;
+                        break;
+                    case 2:
+                        id = 2;
+                        t = 4;
+                        break;
+                    case 3:
+                        id = 3;
+                        t = 4;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
