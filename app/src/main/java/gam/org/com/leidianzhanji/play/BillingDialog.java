@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -22,6 +23,13 @@ public class BillingDialog {
     Bitmap zi;
     int mode, t;
     int id, to;
+
+    Bitmap bs_huan;
+    /**
+     * 按钮类型 0：战机1   1：战机1  2：战机1   3：战机1   4：返回   5：出击
+     */
+    int keyType = 0;
+    int flag = 0;
 
     public BillingDialog(GameDraw _mc) {
         gameDraw = _mc;
@@ -53,6 +61,31 @@ public class BillingDialog {
             case 40:// 超值礼包
                 zi = BitmapFactory.decodeResource(res, R.drawable.gou_zi6);
                 break;
+        }
+
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
+    }
+
+
+    int bs_huan_t = 0;
+
+    /**
+     * 选择圈圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            switch (keyType) {
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(1085+84/2 - (bs_huan_t * 10 + 40), 255+23/2 - (bs_huan_t * 10 + 40), 1085+84/2 + (bs_huan_t * 10 + 40),  255+23/2 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 840+95/2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 840+95/2 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
         }
     }
 
@@ -148,6 +181,8 @@ public class BillingDialog {
 
                 g.drawBitmap(an2, 1085, 233, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() / 2, 840, paint);
+                flag = 0;
+                renderAN(g, true, paint);
                 break;
             case 40:
                 g.drawBitmap(im, 664, 170, paint);
@@ -159,6 +194,8 @@ public class BillingDialog {
 
                 g.drawBitmap(an2, 1085, 233, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() / 2, 840, paint);
+                flag = 1;
+                renderAN(g, true, paint);
                 break;
         }
 
@@ -350,9 +387,28 @@ public class BillingDialog {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                GameDraw.gameSound(1);
+                switch (keyType){
+                    case 0:
+                        keyType=1;
+                        break;
+                    case 1:
+                        keyType=0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                GameDraw.gameSound(1);
+                //
+                switch (keyType){
+                    case 0:
+                        keyType=1;
+                        break;
+                    case 1:
+                        keyType=0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
@@ -362,6 +418,15 @@ public class BillingDialog {
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                GameDraw.gameSound(1);
+                switch (keyType){
+                    case 0:
+                        keyType=1;
+                        break;
+                    case 1:
+//                        keyType=0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

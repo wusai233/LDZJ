@@ -47,6 +47,7 @@ public class ChooseAirplane {
      */
     int keyType = 5;
 
+
     public ChooseAirplane(GameDraw _mc) {
         gameDraw = _mc;
         airplane = new Airplane(gameDraw);
@@ -56,31 +57,15 @@ public class ChooseAirplane {
     public void init(Resources res) {
         airPlaneBullet.init(gameDraw.res);
 
-        // bt = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_bt);
         hui = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_an_hui);
         suo = BitmapFactory.decodeResource(gameDraw.res, R.drawable.menu_suo);
         im1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im1);
         im2 = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.sp_background);
-        // im2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im2);
-        // im3 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im3);
-        // im4 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im4);
-        // bg = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im5);
-
-        // 返回按钮
         kuang1 = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.sp_kuang1);
         kuang2 = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.sp_kuang2);
-        // kuang3 = BitmapFactory.decodeResource(gameDraw.res,
-        // R.drawable.sp_kuang3);
-
-        // guang1 = BitmapFactory.decodeResource(gameDraw.res,
-        // R.drawable.sp_shanguang);
-        // guang2 = BitmapFactory.decodeResource(gameDraw.res,
-        // R.drawable.sp_jiaodeng1);
-        // guang3 = BitmapFactory.decodeResource(gameDraw.res,
-        // R.drawable.sp_jiaodeng2);
 
         an = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_an);
 
@@ -118,27 +103,27 @@ public class ChooseAirplane {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            switch (keyType) {
-                case 0:
-                    g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 574 - (bs_huan_t * 10 + 40), 826 + (bs_huan_t * 10 + 40), 574 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 1:
-                    g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 574 - (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 574 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 2:
-                    g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 789 - (bs_huan_t * 10 + 40), 826 + (bs_huan_t * 10 + 40), 789 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 3:
-                    g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 789 - (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 789 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 4:
-                    //返回
-                    g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 5:
-                    //出击
-                    g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
-                    break;
+                switch (keyType) {
+                    case 0:
+                        g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 574 - (bs_huan_t * 10 + 40), 826 + (bs_huan_t * 10 + 40), 574 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 1:
+                        g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 574 - (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 574 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 2:
+                        g.drawBitmap(bs_huan, null, new RectF(826 - (bs_huan_t * 10 + 40), 789 - (bs_huan_t * 10 + 40), 826 + (bs_huan_t * 10 + 40), 789 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 3:
+                        g.drawBitmap(bs_huan, null, new RectF(1093 - (bs_huan_t * 10 + 40), 789 - (bs_huan_t * 10 + 40), 1093 + (bs_huan_t * 10 + 40), 789 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 4:
+                        //返回
+                        g.drawBitmap(bs_huan, null, new RectF(745 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 745 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 5:
+                        //出击
+                        g.drawBitmap(bs_huan, null, new RectF(1172 - (bs_huan_t * 10 + 40), 1020 - (bs_huan_t * 10 + 40), 1172 + (bs_huan_t * 10 + 40), 1020 + (bs_huan_t * 10 + 40)), paint);
+                        break;
             }
             bs_huan_t--;
             if (bs_huan_t < 0)
@@ -211,14 +196,12 @@ public class ChooseAirplane {
             case 20:
                 renderJM(g, 25 * t, paint);
                 paint.setAlpha(255);
-//                Game.drawTop(g, paint, t);
                 Game.drawDown(g, paint, t, isDownReturn);
                 break;
             case 1:
             case 2:
                 renderJM(g, 255, paint);
                 paint.setAlpha(255);
-//                Game.drawTop(g, paint, 10);
                 Game.drawDown(g, paint, 10, isDownReturn);
                 if ((id == 3 && Data.level < 3) || (id == 1 && !haveAirplane[0])
                         || (id == 2 && !haveAirplane[1])
@@ -226,7 +209,7 @@ public class ChooseAirplane {
                 }
                 break;
         }
-        renderAN(g, true, paint);
+            renderAN(g, true, paint);
     }
 
     public void renderJM(Canvas g, int a, Paint paint) {
@@ -244,8 +227,6 @@ public class ChooseAirplane {
             g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 390 - fei[id].getHeight(), paint);
         }
 
-//        g.drawBitmap(im1, 960 - im1.getWidth(), 53, paint);
-//        Tools.paintMImage(g, im1, 960, 53, paint);
         g.drawBitmap(kuang1, 671, 460, paint);
         Tools.paintMImage(g, kuang1, 960, 460, paint);
         Tools.paintM2Image(g, kuang1, 671, 686, paint);
@@ -366,6 +347,8 @@ public class ChooseAirplane {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 1:
+                gameDraw.billingDialog.reset(30, 15);
+                buyID = 2;
                 if (t == 0) {
                     for (int i = 0; i < x.length; i++) {
                         if (tx > x[i] && tx < x[i] + 290 && ty > y[i] && ty < y[i] + 226) {

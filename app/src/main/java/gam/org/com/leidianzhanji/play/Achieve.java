@@ -25,7 +25,7 @@ public class Achieve {
     Bitmap shu;
     Bitmap back_1;
     Bitmap back_2;
-    Bitmap boss_an3_A;
+//    Bitmap boss_an3_A;
     Bitmap bs_huan;
 
     int mode, time, id;
@@ -43,7 +43,6 @@ public class Achieve {
 
     public void init(Resources res) {
         top = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_top);
-        // bt = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_bt);
 
         di1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_im1);
         di2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_im2);
@@ -60,7 +59,7 @@ public class Achieve {
         back_1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.qh_back1);
         back_2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.qh_back2);
 
-        boss_an3_A = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3_1);
+//        boss_an3_A = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3_1);
 
         for (int i = 0; i < zi.length; i++) {
             zi[i] = BitmapFactory.decodeResource(
@@ -104,7 +103,6 @@ public class Achieve {
 
     public void free() {
         top = null;
-        // bt = null;
         di1 = null;
         di2 = null;
         dian1 = null;
@@ -135,17 +133,10 @@ public class Achieve {
         g.drawBitmap(Menu.bg, 0, 0, paint);
         g.drawBitmap(back_2, 960 - back_2.getWidth() / 2, 980, paint);
         g.drawBitmap(back_1, 960 - back_1.getWidth() / 2, 980, paint);
-        g.drawBitmap(boss_an3_A, 1064, 980, paint);
-        Tools.paintMImage(g, boss_an3_A, 758, 980, paint);
         switch (mode) {
             case 0:
             case 20:
                 g.drawBitmap(top, 664, 51, paint);
-                // g.drawBitmap(Game.top1, -300 + t * 30, 736, paint);
-                // g.drawBitmap(bt, -300 + t * 30, 736, paint);
-                // g.drawBitmap(Game.top2, 182 + 300 - t * 30, 736, paint);
-                // g.drawBitmap(Game.back, 330, 800 - time * 6, paint);
-//                Game.drawDown(g, paint, time, isDownReturn);
                 paint.setAlpha(time * 25);
                 for (int i = 0; i < 5; i++) {
                     renderPai(g, id * 5 + i, 732, 250 + i * 120, paint);
@@ -154,29 +145,17 @@ public class Achieve {
                 break;
             case 1:
                 g.drawBitmap(top, 664, 51, paint);
-                // g.drawBitmap(Game.top1, 0, 736, paint);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.top2, 182, 736, paint);
-                // g.drawBitmap(Game.back, 330, 740, paint);
-//                Game.drawDown(g, paint, 10, isDownReturn);
                 for (int i = 0; i < 5; i++) {
                     renderPai(g, id * 5 + i, 732, 250 + i * 120, paint);
                 }
                 break;
             case 2:
                 g.drawBitmap(top, 664, 51, paint);
-                // g.drawBitmap(Game.top1, 0, 736, paint);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.top2, 182, 736, paint);
-                // g.drawBitmap(Game.back, 330, 740, paint);
-//                Game.drawDown(g, paint, 10, isDownReturn);
                 for (int i = 0; i < 5; i++) {
                     renderPai(g, id * 5 + i, 25 + dx + 100, 140 + i * 120, paint);
                     if (vx < 0) {
-//                        renderPai(g, ((id + 1) % 6) * 5 + i + 100, 25 + dx + 480, 140 + i * 105, paint);
                         renderPai(g, ((id + 1) % 6) * 5 + i + 100, 732 + 480, 250 + i * 120, paint);
                     } else {
-//                        renderPai(g, ((id + 5) % 6) * 5 + i + 200, 25 + dx - 480, 140 + i * 105, paint);
                         renderPai(g, ((id + 5) % 6) * 5 + i + 200, 732 + 480, 250 + i * 120, paint);
                     }
                 }
@@ -207,7 +186,6 @@ public class Achieve {
             g.drawBitmap(di2, x, y, paint);
             g.drawBitmap(pai[jp[id]], x + 45, y + 30, paint);
         }
-//        g.drawBitmap(zi[id], 890, 309, paint);
 
         g.drawBitmap(zi[id], x + 140, y + 46, paint);
     }
@@ -318,40 +296,39 @@ public class Achieve {
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
                 switch (keyType){
-                    case 0:
-                        keyType = 2;
-                        break;
+//                    case 0:
+//                        keyType = 2;
+//                        break;
                     case 1:
                         keyType = 0;
                         break;
-                    case 2:
-                        keyType = 1;
-                        break;
+//                    case 2:
+//                        keyType = 1;
+//                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
                 switch (keyType){
-                    case 0:
-                        keyType = 1;
-                        break;
+//                    case 0:
+//                        keyType = 1;
+//                        break;
                     case 1:
                         keyType = 2;
                         break;
-                    case 2:
-                        keyType = 0;
-                        break;
+//                    case 2:
+//                        keyType = 0;
+//                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType){
-                    case 0:
-                        GameDraw.gameSound(1);
-                        dx = 0;
-                        vx = 50;
-                        mode = 2;
-                        break;
+//                    case 0:
+//                        GameDraw.gameSound(1);
+//                        this.tx=600;
+//                        this.ox = 300;
+//                        break;
                     case 1:
                         GameDraw.gameSound(1);
                         isDownReturn = true;
@@ -359,12 +336,11 @@ public class Achieve {
                         time = 10;
                         isDownReturn = true;
                         break;
-                    case 2:
-                        GameDraw.gameSound(1);
-                        dx = 0;
-                        vx = -50;
-                        mode = 2;
-                        break;
+//                    case 2:
+//                        GameDraw.gameSound(1);
+//                        this.tx= 300;
+//                        this.ox =600;
+//                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
