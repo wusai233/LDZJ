@@ -17,7 +17,7 @@ public class Game {
     private boolean isDownPause = false;
     public static final int TOP = 0;
     public static final int BOTEM = 1920;
-    public static final int CW = 1080;
+    public static final int CW = 1920;
 
     public static final int GG = 0;
 
@@ -454,19 +454,19 @@ public class Game {
         if (Achieve.cj[16] == false) {
             if (score > 100000) {
                 Achieve.cj[16] = true;
-                gameDraw.smallDialog.reset(26, 240, GG + 60, 20);
+                gameDraw.smallDialog.reset(26, 960, GG + 60, 20);
             }
         }
         if (Achieve.cj[17] == false) {
             if (score > 200000) {
                 Achieve.cj[17] = true;
-                gameDraw.smallDialog.reset(27, 240, GG + 60, 20);
+                gameDraw.smallDialog.reset(27, 960, GG + 60, 20);
             }
         }
         if (Achieve.cj[18] == false) {
             if (score > 500000) {
                 Achieve.cj[18] = true;
-                gameDraw.smallDialog.reset(28, 240, GG + 60, 20);
+                gameDraw.smallDialog.reset(28, 960, GG + 60, 20);
             }
         }
 
@@ -595,21 +595,21 @@ public class Game {
         if (Achieve.cj[13] == false) {
             if (zmnuey >= 10000) {
                 Achieve.cj[13] = true;
-                gameDraw.smallDialog.reset(23, 240, GG + 60,
+                gameDraw.smallDialog.reset(23, 960, GG + 60,
                         gameDraw.canvasIndex);
             }
         }
         if (Achieve.cj[14] == false) {
             if (zmnuey >= 50000) {
                 Achieve.cj[14] = true;
-                gameDraw.smallDialog.reset(24, 240, GG + 60,
+                gameDraw.smallDialog.reset(24, 960, GG + 60,
                         gameDraw.canvasIndex);
             }
         }
         if (Achieve.cj[15] == false) {
             if (zmnuey >= 100000) {
                 Achieve.cj[15] = true;
-                gameDraw.smallDialog.reset(25, 240, GG + 60,
+                gameDraw.smallDialog.reset(25, 960, GG + 60,
                         gameDraw.canvasIndex);
             }
         }
@@ -628,7 +628,7 @@ public class Game {
 
     public static void drawTop(Canvas g, Paint paint, int t) {
         g.drawBitmap(top, 0, t * (float) 15.9 - 159, paint);
-        Tools.paintMImage(g, top, 240, t * (float) 15.9 - 159, paint);
+        Tools.paintMImage(g, top, 960, t * (float) 15.9 - 159, paint);
     }
 
     public static void drawDown(Canvas g, Paint paint, int t, boolean isDown) {
@@ -671,6 +671,7 @@ public class Game {
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                gameDraw.pause.reset();
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

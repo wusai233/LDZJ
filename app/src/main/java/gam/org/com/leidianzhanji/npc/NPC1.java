@@ -86,7 +86,7 @@ public class NPC1 extends NPC {
 				y += 20;
 				if (y >= temp) {
 					y = temp;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 					mode = 1;
 				}
@@ -129,7 +129,7 @@ public class NPC1 extends NPC {
 				x += 10;
 				if (x > temp) {
 					x = temp;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 					mode = 1;
 				}
@@ -172,7 +172,7 @@ public class NPC1 extends NPC {
 				x -= 10;
 				if (x < temp) {
 					x = temp;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 					mode = 1;
 				}
@@ -217,7 +217,7 @@ public class NPC1 extends NPC {
 					x = 0;
 					fi = 0;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -228,7 +228,7 @@ public class NPC1 extends NPC {
 				if (t == 18) {
 					// zm.createToPlayer(0, x, y, 10+level/2, 0, 1) ;
 				}
-				if (x > 750 || y > 800) {
+				if (x > 2010 || y > 1130) {
 					visible = false;
 				}
 				break;
@@ -242,7 +242,7 @@ public class NPC1 extends NPC {
 					x = 720;
 					fi = 0;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -253,7 +253,7 @@ public class NPC1 extends NPC {
 				if (t == 18) {
 					// zm.createToPlayer(0, x, y, 10+level/2, 0, 1) ;
 				}
-				if (x < 0 || y > 800) {
+				if (x < 0 || y > 1130) {
 					visible = false;
 				}
 				break;
@@ -265,14 +265,14 @@ public class NPC1 extends NPC {
 				y += 20;
 				if (y > 0) {
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
 			case 1:
 				y += 20;
 				t++;
-				if (y > 800) {
+				if (y > 1130) {
 					visible = false;
 				}
 				break;

@@ -75,7 +75,7 @@ public class NPC4 extends NPC {
 					y = temp;
 					mode = 1;
 					t = 0;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -107,7 +107,7 @@ public class NPC4 extends NPC {
 				}
 				break;
 			}
-			if (x < -50 || x > 770) {
+			if (x < -50 || x > 2010) {
 				visible = false;
 			}
 			break;
@@ -119,7 +119,7 @@ public class NPC4 extends NPC {
 					x = temp;
 					mode = 1;
 					t = 0;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -167,7 +167,7 @@ public class NPC4 extends NPC {
 					x = temp;
 					mode = 1;
 					t = 0;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;

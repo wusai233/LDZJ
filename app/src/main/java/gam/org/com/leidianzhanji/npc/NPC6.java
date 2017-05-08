@@ -76,7 +76,7 @@ public class NPC6 extends NPC {
 					y = temp;
 					mode = 1;
 					t = 0;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -97,7 +97,7 @@ public class NPC6 extends NPC {
 				}
 				break;
 			}
-			if (x > 770 || x < -50) {
+			if (x > 2010 || x < -50) {
 				visible = false;
 			}
 			break;
@@ -109,7 +109,7 @@ public class NPC6 extends NPC {
 					x = temp;
 					mode = 1;
 					t = 0;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -139,7 +139,7 @@ public class NPC6 extends NPC {
 					x = temp;
 					mode = 1;
 					t = 0;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -262,7 +262,7 @@ public class NPC6 extends NPC {
 		// case 2:
 		// x += vx;
 		// y += vy;
-		// if (x < -100 || x > 580 || y < 0 || y > 850) {
+		// if (x < -100 || x > 580 || y < 0 || y > 1130) {
 		// visible = false;
 		// }
 		// break;

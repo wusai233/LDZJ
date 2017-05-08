@@ -29,7 +29,6 @@ public class BillingDialog {
      * 按钮类型 0：战机1   1：战机1  2：战机1   3：战机1   4：返回   5：出击
      */
     int keyType = 0;
-    int flag = 0;
 
     public BillingDialog(GameDraw _mc) {
         gameDraw = _mc;
@@ -89,6 +88,21 @@ public class BillingDialog {
         }
     }
 
+    public void renderAN1(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            switch (keyType) {
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(1085+84/2 - (bs_huan_t * 10 + 40), 255+23/2 - (bs_huan_t * 10 + 40), 1085+84/2 + (bs_huan_t * 10 + 40),  255+23/2 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 700+95/2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 700+95/2 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
     public void free() {
         im = null;
         an1 = null;
@@ -170,6 +184,7 @@ public class BillingDialog {
             case 2:
             case 10:
                 g.drawBitmap(zi, 960 - zi.getWidth() / 2, 320, paint);
+                renderAN1(g, true, paint);
                 break;
             case 30:
                 g.drawBitmap(im, 664, 150, paint);
@@ -200,6 +215,7 @@ public class BillingDialog {
         if (id != 20 && id != 30 && id != 40) {
             g.drawBitmap(an2, 1085, 233, paint);
             g.drawBitmap(an1, 960 - an1.getWidth() / 2, 700, paint);
+            renderAN1(g, true, paint);
         }
     }
 
@@ -416,19 +432,36 @@ public class BillingDialog {
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-
-                /**
-                 *   这里要写两种确定按钮的事件 分别触发两个购买任务
-                 */
-
                 GameDraw.gameSound(1);
                 switch (keyType){
                     case 0:
-                        t = 5;
-                        mode = 20;
+                     switch (id){
+                         case 1:
+                             t = 5;
+                             mode = 20;
+                             break;
+                         case 2:
+                             t = 5;
+                             mode = 20;
+//                             Game.isFang = false;
+                             break;
+                         case 10:
+                             t = 0;
+                             mode = 30;
+                             break;
+                         case 30:
+                             t = 5;
+                             mode = 20;
+                             break;
+                         case 40:
+                             t = 5;
+                             mode = 20;
+                             break;
+                     }
                         break;
                     case 1:
-//                        keyType=0;
+//                        t = 0;
+//                        mode = 30;
                         break;
                 }
                 break;

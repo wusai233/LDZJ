@@ -117,28 +117,40 @@ public class GameWin {
     }
 
     int bs_huan_t = 0;
-
+    /**
+     * 按钮类型 0：挑战BOSS   1：战斗升级  2：帮助   3：开始   4：成就   5：设置
+     */
+    int keyType = 1;
     /**
      * 选择光圈的绘制
      */
+
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
             //  抽奖
-            g.drawBitmap(bs_huan, null, new RectF(
-                    960 - (bs_huan_t * 10 + 40),
-                    816 + -(bs_huan_t * 10 + 40),
-                    960 + (bs_huan_t * 10 + 40),
-                    816 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    799 - (bs_huan_t * 10 + 40),
-                    816 - (bs_huan_t * 10 + 40),
-                    799 + (bs_huan_t * 10 + 40),
-                    816 + (bs_huan_t * 10 + 40)), paint);
-            g.drawBitmap(bs_huan, null, new RectF(
-                    1120 - (bs_huan_t * 10 + 40),
-                    816 - (bs_huan_t * 10 + 40),
-                    1120 + (bs_huan_t * 10 + 40),
-                    816 + (bs_huan_t * 10 + 40)), paint);
+            switch (keyType){
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            799 - (bs_huan_t * 10 + 40),
+                            816 - (bs_huan_t * 10 + 40),
+                            799 + (bs_huan_t * 10 + 40),
+                            816 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            960 - (bs_huan_t * 10 + 40),
+                            816 + -(bs_huan_t * 10 + 40),
+                            960 + (bs_huan_t * 10 + 40),
+                            816 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
+                    g.drawBitmap(bs_huan, null, new RectF(
+                            1120 - (bs_huan_t * 10 + 40),
+                            816 - (bs_huan_t * 10 + 40),
+                            1120 + (bs_huan_t * 10 + 40),
+                            816 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
@@ -640,12 +652,51 @@ public class GameWin {
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType=2;
+                        break;
+                    case 1:
+                        keyType=0;
+                        break;
+                    case 2:
+                        keyType=1;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType=1;
+                        break;
+                    case 1:
+                        keyType=2;
+                        break;
+                    case 2:
+                        keyType=0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType){
+                    case 0:
+                        anid = 1;
+                        time = 10;
+                        mode = 10;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        mode = 3;
+                        time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
+                        break;
+                    case 2:
+                        anid = 2;
+                        time = 10;
+                        mode = 10;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

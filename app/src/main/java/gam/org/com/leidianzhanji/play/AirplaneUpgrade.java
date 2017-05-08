@@ -366,7 +366,7 @@ public class AirplaneUpgrade {
             case 2:
                 if (l % 2 == 0) {
                     g.drawBitmap(js[3], 1009, 189, paint);
-                    g.drawBitmap(shu[4][l / 2], 1080, 240, paint);
+                    g.drawBitmap(shu[4][l / 2], 1080, 960, paint);
                 } else if (l % 2 == 1) {
                     g.drawBitmap(js[4], 1009, 189, paint);
                     g.drawBitmap(shu[3][0], 1080, 185, paint);
@@ -395,7 +395,7 @@ public class AirplaneUpgrade {
     }
 
     public void renderJM(Canvas g, Paint paint) {
-        g.drawBitmap(sj, 790, 54, paint);
+        g.drawBitmap(sj, 750, 54, paint);
         Bitmap mBitmap1 = Tools.paintNum(shu[0][0], (int) Game.mnuey, 0);
         g.drawBitmap(mBitmap1, 1060 - mBitmap1.getWidth() / 2, 54, paint);
         mBitmap1 = null;
@@ -410,9 +410,9 @@ public class AirplaneUpgrade {
 
         for (int i = 0; i < 6; i++) {
             if (id == i) {
-                renderPai(g, i, 25, 240 + i * 90, true, t, paint);
+                renderPai(g, i, 25, 960 + i * 90, true, t, paint);
             } else {
-                renderPai(g, i, 25, 240 + i * 90, false, 0, paint);
+                renderPai(g, i, 25, 960 + i * 90, false, 0, paint);
             }
         }
         if (isDownSJ)
@@ -535,49 +535,49 @@ public class AirplaneUpgrade {
         resetData();
         if (Achieve.cj[19] == false) {
             Achieve.cj[19] = true;
-            gameDraw.smallDialog.reset(29, 240, Game.GG + 60, 18);
+            gameDraw.smallDialog.reset(29, 960, Game.GG + 60, 18);
         }
         if (Achieve.cj[20] == false) {
             if (dj[0] >= 5) {
                 Achieve.cj[20] = true;
-                gameDraw.smallDialog.reset(30, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(30, 960, Game.GG + 60, 18);
             }
         }
         if (Achieve.cj[21] == false) {
             if (dj[1] >= 5) {
                 Achieve.cj[21] = true;
-                gameDraw.smallDialog.reset(31, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(31, 960, Game.GG + 60, 18);
             }
         }
         if (Achieve.cj[22] == false) {
             if (dj[2] >= 5) {
                 Achieve.cj[22] = true;
-                gameDraw.smallDialog.reset(32, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(32, 960, Game.GG + 60, 18);
             }
         }
         if (Achieve.cj[23] == false) {
             if (dj[3] >= 5) {
                 Achieve.cj[23] = true;
-                gameDraw.smallDialog.reset(33, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(33, 960, Game.GG + 60, 18);
             }
         }
         if (Achieve.cj[24] == false) {
             if (dj[4] >= 5) {
                 Achieve.cj[24] = true;
-                gameDraw.smallDialog.reset(34, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(34, 960, Game.GG + 60, 18);
             }
         }
         if (Achieve.cj[25] == false) {
             if (dj[5] >= 5) {
                 Achieve.cj[25] = true;
-                gameDraw.smallDialog.reset(35, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(35, 960, Game.GG + 60, 18);
             }
         }
         if (Achieve.cj[26] == false) {
             if (dj[0] >= 5 && dj[1] >= 5 && dj[2] >= 5 && dj[3] >= 5
                     && dj[4] >= 5 && dj[5] >= 5) {
                 Achieve.cj[26] = true;
-                gameDraw.smallDialog.reset(36, 240, Game.GG + 60, 18);
+                gameDraw.smallDialog.reset(36, 960, Game.GG + 60, 18);
             }
         }
     }
@@ -665,7 +665,7 @@ public class AirplaneUpgrade {
                             t = 4;
                         } else {
                             GameDraw.gameSound(1);
-                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            gameDraw.smallDialog.reset(2, 960, 300, 18);
                         }
                     }
                 } else if (ty > 943 && ty < 1014) {
@@ -689,7 +689,7 @@ public class AirplaneUpgrade {
 //									new PaymentParam(9));
                             }
                         } else {
-                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            gameDraw.smallDialog.reset(2, 960, 300, 18);
                         }
                     }
                 }
@@ -717,9 +717,9 @@ public class AirplaneUpgrade {
             case 1:
                 if (!(tx > 874 && tx < 1041 && ty > 943 && ty < 1014) && isDownReturn) {// 返回
                     isDownReturn = false;
-                } else if (!(ty > 650 && ty < 730 && tx < 240) && isDownSJ) {
+                } else if (!(ty > 650 && ty < 730 && tx < 960) && isDownSJ) {
                     isDownSJ = false;
-                } else if (!(ty > 650 && ty < 730 && tx >= 240) && isDownMJ) {
+                } else if (!(ty > 650 && ty < 730 && tx >= 960) && isDownMJ) {
                     isDownMJ = false;
                 } else if (!(tx > 360 && tx < 450 && ty > 245 && ty < 245 + 70 * 1 && t == 0)
                         && isDown[0]) {
@@ -992,7 +992,7 @@ public class AirplaneUpgrade {
                                 t = 4;
                             } else {
                                 GameDraw.gameSound(1);
-                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                                gameDraw.smallDialog.reset(2, 960, 300, 18);
                             }
                         }
                         break;
@@ -1008,7 +1008,7 @@ public class AirplaneUpgrade {
                                 t = 4;
                             } else {
                                 GameDraw.gameSound(1);
-                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                                gameDraw.smallDialog.reset(2, 960, 300, 18);
                             }
                         }
                         break;
@@ -1024,7 +1024,7 @@ public class AirplaneUpgrade {
                                 t = 4;
                             } else {
                                 GameDraw.gameSound(1);
-                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                                gameDraw.smallDialog.reset(2, 960, 300, 18);
                             }
                         }
                         break;
@@ -1040,7 +1040,7 @@ public class AirplaneUpgrade {
                                 t = 4;
                             } else {
                                 GameDraw.gameSound(1);
-                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                                gameDraw.smallDialog.reset(2, 960, 300, 18);
                             }
                         }
                         break;
@@ -1056,7 +1056,7 @@ public class AirplaneUpgrade {
                                 t = 4;
                             } else {
                                 GameDraw.gameSound(1);
-                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                                gameDraw.smallDialog.reset(2, 960, 300, 18);
                             }
                         }
                         break;
@@ -1094,7 +1094,7 @@ public class AirplaneUpgrade {
 //									new PaymentParam(9));
                             }
                         } else {
-//                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+//                            gameDraw.smallDialog.reset(2, 960, 300, 18);
                         }
                         break;
                 }

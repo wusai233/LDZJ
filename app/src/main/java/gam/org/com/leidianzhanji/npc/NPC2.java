@@ -90,7 +90,7 @@ public class NPC2 extends NPC {
 				if (y >= temp) {
 					y = temp;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -134,7 +134,7 @@ public class NPC2 extends NPC {
 				if (x > temp) {
 					x = temp;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -178,7 +178,7 @@ public class NPC2 extends NPC {
 				if (x < temp) {
 					x = temp;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -223,7 +223,7 @@ public class NPC2 extends NPC {
 					x = 0;
 					fi = 0;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -235,7 +235,7 @@ public class NPC2 extends NPC {
 					// zm.createToPlayer(4, x, y, 10+level/2, 20, 1) ;
 					// zm.createToPlayer(4, x, y, 10+level/2, -20, 1) ;
 				}
-				if (x > 750 || y > 800) {
+				if (x > 2010 || y > 1130) {
 					visible = false;
 				}
 				break;
@@ -249,7 +249,7 @@ public class NPC2 extends NPC {
 					x = 720;
 					fi = 0;
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -261,7 +261,7 @@ public class NPC2 extends NPC {
 					// zm.createToPlayer(4, x, y, 10+level/2, 20, 1) ;
 					// zm.createToPlayer(4, x, y, 10+level/2, -20, 1) ;
 				}
-				if (x < 0 || y > 800) {
+				if (x < 0 || y > 1130) {
 					visible = false;
 				}
 				break;
@@ -273,7 +273,7 @@ public class NPC2 extends NPC {
 				y += 20;
 				if (y > 0) {
 					mode = 1;
-					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 850)
+					if (x < -50 || x > Game.CW + 50 || y < -50 || y > 1130)
 						visible = false;
 				}
 				break;
@@ -284,7 +284,7 @@ public class NPC2 extends NPC {
 					// zm.createToPlayer(5, x, y, 10+level/2, 20, 1) ;
 					// zm.createToPlayer(5, x, y, 10+level/2, -20, 1) ;
 				}
-				if (y > 800) {
+				if (y > 1130) {
 					visible = false;
 				}
 				break;

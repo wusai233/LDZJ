@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+
 /**
  * 数据的存储和获取
  */
@@ -33,7 +34,7 @@ public class Data {
 
             DayGift.day = dis.readInt();
             DayGift.id = dis.readByte();
-            bh = 1;
+            bh = dis.readByte();
 
             bs[0] = dis.readByte();
             bs[1] = dis.readByte();
@@ -45,9 +46,9 @@ public class Data {
             Game.isFrist = dis.readBoolean();
             MainActivity.isFirstPlay = dis.readBoolean();
             MainActivity.isEndPlay = dis.readBoolean();
-            level = 3;
+            level = dis.readByte();
             Game.score = dis.readInt();
-            Game.mnuey = 399999;
+            Game.mnuey = dis.readInt();
             Game.zmnuey = dis.readInt();
             Game.npcNum = dis.readInt();
             Game.bisha = dis.readInt();
@@ -86,12 +87,12 @@ public class Data {
             Game.isFrist = true;
             MainActivity.isFirstPlay = true;
             MainActivity.isEndPlay = false;
-            level = 2;
+            level = 1;
             Game.score = 0;
-            Game.mnuey = 0;
+            Game.mnuey = 88888;
             Game.zmnuey = 0;
             Game.npcNum = 0;
-            Game.bisha = 0;
+            Game.bisha = 3;
 
             Menu.s[0] = false;
             Menu.s[1] = false;

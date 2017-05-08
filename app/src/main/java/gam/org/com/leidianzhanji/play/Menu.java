@@ -699,10 +699,10 @@ public class Menu {
                         isDownUpgrade = false;
                         break;
                     case 2: //帮助关于
-                        isDownHelp = false;
-                        index = HELP;
-                        mode = 6;
-                        time = -1;
+//                        isDownHelp = false;
+//                        index = HELP;
+//                        mode = 6;
+//                        time = -1;
                         break;
                     case 3: //开始按钮
                         isDownStart = false;
