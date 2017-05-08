@@ -103,13 +103,13 @@ public class NPCIntroduce {
         // Log.d("*****************", "reset ok");
     }
 
-    public void shouZhi(Canvas g, Paint paint, float x, float y) {
-        if (shouzhi % 5 == 0) {
-            g.drawBitmap(sz1, x, y, paint);
-        } else {
-            g.drawBitmap(sz2, x, y, paint);
-        }
-    }
+//    public void shouZhi(Canvas g, Paint paint, float x, float y) {
+//        if (shouzhi % 5 == 0) {
+//            g.drawBitmap(sz1, x, y, paint);
+//        } else {
+//            g.drawBitmap(sz2, x, y, paint);
+//        }
+//    }
 
     float x = 144, y = 73;
 
@@ -123,26 +123,26 @@ public class NPCIntroduce {
             case 1:
                 g.drawColor((160) << 24);
                 paint.setAlpha(t * 50 + 5);
-                g.drawBitmap(im, 17, 80, paint);
+                g.drawBitmap(im, 680, 80, paint);
                 paint.setAlpha(255);
                 break;
             case 2:
                 g.drawColor((160) << 24);
-                g.drawBitmap(im, 17, 80, paint);
+                g.drawBitmap(im, 680, 80, paint);
                 g.drawBitmap(di, null,
-                        new RectF(x, y + 96 - t * 19, x + di.getWidth(), y + 96),
+                        new RectF(x, 960-di.getWidth()/2 - t * 19, x + di.getWidth(), y + 96),
                         paint);
                 break;
             case 3:
                 g.drawColor((160) << 24);
-                g.drawBitmap(im, 17, 80, paint);
-                g.drawBitmap(di, x, y, paint);
+                g.drawBitmap(im, 680, 80, paint);
+                g.drawBitmap(di, 960-di.getWidth()/2, y, paint);
                 renderZI(g, 255, paint);
                 break;
             case 20:
                 g.drawColor((160) << 24);
-                g.drawBitmap(im, 17, 80, paint);
-                g.drawBitmap(di, x, y, paint);
+                g.drawBitmap(im, 680, 80, paint);
+                g.drawBitmap(di, 960-di.getWidth()/2, y, paint);
                 renderZI(g, t * 25 + 5, paint);
                 break;
         }
@@ -151,51 +151,51 @@ public class NPCIntroduce {
     public void renderZI(Canvas g, int a, Paint paint) {
         switch (id) {
             case 1:
-                g.drawBitmap(zi, x + 62, y + 14, paint);
+                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 14, paint);
                 break;
             case 2:// 右下角护盾
-                g.drawBitmap(zi, x + 64, y + 28, paint);
+                g.drawBitmap(zi,  960-zi.getWidth()/2, y + 28, paint);
                 paint.setAlpha(a * alp / 100);
                 gameDraw.game.renderBH(g, true, paint);
                 paint.setAlpha(a);
-                shouZhi(g, paint, 430, 725);
+//                shouZhi(g, paint, 430, 725);
                 // g.drawBitmap(sz, 431 - 55, 740 - 160 - dy, paint);
                 break;
             case 3:// 左下角必杀
-                g.drawBitmap(zi, x + 56, y + 23, paint);
+                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 23, paint);
                 paint.setAlpha(a * alp / 100);
                 gameDraw.game.renderBS(g, true, paint);
                 paint.setAlpha(a);
-                shouZhi(g, paint, 38, 730);
+//                shouZhi(g, paint, 38, 730);
                 // g.drawBitmap(sz, 49 - 55, 740 - 160 - dy, paint);
                 break;
             case 4:// 第一次游戏NPC点击升级技能
-                g.drawBitmap(zi, x + 100, y + 40, paint);
+                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 40, paint);
                 paint.setAlpha(a * alp / 100);
                 // g.drawBitmap(gameDraw.gameWin.an1, 45, 700, paint);
-                g.drawBitmap(gameDraw.gameWin.an3, 51, 620, paint);
+//                g.drawBitmap(gameDraw.gameWin.an3, 51, 620, paint);
                 paint.setAlpha(a);
-                shouZhi(g, paint, 137, 660);
+//                shouZhi(g, paint, 137, 660);
                 // g.drawBitmap(sz, 80, 485 - dy, paint);
                 break;
             case 5:// 第一次游戏NPC介绍升级技能
-                g.drawBitmap(zi, x + 65, y + 28, paint);
+                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 28, paint);
                 paint.setAlpha(a * alp / 100);
                 // g.drawBitmap(gameDraw.airplaneUpgrade.an12, 25 + 315, 310 + 15,
                 // paint);
                 g.drawBitmap(gameDraw.airplaneUpgrade.an12, 340, 318, paint);
                 paint.setAlpha(a);
-                shouZhi(g, paint, 385, 345);
+//                shouZhi(g, paint, 385, 345);
                 // Tools.paintRotateImage(g, sz, 370, 430 + dy, 180, 55, 66, paint);
                 break;
             case 10:
             case 11:
             case 12:
             case 13:
-                g.drawBitmap(zi, x + 60, y + 14, paint);
+                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 14, paint);
                 break;
             case 14:
-                g.drawBitmap(zi, x + 60, y + 11, paint);
+                g.drawBitmap(zi,960-zi.getWidth()/2, y + 11, paint);
                 break;
         }
     }

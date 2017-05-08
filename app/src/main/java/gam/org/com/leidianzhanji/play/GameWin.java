@@ -263,7 +263,7 @@ public class GameWin {
             renderJiang(g, (id + 1) % l, 1200, 590, paint);
             renderJiang(g, (id + l - 1) % l, 760, 590, paint);
         } else if (dx < 0) {
-            renderJiang(g, id, 960 + dx, 517, paint);
+            renderJiang(g, id, 960 + dx, 590, paint);
             renderJiang(g, (id + 1) % l, 1200 + dx, 590, paint);
             renderJiang(g, (id + 2) % l, 1200 + dx, 590, paint);
             renderJiang(g, (id + l - 1) % l, 760 + dx, 590, paint);
@@ -657,10 +657,10 @@ public class GameWin {
                         keyType=2;
                         break;
                     case 1:
-                        keyType=0;
+//                        keyType=0;
                         break;
                     case 2:
-                        keyType=1;
+                        keyType=0;
                         break;
                 }
                 break;
@@ -668,10 +668,10 @@ public class GameWin {
                 Log.e("jamie", "－－－－－向右－－－－－");
                 switch (keyType){
                     case 0:
-                        keyType=1;
+                        keyType=2;
                         break;
                     case 1:
-                        keyType=2;
+//                        keyType=2;
                         break;
                     case 2:
                         keyType=0;
