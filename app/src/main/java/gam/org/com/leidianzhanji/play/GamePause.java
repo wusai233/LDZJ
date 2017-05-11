@@ -270,15 +270,19 @@ public class GamePause {
                 Log.e("jamie", "－－－－－向上－－－－－");
                 switch (keyType){
                     case 0:
+                        GameDraw.gameSound(1);
                         keyType = 3;
                         break;
                     case 1:
+                        GameDraw.gameSound(1);
                         keyType = 0;
                         break;
                     case 2:
+                        GameDraw.gameSound(1);
                         keyType = 1;
                         break;
                     case 3:
+                        GameDraw.gameSound(1);
                         keyType = 2;
                         break;
                 }
@@ -288,15 +292,19 @@ public class GamePause {
                 Log.e("jamie", "－－－－－向下－－－－－");
                 switch (keyType){
                     case 0:
+                        GameDraw.gameSound(1);
                         keyType = 1;
                         break;
                     case 1:
+                        GameDraw.gameSound(1);
                         keyType = 2;
                         break;
                     case 2:
+                        GameDraw.gameSound(1);
                         keyType = 3;
                         break;
                     case 3:
+                        GameDraw.gameSound(1);
                         keyType = 0;
                         break;
                 }
@@ -312,18 +320,22 @@ public class GamePause {
                 GameDraw.gameSound(1);
                 switch (keyType){
                     case 0:
+                        GameDraw.gameSound(1);
                         id = 0;
                         t = 4;
                         break;
                     case 1:
+                        GameDraw.gameSound(1);
                         id = 1;
                         t = 4;
                         break;
                     case 2:
+                        GameDraw.gameSound(1);
                         id = 2;
                         t = 4;
                         break;
                     case 3:
+                        GameDraw.gameSound(1);
                         id = 3;
                         t = 4;
                         break;

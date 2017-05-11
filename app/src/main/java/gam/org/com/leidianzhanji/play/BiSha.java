@@ -40,14 +40,14 @@ public class BiSha {
 			if (index >= 4) {
 				index = 0;
 			}
-			Tools.paintScaleImage(g, im[index / 2], x, y, 150, 757, fd, 1,
+			Tools.paintScaleImage(g, im[index / 2], x, y, 150, 1080, fd, 1,
 					paint);
 			Tools.paintScaleImage(g, im[index / 2 + 2], x, y, 152, 140, fd, 1,
 					paint);
 			index++;
 			// Tools.paintScaleImage(g,
 			// im[Math.abs(GameDraw.random.nextInt() % 4)], x, y, 150,
-			// 757, fd, 1, paint);
+			// 1080, fd, 1, paint);
 			// Tools.paintScaleImage(g,
 			// im[4 + Math.abs(GameDraw.random.nextInt() % 2)], x, y, 152,
 			// 140, fd, 1, paint);
@@ -107,7 +107,7 @@ public class BiSha {
 			if (index1 >= 6) {
 				index1 = 0;
 			}
-			Tools.paintScaleImage(g, im[index / 3], x - 10, y + 20, 150, 757, fd, 1,
+			Tools.paintScaleImage(g, im[index / 3], x - 10, y + 20, 150, 1080, fd, 1,
 					paint);
 			Tools.paintScaleImage(g, im[index1 / 3 + 3], x, y - 10, 193, 220, fd, 1,
 					paint);
@@ -115,7 +115,7 @@ public class BiSha {
 			index1++;
 			// Tools.paintScaleImage(g,
 			// im[Math.abs(GameDraw.random.nextInt() % 4)], x, y, 150,
-			// 757, fd, 1, paint);
+			// 1080, fd, 1, paint);
 			// Tools.paintScaleImage(g,
 			// im[4 + Math.abs(GameDraw.random.nextInt() % 2)], x, y, 193,
 			// 220, fd, 1, paint);

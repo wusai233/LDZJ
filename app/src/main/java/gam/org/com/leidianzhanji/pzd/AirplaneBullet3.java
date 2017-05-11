@@ -54,7 +54,7 @@ public class AirplaneBullet3 extends Bullet {
         x = Airplane.x + Game.cx;
         cha -= 80;
         y = Airplane.y + 8 + cha;
-        if (x < -10 || x > Game.CW || y < -80 || y > 1090) {
+        if (x < -10 || x > Game.CW || y < -80 || y > 1080) {
             visible = false;
         }
     }

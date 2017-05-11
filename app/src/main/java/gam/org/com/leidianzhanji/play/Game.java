@@ -17,7 +17,7 @@ import gam.org.com.leidianzhanji.npc.ZL;
 public class Game {
     private boolean isDownPause = false;
     public static final int TOP = 0;
-    public static final int BOTEM = 1920;
+    public static final int BOTEM = 1050;
     public static final int CW = 1920;
 
     public static final int GG = 0;
@@ -275,9 +275,7 @@ public class Game {
         bombManager.render(g, paint);
         renderUI(g, paint);
 
-        if (pause = true) {
-            renderAN(g, true, paint);
-        }
+//            renderAN(g, true, paint);
     }
 
     // 判断是否暂停
@@ -287,47 +285,47 @@ public class Game {
     /**
      * 右上角暂停的光圈
      */
-    int keyType = 0;
+    int keyType = 9;
 
-    public void renderAN(Canvas g, boolean huan, Paint paint) {
-        if (huan) {
-            if (pause == true) {
-                switch (keyType) {
-                    case 0:
-                        g.drawBitmap(bs_huan, null, new RectF(
-                                142 - (bs_huan_t * 10 + 40),
-                                310 - (bs_huan_t * 10 + 40),
-                                142 + (bs_huan_t * 10 + 40),
-                                310 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 1:
-                        g.drawBitmap(bs_huan, null, new RectF(
-                                1822 - (bs_huan_t * 10 + 40),
-                                58 - (bs_huan_t * 10 + 40),
-                                1822 + (bs_huan_t * 10 + 40),
-                                58 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 2:
-                        g.drawBitmap(bs_huan, null, new RectF(
-                                123 - (bs_huan_t * 10 + 40),
-                                985 - (bs_huan_t * 10 + 40),
-                                123 + (bs_huan_t * 10 + 40),
-                                985 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 3:
-                        g.drawBitmap(bs_huan, null, new RectF(
-                                1791 - (bs_huan_t * 10 + 40),
-                                985 - (bs_huan_t * 10 + 40),
-                                1791 + (bs_huan_t * 10 + 40),
-                                985 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                }
-            }
-            bs_huan_t--;
-            if (bs_huan_t < 0)
-                bs_huan_t = 10;
-        }
-    }
+//    public void renderAN(Canvas g, boolean huan, Paint paint) {
+//        if (huan) {
+//            if (pause == true) {
+//                switch (keyType) {
+//                    case 0:
+//                        g.drawBitmap(bs_huan, null, new RectF(
+//                                142 - (bs_huan_t * 10 + 40),
+//                                310 - (bs_huan_t * 10 + 40),
+//                                142 + (bs_huan_t * 10 + 40),
+//                                310 + (bs_huan_t * 10 + 40)), paint);
+//                        break;
+//                    case 1:
+//                        g.drawBitmap(bs_huan, null, new RectF(
+//                                1822 - (bs_huan_t * 10 + 40),
+//                                58 - (bs_huan_t * 10 + 40),
+//                                1822 + (bs_huan_t * 10 + 40),
+//                                58 + (bs_huan_t * 10 + 40)), paint);
+//                        break;
+//                    case 2:
+//                        g.drawBitmap(bs_huan, null, new RectF(
+//                                123 - (bs_huan_t * 10 + 40),
+//                                985 - (bs_huan_t * 10 + 40),
+//                                123 + (bs_huan_t * 10 + 40),
+//                                985 + (bs_huan_t * 10 + 40)), paint);
+//                        break;
+//                    case 3:
+//                        g.drawBitmap(bs_huan, null, new RectF(
+//                                1791 - (bs_huan_t * 10 + 40),
+//                                985 - (bs_huan_t * 10 + 40),
+//                                1791 + (bs_huan_t * 10 + 40),
+//                                985 + (bs_huan_t * 10 + 40)), paint);
+//                        break;
+//                }
+//            }
+//            bs_huan_t--;
+//            if (bs_huan_t < 0)
+//                bs_huan_t = 10;
+//        }
+//    }
 
     /**
      * 左下角必杀技能的绘制
@@ -830,7 +828,6 @@ public class Game {
             case KeyEvent.KEYCODE_MENU://菜单
                 Log.e("jamie", "－－－－－菜单－－－－－");
                 gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
-                pause = true;
                 break;
         }
     }
