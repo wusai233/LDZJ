@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import gam.org.com.leidianzhanji.R;
 import gam.org.com.leidianzhanji.npc.ZL;
@@ -274,26 +275,59 @@ public class Game {
         bombManager.render(g, paint);
         renderUI(g, paint);
 
-//        renderAN(g, true, paint);
+        if (pause = true) {
+            renderAN(g, true, paint);
+        }
     }
 
+    // 判断是否暂停
+    boolean pause = false;
     int bs_huan_t = 0;
-//    /**
-//     * 右上角暂停的光圈
-//     * */
-//    public void renderAN(Canvas g, boolean huan, Paint paint) {
-//        if (huan) {
-//            // 返回
-//            g.drawBitmap(bh_huan, null, new RectF(
-//                    1822 - (bh_huan_t * 10 + 40),
-//                    58 - (bh_huan_t * 10 + 40),
-//                    1822 + (bh_huan_t * 10 + 40),
-//                    58 + (bh_huan_t * 10 + 40)), paint);
-//            bs_huan_t--;
-//            if (bs_huan_t < 0)
-//                bs_huan_t = 10;
-//        }
-//    }
+    int flag = 0;
+    /**
+     * 右上角暂停的光圈
+     */
+    int keyType = 0;
+
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            if (pause == true) {
+                switch (keyType) {
+                    case 0:
+                        g.drawBitmap(bs_huan, null, new RectF(
+                                142 - (bs_huan_t * 10 + 40),
+                                310 - (bs_huan_t * 10 + 40),
+                                142 + (bs_huan_t * 10 + 40),
+                                310 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 1:
+                        g.drawBitmap(bs_huan, null, new RectF(
+                                1822 - (bs_huan_t * 10 + 40),
+                                58 - (bs_huan_t * 10 + 40),
+                                1822 + (bs_huan_t * 10 + 40),
+                                58 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 2:
+                        g.drawBitmap(bs_huan, null, new RectF(
+                                123 - (bs_huan_t * 10 + 40),
+                                985 - (bs_huan_t * 10 + 40),
+                                123 + (bs_huan_t * 10 + 40),
+                                985 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 3:
+                        g.drawBitmap(bs_huan, null, new RectF(
+                                1791 - (bs_huan_t * 10 + 40),
+                                985 - (bs_huan_t * 10 + 40),
+                                1791 + (bs_huan_t * 10 + 40),
+                                985 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                }
+            }
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
 
     /**
      * 左下角必杀技能的绘制
@@ -650,28 +684,142 @@ public class Game {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+//                if (pause == true) {
+//                    switch (keyType) {
+//                        case 0:
+//                            keyType = 2;
+//                            break;
+//                        case 1:
+//                            keyType = 3;
+//                            break;
+//                        case 2:
+//                            keyType = 0;
+//                            break;
+//                        case 3:
+//                            keyType = 1;
+//                            break;
+//                    }
+//                } else {
                 airplane.touchDown(100, 100);
                 airplane.touchMove(100, 70);
-
+//                }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+//                if (pause == true) {
+//                    switch (keyType) {
+//                        case 0:
+//                            keyType = 2;
+//                            break;
+//                        case 1:
+//                            keyType = 3;
+//                            break;
+//                        case 2:
+//                            keyType = 0;
+//                            break;
+//                        case 3:
+//                            keyType = 1;
+//                            break;
+//                    }
+//                } else {
                 airplane.touchDown(100, 100);
                 airplane.touchMove(100, 130);
+//                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+//                if (pause == true) {
+//                    switch (keyType) {
+//                        case 0:
+//                            keyType = 1;
+//                            break;
+//                        case 1:
+//                            keyType = 0;
+//                            break;
+//                        case 2:
+//                            keyType = 3;
+//                            break;
+//                        case 3:
+//                            keyType = 2;
+//                            break;
+//                    }
+//                } else {
                 airplane.touchDown(100, 100);
                 airplane.touchMove(70, 100);
+//                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+//                if (pause == true) {
+//                    switch (keyType) {
+//                        case 0:
+//                            keyType = 1;
+//                            break;
+//                        case 1:
+//                            keyType = 0;
+//                            break;
+//                        case 2:
+//                            keyType = 3;
+//                            break;
+//                        case 3:
+//                            keyType = 2;
+//                            break;
+//                    }
+//                } else {
                 airplane.touchDown(100, 100);
                 airplane.touchMove(130, 100);
+//                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
+//                if (pause == true) {
+//                    switch (keyType) {
+//                        case 0:
+//                            gameDraw.billingDialog.reset(40, 20);
+//                            break;
+//                        case 1:
+//                            gameDraw.pause.reset();
+//                            break;
+//                        case 2:
+//                            if (Airplane.mode == 0 || Airplane.mode == 15) {
+//                                if (bisha > 0) {
+//                                    GameDraw.gameSound(7);
+//                                    bisha--;
+//                                    gameDraw.biShaBg.reset(1);
+//                                    npcBulletManager.reset();
+//                                } else {
+//                                    isFang = true;
+//                                    if (MainActivity.isShowBuyMessage) {
+//                                        gameDraw.billingDialog.reset(2, 20);
+//                                    } else {
+//                                        gameDraw.pause.reset();
+//                                        gameDraw.pause.mode = 1;
+//                                        gameDraw.pause.t = 0;
+//                                    }
+//                                }
+//                            }
+//                            break;
+//                        case 3:
+//                            if (baohu > 0) {
+//                                baohu--;
+//                                npcBulletManager.bs(bumpManager);
+//                                gameDraw.biShaBg.reset(2);
+//                                GameDraw.gameSound(7);
+//                                Data.chackBH();
+//                            } else {
+//                                if (MainActivity.isShowBuyMessage) {
+//                                    gameDraw.billingDialog.reset(1, 20);
+//                                } else {
+//                                    gameDraw.pause.reset();
+//                                    gameDraw.pause.mode = 1;
+//                                    gameDraw.pause.t = 0;
+//                                }
+//                            }
+//                            break;
+//                    }
+//                } else {
                 gameDraw.pause.reset();
+//                }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
@@ -681,6 +829,8 @@ public class Game {
                 break;
             case KeyEvent.KEYCODE_MENU://菜单
                 Log.e("jamie", "－－－－－菜单－－－－－");
+                gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
+                pause = true;
                 break;
         }
     }

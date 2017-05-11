@@ -261,9 +261,7 @@ public class AirplaneUpgrade {
         id = 0;
         to = 10;
         anid = 0;
-
         GameDraw.gameSound(2);
-
         gameDraw.canvasIndex = GameDraw.CANVAS_AIRPLANE_UPGRADE;
 
     }

@@ -25,7 +25,7 @@ public class Achieve {
     Bitmap shu;
     Bitmap back_1;
     Bitmap back_2;
-//    Bitmap boss_an3_A;
+    Bitmap boss_an3_A;
     Bitmap bs_huan;
 
     int mode, time, id;
@@ -59,11 +59,12 @@ public class Achieve {
         back_1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.qh_back1);
         back_2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.qh_back2);
 
-//        boss_an3_A = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3_1);
+        boss_an3_A = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3_1);
 
         for (int i = 0; i < zi.length; i++) {
             zi[i] = BitmapFactory.decodeResource(
                     res, res.getIdentifier("ry_zi" + i, "drawable", GameDraw.context.getPackageName()));
+
 
             bs_huan = BitmapFactory.decodeResource(gameDraw.res,
                     R.drawable.bs_huan_im);
@@ -83,7 +84,7 @@ public class Achieve {
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            switch (keyType){
+            switch (keyType) {
                 case 0:
                     g.drawBitmap(bs_huan, null, new RectF(814 - (bs_huan_t * 10 + 40), 1016 - (bs_huan_t * 10 + 40), 814 + (bs_huan_t * 10 + 40), 1016 + (bs_huan_t * 10 + 40)), paint);
                     break;
@@ -133,6 +134,10 @@ public class Achieve {
         g.drawBitmap(Menu.bg, 0, 0, paint);
         g.drawBitmap(back_2, 960 - back_2.getWidth() / 2, 980, paint);
         g.drawBitmap(back_1, 960 - back_1.getWidth() / 2, 980, paint);
+
+        g.drawBitmap(boss_an3_A, 1065, 981, paint);
+        Tools.paintMImage(g, boss_an3_A, 744, 981, paint);
+
         switch (mode) {
             case 0:
             case 20:
@@ -250,8 +255,6 @@ public class Achieve {
     }
 
     public void touchDown(float tx, float ty) {
-
-
         switch (mode) {
             case 1:
                 if (tx > 960 - back_1.getWidth() / 2 && tx < 960 + back_1.getWidth() / 2 && ty > 954 && ty < 1048) {// 返回
@@ -295,40 +298,40 @@ public class Achieve {
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
-                switch (keyType){
-//                    case 0:
-//                        keyType = 2;
-//                        break;
+                switch (keyType) {
+                    case 0:
+                        keyType = 2;
+                        break;
                     case 1:
                         keyType = 0;
                         break;
-//                    case 2:
-//                        keyType = 1;
-//                        break;
+                    case 2:
+                        keyType = 1;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
-                switch (keyType){
-//                    case 0:
-//                        keyType = 1;
-//                        break;
+                switch (keyType) {
+                    case 0:
+                        keyType = 1;
+                        break;
                     case 1:
                         keyType = 2;
                         break;
-//                    case 2:
-//                        keyType = 0;
-//                        break;
+                    case 2:
+                        keyType = 0;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                switch (keyType){
-//                    case 0:
-//                        GameDraw.gameSound(1);
-//                        this.tx=600;
-//                        this.ox = 300;
-//                        break;
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        this.tx = tx++;
+                        this.ox = ox++;
+                        break;
                     case 1:
                         GameDraw.gameSound(1);
                         isDownReturn = true;
@@ -336,11 +339,11 @@ public class Achieve {
                         time = 10;
                         isDownReturn = true;
                         break;
-//                    case 2:
-//                        GameDraw.gameSound(1);
-//                        this.tx= 300;
-//                        this.ox =600;
-//                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        this.tx = 300;
+                        this.ox = 600;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回

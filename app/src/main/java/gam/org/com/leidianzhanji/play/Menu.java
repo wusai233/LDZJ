@@ -324,12 +324,11 @@ public class Menu {
 
                 }
                 break;
-
         }
         renderAN(g, true, paint);
     }
 
-    public void renderBT(Canvas g, int time, Paint paint) {
+    public void renderBT(Canvas g,  int time, Paint paint) {
         Log.i("Menu", "----------renderBT----------------");
         g.drawBitmap(gai2, 40, -19 - time * 30, paint);
         Tools.paintMImage(g, gai2, 240, -19 - time * 30, paint);
