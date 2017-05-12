@@ -87,7 +87,7 @@ public class Data {
             Game.isFrist = true;
             MainActivity.isFirstPlay = true;
             MainActivity.isEndPlay = false;
-            level = 1;
+            level = 2;
             Game.score = 0;
             Game.mnuey = 88888;
             Game.zmnuey = 0;

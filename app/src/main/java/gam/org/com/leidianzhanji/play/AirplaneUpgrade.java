@@ -48,10 +48,6 @@ public class AirplaneUpgrade {
     Bitmap[][] shu = new Bitmap[5][];
     Bitmap[] js = new Bitmap[8];
 
-    /**
-     * 按钮类型 0：升级1   1：升级2  2：升级3   3：升级4   4：升级15  5：升级6  6：获取水晶  7：返回  8：一键满级
-     */
-    int keyType = 7;
 
     public AirplaneUpgrade(GameDraw _mc) {
         gameDraw = _mc;
@@ -135,86 +131,84 @@ public class AirplaneUpgrade {
                 R.drawable.bs_huan_im);
     }
 
+    /**
+     * 按钮类型 0：升级1   1：升级2  2：升级3   3：升级4   4：升级15  5：升级6  6：获取水晶  7：返回  8：一键满级
+     */
+    int keyType = 7;
     int bs_huan_t = 0;
+    int anFlag = 0;
 
     /**
      * 选择光圈的绘制
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            switch (keyType) {
-                case 0:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1190 - (bs_huan_t * 10 + 40),
-                            395 - (bs_huan_t * 10 + 40),
-                            1190 + (bs_huan_t * 10 + 40),
-                            395 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 1:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1190 - (bs_huan_t * 10 + 40),
-                            484 - (bs_huan_t * 10 + 40),
-                            1190 + (bs_huan_t * 10 + 40),
-                            484 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 2:
-
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1190 - (bs_huan_t * 10 + 40),
-                            572 - (bs_huan_t * 10 + 40),
-                            1190 + (bs_huan_t * 10 + 40),
-                            572 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 3:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1190 - (bs_huan_t * 10 + 40),
-                            670 - (bs_huan_t * 10 + 40),
-                            1190 + (bs_huan_t * 10 + 40),
-                            670 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 4:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1190 - (bs_huan_t * 10 + 40),
-                            748 - (bs_huan_t * 10 + 40),
-                            1190 + (bs_huan_t * 10 + 40),
-                            748 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 5:
-
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1190 - (bs_huan_t * 10 + 40),
-                            839 - (bs_huan_t * 10 + 40),
-                            1190 + (bs_huan_t * 10 + 40),
-                            839 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 6:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            763 - (bs_huan_t * 10 + 40),
-                            979 - (bs_huan_t * 10 + 40),
-                            763 + (bs_huan_t * 10 + 40),
-                            979 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 7:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            958 - (bs_huan_t * 10 + 40),
-                            979 - (bs_huan_t * 10 + 40),
-                            958 + (bs_huan_t * 10 + 40),
-                            979 + (bs_huan_t * 10 + 40)), paint);
-                    break;
-                case 8:
-                    g.drawBitmap(bs_huan, null, new RectF(
-                            1156 - (bs_huan_t * 10 + 40),
-                            979 - (bs_huan_t * 10 + 40),
-                            1156 + (bs_huan_t * 10 + 40),
-                            979 + (bs_huan_t * 10 + 40)), paint);
-                    break;
+            if (anFlag == 2) {
+                // 一键满级
+                switch (keyType) {
+                    case 13:
+                        g.drawBitmap(bs_huan, null, new RectF(1118 + 42 - (bs_huan_t * 10 + 40), 189 + 38 - (bs_huan_t * 10 + 40), 1118 + 42 + (bs_huan_t * 10 + 40), 189 + 38 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 14:
+                        g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 897 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 897 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                }
+            } else if (anFlag == 1) {
+                // 获取水晶
+                /**
+                 * 领取水晶的四个按钮 9： 关闭 10：领取 11：领取 12：领取
+                 * */
+                switch (keyType) {
+                    case 9:
+                        g.drawBitmap(bs_huan, null, new RectF(1118 + 42 - (bs_huan_t * 10 + 40), 189 + 38 - (bs_huan_t * 10 + 40), 1118 + 42 + (bs_huan_t * 10 + 40), 189 + 38 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 10:
+                        g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 490 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 490 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 11:
+                        g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 665 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 665 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 12:
+                        g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 845 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 845 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                }
+            } else {
+                switch (keyType) {
+                    case 0:
+                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 395 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 395 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 1:
+                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 484 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 484 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 2:
+                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 572 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 572 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 3:
+                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 670 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 670 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 4:
+                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 748 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 748 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 5:
+                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 839 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 839 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 6:
+                        g.drawBitmap(bs_huan, null, new RectF(763 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 763 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 7:
+                        g.drawBitmap(bs_huan, null, new RectF(958 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 958 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                    case 8:
+                        g.drawBitmap(bs_huan, null, new RectF(1156 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 1156 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
+                        break;
+                }
             }
-
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
         }
     }
+
 
     public void free() {
         im = null;
@@ -281,13 +275,11 @@ public class AirplaneUpgrade {
                 paint.setAlpha(t * 25);
                 renderJM(g, paint);
                 paint.setAlpha(255);
-//                Game.drawTop(g, paint, t);
                 g.drawBitmap(qh_back1, 874, 943, paint);
                 break;
             case MODE_JING:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
-//                Game.drawTop(g, paint, 10);
                 if (isDownReturn)
                     g.drawBitmap(qh_back2, 874, 943, paint);
                 else
@@ -296,7 +288,6 @@ public class AirplaneUpgrade {
             case 10:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
-                Game.drawTop(g, paint, 10);
                 g.drawBitmap(gouim, 664, 150, paint);
                 Tools.paintMImage(g, gouim, 960, 150, paint);
                 Tools.paintM2Image(g, gouim, 664, 597, paint);
@@ -314,29 +305,18 @@ public class AirplaneUpgrade {
             case 11:
                 g.drawBitmap(Menu.bg, 0, 0, paint);
                 renderJM(g, paint);
-//                Game.drawTop(g, paint, 10);
                 g.drawBitmap(gouim, 663, 149, paint);
                 Tools.paintMImage(g, gouim, 959, 149, paint);
                 Tools.paintM2Image(g, gouim, 663, 597, paint);
                 Tools.paintRotateImage(g, gouim, 960, 597, 180, 302, 458, paint);
                 g.drawBitmap(gou2, 750, 242, paint);
-//                g.drawBitmap(an31, 141, 610, paint);
                 g.drawBitmap(an31, 960 - (an31.getWidth() / 2), 860, paint);
-                // g.drawBitmap(gouzi, 185, 616, paint);
                 if (isDownReturn)
                     g.drawBitmap(gouback, 1118, 189, paint);
                 else
                     g.drawBitmap(gouback, 1118, 189, paint);
-
-                // g.drawBitmap(Game.top, 0, 0, paint);
-                // g.drawBitmap(Game.left, 182, 0, paint);
-                // g.drawBitmap(Game.top, 0, 736, paint);
-                // Game.drawDown(g, paint, 10);
-                // g.drawBitmap(bt, 0, 736, paint);
-                // g.drawBitmap(Game.left, 182, 736, paint);
                 break;
         }
-
         renderAN(g, true, paint);
     }
 
@@ -851,6 +831,24 @@ public class AirplaneUpgrade {
                     case 8:
                         keyType = 5;
                         break;
+                    case 9:
+                        keyType = 12;
+                        break;
+                    case 10:
+                        keyType = 9;
+                        break;
+                    case 11:
+                        keyType = 10;
+                        break;
+                    case 12:
+                        keyType = 11;
+                        break;
+                    case 13:
+                        keyType = 14;
+                        break;
+                    case 14:
+                        keyType = 13;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
@@ -883,6 +881,24 @@ public class AirplaneUpgrade {
                         break;
                     case 8:
                         keyType = 0;
+                        break;
+                    case 9:
+                        keyType = 10;
+                        break;
+                    case 10:
+                        keyType = 11;
+                        break;
+                    case 11:
+                        keyType = 12;
+                        break;
+                    case 12:
+                        keyType = 9;
+                        break;
+                    case 13:
+                        keyType = 14;
+                        break;
+                    case 14:
+                        keyType = 13;
                         break;
                 }
                 break;
@@ -1065,8 +1081,10 @@ public class AirplaneUpgrade {
                         }
                         isDownSJ = false;
                         if (MainActivity.isShowBuyMessage) {
-//                            mode = 10;
+                            mode = 10;
                             t = 0;
+                            anFlag = 1;
+                            keyType = 9;
                         } else {
 //						PaymentJoy.getInstance(this).startCharge(
 //								new PaymentParam(2));
@@ -1085,8 +1103,10 @@ public class AirplaneUpgrade {
                         isDownMJ = false;
                         if (dj[id] < 5) {
                             if (MainActivity.isShowBuyMessage) {
-//                                mode = 11;
+                                mode = 11;
                                 t = 0;
+                                anFlag = 2;
+                                keyType = 13;
                             } else {
 //							PaymentJoy.getInstance(this).startCharge(
 //									new PaymentParam(9));
@@ -1095,6 +1115,41 @@ public class AirplaneUpgrade {
 //                            gameDraw.smallDialog.reset(2, 240, 300, 18);
                         }
                         break;
+                    case 9:
+                        mode = MODE_JING;
+                        t = 0;
+                        keyType = 7;
+                        break;
+                    case 10:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(2));
+                        break;
+                    case 11:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(3));
+                        break;
+                    case 12:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(4));
+                        break;
+                    case 13:
+                        mode = MODE_JING;
+                        t = 0;
+                        keyType = 7;
+                        break;
+                    case 14:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(2));
+                        break;
+                    /**
+                     * 9到14为弹出购买水晶界面按钮。
+                     * 9   13 为关闭按钮 点击关闭窗口，光标回到7 （返回按钮）
+                     * 问题：点击升级时水晶不足出现的窗口未出现光标，点击9与13之后光标未回到7但可以点击出事件。
+                     * */
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
