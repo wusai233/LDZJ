@@ -498,7 +498,7 @@ public class AirplaneUpgrade {
                 if (t <= 0) {
                     if (to == 10) {
                         Menu.index = Menu.NULL;
-                        gameDraw.menu.initPart(gameDraw.res);
+                        gameDraw.menu.init(gameDraw.res);
                         gameDraw.menu.reset2();
                     } else if (to == 15) {
                         gameDraw.chooseAirplane.init(gameDraw.res);

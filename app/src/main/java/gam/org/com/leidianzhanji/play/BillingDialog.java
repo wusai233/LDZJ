@@ -76,10 +76,10 @@ public class BillingDialog {
         if (huan) {
             switch (keyType) {
                 case 0:
-                    g.drawBitmap(bs_huan, null, new RectF(1085+84/2 - (bs_huan_t * 10 + 40), 255+23/2 - (bs_huan_t * 10 + 40), 1085+84/2 + (bs_huan_t * 10 + 40),  255+23/2 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(1085 + 84 / 2 - (bs_huan_t * 10 + 40), 255 + 23 / 2 - (bs_huan_t * 10 + 40), 1085 + 84 / 2 + (bs_huan_t * 10 + 40), 255 + 23 / 2 + (bs_huan_t * 10 + 40)), paint);
                     break;
                 case 1:
-                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 840+95/2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 840+95/2 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 840 + 95 / 2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 840 + 95 / 2 + (bs_huan_t * 10 + 40)), paint);
                     break;
             }
             bs_huan_t--;
@@ -92,10 +92,10 @@ public class BillingDialog {
         if (huan) {
             switch (keyType) {
                 case 0:
-                    g.drawBitmap(bs_huan, null, new RectF(1085+84/2 - (bs_huan_t * 10 + 40), 255+23/2 - (bs_huan_t * 10 + 40), 1085+84/2 + (bs_huan_t * 10 + 40),  255+23/2 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(1085 + 84 / 2 - (bs_huan_t * 10 + 40), 255 + 23 / 2 - (bs_huan_t * 10 + 40), 1085 + 84 / 2 + (bs_huan_t * 10 + 40), 255 + 23 / 2 + (bs_huan_t * 10 + 40)), paint);
                     break;
                 case 1:
-                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 700+95/2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 700+95/2 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 700 + 95 / 2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 700 + 95 / 2 + (bs_huan_t * 10 + 40)), paint);
                     break;
             }
             bs_huan_t--;
@@ -103,6 +103,7 @@ public class BillingDialog {
                 bs_huan_t = 10;
         }
     }
+
     public void free() {
         im = null;
         an1 = null;
@@ -402,12 +403,12 @@ public class BillingDialog {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
                 GameDraw.gameSound(1);
-                switch (keyType){
+                switch (keyType) {
                     case 0:
-                        keyType=1;
+                        keyType = 1;
                         break;
                     case 1:
-                        keyType=0;
+                        keyType = 0;
                         break;
                 }
                 break;
@@ -415,12 +416,12 @@ public class BillingDialog {
                 Log.e("jamie", "－－－－－向下－－－－－");
                 GameDraw.gameSound(1);
                 //   这里要写两种确定按钮的事件
-                switch (keyType){
+                switch (keyType) {
                     case 0:
-                        keyType=1;
+                        keyType = 1;
                         break;
                     case 1:
-                        keyType=0;
+                        keyType = 0;
                         break;
                 }
                 break;
@@ -433,31 +434,31 @@ public class BillingDialog {
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);
-                switch (keyType){
+                switch (keyType) {
                     case 0:
-                     switch (id){
-                         case 1:
-                             t = 5;
-                             mode = 20;
-                             break;
-                         case 2:
-                             t = 5;
-                             mode = 20;
+                        switch (id) {
+                            case 1:
+                                t = 5;
+                                mode = 20;
+                                break;
+                            case 2:
+                                t = 5;
+                                mode = 20;
 //                             Game.isFang = false;
-                             break;
-                         case 10:
-                             t = 0;
-                             mode = 30;
-                             break;
-                         case 30:
-                             t = 5;
-                             mode = 20;
-                             break;
-                         case 40:
-                             t = 5;
-                             mode = 20;
-                             break;
-                     }
+                                break;
+                            case 10:
+                                t = 0;
+                                mode = 30;
+                                break;
+                            case 30:
+                                t = 5;
+                                mode = 20;
+                                break;
+                            case 40:
+                                t = 5;
+                                mode = 20;
+                                break;
+                        }
                         break;
                     case 1:
 //                        t = 0;

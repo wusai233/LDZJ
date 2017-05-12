@@ -427,7 +427,7 @@ public class ChooseBoss {
                 t--;
                 if (t <= 0) {
                     Menu.index = Menu.NULL;
-                    gameDraw.menu.initPart(gameDraw.res);
+                    gameDraw.menu.init(gameDraw.res);
                     gameDraw.menu.reset2();
                 }
                 break;
