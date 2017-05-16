@@ -17,6 +17,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 /**
  * BOSS的选择
@@ -60,17 +61,6 @@ public class ChooseBoss {
     public ChooseBoss(GameDraw _mc) {
         gameDraw = _mc;
     }
-
-    /**
-     * 按钮类型 0：返回  1：出击  2：左滑动  3：右滑动
-     */
-    int keyType = 1;
-    /**
-     * 选择弹出窗口
-     * 总共三个窗口
-     */
-    int winId = 0;
-
 
     public void init(Resources res) {
         im = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_im);
@@ -137,10 +127,15 @@ public class ChooseBoss {
 
 
     int bs_huan_t = 0;
+    /**
+     * 按钮类型 0：返回  1：出击  2：左滑动  3：右滑动
+     */
+    int keyType = 1;
 
     /**
      * 选择圈圈的绘制
      */
+
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
             switch (keyType) {
@@ -160,21 +155,18 @@ public class ChooseBoss {
                     //右
                     g.drawBitmap(bs_huan, null, new RectF(1183 - (bs_huan_t * 10 + 40), 730 - (bs_huan_t * 10 + 40), 1183 + (bs_huan_t * 10 + 40), 730 + (bs_huan_t * 10 + 40)), paint);
                     break;
-            }
-
-//            (tx > 120 && tx < 360 && ty > 220 && ty < 220 + 3 * 120
-            if(mode ==  10){
-                switch (winId){
-                    case 0:
-                        g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 253 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 253 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 1:
-                        g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 406 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 406 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 2:
-                        g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 559 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 559 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                }
+                case 4:
+                    // 简单
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 253 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 253 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 5:
+                    // 中等
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 406 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 406 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 6:
+                    // 困难
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 559 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 559 + (bs_huan_t * 10 + 40)), paint);
+                    break;
             }
             bs_huan_t--;
             if (bs_huan_t < 0)
@@ -184,10 +176,7 @@ public class ChooseBoss {
 
     public void free() {
         im = null;
-        // bt = null;
         guang = null;
-//        an1 = null;
-//        an2 = null;
         an3 = null;
         shu1 = null;
         shu2 = null;
@@ -197,12 +186,8 @@ public class ChooseBoss {
         for (int i = 0; i < ban1.length; i++) {
             ban1[i] = null;
             ban2[i] = null;
-            // xing[i] = null;
         }
 
-        // for (int i = 0; i < zi.length; i++) {
-        // zi[i] = null;
-        // }
 
         for (int i = 0; i < boss.length; i++) {
             boss[i] = null;
@@ -309,7 +294,6 @@ public class ChooseBoss {
                 }
 
                 Game.drawDown(g, paint, 10, isDownReturn);
-                // g.drawBitmap(Game.back1, 182, 736, paint);
                 break;
         }
         renderAN(g, true, paint);
@@ -323,11 +307,6 @@ public class ChooseBoss {
 
         g.drawBitmap(guang, 683, 323, paint);
         Tools.paintMImage(g, guang, 960, 323, paint);
-//        if (isDownPK)
-//            g.drawBitmap(an2, 832, 770, paint);
-//        else
-//            g.drawBitmap(an1, 832, 770, paint);
-//        // g.drawBitmap(zi[0], 173, 646, paint);
         g.drawBitmap(an3, 672, 688, paint);
         Tools.paintMImage(g, an3, 1118, 688, paint);
     }
@@ -339,7 +318,6 @@ public class ChooseBoss {
             boss[id].render(g, paint);
             paint.setAlpha(255);
         } else {
-//            g.drawBitmap(an2, 832, 770, paint);
             GameDraw.black.setAlpha(alp);
             boss[id].render(g, GameDraw.black);
             GameDraw.black.setAlpha(255);
@@ -571,183 +549,168 @@ public class ChooseBoss {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
-                if(mode == 10){
-                    switch (winId) {
-                        case 0:
-                            GameDraw.gameSound(1);
-                            winId = 2;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            winId = 0;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            winId = 1;
-                            break;
-                    }
-                }else {
-                    switch (keyType) {
-                        case 0:
-                            GameDraw.gameSound(1);
-                            keyType = 2;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            keyType = 3;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            keyType = 0;
-                            break;
-                        case 3:
-                            GameDraw.gameSound(1);
-                            keyType = 1;
-                            break;
-                    }
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
-                if(mode == 10){
-                    switch (winId) {
-                        case 0:
-                            GameDraw.gameSound(1);
-                            winId = 1;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            winId = 2;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            winId = 0;
-                            break;
-                    }
-                }else {
-                    switch (keyType) {
-                        case 0:
-                            GameDraw.gameSound(1);
-                            keyType = 2;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            keyType = 3;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            keyType = 0;
-                            break;
-                        case 3:
-                            GameDraw.gameSound(1);
-                            keyType = 1;
-                            break;
-                    }
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
-                if (mode != 10){
-                    switch (keyType) {
-                        case 0:
-                            GameDraw.gameSound(1);
-                            keyType = 1;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            keyType = 0;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            keyType = 3;
-                            break;
-                        case 3:
-                            GameDraw.gameSound(1);
-                            keyType = 2;
-                            break;
-                    }
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
-                if (mode != 10) {
-                    switch (keyType) {
-                        case 0:
-                            GameDraw.gameSound(1);
-                            keyType = 1;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            keyType = 0;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            keyType = 3;
-                            break;
-                        case 3:
-                            GameDraw.gameSound(1);
-                            keyType = 2;
-                            break;
-                    }
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 1;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 2;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                if(mode == 10){
-                    switch (winId) {
-                        case 0:
+                switch (keyType) {
+                    case 0:
+                        isDownReturn = true;
+                        GameDraw.gameSound(1);
+                        isDownReturn = false;
+                        mode = 20;
+                        t = 10;
+                        break;
+                    case 1:
+                        if (jd[id] > 0) {
+                            isDownPK = true;
                             GameDraw.gameSound(1);
-                            isPKDown[0] = true;
-                            isPKDown[0] = false;
-                            t = 4;
-                            anid = 0 + 1;
-                            break;
-                        case 1:
-                            GameDraw.gameSound(1);
-                            isPKDown[1] = true;
-                            isPKDown[1] = false;
-                            t = 4;
-                            anid = 1 + 1;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            isPKDown[2] = true;
-                            isPKDown[2] = false;
-                            t = 4;
-                            anid = 2 + 1;
-                            break;
-                    }
-                }else {
-                    switch (keyType) {
-                        case 0:
-                            isDownReturn = true;
-                            GameDraw.gameSound(1);
-                            isDownReturn = false;
-                            mode = 20;
-                            t = 10;
-                            break;
-                        case 1:
-                            if (jd[id] > 0) {
-                                isDownPK = true;
-                                GameDraw.gameSound(1);
-                            }
-                            isDownPK = false;
-                            mode = 10;
-                            t = 0;
-                            break;
-                        case 2:
-                            GameDraw.gameSound(1);
-                            dx = 0;
-                            vx = 50;
-                            mode = 2;
-                            break;
-                        case 3:
-                            GameDraw.gameSound(1);
-                            dx = 0;
-                            vx = -50;
-                            mode = 2;
-                            break;
-                    }
+                        }
+                        isDownPK = false;
+                        mode = 10;
+                        t = 0;
+                        keyType = 4;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        dx = 0;
+                        vx = 50;
+                        mode = 2;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        dx = 0;
+                        vx = -50;
+                        mode = 2;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        isPKDown[0] = true;
+                        isPKDown[0] = false;
+                        t = 4;
+                        anid = 0 + 1;
+                        keyType = 1;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        isPKDown[1] = true;
+                        isPKDown[1] = false;
+                        t = 4;
+                        anid = 1 + 1;
+                        keyType = 1;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        isPKDown[2] = true;
+                        isPKDown[2] = false;
+                        t = 4;
+                        anid = 2 + 1;
+                        keyType = 1;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回

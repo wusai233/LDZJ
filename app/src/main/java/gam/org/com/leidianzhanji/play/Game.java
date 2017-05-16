@@ -664,8 +664,8 @@ public class Game {
     }
 
     public static void drawDown(Canvas g, Paint paint, int t, boolean isDown) {
-        g.drawBitmap(down, 572, 945 - t * (float) 13.7, paint);
-        Tools.paintMImage(g, down, 960, 945 - t * (float) 13.7, paint);
+        g.drawBitmap(down, 572, 949 - t * (float) 13.7, paint);
+        Tools.paintMImage(g, down, 960, 949 - t * (float) 13.7, paint);
         if (isDown) {
             g.drawBitmap(back2, 631, 1110 - t * (float) 13.7, paint);
         } else {

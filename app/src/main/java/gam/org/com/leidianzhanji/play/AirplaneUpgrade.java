@@ -136,78 +136,64 @@ public class AirplaneUpgrade {
      */
     int keyType = 7;
     int bs_huan_t = 0;
-    int anFlag = 0;
 
     /**
      * 选择光圈的绘制
      */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-//            if (anFlag == 2) {
-//                // 一键满级
-//                switch (keyType) {
-//                    case 13:
-//                        g.drawBitmap(bs_huan, null, new RectF(1118 + 42 - (bs_huan_t * 10 + 40), 189 + 38 - (bs_huan_t * 10 + 40), 1118 + 42 + (bs_huan_t * 10 + 40), 189 + 38 + (bs_huan_t * 10 + 40)), paint);
-//                        break;
-//                    case 14:
-//                        g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 897 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 897 + (bs_huan_t * 10 + 40)), paint);
-//                        break;
-//                }
-//            } else if (anFlag == 1) {
-//                // 获取水晶
-//                /**
-//                 * 领取水晶的四个按钮 9： 关闭 10：领取 11：领取 12：领取
-//                 * */
-//                switch (keyType) {
-//                    case 9:
-//                        g.drawBitmap(bs_huan, null, new RectF(1118 + 42 - (bs_huan_t * 10 + 40), 189 + 38 - (bs_huan_t * 10 + 40), 1118 + 42 + (bs_huan_t * 10 + 40), 189 + 38 + (bs_huan_t * 10 + 40)), paint);
-//                        break;
-//                    case 10:
-//                        g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 490 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 490 + (bs_huan_t * 10 + 40)), paint);
-//                        break;
-//                    case 11:
-//                        g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 665 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 665 + (bs_huan_t * 10 + 40)), paint);
-//                        break;
-//                    case 12:
-//                        g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 845 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 845 + (bs_huan_t * 10 + 40)), paint);
-//                        break;
-//                }
-//            } else {
-                switch (keyType) {
-                    case 0:
-                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 395 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 395 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 1:
-                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 484 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 484 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 2:
-                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 572 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 572 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 3:
-                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 670 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 670 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 4:
-                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 748 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 748 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 5:
-                        g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 839 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 839 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 6:
-                        g.drawBitmap(bs_huan, null, new RectF(763 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 763 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 7:
-                        g.drawBitmap(bs_huan, null, new RectF(958 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 958 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                    case 8:
-                        g.drawBitmap(bs_huan, null, new RectF(1156 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 1156 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
-                        break;
-                }
+            switch (keyType) {
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 395 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 395 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 484 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 484 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2:
+                    g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 572 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 572 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3:
+                    g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 670 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 670 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 4:
+                    g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 748 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 748 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 5:
+                    g.drawBitmap(bs_huan, null, new RectF(1190 - (bs_huan_t * 10 + 40), 839 - (bs_huan_t * 10 + 40), 1190 + (bs_huan_t * 10 + 40), 839 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 6:
+                    g.drawBitmap(bs_huan, null, new RectF(763 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 763 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 7:
+                    g.drawBitmap(bs_huan, null, new RectF(958 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 958 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 8:
+                    g.drawBitmap(bs_huan, null, new RectF(1156 - (bs_huan_t * 10 + 40), 979 - (bs_huan_t * 10 + 40), 1156 + (bs_huan_t * 10 + 40), 979 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 9:
+                    g.drawBitmap(bs_huan, null, new RectF(1118 + 42 - (bs_huan_t * 10 + 40), 189 + 38 - (bs_huan_t * 10 + 40), 1118 + 42 + (bs_huan_t * 10 + 40), 189 + 38 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 10:
+                    g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 490 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 490 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 11:
+                    g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 665 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 665 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 12:
+                    g.drawBitmap(bs_huan, null, new RectF(1085 - (bs_huan_t * 10 + 40), 845 - (bs_huan_t * 10 + 40), 1085 + (bs_huan_t * 10 + 40), 845 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 13:
+                    g.drawBitmap(bs_huan, null, new RectF(1118 + 42 - (bs_huan_t * 10 + 40), 189 + 38 - (bs_huan_t * 10 + 40), 1118 + 42 + (bs_huan_t * 10 + 40), 189 + 38 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 14:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 897 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 897 + (bs_huan_t * 10 + 40)), paint);
+                    break;
             }
             bs_huan_t--;
             if (bs_huan_t < 0)
                 bs_huan_t = 10;
         }
-//    }
+    }
 
 
     public void free() {
@@ -1083,12 +1069,11 @@ public class AirplaneUpgrade {
                         if (MainActivity.isShowBuyMessage) {
                             mode = 10;
                             t = 0;
-                            anFlag = 1;
-                            keyType = 9;
                         } else {
 //						PaymentJoy.getInstance(this).startCharge(
 //								new PaymentParam(2));
                         }
+                        keyType = 9;
                         break;
                     case 7:
                         GameDraw.gameSound(1);
@@ -1105,14 +1090,14 @@ public class AirplaneUpgrade {
                             if (MainActivity.isShowBuyMessage) {
                                 mode = 11;
                                 t = 0;
-                                anFlag = 2;
                                 keyType = 13;
                             } else {
 //							PaymentJoy.getInstance(this).startCharge(
 //									new PaymentParam(9));
                             }
                         } else {
-//                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            // 已经满级
+                            gameDraw.smallDialog.reset(2, 240, 300, 18);
                         }
                         break;
                     case 9:
