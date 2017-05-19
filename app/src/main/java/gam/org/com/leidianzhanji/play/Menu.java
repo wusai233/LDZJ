@@ -128,6 +128,12 @@ public class Menu {
                 case 5: //设置
                     g.drawBitmap(bs_huan, null, new RectF(1349 - (bs_huan_t * 10 + 40), 999 - (bs_huan_t * 10 + 40), 1349 + (bs_huan_t * 10 + 40), 999 + (bs_huan_t * 10 + 40)), paint);
                     break;
+                case 6:
+                    g.drawBitmap(bs_huan, null, new RectF(1080+- (bs_huan_t * 10 + 40), 310+ - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 425 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 7:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 573 - (bs_huan_t * 10 + 40), 475+ (bs_huan_t * 10 + 40), 573 + (bs_huan_t * 10 + 40)), paint);
+                    break;
             }
             bs_huan_t--;
             if (bs_huan_t < 0)
@@ -592,6 +598,12 @@ public class Menu {
                     case 5: //设置
                         keyType = 2;
                         break;
+                    case 6:
+                        keyType = 7;
+                        break;
+                    case 7:
+                        keyType = 6;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
@@ -614,6 +626,12 @@ public class Menu {
                         break;
                     case 5: //设置
                         keyType = 0;
+                        break;
+                    case 6:
+                        keyType = 7;
+                        break;
+                    case 7:
+                        keyType = 6;
                         break;
                 }
                 break;
@@ -638,6 +656,12 @@ public class Menu {
                     case 5: //设置
                         keyType = 3;
                         break;
+                    case 6:
+                        keyType = 7;
+                        break;
+                    case 7:
+                        keyType = 6;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
@@ -661,53 +685,68 @@ public class Menu {
                     case 5: //设置
                         keyType = 4;
                         break;
+                    case 6:
+                        keyType = 7;
+                        break;
+                    case 7:
+                        keyType = 6;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
-                    case 0://挑战Bss
-                        isDownBoss = false;
-                        isLevelOrBoss = 2;
-                        index = BOSS;
-                        mode = 6;
-                        time = -1;
-                        isDownBoss = false;
-                        break;
-                    case 1://战斗升级
-                        isDownUpgrade = false;
-                        index = UPGRADE;
-                        mode = 6;
-                        time = -1;
-                        isDownUpgrade = false;
-                        break;
-                    case 2: //帮助关于
-//                        isDownHelp = false;
-//                        index = HELP;
+//                    case 0://挑战Bss
+//                        isDownBoss = false;
+//                        isLevelOrBoss = 2;
+//                        index = BOSS;
 //                        mode = 6;
 //                        time = -1;
+//                        isDownBoss = false;
+//                        break;
+//                    case 1://战斗升级
+//                        isDownUpgrade = false;
+//                        index = UPGRADE;
+//                        mode = 6;
+//                        time = -1;
+//                        isDownUpgrade = false;
+//                        break;
+//                    case 2: //帮助关于
+////                        isDownHelp = false;
+////                        index = HELP;
+////                        mode = 6;
+////                        time = -1;
+//                        break;
+//                    case 3: //开始按钮
+//                        isDownStart = false;
+//                        isLevelOrBoss = 1;
+//                        index = PLAYGAME;
+//                        mode = 6;
+//                        time = -1;
+//                        break;
+//                    case 4:  //成就
+//                        isDownAchieve = false;
+//                        index = ACHIEVE;
+//                        mode = 6;
+//                        time = -1;
+//                        break;
+//                    case 5: //设置
+//                        isDownSetting = false;
+//                        index = SETTING;
+//                        break;
+                    case 6:
+                        mode = 5;
                         break;
-                    case 3: //开始按钮
-                        isDownStart = false;
-                        isLevelOrBoss = 1;
-                        index = PLAYGAME;
-                        mode = 6;
-                        time = -1;
-                        break;
-                    case 4:  //成就
-                        isDownAchieve = false;
-                        index = ACHIEVE;
-                        mode = 6;
-                        time = -1;
-                        break;
-                    case 5: //设置
-                        isDownSetting = false;
-                        index = SETTING;
+                    case 7:
+                        isDownExit = true;
                         break;
                 }
-                Log.e("jamie", "－－－－－确定－－－－－");
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                keyType = 6;
+                index = EXIT_GAME;
+                isDownExit = false;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

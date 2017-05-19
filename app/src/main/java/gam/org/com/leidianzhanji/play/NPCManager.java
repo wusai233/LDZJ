@@ -21,11 +21,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 
 /**
  * 敌机
  */
 public class NPCManager {
+	private String TAG="NPCManager";
 	Bitmap[][] im = new Bitmap[14][];
 	public NPC[] npcs;
 	public static int l = 0;
@@ -103,6 +105,7 @@ public class NPCManager {
 	 * id:ID x:横坐标 y:纵坐标 temp:辅助变量 level:等级
 	 */
 	public void create(int id, float x, float y, float temp, int level) {
+		Log.d(TAG,"---id:"+id+"--------x:"+x+"--------y:"+y+"--------temp:"+temp+"--------level:"+level);
 		if (l < npcs.length) {
 			switch (id) {
 			// NPC1

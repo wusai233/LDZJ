@@ -1,5 +1,7 @@
 package gam.org.com.leidianzhanji.npc;
 
+import android.util.Log;
+
 import java.util.Random;
 
 import gam.org.com.leidianzhanji.play.ChooseBoss;
@@ -12,6 +14,7 @@ import gam.org.com.leidianzhanji.play.Tools;
 
 
 public class ZL {
+	private String TAG="AL";
 	GameDraw gameDraw;
 	/**
 	 * time:NPC出现的时间 bosst:Boss出现时间
@@ -79,8 +82,13 @@ public class ZL {
 							level = data[id][i * 5 + 5];
 						else
 							level = getRandomWuPin();
-						nm.create(data[id][i * 5 + 1],
-								data[id][i * 5 + 2] - 120, y, temp, level);
+						int idTemp =data[id][i * 5 + 1];
+						int xTemp = data[id][i * 5 + 2] - 20;
+						int yTemp =y;
+						int tempTemp = temp;
+						int levelTemp =level ;
+						Log.d(TAG,"---id:"+idTemp+"--------x:"+xTemp+"--------y:"+yTemp+"--------temp:"+tempTemp+"--------level:"+levelTemp);
+						nm.create(data[id][i * 5 + 1], data[id][i * 5 + 2] - 20, y, temp, level);
 						// Log.d("====  create npc  ====",
 						// i+"      "+data[id][i*5+1]) ;
 					}

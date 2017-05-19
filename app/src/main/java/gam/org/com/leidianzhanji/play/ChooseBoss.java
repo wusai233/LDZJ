@@ -105,19 +105,19 @@ public class ChooseBoss {
         name[BOSS_NUM] = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.boss_name12);
 
-        boss[0] = new BOSS1(gameDraw.game.npcManager.im[1], 960, 350, 101);
-        boss[1] = new BOSS2(gameDraw.game.npcManager.im[2], 960, 350, 102);
-        boss[2] = new BOSS4(gameDraw.game.npcManager.im[4], 960, 350, 103);
-        boss[3] = new BOSS6(gameDraw.game.npcManager.im[6], 960, 350, 104);
-        boss[4] = new BOSS5(gameDraw.game.npcManager.im[5], 960, 350, 105);
-        boss[5] = new BOSS3(gameDraw.game.npcManager.im[3], 960, 350, 106);
+        boss[0] = new BOSS1(gameDraw.game.npcManager.im[1], 950, 350, 101);
+        boss[1] = new BOSS2(gameDraw.game.npcManager.im[2], 950, 350, 102);
+        boss[2] = new BOSS4(gameDraw.game.npcManager.im[4], 950, 350, 103);
+        boss[3] = new BOSS6(gameDraw.game.npcManager.im[6], 950, 350, 104);
+        boss[4] = new BOSS5(gameDraw.game.npcManager.im[5], 950, 350, 105);
+        boss[5] = new BOSS3(gameDraw.game.npcManager.im[3], 950, 350, 106);
 
-        boss[6] = new BOSS1(gameDraw.game.npcManager.im[7], 960, 350, 107);
-        boss[7] = new BOSS2(gameDraw.game.npcManager.im[8], 960, 350, 108);
-        boss[8] = new BOSS4(gameDraw.game.npcManager.im[10], 960, 350, 109);
-        boss[9] = new BOSS6(gameDraw.game.npcManager.im[12], 960, 350, 110);
-        boss[10] = new BOSS5(gameDraw.game.npcManager.im[11], 960, 350, 111);
-        boss[11] = new BOSS3(gameDraw.game.npcManager.im[9], 960, 350, 112);
+        boss[6] = new BOSS1(gameDraw.game.npcManager.im[7], 950, 350, 107);
+        boss[7] = new BOSS2(gameDraw.game.npcManager.im[8], 950, 350, 108);
+        boss[8] = new BOSS4(gameDraw.game.npcManager.im[10], 950, 350, 109);
+        boss[9] = new BOSS6(gameDraw.game.npcManager.im[12], 950, 350, 110);
+        boss[10] = new BOSS5(gameDraw.game.npcManager.im[11], 950, 350, 111);
+        boss[11] = new BOSS3(gameDraw.game.npcManager.im[9], 950, 350, 112);
         // boss[12] = new BOSS1(gameDraw.game.npcManager.im[1], 240, 350, 113);
         // boss[13] = boss[1];
 

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -16,6 +17,29 @@ public class GameExit {
     GameDraw gameDraw;
     Bitmap liangYes, anYes, zi, background, back;
     int mode, time, id;
+    Bitmap bs_huan;
+
+    int bs_huan_t = 0;
+    int keyType = 0;
+
+    /**
+     * 选择光圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            switch (keyType) {
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(1080+back.getWidth()/2 - (bs_huan_t * 10 + 40), 310+back.getHeight()/2 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 425 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 573 - (bs_huan_t * 10 + 40), 475+anYes.getHeight()/2 + (bs_huan_t * 10 + 40), 573 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
 
     public GameExit(GameDraw _mc) {
         gameDraw = _mc;
@@ -52,20 +76,20 @@ public class GameExit {
             case 1:
                 gameDraw.menu.render(g, paint);
                 g.drawColor(0x99000000);
-                g.drawBitmap(background, 48, 280, paint);
-                Tools.paintMImage(g, background, 240, 280, paint);
-                Tools.paintM2Image(g, background, 48, 280 + 172, paint);
-                Tools.paintRotateImage(g, background, 240, 280 + 172, 180, 192,
+                g.drawBitmap(background,960- background.getWidth(), 280, paint);
+                Tools.paintMImage(g, background, 960, 280, paint);
+                Tools.paintM2Image(g, background, 960- background.getWidth(), 280 + 172, paint);
+                Tools.paintRotateImage(g, background, 960, 280 + 172, 180, 192,
                         172, paint);
-                g.drawBitmap(zi, 87, 370, paint);
+                g.drawBitmap(zi, 960- zi.getWidth()/2, 380, paint);
                 if (isDownBack)
-                    g.drawBitmap(back, 360, 310, paint);
+                    g.drawBitmap(back, 1080, 310, paint);
                 else
-                    g.drawBitmap(back, 360, 310, paint);
+                    g.drawBitmap(back, 1080, 310, paint);
                 if (isDownExit)
-                    g.drawBitmap(anYes, 153, 475, paint);
+                    g.drawBitmap(anYes, 960-anYes.getWidth()/2, 475, paint);
                 else
-                    g.drawBitmap(liangYes, 153, 475, paint);
+                    g.drawBitmap(liangYes,  960-liangYes.getWidth()/2, 475, paint);
                 if (id == 1) {
                     Menu.index = Menu.NULL;
                     gameDraw.canvasIndex = GameDraw.CANVAS_MENU;
@@ -75,6 +99,7 @@ public class GameExit {
                 }
                 break;
         }
+//        renderAN(g, true, paint);
     }
 
     public void upData() {
@@ -131,23 +156,66 @@ public class GameExit {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
+                    switch (keyType){
+                        case 0:
+                            keyType = 1;
+                            break;
+                        case 1:
+                            keyType = 0;
+                            break;
+                    }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType){
+                    case 0:
+                        keyType = 1;
+                        break;
+                    case 1:
+                        keyType = 0;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                touchDown(200, 500);
-                touchUp(200, 500);
+              switch (keyType){
+                  case 0 :
+                      isDownBack = true;
+                      GameDraw.gameSound(1);
+                      break;
+                  case 1:
+                      isDownExit = true;
+                      break;
+              }
+//                touchDown(200, 500);
+//                touchUp(200, 500);
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                isDownBack = true;
+                GameDraw.gameSound(1);
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

@@ -40,7 +40,6 @@ public class Achieve {
         gameDraw = _mc;
     }
 
-
     public void init(Resources res) {
         top = BitmapFactory.decodeResource(gameDraw.res, R.drawable.ry_top);
 

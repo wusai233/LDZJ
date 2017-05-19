@@ -470,6 +470,7 @@ public class AirplaneUpgrade {
                             } else {
                                 if (MainActivity.isShowBuyMessage) {
                                     mode = 10;
+                                    keyType = 9;
                                 } else {
 //								PaymentJoy.getInstance(this).startCharge(
 //										new PaymentParam(2));
@@ -1130,11 +1131,6 @@ public class AirplaneUpgrade {
 //                        PaymentJoy.getInstance(this).startCharge(
 //                                new PaymentParam(2));
                         break;
-                    /**
-                     * 9到14为弹出购买水晶界面按钮。
-                     * 9   13 为关闭按钮 点击关闭窗口，光标回到7 （返回按钮）
-                     * 问题：点击升级时水晶不足出现的窗口未出现光标，点击9与13之后光标未回到7但可以点击出事件。
-                     * */
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
