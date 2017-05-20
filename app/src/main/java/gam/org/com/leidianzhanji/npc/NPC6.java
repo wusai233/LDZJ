@@ -9,7 +9,8 @@ import gam.org.com.leidianzhanji.play.GameDraw;
 import gam.org.com.leidianzhanji.play.NPCBulletManager;
 import gam.org.com.leidianzhanji.play.Tools;
 
-public class NPC6 extends NPC {
+public class
+NPC6 extends NPC {
 	Bitmap[] im;
 	int id;
 	int mode, t, t1;

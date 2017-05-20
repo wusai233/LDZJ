@@ -42,15 +42,17 @@ public class GamePause {
         bs_huan = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.bs_huan_im);
     }
+
     int bs_huan_t = 0;
 
     /**
      * 选择圈圈的绘制
      */
     int keyType = 0;
+
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            switch (keyType){
+            switch (keyType) {
                 case 0:
                     g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 270 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 270 + (bs_huan_t * 10 + 40)), paint);
                     break;
@@ -268,7 +270,7 @@ public class GamePause {
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向上－－－－－");
-                switch (keyType){
+                switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
                         keyType = 3;
@@ -290,7 +292,7 @@ public class GamePause {
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向下－－－－－");
-                switch (keyType){
+                switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
                         keyType = 1;
@@ -318,7 +320,7 @@ public class GamePause {
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);
-                switch (keyType){
+                switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
                         id = 0;
