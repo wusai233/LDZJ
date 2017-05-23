@@ -174,11 +174,11 @@ public class Achieve {
                 }
             }
             Bitmap bitmap = Tools.paintNum(shu, (int) Game.mnuey, -3);
-            g.drawBitmap(bitmap, 795 - bitmap.getWidth() / 2, 154, paint);
+            g.drawBitmap(bitmap, 795 - bitmap.getWidth() / 2, 164, paint);
             bitmap = Tools.paintNum(shu, (int) Game.score, -3);
-            g.drawBitmap(bitmap, 958 - bitmap.getWidth() / 2, 154, paint);
+            g.drawBitmap(bitmap, 958 - bitmap.getWidth() / 2, 164, paint);
             bitmap = Tools.paintNum(shu, (int) Game.npcNum, -3);
-            g.drawBitmap(bitmap, 1115 - bitmap.getWidth() / 2, 154, paint);
+            g.drawBitmap(bitmap, 1115 - bitmap.getWidth() / 2, 164, paint);
             bitmap = null;
         }
         renderAN(g, true, paint);
