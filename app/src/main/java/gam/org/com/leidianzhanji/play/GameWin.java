@@ -165,12 +165,12 @@ public class GameWin {
                 if (isDownCJ)
                     g.drawBitmap(an1, 847, 762, paint);
                 else
-                    g.drawBitmap(an1, 847, 762, paint);
+                    g.drawBitmap(an2, 847, 762, paint);
                 break;
             case 3:
                 draw(g, paint, 10);
                 renderJM(g, paint);
-                g.drawBitmap(an1, 847, 762, paint);
+//                g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 4:
                 draw(g, paint, 10);
@@ -178,6 +178,8 @@ public class GameWin {
                 g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 5:
+                an1 = null;
+                an2 = null;
                 draw(g, paint, 10);
                 renderJM(g, paint);
                 if (isDownUpgrade)
