@@ -259,7 +259,6 @@ public class ChooseAirplane {
     }
 
     public void upData() {
-        Log.e("data", "wusai233------1");
         alp += av;
         if (alp >= 255) {
             alp = 255;
@@ -270,6 +269,7 @@ public class ChooseAirplane {
         }
         switch (mode) {
             case 0:
+                Log.e("data", "mode------0");
                 t++;
                 if (t >= 10) {
                     t = 0;
@@ -280,6 +280,7 @@ public class ChooseAirplane {
                 }
                 break;
             case 1:
+                Log.e("data", "mode------1");
                 airplane.fire(airPlaneBullet);
                 airPlaneBullet.updata();
                 if (t > 0) {
@@ -321,6 +322,7 @@ public class ChooseAirplane {
                 }
                 break;
             case 20:
+                Log.e("data", "mode------20");
                 t--;
                 if (t <= 0) {
                     Menu.index = Menu.NULL;
@@ -329,7 +331,9 @@ public class ChooseAirplane {
                 }
                 break;
             case 30:
+                Log.e("data", "mode------30");
                 t--;
+
                 if (t <= 0) {
                     if (Menu.isLevelOrBoss == 1) {
                         gameDraw.level.init(gameDraw.res);

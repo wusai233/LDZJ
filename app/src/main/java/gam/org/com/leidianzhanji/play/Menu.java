@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import gam.org.com.leidianzhanji.R;
 
 public class Menu {
+    private String TGA = "Menu";
     public static int index;
     public static final int NULL = 0;
     public static final int EXIT_GAME = 1;
@@ -212,6 +213,7 @@ public class Menu {
                 g.drawBitmap(anSetting, 1270, 920, paint);
                 break;
             case 1:// 上拉、下滑
+                Log.e(TGA, "-----------------下拉上滑---- mode = 1-------------");
                 g.drawBitmap(bg, 0, 0, paint);
                 g.drawBitmap(gai2, 673, 0, paint);
                 Tools.paintMImage(g, gai2, 969, 0, paint);
@@ -224,6 +226,7 @@ public class Menu {
                 g.drawBitmap(anSetting, 1270, 920 + time * 19, paint);
                 break;
             case 2:// 下拉，上滑
+                Log.e(TGA, "-----------------下拉上滑---- mode = 2-------------");
                 g.drawBitmap(bg, 0, 0, paint);
                 g.drawBitmap(fei2, 845, 399, paint);
                 g.drawBitmap(gai2, 673, -100 + time * 10, paint);
