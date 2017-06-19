@@ -167,12 +167,12 @@ public class Menu {
     }
 
     public void freePart() {
-        Log.i("Menu", "----------freePart----------------");
+//        Log.i("Menu", "----------freePart----------------");
         fei2 = null;
     }
 
     public void reset() {
-        Log.i("Menu", "----------reset----------------");
+//        Log.i("Menu", "----------reset----------------");
         mode = 0;
         time = 8;
         time2 = 10;
@@ -183,7 +183,7 @@ public class Menu {
     }
 
     public void reset2() {
-        Log.i("Menu", "----------reset2----------------");
+//        Log.i("Menu", "----------reset2----------------");
         mode = 6;
         time = 10;
         time2 = 10;
@@ -197,7 +197,7 @@ public class Menu {
 
     public void render(Canvas g, Paint paint) {
 
-        Log.i("Menu", "----------render----------------" + mode);
+//        Log.i("Menu", "----------render----------------" + mode);
         switch (mode) {
             case 0:// 静态
                 g.drawBitmap(bg, 0, 0, paint);
@@ -326,7 +326,7 @@ public class Menu {
     }
 
     public void renderBT(Canvas g, int time, Paint paint) {
-        Log.i("Menu", "----------renderBT----------------");
+//        Log.i("Menu", "----------renderBT----------------");
         g.drawBitmap(gai2, 40, -19 - time * 30, paint);
         Tools.paintMImage(g, gai2, 240, -19 - time * 30, paint);
         g.drawBitmap(bt1, 96, 150 - time * 25, paint);
@@ -334,7 +334,7 @@ public class Menu {
     }
 
     public void upData() {
-        Log.i("Menu", "----------upData----------------" + mode);
+//        Log.i("Menu", "----------upData----------------" + mode);
         switch (mode) {
             case 0:
                 if (time > 0) {
@@ -595,7 +595,65 @@ public class Menu {
 
     public void keyDown(int k) {
         GameDraw.gameSound(1);
+//        Log.e("jamie", "－－－－－"+k+"－－－－－");
         switch (k) {
+            case 23:
+                Log.e("jamie", "－－－－－23按钮－－－－－");
+                switch (keyType) {
+                    case 0://挑战Bss
+                        isDownBoss = false;
+                        isLevelOrBoss = 2;
+                        index = BOSS;
+                        mode = 6;
+                        time = -1;
+                        isDownBoss = false;
+                        break;
+                    case 1://战斗升级
+                        isDownUpgrade = false;
+                        index = UPGRADE;
+                        mode = 6;
+                        time = -1;
+                        isDownUpgrade = false;
+                        break;
+                    case 2: //帮助关于
+//                        isDownHelp = false;
+//                        index = HELP;
+//                        mode = 6;
+//                        time = -1;
+                        break;
+                    case 3: //开始按钮
+                        isDownStart = false;
+                        isLevelOrBoss = 1;
+                        index = PLAYGAME;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 4:  //成就
+                        isDownAchieve = false;
+                        index = ACHIEVE;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 5: //设置
+                        isDownSetting = false;
+                        index = SETTING;
+                        break;
+                    case 6:
+                        mode = 5;
+                        break;
+                    case 7:
+                        isDownExit = true;
+                        break;
+//                    case 8:
+//                        mode = 5;
+//                        keyType = 3;
+//                        break;
+//                    case 9:
+//                        GameDraw.isRun = false;
+//                        MainActivity.main.finish();
+//                        break;
+                }
+                break;
             case KeyEvent.KEYCODE_DPAD_UP://向上
                 Log.e("jamie", "－－－－－向上－－－－－");
                 switch (keyType) {
@@ -733,63 +791,6 @@ public class Menu {
 //                        break;
 //                    case 9:
 //                        keyType = 8;
-//                        break;
-                }
-                break;
-            case KeyEvent.KEYCODE_ENTER://确定
-                Log.e("jamie", "－－－－－确定－－－－－");
-                switch (keyType) {
-                    case 0://挑战Bss
-                        isDownBoss = false;
-                        isLevelOrBoss = 2;
-                        index = BOSS;
-                        mode = 6;
-                        time = -1;
-                        isDownBoss = false;
-                        break;
-                    case 1://战斗升级
-                        isDownUpgrade = false;
-                        index = UPGRADE;
-                        mode = 6;
-                        time = -1;
-                        isDownUpgrade = false;
-                        break;
-                    case 2: //帮助关于
-//                        isDownHelp = false;
-//                        index = HELP;
-//                        mode = 6;
-//                        time = -1;
-                        break;
-                    case 3: //开始按钮
-                        isDownStart = false;
-                        isLevelOrBoss = 1;
-                        index = PLAYGAME;
-                        mode = 6;
-                        time = -1;
-                        break;
-                    case 4:  //成就
-                        isDownAchieve = false;
-                        index = ACHIEVE;
-                        mode = 6;
-                        time = -1;
-                        break;
-                    case 5: //设置
-                        isDownSetting = false;
-                        index = SETTING;
-                        break;
-                    case 6:
-                        mode = 5;
-                        break;
-                    case 7:
-                        isDownExit = true;
-                        break;
-//                    case 8:
-//                        mode = 5;
-//                        keyType = 3;
-//                        break;
-//                    case 9:
-//                        GameDraw.isRun = false;
-//                        MainActivity.main.finish();
 //                        break;
                 }
                 break;

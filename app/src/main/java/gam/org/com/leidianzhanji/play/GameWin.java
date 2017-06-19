@@ -663,7 +663,7 @@ public class GameWin {
                         break;
                 }
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
