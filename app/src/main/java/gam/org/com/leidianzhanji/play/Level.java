@@ -25,6 +25,7 @@ import static gam.org.com.leidianzhanji.play.ChooseAirplane.haveAirplane;
  * 关卡的选择
  */
 public class Level {
+    private String TGA = "level";
     private boolean isDownReturn = false;
     private boolean isDownWD = false;
     private boolean isDownLeft = false;
@@ -144,6 +145,7 @@ public class Level {
     }
 
     public void render(Canvas g, Paint paint) {
+        Log.e(TGA, "运行了这个界面");
         switch (mode) {
             case 0:
                 draw(g, paint, time);

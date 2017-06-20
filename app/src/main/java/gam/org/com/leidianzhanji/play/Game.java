@@ -642,10 +642,10 @@ public class Game {
         }
     }
 
-    public static void drawTop(Canvas g, Paint paint, int t) {
-        g.drawBitmap(top, 0, t * (float) 15.9 - 159, paint);
-        Tools.paintMImage(g, top, 960, t * (float) 15.9 - 159, paint);
-    }
+//    public static void drawTop(Canvas g, Paint paint, int t) {
+//        g.drawBitmap(top, 0, t * (float) 15.9 - 159, paint);
+//        Tools.paintMImage(g, top, 960, t * (float) 15.9 - 159, paint);
+//    }
 
     public static void drawDown(Canvas g, Paint paint, int t, boolean isDown) {
         g.drawBitmap(down, 572, 949 - t * (float) 13.7, paint);
