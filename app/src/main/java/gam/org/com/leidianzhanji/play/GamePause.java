@@ -19,6 +19,15 @@ public class GamePause {
     Bitmap[] liang = new Bitmap[5];// 亮
     Bitmap bs_huan;
 
+    public static int bisha = 3, baohu = 3;
+    public static byte[] bishaNum = new byte[3];
+    public NPCBulletManager npcBulletManager;
+    public BumpManager bumpManager;
+    public BombManager bombManager;
+    int tcbs_t, tcbs_fi, tcbs_x;
+    public static boolean isFang;
+
+
     byte[] rid = new byte[]{0, 1, 2, 4};
 
     int mode, t, id;
@@ -64,6 +73,18 @@ public class GamePause {
                     break;
                 case 3:
                     g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 720 - (bs_huan_t * 10 + 40), 965 + (bs_huan_t * 10 + 40), 720 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 4:
+                    g.drawBitmap(bs_huan, null, new RectF(142 - (bs_huan_t * 10 + 40), 310 - (bs_huan_t * 10 + 40), 142 + (bs_huan_t * 10 + 40), 310 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 5:
+                    g.drawBitmap(bs_huan, null, new RectF(1822 - (bs_huan_t * 10 + 40), 58 - (bs_huan_t * 10 + 40), 1822 + (bs_huan_t * 10 + 40), 58 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 6:
+                    g.drawBitmap(bs_huan, null, new RectF(123 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 123 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 7:
+                    g.drawBitmap(bs_huan, null, new RectF(1791 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 1791 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
                     break;
             }
             bs_huan_t--;
@@ -287,6 +308,22 @@ public class GamePause {
                         GameDraw.gameSound(1);
                         keyType = 2;
                         break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 7;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
@@ -307,15 +344,176 @@ public class GamePause {
                         break;
                     case 3:
                         GameDraw.gameSound(1);
-                        keyType = 0;
+                        keyType = 4;
                         break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 7;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
+                switch (keyType){
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 7;
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
+                switch (keyType){
+                    case 0:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        keyType = 5;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        keyType = 7;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        keyType = 7;
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        keyType = 0;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        keyType = 4;
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        keyType = 3;
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        keyType = 6;
+                        break;
+                }
+                break;
+            case 23://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
+                GameDraw.gameSound(1);
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        id = 0;
+                        t = 4;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        id = 1;
+                        t = 4;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        id = 2;
+                        t = 4;
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        id = 3;
+                        t = 4;
+                        break;
+                    case 4:
+                        gameDraw.billingDialog.reset(40, 20);
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        id = 3;
+                        t = 4;
+                        break;
+                    case 6:
+                        if (Airplane.mode == 0 || Airplane.mode == 15) {
+                            if (bisha > 0) {
+                                GameDraw.gameSound(7);
+                                bisha--;
+                                gameDraw.biShaBg.reset(1);
+                                npcBulletManager.reset();
+                            } else {
+                                isFang = true;
+                                if (MainActivity.isShowBuyMessage) {
+                                    gameDraw.billingDialog.reset(2, 20);
+                                } else {
+                                    gameDraw.pause.reset();
+                                    gameDraw.pause.mode = 1;
+                                    gameDraw.pause.t = 0;
+//						PaymentJoy.getInstance(gameDraw.pause).startCharge(
+//								new PaymentParam(6));
+                                }
+                            }
+                        }
+                        tcbs_t = -100;
+                        tcbs_x = 0;
+                        break;
+                    case 7:
+                        if (baohu > 0) {
+                            baohu--;
+                            npcBulletManager.bs(bumpManager);
+                            gameDraw.biShaBg.reset(2);
+                            GameDraw.gameSound(7);
+                            Data.chackBH();
+                        } else {
+                            if (MainActivity.isShowBuyMessage) {
+                                gameDraw.billingDialog.reset(1, 20);
+                            } else {
+                                gameDraw.pause.reset();
+                                gameDraw.pause.mode = 1;
+                                gameDraw.pause.t = 0;
+//					PaymentJoy.getInstance(gameDraw.pause).startCharge(
+//							new PaymentParam(7));
+                            }
+                        }
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");

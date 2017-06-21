@@ -190,7 +190,7 @@ public class NewStoryLine {
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 if ((mode == 2 || mode == 3 || mode == 5)) {
                     GameDraw.gameSound(1);

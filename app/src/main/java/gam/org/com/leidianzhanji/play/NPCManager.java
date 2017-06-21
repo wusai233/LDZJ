@@ -89,8 +89,8 @@ public class NPCManager {
 				l--;
 				i--;
 			} else {
-				if (npcs[i].x > 20 && npcs[i].x < 460 && npcs[i].y > 100
-						&& npcs[i].y < 700) {
+				if (npcs[i].x > 20 && npcs[i].x < 1900 && npcs[i].y > 100
+						&& npcs[i].y < 1000) {
 					num++;
 				}
 //				if (npcs[i].x > 20 && npcs[i].x < 1820 && npcs[i].y > 100

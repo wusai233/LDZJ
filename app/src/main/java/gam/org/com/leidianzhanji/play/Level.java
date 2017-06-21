@@ -470,11 +470,12 @@ public class Level {
                         break;
                 }
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
+//            case KeyEvent.KEYCODE_ENTER://
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
-                        GameDraw.gameSound(1);
                         isDownLeft = true;
                         isDownLeft = false;
                         if (Game.level != 1) {
@@ -484,7 +485,6 @@ public class Level {
                         }
                         break;
                     case 1:
-                        GameDraw.gameSound(1);
                         isDownRight = true;
                         isDownRight = false;
                         if (Game.level < Data.level) {
@@ -494,7 +494,6 @@ public class Level {
                         }
                         break;
                     case 2:
-                        GameDraw.gameSound(1);
                         isDownReturn = true;
                         isDownReturn = false;
                         isBack = true;
@@ -502,7 +501,6 @@ public class Level {
                         time = maxTime;
                         break;
                     case 3:
-                        GameDraw.gameSound(1);
                         isDownPlay = true;
                         isDownPlay = false;
                         time = 3;
@@ -511,6 +509,11 @@ public class Level {
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                isDownReturn = true;
+                isDownReturn = false;
+                isBack = true;
+                mode = 3;
+                time = maxTime;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

@@ -655,6 +655,64 @@ public class ChooseBoss {
                         break;
                 }
                 break;
+            case 23://确定
+            Log.e("jamie", "－－－－－确定－－－－－");
+            switch (keyType) {
+                case 0:
+                    isDownReturn = true;
+                    GameDraw.gameSound(1);
+                    isDownReturn = false;
+                    mode = 20;
+                    t = 10;
+                    break;
+                case 1:
+                    if (jd[id] > 0) {
+                        isDownPK = true;
+                        GameDraw.gameSound(1);
+                    }
+                    isDownPK = false;
+                    mode = 10;
+                    t = 0;
+                    keyType = 4;
+                    break;
+                case 2:
+                    GameDraw.gameSound(1);
+                    dx = 0;
+                    vx = 50;
+                    mode = 2;
+                    break;
+                case 3:
+                    GameDraw.gameSound(1);
+                    dx = 0;
+                    vx = -50;
+                    mode = 2;
+                    break;
+                case 4:
+                    GameDraw.gameSound(1);
+                    isPKDown[0] = true;
+                    isPKDown[0] = false;
+                    t = 4;
+                    anid = 0 + 1;
+                    keyType = 1;
+                    break;
+                case 5:
+                    GameDraw.gameSound(1);
+                    isPKDown[1] = true;
+                    isPKDown[1] = false;
+                    t = 4;
+                    anid = 1 + 1;
+                    keyType = 1;
+                    break;
+                case 6:
+                    GameDraw.gameSound(1);
+                    isPKDown[2] = true;
+                    isPKDown[2] = false;
+                    t = 4;
+                    anid = 2 + 1;
+                    keyType = 1;
+                    break;
+            }
+            break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
@@ -715,6 +773,8 @@ public class ChooseBoss {
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+//                mode = 10;
+//                t = 0;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

@@ -224,7 +224,8 @@ public class Setting {
                         break;
                 }
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
+//            case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
@@ -264,6 +265,8 @@ public class Setting {
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
                 GameDraw.gameSound(1);
+                gameDraw.canvasIndex = GameDraw.CANVAS_MENU;
+                Menu.index = Menu.NULL;
                 isDownExit = true;
                 break;
             case KeyEvent.KEYCODE_HOME://房子

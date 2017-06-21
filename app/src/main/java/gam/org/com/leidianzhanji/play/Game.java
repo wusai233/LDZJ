@@ -23,8 +23,7 @@ public class Game {
 
     public static final int GG = 0;
 
-    public static final int[] everyscore = new int[]{10, 20, 30, 40, 50, 60,
-            180};
+    public static final int[] everyscore = new int[]{10, 20, 30, 40, 50, 60, 180};
 
     public static Game game;
     public static boolean isFrist = true;
@@ -289,23 +288,24 @@ public class Game {
 
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-//            switch (keyType) {
-//                case 0:
+            switch (keyType) {
+                case 0:
             g.drawBitmap(bs_huan, null, new RectF(142 - (bs_huan_t * 10 + 40), 310 - (bs_huan_t * 10 + 40), 142 + (bs_huan_t * 10 + 40), 310 + (bs_huan_t * 10 + 40)), paint);
-//                    break;
-//                case 1:
+                    break;
+                case 1:
             g.drawBitmap(bs_huan, null, new RectF(1822 - (bs_huan_t * 10 + 40), 58 - (bs_huan_t * 10 + 40), 1822 + (bs_huan_t * 10 + 40), 58 + (bs_huan_t * 10 + 40)), paint);
-//                    break;
-//                case 2:
+                    break;
+                case 2:
             g.drawBitmap(bs_huan, null, new RectF(123 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 123 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
-//                    break;
-//                case 3:
+                    break;
+                case 3:
             g.drawBitmap(bs_huan, null, new RectF(1791 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 1791 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
-//                    break;
+                    break;
         }
         bs_huan_t--;
         if (bs_huan_t < 0)
             bs_huan_t = 10;
+    }
     }
 
 
@@ -683,13 +683,13 @@ public class Game {
                 airplane.touchDown(100, 100);
                 airplane.touchMove(130, 100);
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                gameDraw.pause.reset();
-
+                gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

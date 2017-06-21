@@ -431,7 +431,8 @@ public class BillingDialog {
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
+//            case KeyEvent.KEYCODE_ENTER:
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);
                 switch (keyType) {
@@ -468,6 +469,31 @@ public class BillingDialog {
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                GameDraw.gameSound(1);
+            case 0:
+                switch (id) {
+                    case 1:
+                        t = 5;
+                        mode = 20;
+                        break;
+                    case 2:
+                        t = 5;
+                        mode = 20;
+//                             Game.isFang = false;
+                        break;
+                    case 10:
+                        t = 0;
+                        mode = 30;
+                        break;
+                    case 30:
+                        t = 5;
+                        mode = 20;
+                        break;
+                    case 40:
+                        t = 5;
+                        mode = 20;
+                        break;
+                }
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

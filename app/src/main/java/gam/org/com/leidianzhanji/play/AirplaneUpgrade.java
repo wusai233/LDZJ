@@ -962,7 +962,7 @@ public class AirplaneUpgrade {
                         break;
                 }
                 break;
-            case KeyEvent.KEYCODE_ENTER://确定
+            case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
@@ -1135,6 +1135,8 @@ public class AirplaneUpgrade {
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                mode = 20;
+                t = 10;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");
