@@ -105,10 +105,10 @@ public class NPCManager {
 	 * id:ID x:横坐标 y:纵坐标 temp:辅助变量 level:等级
 	 */
 	public void create(int id, float x, float y, float temp, int level) {
-		Log.e(TAG,"---id:"+id+"--------x:"+x+"--------y:"+y+"--------temp:"+temp+"--------level:"+level);
+		Log.d(TAG,"---id:"+id+"--------x:"+x+"--------y:"+y+"--------temp:"+temp+"--------level:"+level);
 		if (l < npcs.length) {
 			switch (id) {
-			// NPC1e
+			// NPC1
 			case 0:
 				npcs[l] = new NPC1(im[0], x, y, (int) temp, 1, level);
 				break;

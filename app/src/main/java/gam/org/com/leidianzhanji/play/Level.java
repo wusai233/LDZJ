@@ -145,7 +145,6 @@ public class Level {
     }
 
     public void render(Canvas g, Paint paint) {
-        Log.e(TGA, "运行了这个界面");
         switch (mode) {
             case 0:
                 draw(g, paint, time);
@@ -476,8 +475,6 @@ public class Level {
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
-                        isDownLeft = true;
-                        isDownLeft = false;
                         if (Game.level != 1) {
                             Game.level--;
                             mode = 1;
@@ -485,8 +482,6 @@ public class Level {
                         }
                         break;
                     case 1:
-                        isDownRight = true;
-                        isDownRight = false;
                         if (Game.level < Data.level) {
                             Game.level++;
                             mode = 1;
@@ -494,15 +489,11 @@ public class Level {
                         }
                         break;
                     case 2:
-                        isDownReturn = true;
-                        isDownReturn = false;
                         isBack = true;
                         mode = 3;
                         time = maxTime;
                         break;
                     case 3:
-                        isDownPlay = true;
-                        isDownPlay = false;
                         time = 3;
                         break;
                 }

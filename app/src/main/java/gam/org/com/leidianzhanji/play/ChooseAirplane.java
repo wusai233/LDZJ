@@ -393,6 +393,7 @@ public class ChooseAirplane {
                                 || (id == 3 && !haveAirplane[2])) {
                             return;
                         }
+                        Log.e("jamie","-----------"+id+"-------");
                         GameDraw.gameSound(1);
                         isDownReturn = true;
                         isDownPlay = true;
@@ -558,6 +559,137 @@ public class ChooseAirplane {
                         break;
                 }
                 break;
+            case 23://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        if (keyType == 1 || keyType == 2) {
+                            if (!haveAirplane[keyType - 1]) {
+                                buyID = keyType;
+                            }
+                        } else if (keyType == 3) {
+                            if (Data.level < 3) {
+                                gameDraw.smallDialog.reset(3, 960, y[3],
+                                        15);
+                            } else {
+                                if (!haveAirplane[2]) {
+                                    gameDraw.billingDialog.reset(30, 15);
+                                    buyID = keyType;
+                                }
+                            }
+                        }
+                        id = keyType;
+                        Airplane.id = id + 1;
+                        airPlaneBullet.reset();
+                        if (id == 2) {
+                            Airplane.y = 250;
+                        } else {
+                            Airplane.y = 230;
+                        }
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        isDownReturn = true;
+                        isDownReturn = false;
+                        mode = 20;
+                        t = 10;
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        if ((id == 3 && Data.level < 3)
+                                || (id == 1 && !haveAirplane[0])
+                                || (id == 2 && !haveAirplane[1])
+                                || (id == 3 && !haveAirplane[2])) {
+                            return;
+                        }
+                        isDownReturn = true;
+                        isDownPlay = true;
+                        isDownPlay = false;
+                        isDownReturn = false;
+                        mode = 30;
+                        t = 3;
+                        break;
+                }
+                break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
@@ -691,6 +823,11 @@ public class ChooseAirplane {
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                GameDraw.gameSound(1);
+                isDownReturn = true;
+                isDownReturn = false;
+                mode = 20;
+                t = 10;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

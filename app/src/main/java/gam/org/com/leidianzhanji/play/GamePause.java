@@ -515,7 +515,7 @@ public class GamePause {
                         break;
                 }
                 break;
-            case 23://确定
+            case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);
                 switch (keyType) {
