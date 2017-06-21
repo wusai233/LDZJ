@@ -89,8 +89,8 @@ public class NPCManager {
 				l--;
 				i--;
 			} else {
-				if (npcs[i].x > 20 && npcs[i].x < 460 && npcs[i].y > 100
-						&& npcs[i].y < 700) {
+				if (npcs[i].x > 20 && npcs[i].x < 1900 && npcs[i].y > 100
+						&& npcs[i].y < 1000) {
 					num++;
 				}
 //				if (npcs[i].x > 20 && npcs[i].x < 1820 && npcs[i].y > 100
@@ -105,10 +105,10 @@ public class NPCManager {
 	 * id:ID x:横坐标 y:纵坐标 temp:辅助变量 level:等级
 	 */
 	public void create(int id, float x, float y, float temp, int level) {
-		Log.d(TAG,"---id:"+id+"--------x:"+x+"--------y:"+y+"--------temp:"+temp+"--------level:"+level);
+		Log.e(TAG,"---id:"+id+"--------x:"+x+"--------y:"+y+"--------temp:"+temp+"--------level:"+level);
 		if (l < npcs.length) {
 			switch (id) {
-			// NPC1
+			// NPC1e
 			case 0:
 				npcs[l] = new NPC1(im[0], x, y, (int) temp, 1, level);
 				break;

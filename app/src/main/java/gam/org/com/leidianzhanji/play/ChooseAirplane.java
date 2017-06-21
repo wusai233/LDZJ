@@ -558,8 +558,7 @@ public class ChooseAirplane {
                         break;
                 }
                 break;
-            case 23://确定
-//            case KeyEvent.KEYCODE_ENTER://确定
+            case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
@@ -692,11 +691,6 @@ public class ChooseAirplane {
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
-                GameDraw.gameSound(1);
-                isDownReturn = true;
-                isDownReturn = false;
-                mode = 20;
-                t = 10;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");

@@ -23,8 +23,7 @@ public class Game {
 
     public static final int GG = 0;
 
-    public static final int[] everyscore = new int[]{10, 20, 30, 40, 50, 60,
-            180};
+    public static final int[] everyscore = new int[]{10, 20, 30, 40, 50, 60, 180};
 
     public static Game game;
     public static boolean isFrist = true;

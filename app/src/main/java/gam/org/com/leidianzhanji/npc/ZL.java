@@ -14,7 +14,7 @@ import gam.org.com.leidianzhanji.play.Tools;
 
 
 public class ZL {
-    private String TAG = "AL";
+    private String TAG = "ZL";
     GameDraw gameDraw;
     /**
      * time:NPC出现的时间 bosst:Boss出现时间
