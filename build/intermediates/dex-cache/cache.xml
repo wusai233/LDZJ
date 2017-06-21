@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="F:\Android\LDZJ\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="E:\Android\LDZJ\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e3dccc23c341fc5bb0f430a7fec359e118edb194">
-        <dex dex="F:\Android\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f5c322cd85e128955f91389020997e3193a83ebd\classes.dex" />
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="E:\Android\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6cfe84f0202f9f988e55848474e8117a3570c222\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="F:\Android\LDZJ\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="E:\Android\LDZJ\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="F:\Android\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1bd7ee4f04383e88ec9197911a098f7b6454c056\classes.dex" />
+        sha1="1404fb419519ead2265c4a9cd0a7baca9dc0f41b">
+        <dex dex="E:\Android\LDZJ\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_59aca925fa8da4a3e3550b320158eea137d731fe\classes.dex" />
     </item>
 
 </items>
