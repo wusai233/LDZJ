@@ -259,6 +259,17 @@ public class DayGift {
                         break;
                 }
                 break;
+            case KeyEvent.KEYCODE_ENTER:
+                Log.e("jamie", "－－－－－确定－－－－－");
+                switch (mode) {
+                    case 2:
+                        GameDraw.gameSound(1);
+                        mode = 20;
+                        t = 10;
+                        getGift(id);
+                        break;
+                }
+                break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
                 switch (mode) {

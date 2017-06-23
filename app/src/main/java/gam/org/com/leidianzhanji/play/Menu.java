@@ -598,8 +598,63 @@ public class Menu {
 
     public void keyDown(int k) {
         GameDraw.gameSound(1);
-//        Log.e("jamie", "－－－－－"+k+"－－－－－");
         switch (k) {
+            case KeyEvent.KEYCODE_ENTER:
+                switch (keyType) {
+                    case 0://挑战Bss
+                        isDownBoss = false;
+                        isLevelOrBoss = 2;
+                        index = BOSS;
+                        mode = 6;
+                        time = -1;
+                        isDownBoss = false;
+                        break;
+                    case 1://战斗升级
+                        isDownUpgrade = false;
+                        index = UPGRADE;
+                        mode = 6;
+                        time = -1;
+                        isDownUpgrade = false;
+                        break;
+                    case 2: //帮助关于
+//                        isDownHelp = false;
+//                        index = HELP;
+//                        mode = 6;
+//                        time = -1;
+                        break;
+                    case 3: //开始按钮
+                        isDownStart = false;
+                        isLevelOrBoss = 1;
+                        index = PLAYGAME;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 4:  //成就
+                        isDownAchieve = false;
+                        index = ACHIEVE;
+                        mode = 6;
+                        time = -1;
+                        break;
+                    case 5: //设置
+                        isDownSetting = false;
+                        index = SETTING;
+                        break;
+                    case 6:
+                        mode = 5;
+                        break;
+                    case 7:
+                        isDownExit = true;
+                        break;
+//                    case 8:
+//                        mode = 5;
+//                        keyType = 3;
+//                        break;
+//                    case 9:
+//                        GameDraw.isRun = false;
+//                        MainActivity.main.finish();
+//                        break;
+                }
+                break;
             case 23:
                 Log.e("jamie", "－－－－－23按钮－－－－－");
                 switch (keyType) {

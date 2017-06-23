@@ -40,35 +40,31 @@ public class Loading {
     }
 
     public void draw(Canvas g, Paint paint, int time) {
-        g.drawBitmap(im1, 0, -423 + time * (float) 42.3, paint);
-        Tools.paintMImage(g, im1, 240, -423 + time * (float) 42.3, paint);
-        g.drawBitmap(im2, 0, 800 - time * (float) 39.7, paint);
-        Tools.paintMImage(g, im2, 240, 800 - time * (float) 39.7, paint);
-//		Game.drawTop(g, paint, time);
+        Log.e(TGA, "-----------Loading----------");
+        g.drawBitmap(im1, 960 - im1.getWidth(), -423 + time * (float) 42.3, paint);
+        Tools.paintMImage(g, im1, 960, -423 + time * (float) 42.3, paint);
+        g.drawBitmap(im2, 960 - im2.getWidth(), 800 - time * (float) 39.7, paint);
+        Tools.paintMImage(g, im2, 960, 800 - time * (float) 39.7, paint);
         g.drawBitmap(Game.down, 0, 800 - time * (float) 13.7, paint);
-        Tools.paintMImage(g, Game.down, 240, 800 - time * (float) 13.7, paint);
+        Tools.paintMImage(g, Game.down, 960, 800 - time * (float) 13.7, paint);
     }
 
     public void render(Canvas g, Paint paint) {
         switch (mode) {
             case 0:
-                Log.e(TGA, "-----------------mode = 0---------------------");
                 gameDraw.chooseAirplane.render(g, paint);
                 draw(g, paint, time);
                 break;
             case 1:
             case 11:
-                Log.e(TGA, "-----------------mode = 11---------------------");
                 draw(g, paint, 10);
                 break;
             case 2:
             case 10:
-                Log.e(TGA, "-----------------mode = 10---------------------");
                 gameDraw.game.render(g, paint);
                 draw(g, paint, time);
                 break;
             case 12:
-                Log.e(TGA, "-----------------mode = 12---------------------");
                 gameDraw.chooseBoss.render(g, paint);
                 draw(g, paint, time);
                 break;

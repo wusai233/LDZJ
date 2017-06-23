@@ -962,6 +962,177 @@ public class AirplaneUpgrade {
                         break;
                 }
                 break;
+            case KeyEvent.KEYCODE_ENTER://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 960, 520, 18);
+                            }
+                        }
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 3:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 4:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 5:
+                        GameDraw.gameSound(1);
+                        if (dj[keyType] < 5) {
+                            isDown[keyType] = true;
+                        }
+                        if (isDown[keyType]) {
+                            isDown[keyType] = false;
+                            if (dj[keyType] < 5) {
+                                id = keyType;
+                                t = 4;
+                            } else {
+                                GameDraw.gameSound(1);
+                                gameDraw.smallDialog.reset(2, 240, 300, 18);
+                            }
+                        }
+                        break;
+                    case 6:
+                        GameDraw.gameSound(1);
+                        if (dj[id] < 5) {
+                            isDownSJ = true;
+                        }
+                        isDownSJ = false;
+                        if (MainActivity.isShowBuyMessage) {
+                            mode = 10;
+                            t = 0;
+                        } else {
+//						PaymentJoy.getInstance(this).startCharge(
+//								new PaymentParam(2));
+                        }
+                        keyType = 9;
+                        break;
+                    case 7:
+                        GameDraw.gameSound(1);
+                        isDownReturn = true;
+                        isDownReturn = false;
+                        mode = 20;
+                        t = 10;
+                        break;
+                    case 8:
+                        GameDraw.gameSound(1);
+                        isDownMJ = true;
+                        isDownMJ = false;
+                        if (dj[id] < 5) {
+                            if (MainActivity.isShowBuyMessage) {
+                                mode = 11;
+                                t = 0;
+                                keyType = 13;
+                            } else {
+//							PaymentJoy.getInstance(this).startCharge(
+//									new PaymentParam(9));
+                            }
+                        } else {
+                            // 已经满级
+                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+                        }
+                        break;
+                    case 9:
+                        mode = MODE_JING;
+                        t = 0;
+                        keyType = 7;
+                        break;
+                    case 10:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(2));
+                        break;
+                    case 11:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(3));
+                        break;
+                    case 12:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(4));
+                        break;
+                    case 13:
+                        mode = MODE_JING;
+                        t = 0;
+                        keyType = 7;
+                        break;
+                    case 14:
+                        GameDraw.gameSound(1);
+//                        PaymentJoy.getInstance(this).startCharge(
+//                                new PaymentParam(2));
+                        break;
+                }
+                break;
             case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {

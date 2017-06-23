@@ -103,10 +103,7 @@ public class Level {
         Tools.paintMImage(g, im1, 960, 69, paint);
         g.drawBitmap(im2, 960 - im2.getWidth(), 553, paint);
         Tools.paintMImage(g, im2, 960, 553, paint);
-//        Game.drawTop(g, paint, time);
-//        Game.drawDown(g, paint, t, isDownReturn);
         Game.drawDown(g, paint, time, isDownReturn);
-
         g.drawBitmap(guangRight, 1175, 645, paint);
         g.drawBitmap(guangRight, 1175, 645, paint);
         Tools.paintMImage(g, guangRight, 701, 645, paint);
@@ -145,6 +142,7 @@ public class Level {
     }
 
     public void render(Canvas g, Paint paint) {
+        Log.e(TGA, "运行了这个界面");
         switch (mode) {
             case 0:
                 draw(g, paint, time);
@@ -368,7 +366,6 @@ public class Level {
                 time = maxTime;
             }
         }
-        Log.e("wusai", "－－－－－touchUp－－－－－");
     }
 
     public void touchMove(float tx, float ty) {
@@ -470,11 +467,12 @@ public class Level {
                 }
                 break;
             case 23://确定
-//            case KeyEvent.KEYCODE_ENTER://
                 GameDraw.gameSound(1);
-                Log.e("jamie", "－－－－－确定－－－－－");
+                Log.e("jamie", "－－－－－23－－－－－");
                 switch (keyType) {
                     case 0:
+                        isDownLeft = true;
+                        isDownLeft = false;
                         if (Game.level != 1) {
                             Game.level--;
                             mode = 1;
@@ -482,6 +480,8 @@ public class Level {
                         }
                         break;
                     case 1:
+                        isDownRight = true;
+                        isDownRight = false;
                         if (Game.level < Data.level) {
                             Game.level++;
                             mode = 1;
@@ -489,11 +489,51 @@ public class Level {
                         }
                         break;
                     case 2:
+                        isDownReturn = true;
+                        isDownReturn = false;
                         isBack = true;
                         mode = 3;
                         time = maxTime;
                         break;
                     case 3:
+                        isDownPlay = true;
+                        isDownPlay = false;
+                        time = 3;
+                        break;
+                }
+                break;
+            case KeyEvent.KEYCODE_ENTER://
+                GameDraw.gameSound(1);
+                Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        isDownLeft = true;
+                        isDownLeft = false;
+                        if (Game.level != 1) {
+                            Game.level--;
+                            mode = 1;
+                            time = 8;
+                        }
+                        break;
+                    case 1:
+                        isDownRight = true;
+                        isDownRight = false;
+                        if (Game.level < Data.level) {
+                            Game.level++;
+                            mode = 1;
+                            time = 8;
+                        }
+                        break;
+                    case 2:
+                        isDownReturn = true;
+                        isDownReturn = false;
+                        isBack = true;
+                        mode = 3;
+                        time = maxTime;
+                        break;
+                    case 3:
+                        isDownPlay = true;
+                        isDownPlay = false;
                         time = 3;
                         break;
                 }

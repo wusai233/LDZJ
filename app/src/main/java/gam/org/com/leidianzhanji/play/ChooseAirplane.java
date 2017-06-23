@@ -682,9 +682,6 @@ public class ChooseAirplane {
                             return;
                         }
                         isDownReturn = true;
-                        isDownPlay = true;
-                        isDownPlay = false;
-                        isDownReturn = false;
                         mode = 30;
                         t = 3;
                         break;
@@ -799,8 +796,6 @@ public class ChooseAirplane {
                         break;
                     case 4:
                         GameDraw.gameSound(1);
-                        isDownReturn = true;
-                        isDownReturn = false;
                         mode = 20;
                         t = 10;
                         break;
@@ -812,10 +807,6 @@ public class ChooseAirplane {
                                 || (id == 3 && !haveAirplane[2])) {
                             return;
                         }
-                        isDownReturn = true;
-                        isDownPlay = true;
-                        isDownPlay = false;
-                        isDownReturn = false;
                         mode = 30;
                         t = 3;
                         break;

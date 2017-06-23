@@ -198,6 +198,14 @@ public class NewStoryLine {
                     mode = 5;
                 }
                 break;
+            case KeyEvent.KEYCODE_ENTER:
+                Log.e("jamie", "－－－－－确定－－－－－");
+                if ((mode == 2 || mode == 3 || mode == 5)) {
+                    GameDraw.gameSound(1);
+                    time = 0;
+                    mode = 5;
+                }
+                break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
                 if ((mode == 2 || mode == 3 || mode == 5)) {

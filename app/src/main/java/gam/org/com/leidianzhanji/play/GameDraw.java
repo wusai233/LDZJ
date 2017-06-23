@@ -394,7 +394,7 @@ public class GameDraw extends SurfaceView implements Runnable {
                 case CANVAS_PROGRESS:
                     break;
                 case CANVAS_NPC_INTRODUCE:
-                    npcIntroduce.touchDown(x, y);
+//                    npcIntroduce.touchDown(x, y);
                     break;
                 case CANVAS_BILLING_DIALOG:
                     billingDialog.touchDown(x, y);

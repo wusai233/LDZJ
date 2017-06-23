@@ -22,11 +22,40 @@ public class NPCIntroduce {
 
     int mode, t, id;
     int to;
-    // int dy, vy;
-//	boolean isShouZhi;
     int shouzhi;
 
     int alp, av;
+
+    Bitmap bs_huan;
+    int bs_huan_t = 0;
+    int keyType = 0;
+    boolean isPlay = false;
+
+    /**
+     * 选择光圈的绘制
+     */
+    public void renderAN(Canvas g, boolean huan, Paint paint) {
+        if (huan) {
+            switch (keyType) {
+                case 0://挑战Bss
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 425 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 425 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 1://战斗升级
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 573 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 573 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 2: //帮助关于
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 718 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 718 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+                case 3: //开始按钮
+                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 968 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 968 + (bs_huan_t * 10 + 40)), paint);
+                    break;
+            }
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
+        }
+    }
+
 
     public NPCIntroduce(GameDraw _mc) {
         gameDraw = _mc;
@@ -82,15 +111,11 @@ public class NPCIntroduce {
     }
 
     public void reset(int _id, int _to) {
-        // Log.d("*****************", "reset begin");
         mode = 0;
         t = 0;
         to = _to;
         id = _id;
-//		isShouZhi = true;
         shouzhi = 0;
-        // dy = 0;
-        // vy = 5;
 
         alp = 100;
         av = 8;
@@ -100,16 +125,7 @@ public class NPCIntroduce {
         }
 
         gameDraw.canvasIndex = GameDraw.CANVAS_NPC_INTRODUCE;
-        // Log.d("*****************", "reset ok");
     }
-
-//    public void shouZhi(Canvas g, Paint paint, float x, float y) {
-//        if (shouzhi % 5 == 0) {
-//            g.drawBitmap(sz1, x, y, paint);
-//        } else {
-//            g.drawBitmap(sz2, x, y, paint);
-//        }
-//    }
 
     float x = 144, y = 73;
 
@@ -130,72 +146,61 @@ public class NPCIntroduce {
                 g.drawColor((160) << 24);
                 g.drawBitmap(im, 680, 80, paint);
                 g.drawBitmap(di, null,
-                        new RectF(x, 960-di.getWidth()/2 - t * 19, x + di.getWidth(), y + 96),
+                        new RectF(x, 960 - di.getWidth() / 2 - t * 19, x + di.getWidth(), y + 96),
                         paint);
                 break;
             case 3:
                 g.drawColor((160) << 24);
                 g.drawBitmap(im, 680, 80, paint);
-                g.drawBitmap(di, 960-di.getWidth()/2, y, paint);
+                g.drawBitmap(di, 960 - di.getWidth() / 2, y, paint);
                 renderZI(g, 255, paint);
                 break;
             case 20:
                 g.drawColor((160) << 24);
                 g.drawBitmap(im, 680, 80, paint);
-                g.drawBitmap(di, 960-di.getWidth()/2, y, paint);
+                g.drawBitmap(di, 960 - di.getWidth() / 2, y, paint);
                 renderZI(g, t * 25 + 5, paint);
                 break;
         }
+//        renderAN(g, true, paint);
     }
 
     public void renderZI(Canvas g, int a, Paint paint) {
         switch (id) {
             case 1:
-                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 14, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 14, paint);
                 break;
             case 2:// 右下角护盾
-                g.drawBitmap(zi,  960-zi.getWidth()/2, y + 28, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 28, paint);
                 paint.setAlpha(a * alp / 100);
                 gameDraw.game.renderBH(g, true, paint);
                 paint.setAlpha(a);
-//                shouZhi(g, paint, 430, 725);
-                // g.drawBitmap(sz, 431 - 55, 740 - 160 - dy, paint);
                 break;
             case 3:// 左下角必杀
-                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 23, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 23, paint);
                 paint.setAlpha(a * alp / 100);
                 gameDraw.game.renderBS(g, true, paint);
                 paint.setAlpha(a);
-//                shouZhi(g, paint, 38, 730);
-                // g.drawBitmap(sz, 49 - 55, 740 - 160 - dy, paint);
                 break;
             case 4:// 第一次游戏NPC点击升级技能
-                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 40, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 40, paint);
                 paint.setAlpha(a * alp / 100);
-                // g.drawBitmap(gameDraw.gameWin.an1, 45, 700, paint);
-//                g.drawBitmap(gameDraw.gameWin.an3, 51, 620, paint);
                 paint.setAlpha(a);
-//                shouZhi(g, paint, 137, 660);
-                // g.drawBitmap(sz, 80, 485 - dy, paint);
                 break;
             case 5:// 第一次游戏NPC介绍升级技能
-                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 28, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 28, paint);
                 paint.setAlpha(a * alp / 100);
-                // g.drawBitmap(gameDraw.airplaneUpgrade.an12, 25 + 315, 310 + 15,
-                // paint);
                 g.drawBitmap(gameDraw.airplaneUpgrade.an12, 340, 318, paint);
                 paint.setAlpha(a);
-//                shouZhi(g, paint, 385, 345);
-                // Tools.paintRotateImage(g, sz, 370, 430 + dy, 180, 55, 66, paint);
                 break;
             case 10:
             case 11:
             case 12:
             case 13:
-                g.drawBitmap(zi, 960-zi.getWidth()/2, y + 14, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 14, paint);
                 break;
             case 14:
-                g.drawBitmap(zi,960-zi.getWidth()/2, y + 11, paint);
+                g.drawBitmap(zi, 960 - zi.getWidth() / 2, y + 11, paint);
                 break;
         }
     }
@@ -232,12 +237,6 @@ public class NPCIntroduce {
                 if (shouzhi > 100) {
                     shouzhi = 0;
                 }
-                // dy += vy;
-                // vy--;
-                // if (dy <= 0) {
-                // dy = 0;
-                // vy = 5;
-                // }
                 if (t >= 80 && id != 2 && id != 3 && id != 4 && id != 5) {
                     t = 10;
                     mode = 20;
@@ -292,33 +291,38 @@ public class NPCIntroduce {
     }
 
     public void touchDown(float tx, float ty) {
-        if (mode == 3) {
-            if (id == 2) {
-                if (tx > 370 && ty > 700) {
-                    t = 10;
-                    mode = 20;
-                }
-            } else if (id == 3) {
-                if (tx < 110 && ty > 720) {
-                    t = 10;
-                    mode = 20;
-                }
-            } else if (id == 4) {
-                if (tx > 50 && tx < 225 && ty > 620 && ty < 710) {// 第一次介绍升级
-                    t = 10;
-                    mode = 20;
-                }
-            } else if (id == 5) {
-                if (tx > 340 && tx < 430 && ty > 315 && ty < 380) {
-                    t = 10;
-                    mode = 20;
-                    MainActivity.isFirstPlay = false;// 设置第一次游戏NPC介绍结束
-                    Data.save();
-                }
-            } else {
+        if (id == 2) {
+            //点击护盾
+            Log.e("ID", "---------------" + id + "--------------");
+            if (tx > 370 && ty > 700) {
                 t = 10;
                 mode = 20;
             }
+        } else if (id == 3) {
+            //点击必杀
+            Log.e("ID", "---------------" + id + "--------------");
+            if (tx < 110 && ty > 720) {
+                t = 10;
+                mode = 20;
+            }
+        } else if (id == 4) {
+            Log.e("ID", "---------------" + id + "--------------");
+            if (tx > 50 && tx < 225 && ty > 620 && ty < 710) {// 第一次介绍升级
+                t = 10;
+                mode = 20;
+            }
+        } else if (id == 5) {
+            Log.e("ID", "---------------" + id + "--------------");
+            if (tx > 340 && tx < 430 && ty > 315 && ty < 380) {
+                t = 10;
+                mode = 20;
+                MainActivity.isFirstPlay = false;// 设置第一次游戏NPC介绍结束
+                Data.save();
+            }
+        } else {
+            Log.e("ID", "---------------" + id + "--------------");
+            t = 10;
+            mode = 20;
         }
     }
 
@@ -336,8 +340,42 @@ public class NPCIntroduce {
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
                 break;
-            case 23://确定
+            case KeyEvent.KEYCODE_ENTER:
                 Log.e("jamie", "－－－－－确定－－－－－");
+                if (mode == 3) {
+                    Log.e("ID", "---------------点击确定--------------");
+                    switch (id) {
+                        case 2:
+                            Log.e("ID", "---------------" + id + "--------------");
+                            t = 10;
+                            mode = 20;
+                            break;
+                        case 3:
+                            Log.e("ID", "---------------" + id + "--------------");
+                            t = 10;
+                            mode = 20;
+                            break;
+                        case 4:
+                            Log.e("ID", "---------------" + id + "--------------");
+                            t = 10;
+                            mode = 20;
+                            break;
+                        case 5:
+                            Log.e("ID", "---------------" + id + "--------------");
+                            t = 10;
+                            mode = 20;
+                            MainActivity.isFirstPlay = false;// 设置第一次游戏NPC介绍结束
+                            Data.save();
+                            break;
+                        default:
+                            Log.e("ID", "---------------" + id + "--------------");
+                            t = 10;
+                            mode = 20;
+                    }
+                }
+                break;
+            case 23://确定
+                Log.e("jamie", "－－－－－23－－－－－");
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

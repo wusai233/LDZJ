@@ -337,7 +337,7 @@ public class ChooseBoss {
                 if (t >= 10) {
                     t = 0;
                     mode = 1;
-                    gameDraw.loading.free();
+//                    gameDraw.loading.free();
                 }
                 break;
             case 2:

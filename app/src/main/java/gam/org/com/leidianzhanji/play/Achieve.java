@@ -324,7 +324,28 @@ public class Achieve {
                 }
                 break;
             case 23://确定
-//            case KeyEvent.KEYCODE_ENTER://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        GameDraw.gameSound(1);
+                        this.tx = tx++;
+                        this.ox = ox++;
+                        break;
+                    case 1:
+                        GameDraw.gameSound(1);
+                        isDownReturn = true;
+                        mode = 20;
+                        time = 10;
+                        isDownReturn = true;
+                        break;
+                    case 2:
+                        GameDraw.gameSound(1);
+                        this.tx = 300;
+                        this.ox = 600;
+                        break;
+                }
+                break;
+            case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
