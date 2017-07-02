@@ -108,8 +108,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         res = context.getResources();
         mBitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
-        mCanvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG
-                | Paint.FILTER_BITMAP_FLAG));
+        mCanvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
 
         menu = new Menu(this);
         game = new Game(this);
@@ -237,6 +236,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB_MR1)
     public void upData() {
         switch (canvasIndex) {
             case CANVAS_PROGRESS:
@@ -325,6 +325,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB_MR1)
     public void run() {      // 更新
         long startTime, endTime;
         Paint paint = new Paint();
@@ -336,8 +337,7 @@ public class GameDraw extends SurfaceView implements Runnable {
                 upData();
                 // 重绘
                 Canvas g = mSurfaceHolder.lockCanvas();
-                if (WIDTH != MainActivity.SCREEN_WIDTH
-                        || HEIGHT != MainActivity.SCREEN_HEIGHT || isShake) {
+                if (WIDTH != MainActivity.SCREEN_WIDTH || HEIGHT != MainActivity.SCREEN_HEIGHT || isShake) {
                     if (!isShake) {
                         paint(mCanvas, canvasIndex);
                         g.drawBitmap(mBitmap, null, new Rect(0, 0,

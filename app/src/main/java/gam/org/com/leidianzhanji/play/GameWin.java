@@ -117,9 +117,6 @@ public class GameWin {
     }
 
     int bs_huan_t = 0;
-    /**
-     * 按钮类型 0：挑战BOSS   1：战斗升级  2：帮助   3：开始   4：成就   5：设置
-     */
     int keyType = 1;
 
     /**
@@ -147,6 +144,7 @@ public class GameWin {
     }
 
     public void render(Canvas g, Paint paint) {
+        g.drawBitmap(Menu.bg, 0, 0, paint);
         switch (mode) {
             case 0:
                 gameDraw.game.render(g, paint);
@@ -674,7 +672,7 @@ public class GameWin {
                     case 1:
                         mode = 3;
                         time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
-                        keyType = 0;
+                        keyType = 2;
                         break;
                     case 2:
                         anid = 2;

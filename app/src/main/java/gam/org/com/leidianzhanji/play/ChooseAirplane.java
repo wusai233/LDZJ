@@ -12,6 +12,8 @@ import android.view.KeyEvent;
 import gam.org.com.leidianzhanji.R;
 
 public class ChooseAirplane {
+
+    private String TAG = "ChooseAirplane";
     public static boolean[] haveAirplane = new boolean[]{false, false, false};// 用于记录是否含有另外三架飞机
     private boolean isDownReturn = false;
     private boolean isDownPlay = false;
@@ -19,10 +21,9 @@ public class ChooseAirplane {
     Bitmap im1, im2;
     // Bitmap im2, im3, im4, kuang3;
     // Bitmap bt;
-    Bitmap an, hui;
+    Bitmap an;
     Bitmap suo;
     Bitmap kuang1, kuang2;
-    Bitmap sp_back1, sp_back2;
     // Bitmap guang1, guang2, guang3;
 
     Bitmap[] kaihuo = new Bitmap[2];
@@ -56,48 +57,25 @@ public class ChooseAirplane {
 
     public void init(Resources res) {
         airPlaneBullet.init(gameDraw.res);
-
-        hui = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_an_hui);
         suo = BitmapFactory.decodeResource(gameDraw.res, R.drawable.menu_suo);
         im1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_im1);
-        im2 = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_background);
-        kuang1 = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_kuang1);
-        kuang2 = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_kuang2);
-
+        im2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_background);
+        kuang1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_kuang1);
+        kuang2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_kuang2);
         an = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_an);
-
-        guang[0] = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_liang3);
-        guang[1] = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_liang1);
-        guang[2] = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_liang2);
-        guang[3] = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.sp_liang4);
-
-        fei[0] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(
-                gameDraw.res, R.drawable.player1_3));
-        fei[1] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(res,
-                R.drawable.player2_3));
-        fei[2] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(res,
-                R.drawable.player3_3));
-        fei[3] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(res,
-                R.drawable.player4_3));
-
-        kaihuo[0] = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.fire2_1);
-        kaihuo[1] = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.fire2_2);
-
-        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
-                R.drawable.bs_huan_im);
+        guang[0] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_liang3);
+        guang[1] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_liang1);
+        guang[2] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_liang2);
+        guang[3] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.sp_liang4);
+        fei[0] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(gameDraw.res, R.drawable.player1_3));
+        fei[1] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(res, R.drawable.player2_3));
+        fei[2] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(res, R.drawable.player3_3));
+        fei[3] = Tools.getCompoundBitmap(BitmapFactory.decodeResource(res, R.drawable.player4_3));
+        kaihuo[0] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.fire2_1);
+        kaihuo[1] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.fire2_2);
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bs_huan_im);
     }
-
     int bs_huan_t = 0;
-
     /**
      * 选择圈圈的绘制
      */
@@ -130,16 +108,8 @@ public class ChooseAirplane {
                 bs_huan_t = 10;
         }
     }
-
-
     public void free() {
-        im1 = null;
-        suo = null;
-        kuang1 = null;
-        kuang2 = null;
-        an = null;
-        sp_back1 = null;
-        sp_back2 = null;
+        suo = null;  im1 = null;im2 = null;kuang1 = null;kuang2 = null;an = null;
         for (int i = 0; i < guang.length; i++) {
             guang[i] = null;
             fei[i] = null;
@@ -190,6 +160,7 @@ public class ChooseAirplane {
     }
 
     public void render(Canvas g, Paint paint) {
+        Log.d(TAG,"---mode---"+mode);
         g.drawBitmap(Menu.bg, 0, 0, paint);
         switch (mode) {
             case 0:
@@ -208,11 +179,47 @@ public class ChooseAirplane {
                         || (id == 3 && !haveAirplane[2])) {
                 }
                 break;
+            case 30:
+                renderJMOut(g,  paint);
+                break;
         }
             renderAN(g, true, paint);
     }
+    public void renderJMOut(Canvas g, Paint paint) {
+        airPlaneBullet.free();
+        g.drawBitmap(kaihuo[Math.abs(GameDraw.random.nextInt() % 2)], 960 - 108, 1090, paint);
+        g.drawBitmap(fei[id], 960 - fei[id].getWidth() / 2, 1090, paint);
+        g.drawBitmap(kuang1, 671, 1090, paint);
+        Tools.paintMImage(g, kuang1, 960, 1090, paint);
+        Tools.paintM2Image(g, kuang1, 671, 1090, paint);
+        Tools.paintRotateImage(g, kuang1, 960, 1090, 180, paint);
+        switch (id) {
+            case 0:
+                g.drawBitmap(kuang2, 696, 1090, paint);
+                break;
+            case 1:
+                Tools.paintMImage(g, kuang2, 963, 1090, paint);
+                break;
+            case 2:
+                Tools.paintM2Image(g, kuang2, 696, 1090, paint);
+                break;
+            case 3:
+                Tools.paintRotateImage(g, kuang2, 963, 1090, 180, paint);
+                break;
+        }
+        g.drawBitmap(guang[0], 750, 1090, paint);
+        g.drawBitmap(guang[1], 1023, 1090, paint);
+        g.drawBitmap(guang[2], 749, 1090, paint);
+        g.drawBitmap(guang[3], 1029, 1090, paint);
 
+        for (int i = 0; i < haveAirplane.length; i++) {
+            if (!haveAirplane[i]) {
+                g.drawBitmap(suo, zx[i], 1090, paint);
+            }
+        }
+    }
     public void renderJM(Canvas g, int a, Paint paint) {
+        Log.d(TAG,"---a---"+a);
         paint.setAlpha(a);
         airPlaneBullet.render(g, paint);
         if (id == 2) {
@@ -269,7 +276,7 @@ public class ChooseAirplane {
         }
         switch (mode) {
             case 0:
-                Log.e("data", "mode------0");
+                Log.e(TAG, "mode------0");
                 t++;
                 if (t >= 10) {
                     t = 0;
@@ -280,7 +287,7 @@ public class ChooseAirplane {
                 }
                 break;
             case 1:
-                Log.e("data", "mode------1");
+                Log.e(TAG, "mode------1");
                 airplane.fire(airPlaneBullet);
                 airPlaneBullet.updata();
                 if (t > 0) {
@@ -322,7 +329,7 @@ public class ChooseAirplane {
                 }
                 break;
             case 20:
-                Log.e("data", "mode------20");
+                Log.e(TAG, "mode------20");
                 t--;
                 if (t <= 0) {
                     Menu.index = Menu.NULL;
@@ -331,7 +338,7 @@ public class ChooseAirplane {
                 }
                 break;
             case 30:
-                Log.e("data", "mode------30");
+                Log.e(TAG, "mode------30");
                 t--;
 
                 if (t <= 0) {
@@ -393,7 +400,7 @@ public class ChooseAirplane {
                                 || (id == 3 && !haveAirplane[2])) {
                             return;
                         }
-                        Log.e("jamie","-----------"+id+"-------");
+                        Log.e(TAG,"-----------"+id+"-------");
                         GameDraw.gameSound(1);
                         isDownReturn = true;
                         isDownPlay = true;
@@ -444,7 +451,7 @@ public class ChooseAirplane {
     public void keyDown(int k) {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
-                Log.e("jamie", "－－－－－向上－－－－－");
+                Log.e(TAG, "－－－－－向上－－－－－");
                 switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
@@ -473,7 +480,7 @@ public class ChooseAirplane {
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
-                Log.e("jamie", "－－－－－向下－－－－－");
+                Log.e(TAG, "－－－－－向下－－－－－");
                 switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
@@ -502,7 +509,7 @@ public class ChooseAirplane {
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
-                Log.e("jamie", "－－－－－向左－－－－－");
+                Log.e(TAG, "－－－－－向左－－－－－");
                 switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
@@ -531,7 +538,7 @@ public class ChooseAirplane {
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
-                Log.e("jamie", "－－－－－向右－－－－－");
+                Log.e(TAG, "－－－－－向右－－－－－");
                 switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
@@ -560,7 +567,7 @@ public class ChooseAirplane {
                 }
                 break;
             case 23://确定
-                Log.e("jamie", "－－－－－确定－－－－－");
+                Log.e(TAG, "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
@@ -688,7 +695,7 @@ public class ChooseAirplane {
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
-                Log.e("jamie", "－－－－－确定－－－－－");
+                Log.e(TAG, "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
@@ -813,7 +820,7 @@ public class ChooseAirplane {
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
-                Log.e("jamie", "－－－－－返回－－－－－");
+                Log.e(TAG, "－－－－－返回－－－－－");
                 GameDraw.gameSound(1);
                 isDownReturn = true;
                 isDownReturn = false;
@@ -821,10 +828,10 @@ public class ChooseAirplane {
                 t = 10;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
-                Log.e("jamie", "－－－－－房子－－－－－");
+                Log.e(TAG, "－－－－－房子－－－－－");
                 break;
             case KeyEvent.KEYCODE_MENU://菜单
-                Log.e("jamie", "－－－－－菜单－－－－－");
+                Log.e(TAG, "－－－－－菜单－－－－－");
                 break;
         }
     }

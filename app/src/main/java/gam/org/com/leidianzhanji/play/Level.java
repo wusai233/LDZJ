@@ -142,7 +142,8 @@ public class Level {
     }
 
     public void render(Canvas g, Paint paint) {
-        Log.e(TGA, "运行了这个界面");
+        g.drawBitmap(Menu.bg, 0, 0, paint);
+        Log.e(TGA, "运行了这个界面-------------"+mode);
         switch (mode) {
             case 0:
                 draw(g, paint, time);
@@ -213,57 +214,40 @@ public class Level {
                     }
                     switch (Game.level) {
                         case 1:
-                            npc = new BOSS1(gameDraw.game.npcManager.im[1], 960, 245,
-                                    101);
+                            npc = new BOSS1(gameDraw.game.npcManager.im[1], 960, 245, 101);
                             break;
                         case 2:
-                            npc = new BOSS2(gameDraw.game.npcManager.im[2], 960, 240,
-                                    102);
+                            npc = new BOSS2(gameDraw.game.npcManager.im[2], 960, 240, 102);
                             break;
                         case 3:
-                            npc = new BOSS4(
-                                    Tools.getScale(gameDraw.game.npcManager.im[4]),
-                                    960, 245, 103);
+                            npc = new BOSS4(Tools.getScale(gameDraw.game.npcManager.im[4]), 960, 245, 103);
                             break;
                         case 4:
-                            npc = new BOSS6(
-                                    Tools.getScale(gameDraw.game.npcManager.im[6]),
-                                    960, 265, 104);
+                            npc = new BOSS6(Tools.getScale(gameDraw.game.npcManager.im[6]), 960, 265, 104);
                             break;
                         case 5:
-                            npc = new BOSS5(gameDraw.game.npcManager.im[5], 960, 250,
-                                    105);
+                            npc = new BOSS5(gameDraw.game.npcManager.im[5], 960, 250, 105);
                             break;
                         case 6:
-                            npc = new BOSS3(gameDraw.game.npcManager.im[3], 960, 250,
-                                    106);
+                            npc = new BOSS3(gameDraw.game.npcManager.im[3], 960, 250, 106);
                             break;
-
                         case 7:
-                            npc = new BOSS1(gameDraw.game.npcManager.im[7], 960, 245,
-                                    107);
+                            npc = new BOSS1(gameDraw.game.npcManager.im[7], 960, 245, 107);
                             break;
                         case 8:
-                            npc = new BOSS2(gameDraw.game.npcManager.im[8], 960, 240,
-                                    108);
+                            npc = new BOSS2(gameDraw.game.npcManager.im[8], 960, 240, 108);
                             break;
                         case 9:
-                            npc = new BOSS4(
-                                    Tools.getScale(gameDraw.game.npcManager.im[10]),
-                                    960, 245, 109);
+                            npc = new BOSS4(Tools.getScale(gameDraw.game.npcManager.im[10]), 960, 245, 109);
                             break;
                         case 10:
-                            npc = new BOSS6(
-                                    Tools.getScale(gameDraw.game.npcManager.im[12]),
-                                    960, 265, 110);
+                            npc = new BOSS6(Tools.getScale(gameDraw.game.npcManager.im[12]), 960, 265, 110);
                             break;
                         case 11:
-                            npc = new BOSS5(gameDraw.game.npcManager.im[11], 960, 250,
-                                    111);
+                            npc = new BOSS5(gameDraw.game.npcManager.im[11], 960, 250, 111);
                             break;
                         case 12:
-                            npc = new BOSS3(gameDraw.game.npcManager.im[9], 960, 250,
-                                    112);
+                            npc = new BOSS3(gameDraw.game.npcManager.im[9], 960, 250, 112);
                             break;
                     }
                 }
@@ -287,6 +271,7 @@ public class Level {
                         GameDraw.gameSound(2);
                     }
                 }
+                gameDraw.game.free();
                 break;
             case 3:
                 time--;
@@ -300,8 +285,7 @@ public class Level {
                     if (time <= 0) {
                         gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
                     } else if (time == 5) {
-                        GameDraw.isPlayMusic(GameDraw.menuMediaPlayer,
-                                GameDraw.bossMediaPlayer, GameDraw.gameMediaPlayer);
+                        GameDraw.isPlayMusic(GameDraw.menuMediaPlayer, GameDraw.bossMediaPlayer, GameDraw.gameMediaPlayer);
                     }
                 }
                 break;

@@ -64,7 +64,6 @@ public class ChooseBoss {
 
     public void init(Resources res) {
         im = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_im);
-        // bt = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_bt);
         guang = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.boss_guang);
 
@@ -72,8 +71,6 @@ public class ChooseBoss {
         shu2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_shu2);
         suo = BitmapFactory.decodeResource(gameDraw.res, R.drawable.menu_suo);
 
-//        an1 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_an1);
-//        an2 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.bos_an2);
         an3 = BitmapFactory.decodeResource(gameDraw.res, R.drawable.boss_an3);
 
         ban1[0] = BitmapFactory.decodeResource(gameDraw.res,
@@ -220,7 +217,6 @@ public class ChooseBoss {
                 renderJM(g, paint);
                 renderBOSS(g, id, 960, t * 25 + 5, paint);
                 paint.setAlpha(255);
-//                Game.drawTop(g, paint, t);
                 Game.drawDown(g, paint, t, isDownReturn);
                 break;
             case 1:
@@ -337,7 +333,7 @@ public class ChooseBoss {
                 if (t >= 10) {
                     t = 0;
                     mode = 1;
-//                    gameDraw.loading.free();
+                    gameDraw.loading.free();
                 }
                 break;
             case 2:
@@ -428,16 +424,16 @@ public class ChooseBoss {
     public void touchDown(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (tx > 631 && tx < 858 && ty > 975 && ty < 1070) {// 返回键
+                if (tx > 320 && ty > 740) {// 返回键
                     isDownReturn = true;
                     GameDraw.gameSound(1);
-                } else if (ty > 688 && ty < 772) {
-                    if (tx > 672 && tx < 802) {// 点击左键向右滑动
+                } else if (ty > 620 && ty < 710) {
+                    if (tx < 148) {// 点击左键向右滑动
                         dx = 0;
                         vx = 50;
                         mode = 2;
                         GameDraw.gameSound(1);
-                    } else if (tx > 1118 && tx < 1248) {// 点击右键向左滑动
+                    } else if (tx > 320) {// 点击右键向左滑动
                         dx = 0;
                         vx = -50;
                         mode = 2;
@@ -454,7 +450,7 @@ public class ChooseBoss {
                 }
                 break;
             case 10:
-                if (ty > 1008 && ty < 1075 && tx > 666 && tx < 824) {
+                if (tx > 320 && ty > 740) {
                     GameDraw.gameSound(1);
                     isDownReturn = true;
                 } else if (tx > 120 && tx < 360 && ty > 220 && ty < 220 + 3 * 120
@@ -474,11 +470,11 @@ public class ChooseBoss {
     public void touchUp(float tx, float ty) {
         switch (mode) {
             case 1:
-                if ((tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回键
+                if ((tx > 320 && ty > 740) && isDownReturn) {// 返回键
                     isDownReturn = false;
                     mode = 20;
                     t = 10;
-                } else if ((tx > 1055 && tx < 1288 && ty > 975 && ty < 1068)
+                } else if ((ty > 620 && ty < 710 && tx >= 148 && tx <= 320)
                         && isDownPK) { // 挑战键
                     isDownPK = false;
                     mode = 10;
@@ -510,7 +506,7 @@ public class ChooseBoss {
     public void touchMove(float tx, float ty) {
         switch (mode) {
             case 1:
-                if (!(tx > 631 && tx < 858 && ty > 975 && ty < 1070) && isDownReturn) {// 返回键
+                if (!(tx > 320 && ty > 740) && isDownReturn) {// 返回键
                     isDownReturn = false;
                 } else if (!(ty > 620 && ty < 710 && tx >= 148 && tx <= 320)
                         && isDownPK) {

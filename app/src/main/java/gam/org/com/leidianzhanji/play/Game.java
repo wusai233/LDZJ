@@ -685,7 +685,7 @@ public class Game {
                 break;
             case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
+                gameDraw.pause.reset();
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");

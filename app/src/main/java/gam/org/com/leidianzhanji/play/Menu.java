@@ -198,7 +198,7 @@ public class Menu {
 
     public void render(Canvas g, Paint paint) {
 
-//        Log.i("Menu", "----------render----------------" + mode);
+        Log.i("Menu", "----------render----------------" + mode);
         switch (mode) {
             case 0:// 静态
                 g.drawBitmap(bg, 0, 0, paint);
@@ -321,7 +321,6 @@ public class Menu {
                     g.drawBitmap(anStart, 860, 870 + time * 32, paint);
                     g.drawBitmap(anAchieve, 490, 920 + time * 32, paint);
                     g.drawBitmap(anSetting, 1270, 920 + time * 32, paint);
-
                 }
                 break;
         }

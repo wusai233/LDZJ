@@ -61,6 +61,11 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        return super.onKeyUp(keyCode, event);
+    }
+
     public void onPause() {
         super.onPause();
         if (GameDraw.isSound) {
