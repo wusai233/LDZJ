@@ -586,6 +586,50 @@ public class GameDraw extends SurfaceView implements Runnable {
         return true;
     }
 
+    public boolean keyUp(int k) {
+        switch (canvasIndex) {
+            case CANVAS_PROGRESS:
+                break;
+            case CANVAS_NPC_INTRODUCE:
+                break;
+            case CANVAS_BILLING_DIALOG:
+                break;
+            case CANVAS_GET_GIFT:
+                break;
+            case CANVAS_DAY_GIFT:
+                break;
+            case CANVAS_MENU:
+                break;
+            case CANVAS_HEFP:
+                break;
+            case CANVAS_SETTING:
+                break;
+            case CANVAS_ACHIEVE:
+//                Log.e("onKeyUp","----------2--------");----------2--------
+                achieve.keyUp(k);
+                break;
+            case CANVAS_CHOOSE_BOSS:
+                break;
+            case CANVAS_CHOOSE_AIRPLANE:
+                break;
+            case CANVAS_LEVEL:
+                break;
+            case CANVAS_AIRPLANE_UPGRADE:
+                break;
+            case CANVAS_FIRST_STORY_LINE:
+                break;
+            case CANVAS_GAME:
+                break;
+            case CANVAS_GAME_WIN:
+                break;
+            case CANVAS_GAME_PAUSE:
+                break;
+            case CANVAS_GAME_EXIT:
+                break;
+        }
+        return true;
+    }
+
     public static AudioManager mgr;
     public static SoundPool spool;
     public static int[] soundID = new int[16];

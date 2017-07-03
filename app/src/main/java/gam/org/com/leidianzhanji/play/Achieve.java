@@ -11,6 +11,8 @@ import android.view.KeyEvent;
 
 import gam.org.com.leidianzhanji.R;
 
+import static java.lang.Thread.sleep;
+
 /**
  * 成就界面
  */
@@ -287,6 +289,28 @@ public class Achieve {
         }
     }
 
+    public void keyUp(int k){
+        Log.e("keyUp","--------"+keyType+"------");
+        Log.e("keyUp","----点击之前：tx ="+tx+"------");
+        try {
+            sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            Log.e("e.printStackTrace()","-------"+e+"-----");
+        }
+        switch (keyType){
+            // 左
+            case 0:
+                this.tx = tx-50;
+                break;
+            // 右
+            case 2:
+                this.tx = tx+50;
+                break;
+        }
+        Log.e("keyUp","----点击之后：tx ="+tx+"------");
+    }
+
     public void keyDown(int k) {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
@@ -346,24 +370,21 @@ public class Achieve {
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
-                        GameDraw.gameSound(1);
-                        this.tx = tx++;
-                        this.ox = ox++;
+                        this.tx = ox = tx;
                         break;
                     case 1:
-                        GameDraw.gameSound(1);
                         isDownReturn = true;
                         mode = 20;
                         time = 10;
                         isDownReturn = true;
                         break;
                     case 2:
-                        GameDraw.gameSound(1);
-                        this.tx = 300;
-                        this.ox = 600;
+
+                        this.tx = ox = tx;
                         break;
                 }
                 break;

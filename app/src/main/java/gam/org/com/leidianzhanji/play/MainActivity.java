@@ -63,7 +63,12 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        return super.onKeyUp(keyCode, event);
+//        Log.e("onKeyUp","----------1--------");
+        if (gameDraw.keyUp(keyCode) == true) {
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
     }
 
     public void onPause() {
