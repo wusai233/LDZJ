@@ -220,6 +220,7 @@ public class GameDraw extends SurfaceView implements Runnable {
                 break;
             case CANVAS_GAME:
                 game.render(g, mPaint);
+
                 break;
             case CANVAS_GAME_WIN:
                 gameWin.render(g, mPaint);
@@ -605,7 +606,6 @@ public class GameDraw extends SurfaceView implements Runnable {
             case CANVAS_SETTING:
                 break;
             case CANVAS_ACHIEVE:
-//                Log.e("onKeyUp","----------2--------");----------2--------
                 achieve.keyUp(k);
                 break;
             case CANVAS_CHOOSE_BOSS:

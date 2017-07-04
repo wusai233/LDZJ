@@ -271,7 +271,7 @@ public class Level {
                         GameDraw.gameSound(2);
                     }
                 }
-                gameDraw.game.free();
+//                gameDraw.game.free();
                 break;
             case 3:
                 time--;

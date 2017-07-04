@@ -80,12 +80,11 @@ public class NPCBulletManager {
 			if (Math.abs(Airplane.x + Game.cx - npcBullet[i].x) < 20
 					&& Math.abs(Airplane.y - npcBullet[i].y) < 20) {
 				npcBullet[i].visible = false;
-				if (Data.jx == true && Data.level == 1
-						&& game.npcManager.zl.time < 1500) {
-
-				} else if (Game.isWD == false) {
+//				if (Data.jx == true && Data.level == 1 && game.npcManager.zl.time < 1500) {
+//
+//				} else if (Game.isWD == false) {
 					game.airplane.dead();
-				}
+//				}
 			}
 
 			if (npcBullet[i] != null) {

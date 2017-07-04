@@ -45,7 +45,7 @@ public class Loading {
         Tools.paintMImage(g, im1, 960, -423 + time * (float) 42.3, paint);
         g.drawBitmap(im2, 960 - im2.getWidth(), 800 - time * (float) 39.7, paint);
         Tools.paintMImage(g, im2, 960, 800 - time * (float) 39.7, paint);
-        g.drawBitmap(Game.down, 0, 800 - time * (float) 13.7, paint);
+        g.drawBitmap(Game.down, 574, 800 - time * (float) 13.7, paint);
         Tools.paintMImage(g, Game.down, 960, 800 - time * (float) 13.7, paint);
     }
 

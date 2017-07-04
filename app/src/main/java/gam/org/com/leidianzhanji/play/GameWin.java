@@ -111,7 +111,6 @@ public class GameWin {
         Tools.paintMImage(g, im1, 960, 34, paint);
         g.drawBitmap(im2, 960 - im2.getWidth(), 455, paint);
         Tools.paintMImage(g, im2, 960, 455, paint);
-//        Game.drawTop(g, paint, time);
         g.drawBitmap(Game.down, 960 - Game.down.getWidth(), 1000 - time * (float) 13.7, paint);
         Tools.paintMImage(g, Game.down, 960, 1000 - time * (float) 13.7, paint);
     }
@@ -125,7 +124,6 @@ public class GameWin {
 
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
-            //  抽奖
             switch (keyType) {
                 case 0:
                     g.drawBitmap(bs_huan, null, new RectF(799 - (bs_huan_t * 10 + 40), 816 - (bs_huan_t * 10 + 40), 799 + (bs_huan_t * 10 + 40), 816 + (bs_huan_t * 10 + 40)), paint);
@@ -151,6 +149,7 @@ public class GameWin {
                 draw(g, paint, time);
                 break;
             case 1:
+                keyType = 1;
                 draw(g, paint, 10);
                 paint.setAlpha(time * 25 + 5);
                 renderJM(g, paint);
@@ -158,6 +157,7 @@ public class GameWin {
                 g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 2:
+                keyType = 1;
                 draw(g, paint, 10);
                 renderJM(g, paint);
                 if (isDownCJ)
@@ -168,9 +168,9 @@ public class GameWin {
             case 3:
                 draw(g, paint, 10);
                 renderJM(g, paint);
-//                g.drawBitmap(an1, 847, 762, paint);
                 break;
             case 4:
+                keyType = 1;
                 draw(g, paint, 10);
                 renderJM(g, paint);
                 g.drawBitmap(an1, 847, 762, paint);
@@ -180,6 +180,7 @@ public class GameWin {
                 an2 = null;
                 draw(g, paint, 10);
                 renderJM(g, paint);
+                keyType = 0;
                 if (isDownUpgrade)
                     g.drawBitmap(an4, 682, 760, paint);
                 else
@@ -190,6 +191,7 @@ public class GameWin {
                     g.drawBitmap(an5, 1003, 759, paint);
                 break;
             case 10:
+                keyType = 0;
                 draw(g, paint, 10);
                 paint.setAlpha(time * 25 + 5);
                 renderJM(g, paint);
@@ -210,7 +212,6 @@ public class GameWin {
     }
 
     public void renderJM(Canvas g, Paint paint) {
-        // g.drawBitmap(bt, 156, 130, paint);
         for (int i = 0; i < 3; i++) {
             g.drawBitmap(di, 800, 115 + 76 * i, paint);
             Tools.paintMImage(g, di, 960, 115 + 76 * i, paint);
@@ -225,26 +226,10 @@ public class GameWin {
         bitmap = null;
 
         renderCJ(g, id, dx, paint);
-        // g.drawBitmap(jl, 186, 440, paint);
         g.drawBitmap(kuang, 960 - kuang.getWidth(), 505, paint);
         Tools.paintMImage(g, kuang, 960, 505, paint);
 
-        // g.drawBitmap(gai, 0, 440, paint);
-        // Tools.paintMImage(g, gai, 409, 440, paint);
     }
-
-//    public void renderCJ(Canvas g, int id, float dx, Paint paint) {
-//        if (dx == 0) {
-//            renderJiang(g, id, 240, 517, paint);
-//            renderJiang(g, (id + 1) % l, 390, 517, paint);
-//            renderJiang(g, (id + l - 1) % l, 90, 517, paint);
-//        } else if (dx < 0) {
-//            renderJiang(g, id, 240 + dx, 517, paint);
-//            renderJiang(g, (id + 1) % l, 390 + dx, 517, paint);
-//            renderJiang(g, (id + 2) % l, 540 + dx, 517, paint);
-//            renderJiang(g, (id + l - 1) % l, 90 + dx, 517, paint);
-//        }
-//    }
 
     public void renderCJ(Canvas g, int id, float dx, Paint paint) {
         if (dx == 0) {
@@ -257,6 +242,7 @@ public class GameWin {
             renderJiang(g, (id + 2) % l, 1200 + dx, 590, paint);
             renderJiang(g, (id + l - 1) % l, 760 + dx, 590, paint);
         }
+        Log.e("动画结束","---------"+mode+"-------");
     }
 
 
@@ -641,7 +627,7 @@ public class GameWin {
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
-                switch (keyType) {
+                switch (keyType){
                     case 0:
                         keyType = 2;
                         break;
@@ -652,7 +638,7 @@ public class GameWin {
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
-                switch (keyType) {
+                switch (keyType){
                     case 0:
                         keyType = 2;
                         break;
@@ -661,6 +647,25 @@ public class GameWin {
                         break;
                 }
                 break;
+            case KeyEvent.KEYCODE_ENTER://确定
+                Log.e("jamie", "－－－－－确定－－－－－");
+                switch (keyType) {
+                    case 0:
+                        anid = 1;
+                        time = 10;
+                        mode = 10;
+                        break;
+                    case 1:
+                        mode = 3;
+                        time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
+                        keyType = 4;
+                        break;
+                    case 2:
+                        anid = 2;
+                        time = 10;
+                        mode = 10;
+                        break;
+                }
             case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
@@ -672,7 +677,6 @@ public class GameWin {
                     case 1:
                         mode = 3;
                         time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
-                        keyType = 2;
                         break;
                     case 2:
                         anid = 2;
