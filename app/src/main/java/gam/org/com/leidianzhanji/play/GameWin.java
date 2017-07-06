@@ -76,7 +76,6 @@ public class GameWin {
         an6 = null;
         di = null;
         kuang = null;
-
         for (int i = 0; i < fs.length; i++) {
             fs[i] = null;
         }
@@ -90,10 +89,8 @@ public class GameWin {
         time = 0;
         id = 5;
         dx = 0;
-
         GameDraw.isPlayMusic(GameDraw.gameMediaPlayer,
                 GameDraw.bossMediaPlayer, GameDraw.menuMediaPlayer);
-
         if (ChooseAirplane.haveAirplane[0] == false) {
             l = 15;
         } else if (ChooseAirplane.haveAirplane[1] == false) {
@@ -101,9 +98,7 @@ public class GameWin {
         } else {
             l = 13;
         }
-
         GameDraw.gameSound(2);
-
         gameDraw.canvasIndex = GameDraw.CANVAS_GAME_WIN;
     }
 
