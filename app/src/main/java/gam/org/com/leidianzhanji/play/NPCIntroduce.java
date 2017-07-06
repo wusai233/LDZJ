@@ -30,7 +30,7 @@ public class NPCIntroduce {
     int bs_huan_t = 0;
     int keyType = 0;
     boolean isPlay = false;
-
+    boolean isDone =false;
     /**
      * 选择光圈的绘制
      */
@@ -163,6 +163,7 @@ public class NPCIntroduce {
                 break;
         }
 //        renderAN(g, true, paint);
+            isDone = true;
     }
 
     public void renderZI(Canvas g, int a, Paint paint) {

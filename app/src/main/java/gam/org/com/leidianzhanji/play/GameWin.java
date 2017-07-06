@@ -140,6 +140,10 @@ public class GameWin {
 
     public void render(Canvas g, Paint paint) {
         g.drawBitmap(Menu.bg, 0, 0, paint);
+        if(gameDraw.getGift.isDone == true){
+            keyType = 0 ;
+            gameDraw.getGift.isDone = false;
+        }
         switch (mode) {
             case 0:
                 gameDraw.game.render(g, paint);
@@ -177,7 +181,6 @@ public class GameWin {
                 an2 = null;
                 draw(g, paint, 10);
                 renderJM(g, paint);
-                keyType = 0;
                 if (isDownUpgrade)
                     g.drawBitmap(an4, 682, 760, paint);
                 else
@@ -188,7 +191,6 @@ public class GameWin {
                     g.drawBitmap(an5, 1003, 759, paint);
                 break;
             case 10:
-                keyType = 0;
                 draw(g, paint, 10);
                 paint.setAlpha(time * 25 + 5);
                 renderJM(g, paint);

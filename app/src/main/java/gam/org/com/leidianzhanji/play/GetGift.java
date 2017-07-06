@@ -18,6 +18,7 @@ public class GetGift {
     GameDraw gameDraw;
     Bitmap im, di;
     Bitmap[] zi;
+    boolean isDone = false;
 
     int id, mode, time, to;
 
@@ -154,6 +155,7 @@ public class GetGift {
                 paint.setAlpha(255);
                 break;
         }
+        isDone = true ;
     }
 
     final int x = 712, y = 246;
