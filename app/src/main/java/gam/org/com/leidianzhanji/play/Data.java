@@ -91,7 +91,7 @@ public class Data {
 			Game.mnuey = 0;
 			Game.zmnuey = 0;
 			Game.npcNum = 0;
-			Game.bisha = 3;
+			Game.bisha = 20;
 
 			Menu.s[0] = false;
 			Menu.s[1] = false;

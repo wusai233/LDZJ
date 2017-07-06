@@ -14,6 +14,7 @@ import android.view.KeyEvent;
 import gam.org.com.leidianzhanji.R;
 
 public class GameWin {
+    private String TAG="GameWin";
     private boolean isDownCJ = false;
     public boolean isDownUpgrade = false;
     private boolean isDownGoOn = false;
@@ -116,7 +117,7 @@ public class GameWin {
     }
 
     int bs_huan_t = 0;
-    int keyType = 1;
+    int keyType = 1;//0 升級 1抽獎 2繼續
 
     /**
      * 选择光圈的绘制
@@ -124,6 +125,7 @@ public class GameWin {
 
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
+            Log.d(TAG,"-----renderAN-----"+keyType);
             switch (keyType) {
                 case 0:
                     g.drawBitmap(bs_huan, null, new RectF(799 - (bs_huan_t * 10 + 40), 816 - (bs_huan_t * 10 + 40), 799 + (bs_huan_t * 10 + 40), 816 + (bs_huan_t * 10 + 40)), paint);
@@ -625,8 +627,9 @@ public class GameWin {
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
                 Log.e("jamie", "－－－－－向下－－－－－");
                 break;
+
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
-                Log.e("jamie", "－－－－－向左－－－－－");
+                Log.e("jamie", "－－－－－按钮向左－－－－－");
                 switch (keyType){
                     case 0:
                         keyType = 2;
@@ -637,7 +640,7 @@ public class GameWin {
                 }
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
-                Log.e("jamie", "－－－－－向右－－－－－");
+                Log.e("jamie", "－－－－－按钮向右－－－－－");
                 switch (keyType){
                     case 0:
                         keyType = 2;

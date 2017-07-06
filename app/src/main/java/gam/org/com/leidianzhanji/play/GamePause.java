@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import gam.org.com.leidianzhanji.R;
 
@@ -50,6 +51,7 @@ public class GamePause {
         liang[4] = BitmapFactory.decodeResource(gameDraw.res, R.drawable.gm_l5);
         bs_huan = BitmapFactory.decodeResource(gameDraw.res,
                 R.drawable.bs_huan_im);
+
     }
 
     int bs_huan_t = 0;
@@ -472,27 +474,9 @@ public class GamePause {
                         t = 4;
                         break;
                     case 6:
-                        if (Airplane.mode == 0 || Airplane.mode == 15) {
-                            if (bisha > 0) {
-                                GameDraw.gameSound(7);
-                                bisha--;
-                                gameDraw.biShaBg.reset(1);
-                                npcBulletManager.reset();
-                            } else {
-                                isFang = true;
-                                if (MainActivity.isShowBuyMessage) {
-                                    gameDraw.billingDialog.reset(2, 20);
-                                } else {
-                                    gameDraw.pause.reset();
-                                    gameDraw.pause.mode = 1;
-                                    gameDraw.pause.t = 0;
-//						PaymentJoy.getInstance(gameDraw.pause).startCharge(
-//								new PaymentParam(6));
-                                }
-                            }
-                        }
-                        tcbs_t = -100;
-                        tcbs_x = 0;
+                        id = 1;
+                        t = 4;
+                        gameDraw.game.touchDown(240,920);
                         break;
                     case 7:
                         if (baohu > 0) {
@@ -520,24 +504,38 @@ public class GamePause {
                 GameDraw.gameSound(1);
                 switch (keyType) {
                     case 0:
-                        GameDraw.gameSound(1);
                         id = 0;
                         t = 4;
                         break;
                     case 1:
-                        GameDraw.gameSound(1);
                         id = 1;
                         t = 4;
                         break;
                     case 2:
-                        GameDraw.gameSound(1);
                         id = 2;
                         t = 4;
                         break;
                     case 3:
-                        GameDraw.gameSound(1);
                         id = 3;
                         t = 4;
+                        break;
+                    case 4:
+                        // 购买战斗礼包
+                        id = 0;
+                        t = 4;
+                        break;
+                    case 5:
+                        // 暂停
+                        id = 0;
+                        t = 4;
+                        break;
+                    case 6:
+                        // 必杀
+                        gameDraw.game.touchDown(240,920);
+                        break;
+                    case 7:
+                        // 护盾
+                        gameDraw.game.touchDown(1667,915);
                         break;
                 }
                 break;

@@ -89,7 +89,6 @@ public class Game {
 
     public static Bitmap top, down;
     public static Bitmap back, back2, sp_an, sp_an_hui;
-    ;
     Bitmap df, sj, anBiSha, anHuDun, anPause, liangPause, shu;
 
     Bitmap uib1, uib2, uib3;
@@ -527,14 +526,7 @@ public class Game {
             Log.e(TAG, "------------------暂停---------------110");
             gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
         }
-//        if (tcbs_x >= 280) {   // 提示使用必杀的按钮
-//            if (tx > 200 && ty > 150 && ty < 150 + 107) {
-//                touchDown(100, 750);
-//                return;
-//            }
-//        }
-        if (tx < 283 && ty > GG + 172 + bosst * 4.5f
-                && ty < GG + 416 + bosst * 4.5f + 134) {
+        if (tx < 283 && ty > GG + 172 + bosst * 4.5f && ty < GG + 416 + bosst * 4.5f + 134) {
             gameDraw.billingDialog.reset(40, 20);
             return;
         }
@@ -683,8 +675,12 @@ public class Game {
                 airplane.touchDown(100, 100);
                 airplane.touchMove(130, 100);
                 break;
+            case KeyEvent.KEYCODE_ENTER://确定
             case 23://确定
+                Log.e("jamie", "－－－－－23－－－－－");
                 Log.e("jamie", "－－－－－确定－－－－－");
+                isDownPause=true;
+                isDownPause = false;
                 gameDraw.pause.reset();
                 break;
             case KeyEvent.KEYCODE_BACK://返回
