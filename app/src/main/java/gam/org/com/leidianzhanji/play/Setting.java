@@ -225,7 +225,7 @@ public class Setting {
                 }
                 break;
             case 23://确定
-//            case KeyEvent.KEYCODE_ENTER://确定
+            case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:

@@ -648,24 +648,6 @@ public class GameWin {
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
-                Log.e("jamie", "－－－－－确定－－－－－");
-                switch (keyType) {
-                    case 0:
-                        anid = 1;
-                        time = 10;
-                        mode = 10;
-                        break;
-                    case 1:
-                        mode = 3;
-                        time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
-                        keyType = 4;
-                        break;
-                    case 2:
-                        anid = 2;
-                        time = 10;
-                        mode = 10;
-                        break;
-                }
             case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
@@ -677,6 +659,7 @@ public class GameWin {
                     case 1:
                         mode = 3;
                         time = Math.abs(GameDraw.random.nextInt() % 60) + 40;
+                        keyType = 4;
                         break;
                     case 2:
                         anid = 2;
