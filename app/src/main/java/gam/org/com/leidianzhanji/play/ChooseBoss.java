@@ -720,14 +720,15 @@ public class ChooseBoss {
                         t = 10;
                         break;
                     case 1:
+                        GameDraw.gameSound(1);
                         if (jd[id] > 0) {
                             isDownPK = true;
-                            GameDraw.gameSound(1);
+                            isDownPK = false;
+                            mode = 10;
+                            t = 0;
+                            keyType = 4;
                         }
-                        isDownPK = false;
-                        mode = 10;
-                        t = 0;
-                        keyType = 4;
+
                         break;
                     case 2:
                         GameDraw.gameSound(1);

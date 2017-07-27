@@ -442,42 +442,50 @@ public class BillingDialog {
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);
                 switch (keyType) {
-                    case 0:
+                    case 1:
+                        Log.e("case", "－－－－－1－－－－－");
                         switch (id) {
                             case 1:
                                 Log.e("case", "－－－－－1－－－－－");
-                                // 获取水晶 6元
+                                // 护盾补给
                                 EventBus.getDefault().post(new EventMessage(EventMessage.TAG5));
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 2:
                                 Log.e("case", "－－－－－2－－－－－");
+                                // 必杀补给
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG4));
                                 t = 5;
                                 mode = 20;
-//                             Game.isFang = false;
                                 break;
                             case 10:
                                 Log.e("case", "－－－－－10－－－－－");
-                                t = 0;
-                                mode = 30;
+                                // 复活
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG6));
+                                t = 5;
+                                mode = 20;
                                 break;
                             case 30:
                                 Log.e("case", "－－－－－30－－－－－");
+                                // 购买擎天柱
+                                Log.e("购买", "请求擎天柱");
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 40:
                                 Log.e("case", "－－－－－40－－－－－");
+                                // 战斗礼包
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG7));
                                 t = 5;
                                 mode = 20;
                                 break;
                         }
                         break;
-                    case 1:
-                        Log.e("jamie","-------购买------");
-//                        t = 0;
-//                        mode = 30;
+                    case 0:
+                        t = 5;
+                        mode = 20;
                         break;
                 }
                 break;

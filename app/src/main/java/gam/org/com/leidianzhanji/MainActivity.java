@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -28,6 +29,7 @@ import gam.org.com.leidianzhanji.play.Data;
 import gam.org.com.leidianzhanji.play.Game;
 import gam.org.com.leidianzhanji.play.GameDraw;
 
+import static gam.org.com.leidianzhanji.play.AirplaneUpgrade.MODE_DONG;
 import static gam.org.com.leidianzhanji.play.AirplaneUpgrade.MODE_JING;
 
 public class MainActivity extends Activity {
@@ -48,9 +50,15 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.main);
+        EventBus.getDefault().register(this);
         LTGameAgent.setDebugMode(true);// 设置输出运⾏行行时⽇日志
         LTGameAgent.init(this);
-
+//findViewById(R.id.tv_button).setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View v) {
+//        EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
+//    }
+//});
         // 去掉标题
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 去掉状态栏
@@ -72,37 +80,38 @@ public class MainActivity extends Activity {
 
     }
 
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        EventBus.getDefault().register(this);
-    }
-
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent(final EventMessage event) {
+    public void onEvent(final EventMessage event) {
+        Log.e("11111","----------onMessageEvent---------");
         String payCode = "";
         switch (event.getTag()) {
             case EventMessage.TAG1: {//
+                Log.e("购买","发送擎天柱Code");
                 payCode = "201707170002001";
                 break;
             }
             case EventMessage.TAG2: {//
+                payCode = "201707170002001";
                 break;
             }
             case EventMessage.TAG3: {//
+                payCode = "201707170002001";
                 break;
             }
             case EventMessage.TAG4: {//
+                payCode = "201707170002001";
                 break;
             }
             case EventMessage.TAG5: {//
+                payCode = "201707170002001";
                 break;
             }
             case EventMessage.TAG6: {//
+                payCode = "201707170002001";
                 break;
             }
             case EventMessage.TAG7: {//
+                payCode = "201707170002001";
                 break;
             }
         }
@@ -115,10 +124,29 @@ public class MainActivity extends Activity {
                     public void run() {
                         switch (event.getTag()) {
                             case EventMessage.TAG1: {//  擎天柱
-
+                                Log.e("购买","擎天柱成功");
+                                gameDraw.chooseAirplane.buyID = 3;
                                 break;
                             }
                             case EventMessage.TAG2: {//  水晶石
+                                int sj = event.getSj();
+                                switch (sj) {
+                                    case 1:
+                                        gameDraw.game.addShuijing(5000);
+                                        Data.save();
+                                        gameDraw.airplaneUpgrade.mode = MODE_DONG;
+                                        break;
+                                    case 2:
+                                        gameDraw.game.addShuijing(11000);
+                                        Data.save();
+                                        gameDraw.airplaneUpgrade.mode = MODE_DONG;
+                                        break;
+                                    case 3:
+                                        gameDraw.game.addShuijing(20000);
+                                        Data.save();
+                                        gameDraw.airplaneUpgrade.mode = MODE_DONG;
+                                        break;
+                                }
                                 break;
                             }
                             case EventMessage.TAG3: {//  一键满级

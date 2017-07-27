@@ -12,7 +12,7 @@ public class EventMessage {
     /**
      * 水晶石   2元 4元 6元
      */
-    public static final int TAG2= 10002;
+    public static final int TAG2 = 10002;
     /**
      * 一键满级 7元
      */
@@ -37,6 +37,7 @@ public class EventMessage {
     private int tag;
     private Object content;
 
+    int sj = 0;
 
     public EventMessage(int tag) {
         this.tag = tag;
@@ -45,6 +46,12 @@ public class EventMessage {
     public EventMessage(int tag, Object content) {
         this.tag = tag;
         this.content = content;
+    }
+
+    public EventMessage(int tag, int sj) {
+        this.tag = tag;
+        this.sj = sj;
+
     }
 
     public int getTag() {
@@ -62,4 +69,14 @@ public class EventMessage {
     public void setContent(Object content) {
         this.content = content;
     }
+
+    public int getSj() {
+        return sj;
+    }
+
+    public void setSj(int sj) {
+        this.sj = sj;
+    }
+
+
 }
