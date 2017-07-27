@@ -2,6 +2,7 @@ package gam.org.com.leidianzhanji.play;
 
 import java.util.Random;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -18,12 +19,11 @@ import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 /**
@@ -65,6 +65,7 @@ public class GameDraw extends SurfaceView implements Runnable {
     public static Paint red, black;
     public Resources res;
     static Context context;
+    static Activity mActivity;
     private SurfaceHolder mSurfaceHolder;
     private Bitmap mBitmap;
     private Canvas mCanvas;
@@ -103,6 +104,7 @@ public class GameDraw extends SurfaceView implements Runnable {
         super(context);
         gameDraw = this;
         GameDraw.context = context;
+        GameDraw.mActivity = context;
         mSurfaceHolder = this.getHolder();
         random = new Random();
         res = context.getResources();

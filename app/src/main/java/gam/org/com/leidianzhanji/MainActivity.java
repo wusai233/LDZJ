@@ -1,6 +1,7 @@
-package gam.org.com.leidianzhanji.play;
+package gam.org.com.leidianzhanji;
 
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -13,6 +14,21 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.lutongnet.analytics.LTGameAgent;
+import com.lutongnet.pay.jiangsu.mobile.interf.IPayCallback;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import gam.org.com.leidianzhanji.play.Airplane;
+import gam.org.com.leidianzhanji.play.AirplaneUpgrade;
+import gam.org.com.leidianzhanji.play.Data;
+import gam.org.com.leidianzhanji.play.Game;
+import gam.org.com.leidianzhanji.play.GameDraw;
+
+import static gam.org.com.leidianzhanji.play.AirplaneUpgrade.MODE_JING;
 
 public class MainActivity extends Activity {
     public static boolean sysDebug = true;
@@ -31,6 +47,9 @@ public class MainActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setContentView(R.layout.main);
+        LTGameAgent.setDebugMode(true);// 设置输出运⾏行行时⽇日志
+        LTGameAgent.init(this);
 
         // 去掉标题
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -53,6 +72,94 @@ public class MainActivity extends Activity {
 
     }
 
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(final EventMessage event) {
+        String payCode = "";
+        switch (event.getTag()) {
+            case EventMessage.TAG1: {//
+                payCode = "201707170002001";
+                break;
+            }
+            case EventMessage.TAG2: {//
+                break;
+            }
+            case EventMessage.TAG3: {//
+                break;
+            }
+            case EventMessage.TAG4: {//
+                break;
+            }
+            case EventMessage.TAG5: {//
+                break;
+            }
+            case EventMessage.TAG6: {//
+                break;
+            }
+            case EventMessage.TAG7: {//
+                break;
+            }
+        }
+
+        LTGameAgent.payment(payCode, new IPayCallback() {
+            @Override
+            public void onPayResult(int i, final Map<String, String> map) {
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        switch (event.getTag()) {
+                            case EventMessage.TAG1: {//  擎天柱
+
+                                break;
+                            }
+                            case EventMessage.TAG2: {//  水晶石
+                                break;
+                            }
+                            case EventMessage.TAG3: {//  一键满级
+                                // dj[1] = 5 ; dj[2] = 5 ; dj[3] = 5 ; dj[4] = 5 ;// dj[5] = 5 ;
+                                AirplaneUpgrade.dj[gameDraw.airplaneUpgrade.id] = 5;
+                                gameDraw.airplaneUpgrade.chackRY();
+                                gameDraw.airplaneUpgrade.mode = MODE_JING;
+                                gameDraw.airplaneUpgrade.t = 0;
+                                break;
+                            }
+                            case EventMessage.TAG4: {//  购买必杀
+                                Game.bisha += 4;
+                                Data.save();
+                                break;
+                            }
+                            case EventMessage.TAG5: {//  购买保护
+                                Game.baohu += 4;
+                                Data.save();
+                                break;
+                            }
+                            case EventMessage.TAG6: {//  立即复活
+                                Game.sm = 1;
+                                gameDraw.game.airplane.createPlayer();
+                                Airplane.fh = true;
+                                Data.save();
+                                break;
+                            }
+                            case EventMessage.TAG7: {//  战斗礼包
+                                Game.bisha += 5;
+                                Game.baohu += 5;
+                                gameDraw.game.addShuijing(5000);
+                                Data.save();
+                                break;
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    }
+
     public boolean onKeyDown(int key, KeyEvent keyEvent) {
         if (gameDraw.keyDown(key) == true) {
             return true;
@@ -73,6 +180,8 @@ public class MainActivity extends Activity {
 
     public void onPause() {
         super.onPause();
+
+        LTGameAgent.onPause();
         if (GameDraw.isSound) {
             if (GameDraw.gameMediaPlayer.isPlaying()) {
                 GameDraw.gameMediaPlayer.pause();
@@ -111,6 +220,9 @@ public class MainActivity extends Activity {
 
     public void onResume() {
         super.onResume();
+
+        LTGameAgent.onResume();
+
         if (GameDraw.isSound) {
             if (gameDraw.canvasIndex == GameDraw.CANVAS_GAME
                     || gameDraw.canvasIndex == GameDraw.CANVAS_GAME_PAUSE) {
@@ -147,6 +259,7 @@ public class MainActivity extends Activity {
             isAppForeground = false;
         }
 //		PaymentJoy.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     public void onDestroy() {

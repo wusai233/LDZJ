@@ -8,7 +8,12 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+
+import gam.org.com.leidianzhanji.EventMessage;
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 /**
@@ -21,7 +26,7 @@ public class AirplaneUpgrade {
     public boolean[] isDown = new boolean[]{false, false, false, false,
             false, false};
     private static final byte MODE_DONG = 0;// 动态视觉
-    private static final byte MODE_JING = 1;// 静态视觉
+    public static final byte MODE_JING = 1;// 静态视觉
 
     public static int[] dj = new int[6];
     public static boolean jx = false;
@@ -39,7 +44,7 @@ public class AirplaneUpgrade {
 
     Bitmap bs_huan;
 
-    int mode, t, id, anid;
+    public int mode, t, id, anid;
 
     int to;
 
@@ -966,6 +971,7 @@ public class AirplaneUpgrade {
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
+                        Log.e("升级", "－－－－－0－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[keyType] < 5) {
                             isDown[keyType] = true;
@@ -982,6 +988,7 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 1:
+                        Log.e("升级", "－－－－－1－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[keyType] < 5) {
                             isDown[keyType] = true;
@@ -998,6 +1005,7 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 2:
+                        Log.e("升级", "－－－－－2－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[keyType] < 5) {
                             isDown[keyType] = true;
@@ -1014,6 +1022,7 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 3:
+                        Log.e("升级", "－－－－－3－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[keyType] < 5) {
                             isDown[keyType] = true;
@@ -1030,6 +1039,7 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 4:
+                        Log.e("升级", "－－－－－4－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[keyType] < 5) {
                             isDown[keyType] = true;
@@ -1046,6 +1056,7 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 5:
+                        Log.e("升级", "－－－－－5－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[keyType] < 5) {
                             isDown[keyType] = true;
@@ -1062,6 +1073,7 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 6:
+                        Log.e("升级", "－－－－－6－－－－－");
                         GameDraw.gameSound(1);
                         if (dj[id] < 5) {
                             isDownSJ = true;
@@ -1077,6 +1089,7 @@ public class AirplaneUpgrade {
                         keyType = 9;
                         break;
                     case 7:
+                        Log.e("升级", "－－－－－7－－－－－");
                         GameDraw.gameSound(1);
                         isDownReturn = true;
                         isDownReturn = false;
@@ -1084,6 +1097,7 @@ public class AirplaneUpgrade {
                         t = 10;
                         break;
                     case 8:
+                        Log.e("升级", "－－－－－8－－－－－");
                         GameDraw.gameSound(1);
                         isDownMJ = true;
                         isDownMJ = false;
@@ -1102,32 +1116,40 @@ public class AirplaneUpgrade {
                         }
                         break;
                     case 9:
+                        Log.e("升级", "－－－－－9－－－－－");
                         mode = MODE_JING;
                         t = 0;
                         keyType = 7;
                         break;
                     case 10:
+                        Log.e("升级", "－－－－－10－－－－－");
                         GameDraw.gameSound(1);
 //                        PaymentJoy.getInstance(this).startCharge(
 //                                new PaymentParam(2));
                         break;
                     case 11:
+                        Log.e("升级", "－－－－－11－－－－－");
                         GameDraw.gameSound(1);
 //                        PaymentJoy.getInstance(this).startCharge(
 //                                new PaymentParam(3));
                         break;
                     case 12:
+                        Log.e("升级", "－－－－－12－－－－－");
                         GameDraw.gameSound(1);
 //                        PaymentJoy.getInstance(this).startCharge(
 //                                new PaymentParam(4));
                         break;
                     case 13:
+                        Log.e("升级", "－－－－－13－－－－－");
                         mode = MODE_JING;
                         t = 0;
                         keyType = 7;
                         break;
                     case 14:
+                        Log.e("升级", "－－－－－14－－－－－");
                         GameDraw.gameSound(1);
+                        // 一键满级
+                        EventBus.getDefault().post(new EventMessage(EventMessage.TAG3));
 //                        PaymentJoy.getInstance(this).startCharge(
 //                                new PaymentParam(2));
                         break;
@@ -1279,18 +1301,18 @@ public class AirplaneUpgrade {
                         break;
                     case 10:
                         GameDraw.gameSound(1);
-//                        PaymentJoy.getInstance(this).startCharge(
-//                                new PaymentParam(2));
+                        // 获取水晶 2元
+                        EventBus.getDefault().post(new EventMessage(EventMessage.TAG2));
                         break;
                     case 11:
                         GameDraw.gameSound(1);
-//                        PaymentJoy.getInstance(this).startCharge(
-//                                new PaymentParam(3));
+                        // 获取水晶 4元
+                        EventBus.getDefault().post(new EventMessage(EventMessage.TAG2));
                         break;
                     case 12:
                         GameDraw.gameSound(1);
-//                        PaymentJoy.getInstance(this).startCharge(
-//                                new PaymentParam(4));
+                        // 获取水晶 6元
+                        EventBus.getDefault().post(new EventMessage(EventMessage.TAG2));
                         break;
                     case 13:
                         mode = MODE_JING;
@@ -1299,8 +1321,15 @@ public class AirplaneUpgrade {
                         break;
                     case 14:
                         GameDraw.gameSound(1);
-//                        PaymentJoy.getInstance(this).startCharge(
-//                                new PaymentParam(2));
+                        // 一键满级
+                        if (dj[id] < 5) {
+                            if (MainActivity.isShowBuyMessage) {
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG3));
+                            }
+                        } else {
+                            gameDraw.smallDialog.reset(2, 240, 300, 18);
+                        }
+
                         break;
                 }
                 break;

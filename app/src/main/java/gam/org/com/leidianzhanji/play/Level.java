@@ -1,5 +1,6 @@
 package gam.org.com.leidianzhanji.play;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 import gam.org.com.leidianzhanji.npc.BOSS1;
 import gam.org.com.leidianzhanji.npc.BOSS2;
@@ -18,8 +19,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
-
-import static gam.org.com.leidianzhanji.play.ChooseAirplane.haveAirplane;
 
 /**
  * 关卡的选择

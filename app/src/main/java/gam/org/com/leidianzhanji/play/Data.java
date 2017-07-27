@@ -7,6 +7,8 @@ import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import gam.org.com.leidianzhanji.MainActivity;
+
 /**
  * ���ݵĴ洢�ͻ�ȡ
  */
@@ -88,10 +90,10 @@ public class Data {
 			MainActivity.isEndPlay = false;
 			level = 1;
 			Game.score = 0;
-			Game.mnuey = 888888;
+			Game.mnuey = 999999;
 			Game.zmnuey = 0;
 			Game.npcNum = 0;
-			Game.bisha = 20;
+			Game.bisha = 3;
 
 			Menu.s[0] = false;
 			Menu.s[1] = false;

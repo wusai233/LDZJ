@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.Log;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 public class Loading {

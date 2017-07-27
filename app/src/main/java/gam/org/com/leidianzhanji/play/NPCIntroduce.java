@@ -11,6 +11,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 /**

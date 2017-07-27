@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 public class Help {

@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 /**

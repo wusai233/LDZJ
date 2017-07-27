@@ -472,10 +472,10 @@ public class Menu {
         Log.e("Menu", tx + "----------touchDown----------------" + ty);
         switch (mode) {
             case 5:
-//                if (tx < 660 && ty > 900) {// 成就
-//                    isDownAchieve = true;
-//                    GameDraw.gameSound(1);
-//                } else
+                if (tx < 660 && ty > 900) {// 成就
+                    isDownAchieve = true;
+                    GameDraw.gameSound(1);
+                } else
                 if (tx > 1230 && ty > 900) {// 声音设置
                     isDownSetting = true;
                     GameDraw.gameSound(1);
@@ -507,12 +507,12 @@ public class Menu {
         Log.i("Menu", "----------touchUp----------------");
         switch (mode) {
             case 5:
-//                if ((tx < 660 && ty > 900) && isDownAchieve) {// 成就
-//                    isDownAchieve = false;
-//                    index = ACHIEVE;
-//                    mode = 6;
-//                    time = -1;
-//                } else
+                if ((tx < 660 && ty > 900) && isDownAchieve) {// 成就
+                    isDownAchieve = false;
+                    index = ACHIEVE;
+                    mode = 6;
+                    time = -1;
+                } else
                 if ((tx > 1230 && ty > 900) && isDownSetting) {// 声音设置
                     isDownSetting = false;
                     index = SETTING;

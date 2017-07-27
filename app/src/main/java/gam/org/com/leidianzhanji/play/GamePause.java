@@ -9,8 +9,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.widget.Toast;
 
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 public class GamePause {
@@ -31,7 +31,7 @@ public class GamePause {
 
     byte[] rid = new byte[]{0, 1, 2, 4};
 
-    int mode, t, id;
+    public int mode, t, id;
 
     public GamePause(GameDraw _mc) {
         gameDraw = _mc;
@@ -521,8 +521,9 @@ public class GamePause {
                         break;
                     case 4:
                         // 购买战斗礼包
-                        id = 0;
-                        t = 4;
+//                        id = 0;
+//                        t = 4;
+                        gameDraw.game.touchDown(199,199);
                         break;
                     case 5:
                         // 暂停

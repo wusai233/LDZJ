@@ -44,7 +44,7 @@ public class ChooseAirplane {
 
     int buyID = 0;
     /**
-     * 按钮类型 0：战机1   1：战机1  2：战机1   3：战机1   4：返回   5：出击
+     * 按钮类型 0：战机1   1：战机1  2：战机1   3：战机1   4f：返回   5：出击
      */
     int keyType = 5;
 

@@ -10,6 +10,15 @@ import android.graphics.RectF;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import com.lutongnet.analytics.LTGameAgent;
+import com.lutongnet.pay.jiangsu.mobile.interf.IPayCallback;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.Map;
+
+import gam.org.com.leidianzhanji.EventMessage;
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
 /**
@@ -25,9 +34,7 @@ public class BillingDialog {
     int id, to;
 
     Bitmap bs_huan;
-    /**
-     * 按钮类型 0：战机1   1：战机1  2：战机1   3：战机1   4：返回   5：出击
-     */
+
     int keyType = 0;
 
     public BillingDialog(GameDraw _mc) {
@@ -438,67 +445,89 @@ public class BillingDialog {
                     case 0:
                         switch (id) {
                             case 1:
+                                Log.e("case", "－－－－－1－－－－－");
+                                // 获取水晶 6元
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG5));
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 2:
+                                Log.e("case", "－－－－－2－－－－－");
                                 t = 5;
                                 mode = 20;
 //                             Game.isFang = false;
                                 break;
                             case 10:
+                                Log.e("case", "－－－－－10－－－－－");
                                 t = 0;
                                 mode = 30;
                                 break;
                             case 30:
+                                Log.e("case", "－－－－－30－－－－－");
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 40:
+                                Log.e("case", "－－－－－40－－－－－");
                                 t = 5;
                                 mode = 20;
                                 break;
                         }
                         break;
                     case 1:
+                        Log.e("jamie","-------购买------");
 //                        t = 0;
 //                        mode = 30;
                         break;
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER:
-
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);
                 switch (keyType) {
-                    case 0:
+                    case 1:
+                        Log.e("case", "－－－－－1－－－－－");
                         switch (id) {
                             case 1:
+                                Log.e("case", "－－－－－1－－－－－");
+                                // 护盾补给
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG5));
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 2:
+                                Log.e("case", "－－－－－2－－－－－");
+                                // 必杀补给
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG4));
                                 t = 5;
                                 mode = 20;
-//                             Game.isFang = false;
                                 break;
                             case 10:
-                                t = 0;
-                                mode = 30;
+                                Log.e("case", "－－－－－10－－－－－");
+                                // 复活
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG6));
+                                t = 5;
+                                mode = 20;
                                 break;
                             case 30:
+                                Log.e("case", "－－－－－30－－－－－");
+                                // 购买擎天柱
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 40:
+                                Log.e("case", "－－－－－40－－－－－");
+                                // 战斗礼包
+                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG7));
                                 t = 5;
                                 mode = 20;
                                 break;
                         }
                         break;
-                    case 1:
-//                        t = 0;
-//                        mode = 30;
+                    case 0:
+                        t = 0;
+                        mode = 30;
                         break;
                 }
                 break;

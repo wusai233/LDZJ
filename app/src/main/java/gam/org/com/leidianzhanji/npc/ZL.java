@@ -8,7 +8,7 @@ import gam.org.com.leidianzhanji.play.ChooseBoss;
 import gam.org.com.leidianzhanji.play.Game;
 import gam.org.com.leidianzhanji.play.GameDraw;
 import gam.org.com.leidianzhanji.play.GameWin;
-import gam.org.com.leidianzhanji.play.MainActivity;
+import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.play.NPCManager;
 import gam.org.com.leidianzhanji.play.Tools;
 
