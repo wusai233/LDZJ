@@ -479,23 +479,10 @@ public class GamePause {
                         gameDraw.game.touchDown(240,920);
                         break;
                     case 7:
-                        if (baohu > 0) {
-                            baohu--;
-                            npcBulletManager.bs(bumpManager);
-                            gameDraw.biShaBg.reset(2);
-                            GameDraw.gameSound(7);
-                            Data.chackBH();
-                        } else {
-                            if (MainActivity.isShowBuyMessage) {
-                                gameDraw.billingDialog.reset(1, 20);
-                            } else {
-                                gameDraw.pause.reset();
-                                gameDraw.pause.mode = 1;
-                                gameDraw.pause.t = 0;
-//					PaymentJoy.getInstance(gameDraw.pause).startCharge(
-//							new PaymentParam(7));
-                            }
-                        }
+                        // 护盾
+//                        id = 1;
+//                        t = 4;
+                        gameDraw.game.touchDown(1667,915);
                         break;
                 }
                 break;

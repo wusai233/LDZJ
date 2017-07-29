@@ -203,6 +203,7 @@ public class GameExit {
                         break;
                 }
                 break;
+            case KeyEvent.KEYCODE_ENTER:
             case 23://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 GameDraw.gameSound(1);

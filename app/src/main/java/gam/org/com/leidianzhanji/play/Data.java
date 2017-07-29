@@ -90,7 +90,7 @@ public class Data {
 			MainActivity.isEndPlay = false;
 			level = 1;
 			Game.score = 0;
-			Game.mnuey = 999999;
+			Game.mnuey = 0;
 			Game.zmnuey = 0;
 			Game.npcNum = 0;
 			Game.bisha = 3;

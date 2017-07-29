@@ -544,8 +544,8 @@ public class Game {
                     gameDraw.pause.reset();
                     gameDraw.pause.mode = 1;
                     gameDraw.pause.t = 0;
-//					PaymentJoy.getInstance(gameDraw.pause).startCharge(
-//							new PaymentParam(7));
+//                    PaymentJoy.getInstance(gameDraw.pause).startCharge(
+//                            new PaymentParam(7));
                 }
             }
         } else if (tx > 1788 && tx < 1855 && ty > GG + 20 && ty < GG + 92) {// 右上角暂停

@@ -475,8 +475,7 @@ public class Menu {
                 if (tx < 660 && ty > 900) {// 成就
                     isDownAchieve = true;
                     GameDraw.gameSound(1);
-                } else
-                if (tx > 1230 && ty > 900) {// 声音设置
+                } else if (tx > 1230 && ty > 900) {// 声音设置
                     isDownSetting = true;
                     GameDraw.gameSound(1);
                 } else if (tx == -100 && ty == -100) {// 退出游戏
@@ -512,8 +511,7 @@ public class Menu {
                     index = ACHIEVE;
                     mode = 6;
                     time = -1;
-                } else
-                if ((tx > 1230 && ty > 900) && isDownSetting) {// 声音设置
+                } else if ((tx > 1230 && ty > 900) && isDownSetting) {// 声音设置
                     isDownSetting = false;
                     index = SETTING;
                 } else if (tx == -100 && ty == -100) {// 退出游戏
@@ -601,19 +599,27 @@ public class Menu {
             case KeyEvent.KEYCODE_ENTER:
                 switch (keyType) {
                     case 0://挑战Bss
-                        isDownBoss = false;
-                        isLevelOrBoss = 2;
-                        index = BOSS;
-                        mode = 6;
-                        time = -1;
+                        if (s[0]) {
+                            isDownBoss = false;
+                            isLevelOrBoss = 2;
+                            index = BOSS;
+                            mode = 6;
+                            time = -1;
+                        } else {
+                            gameDraw.smallDialog.reset(1, 240, 380, 10);
+                        }
                         isDownBoss = false;
                         break;
                     case 1://战斗升级
-                        isDownUpgrade = false;
-                        index = UPGRADE;
-                        mode = 6;
-                        time = -1;
-                        isDownUpgrade = false;
+                        if (s[0]) {
+                            isDownUpgrade = false;
+                            index = UPGRADE;
+                            mode = 6;
+                            time = -1;
+                            isDownUpgrade = false;
+                        } else {
+                            gameDraw.smallDialog.reset(1, 240, 380, 10);
+                        }
                         break;
                     case 2: //帮助关于
 //                        isDownHelp = false;
@@ -658,19 +664,27 @@ public class Menu {
                 Log.e("jamie", "－－－－－23按钮－－－－－");
                 switch (keyType) {
                     case 0://挑战Bss
-                        isDownBoss = false;
-                        isLevelOrBoss = 2;
-                        index = BOSS;
-                        mode = 6;
-                        time = -1;
+                        if (s[0]) {
+                            isDownBoss = false;
+                            isLevelOrBoss = 2;
+                            index = BOSS;
+                            mode = 6;
+                            time = -1;
+                        } else {
+                            gameDraw.smallDialog.reset(1, 240, 380, 10);
+                        }
                         isDownBoss = false;
                         break;
                     case 1://战斗升级
-                        isDownUpgrade = false;
-                        index = UPGRADE;
-                        mode = 6;
-                        time = -1;
-                        isDownUpgrade = false;
+                        if (s[0]) {
+                            isDownUpgrade = false;
+                            index = UPGRADE;
+                            mode = 6;
+                            time = -1;
+                            isDownUpgrade = false;
+                        } else {
+                            gameDraw.smallDialog.reset(1, 240, 380, 10);
+                        }
                         break;
                     case 2: //帮助关于
 //                        isDownHelp = false;

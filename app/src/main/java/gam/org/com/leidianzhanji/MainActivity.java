@@ -31,6 +31,7 @@ import gam.org.com.leidianzhanji.play.GameDraw;
 
 import static gam.org.com.leidianzhanji.play.AirplaneUpgrade.MODE_DONG;
 import static gam.org.com.leidianzhanji.play.AirplaneUpgrade.MODE_JING;
+import static gam.org.com.leidianzhanji.play.ChooseAirplane.haveAirplane;
 
 public class MainActivity extends Activity {
     public static boolean sysDebug = true;
@@ -125,7 +126,7 @@ public class MainActivity extends Activity {
                         switch (event.getTag()) {
                             case EventMessage.TAG1: {//  擎天柱
                                 Log.e("购买","擎天柱成功");
-                                gameDraw.chooseAirplane.buyID = 3;
+                                haveAirplane[2] = true;
                                 break;
                             }
                             case EventMessage.TAG2: {//  水晶石
@@ -147,6 +148,7 @@ public class MainActivity extends Activity {
                                         gameDraw.airplaneUpgrade.mode = MODE_DONG;
                                         break;
                                 }
+                                gameDraw.airplaneUpgrade.keyType =7;
                                 break;
                             }
                             case EventMessage.TAG3: {//  一键满级
@@ -155,6 +157,7 @@ public class MainActivity extends Activity {
                                 gameDraw.airplaneUpgrade.chackRY();
                                 gameDraw.airplaneUpgrade.mode = MODE_JING;
                                 gameDraw.airplaneUpgrade.t = 0;
+                                gameDraw.airplaneUpgrade.keyType =7;
                                 break;
                             }
                             case EventMessage.TAG4: {//  购买必杀
@@ -168,10 +171,12 @@ public class MainActivity extends Activity {
                                 break;
                             }
                             case EventMessage.TAG6: {//  立即复活
-                                Game.sm = 1;
+                                Game.sm = 2;
                                 gameDraw.game.airplane.createPlayer();
                                 Airplane.fh = true;
                                 Data.save();
+                                gameDraw.billingDialog.mode = 20;
+                                gameDraw.billingDialog.t = 5;
                                 break;
                             }
                             case EventMessage.TAG7: {//  战斗礼包
@@ -287,12 +292,13 @@ public class MainActivity extends Activity {
             isAppForeground = false;
         }
 //		PaymentJoy.onStop();
-        EventBus.getDefault().unregister(this);
+
     }
 
     public void onDestroy() {
         super.onDestroy();
         // PaymentJoy.onDestroy();
+        EventBus.getDefault().unregister(this);
         System.exit(0);
     }
 

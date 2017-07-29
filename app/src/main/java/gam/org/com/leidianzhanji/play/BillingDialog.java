@@ -21,6 +21,8 @@ import gam.org.com.leidianzhanji.EventMessage;
 import gam.org.com.leidianzhanji.MainActivity;
 import gam.org.com.leidianzhanji.R;
 
+import static gam.org.com.leidianzhanji.play.ChooseAirplane.haveAirplane;
+
 /**
  * 中间的一些计费弹框
  */
@@ -30,7 +32,7 @@ public class BillingDialog {
     Bitmap an1, an2, an4;
     Bitmap tu;
     Bitmap zi;
-    int mode, t;
+    public int mode, t;
     int id, to;
 
     Bitmap bs_huan;
@@ -463,8 +465,8 @@ public class BillingDialog {
                                 Log.e("case", "－－－－－10－－－－－");
                                 // 复活
                                 EventBus.getDefault().post(new EventMessage(EventMessage.TAG6));
-                                t = 5;
-                                mode = 20;
+//                                t = 5;
+//                                mode = 20;
                                 break;
                             case 30:
                                 Log.e("case", "－－－－－30－－－－－");
@@ -490,8 +492,6 @@ public class BillingDialog {
                 }
                 break;
             case KeyEvent.KEYCODE_ENTER:
-                Log.e("jamie", "－－－－－确定－－－－－");
-                GameDraw.gameSound(1);
                 switch (keyType) {
                     case 1:
                         Log.e("case", "－－－－－1－－－－－");
@@ -514,13 +514,20 @@ public class BillingDialog {
                                 Log.e("case", "－－－－－10－－－－－");
                                 // 复活
                                 EventBus.getDefault().post(new EventMessage(EventMessage.TAG6));
+                                // 测试复活
+//                                Game.sm = 1;
+//                                gameDraw.game.airplane.createPlayer();
+//                                Airplane.fh = true;
+//                                Data.save();
                                 t = 5;
                                 mode = 20;
                                 break;
                             case 30:
                                 Log.e("case", "－－－－－30－－－－－");
                                 // 购买擎天柱
-                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
+                                Log.e("购买", "请求擎天柱");
+//                                EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
+                                haveAirplane[2] = true;
                                 t = 5;
                                 mode = 20;
                                 break;
@@ -535,7 +542,7 @@ public class BillingDialog {
                         break;
                     case 0:
                         t = 0;
-                        mode = 30;
+                        mode = 20;
                         break;
                 }
                 break;

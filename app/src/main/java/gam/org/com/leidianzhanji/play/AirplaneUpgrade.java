@@ -138,7 +138,7 @@ public class AirplaneUpgrade {
     /**
      * 按钮类型 0：升级1   1：升级2  2：升级3   3：升级4   4：升级15  5：升级6  6：获取水晶  7：返回  8：一键满级
      */
-    int keyType = 7;
+    public int keyType = 7;
     int bs_huan_t = 0;
 
     /**
@@ -1308,6 +1308,8 @@ public class AirplaneUpgrade {
                         Log.e("升级", "－－－－－10－－－－－");
                         GameDraw.gameSound(1);
                         EventBus.getDefault().post(new EventMessage(EventMessage.TAG2,1));
+                        // 测试 直接加5000 水晶
+//                        gameDraw.game.addShuijing(5000);
                         break;
                     case 11:
                         Log.e("升级", "－－－－－11－－－－－");
