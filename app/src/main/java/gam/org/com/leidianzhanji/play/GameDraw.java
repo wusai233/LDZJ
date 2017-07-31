@@ -328,8 +328,8 @@ public class GameDraw extends SurfaceView implements Runnable {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB_MR1)
-    public void run() {      // 更新
+    public void run() // 更新
+    {
         long startTime, endTime;
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -340,10 +340,13 @@ public class GameDraw extends SurfaceView implements Runnable {
                 upData();
                 // 重绘
                 Canvas g = mSurfaceHolder.lockCanvas();
-                if (WIDTH != MainActivity.SCREEN_WIDTH || HEIGHT != MainActivity.SCREEN_HEIGHT || isShake) {
+                if (WIDTH != MainActivity.SCREEN_WIDTH
+                        || HEIGHT != MainActivity.SCREEN_HEIGHT || isShake) {
                     if (!isShake) {
                         paint(mCanvas, canvasIndex);
-                        g.drawBitmap(mBitmap, null, new Rect(0, 0, MainActivity.SCREEN_WIDTH, MainActivity.SCREEN_HEIGHT), paint);
+                        g.drawBitmap(mBitmap, null, new Rect(0, 0,
+                                MainActivity.SCREEN_WIDTH,
+                                MainActivity.SCREEN_HEIGHT), paint);
                     } else {
                         int dx = 0;
                         if (shakeIndex == 0) {

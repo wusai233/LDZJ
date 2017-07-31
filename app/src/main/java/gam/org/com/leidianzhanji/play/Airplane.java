@@ -286,9 +286,9 @@ public class Airplane {
     // PLAYER3狂暴攻击
     public void player3KBGJ(Canvas g, Paint paint) {
         g.drawBitmap(bitmaps[24 + Math.abs(GameDraw.random.nextInt(4))],
-                x - 54 - 26, y - 800, paint);
+                x - 54 - 26, y - 1080, paint);
         g.drawBitmap(bitmaps[24 + Math.abs(GameDraw.random.nextInt(4))],
-                x - 54 + 26, y - 800, paint);
+                x - 54 + 26, y - 1080, paint);
         for (int i = 0; i < NPCManager.l; i++) {
             if (gameDraw.game.npcManager.npcs[i].visible != false) {
                 if (y > gameDraw.game.npcManager.npcs[i].y

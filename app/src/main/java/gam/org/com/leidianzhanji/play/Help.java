@@ -24,7 +24,6 @@ public class Help {
 
     Bitmap bs_huan;
 
-
     int mode, time, id, time2;
 
     int t1, t2;
@@ -42,6 +41,8 @@ public class Help {
         bt1 = BitmapFactory.decodeResource(res, R.drawable.menu_bt1);
 
         zi2 = Tools.getImageFromAssetsFile("help.png", MainActivity.main);
+        bs_huan = BitmapFactory.decodeResource(gameDraw.res,
+                R.drawable.bs_huan_im);
     }
 
     public void free() {
@@ -67,19 +68,19 @@ public class Help {
     }
 
     int bs_huan_t = 0;
+    /**
+     * 选择圈圈的绘制
+     */
     int keyType = 0;
 
-    /**
-     * 选择光圈的绘制
-     */
     public void renderAN(Canvas g, boolean huan, Paint paint) {
         if (huan) {
             switch (keyType) {
-                case 0:// 帮助
-                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 900 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 900 + (bs_huan_t * 10 + 40)), paint);
+                case 0:
+                    g.drawBitmap(bs_huan, null, new RectF(960 - an1.getWidth() - 30 + (an1.getWidth() / 2) - (bs_huan_t * 10 + 40), 900 + an1.getHeight() / 2 - (bs_huan_t * 10 + 40), 960 - an1.getWidth() - 30 + (an1.getWidth() / 2) + (bs_huan_t * 10 + 40), 900 + an1.getHeight() / 2 + (bs_huan_t * 10 + 40)), paint);
                     break;
-                case 1:// 返回
-                    g.drawBitmap(bs_huan, null, new RectF(960 - (bs_huan_t * 10 + 40), 900 - (bs_huan_t * 10 + 40), 960 + (bs_huan_t * 10 + 40), 900 + (bs_huan_t * 10 + 40)), paint);
+                case 1:
+                    g.drawBitmap(bs_huan, null, new RectF(990 + an2.getWidth() / 2 - (bs_huan_t * 10 + 40), 900 + an2.getHeight() / 2 - (bs_huan_t * 10 + 40), 990 + an2.getWidth() / 2 + (bs_huan_t * 10 + 40), 900 + an2.getHeight() / 2 + (bs_huan_t * 10 + 40)), paint);
                     break;
             }
             bs_huan_t--;
@@ -100,6 +101,7 @@ public class Help {
                 g.drawBitmap(im, 960 - im.getWidth() / 2, 350, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() - 30, 900, paint);
                 g.drawBitmap(an2, 960 + 30, 900, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 450, paint);
                 break;
             case 1:
                 g.drawBitmap(gai2, 960 - gai2.getWidth(), 0, paint);
@@ -108,6 +110,7 @@ public class Help {
                 g.drawBitmap(im, 960 - im.getWidth() / 2, 350, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() - 30, 900, paint);
                 g.drawBitmap(an2, 960 + 30, 900, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 450, paint);
                 break;
             case 2:
                 g.drawBitmap(gai2, 960 - gai2.getWidth(), 0, paint);
@@ -116,6 +119,7 @@ public class Help {
                 g.drawBitmap(im, 960 - im.getWidth() / 2, 350, paint);
                 g.drawBitmap(an1, 960 - an1.getWidth() - 30, 900, paint);
                 g.drawBitmap(an2, 960 + 30, 900, paint);
+                g.drawBitmap(zi2, 960 - zi2.getWidth() / 2, 450, paint);
                 break;
         }
         renderAN(g, true, paint);
@@ -232,19 +236,19 @@ public class Help {
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0:
-                        id = 1;
-//                        id = 2;
-                        keyType = 1;
+//                        id = 1;
+                        id = 2;
                         break;
                     case 1:
                         mode = 2;
                         time = 0;
-                        keyType = 0;
                         break;
                 }
                 break;
             case KeyEvent.KEYCODE_BACK://返回
                 Log.e("jamie", "－－－－－返回－－－－－");
+                mode = 2;
+                time = 0;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
                 Log.e("jamie", "－－－－－房子－－－－－");
