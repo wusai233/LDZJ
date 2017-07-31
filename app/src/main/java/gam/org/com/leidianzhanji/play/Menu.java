@@ -197,6 +197,7 @@ public class Menu {
     }
 
     public void render(Canvas g, Paint paint) {
+
         Log.i("Menu", "----------render----------------" + mode);
         switch (mode) {
             case 0:// 静态

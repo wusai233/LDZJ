@@ -343,9 +343,7 @@ public class GameDraw extends SurfaceView implements Runnable {
                 if (WIDTH != MainActivity.SCREEN_WIDTH || HEIGHT != MainActivity.SCREEN_HEIGHT || isShake) {
                     if (!isShake) {
                         paint(mCanvas, canvasIndex);
-                        g.drawBitmap(mBitmap, null, new Rect(0, 0,
-                                MainActivity.SCREEN_WIDTH,
-                                MainActivity.SCREEN_HEIGHT), paint);
+                        g.drawBitmap(mBitmap, null, new Rect(0, 0, MainActivity.SCREEN_WIDTH, MainActivity.SCREEN_HEIGHT), paint);
                     } else {
                         int dx = 0;
                         if (shakeIndex == 0) {

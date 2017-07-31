@@ -289,22 +289,22 @@ public class Game {
         if (huan) {
             switch (keyType) {
                 case 0:
-            g.drawBitmap(bs_huan, null, new RectF(142 - (bs_huan_t * 10 + 40), 310 - (bs_huan_t * 10 + 40), 142 + (bs_huan_t * 10 + 40), 310 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(142 - (bs_huan_t * 10 + 40), 310 - (bs_huan_t * 10 + 40), 142 + (bs_huan_t * 10 + 40), 310 + (bs_huan_t * 10 + 40)), paint);
                     break;
                 case 1:
-            g.drawBitmap(bs_huan, null, new RectF(1822 - (bs_huan_t * 10 + 40), 58 - (bs_huan_t * 10 + 40), 1822 + (bs_huan_t * 10 + 40), 58 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(1822 - (bs_huan_t * 10 + 40), 58 - (bs_huan_t * 10 + 40), 1822 + (bs_huan_t * 10 + 40), 58 + (bs_huan_t * 10 + 40)), paint);
                     break;
                 case 2:
-            g.drawBitmap(bs_huan, null, new RectF(123 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 123 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(123 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 123 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
                     break;
                 case 3:
-            g.drawBitmap(bs_huan, null, new RectF(1791 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 1791 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
+                    g.drawBitmap(bs_huan, null, new RectF(1791 - (bs_huan_t * 10 + 40), 985 - (bs_huan_t * 10 + 40), 1791 + (bs_huan_t * 10 + 40), 985 + (bs_huan_t * 10 + 40)), paint);
                     break;
+            }
+            bs_huan_t--;
+            if (bs_huan_t < 0)
+                bs_huan_t = 10;
         }
-        bs_huan_t--;
-        if (bs_huan_t < 0)
-            bs_huan_t = 10;
-    }
     }
 
 
@@ -656,41 +656,49 @@ public class Game {
     public void keyDown(int k) {
         switch (k) {
             case KeyEvent.KEYCODE_DPAD_UP://向上
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向上－－－－－");
                 airplane.touchDown(100, 100);
                 airplane.touchMove(100, 70);
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN://向下
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向下－－－－－");
                 airplane.touchDown(100, 100);
                 airplane.touchMove(100, 130);
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向左－－－－－");
                 airplane.touchDown(100, 100);
                 airplane.touchMove(70, 100);
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－向右－－－－－");
                 airplane.touchDown(100, 100);
                 airplane.touchMove(130, 100);
                 break;
             case KeyEvent.KEYCODE_ENTER://确定
             case 23://确定
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－23－－－－－");
                 Log.e("jamie", "－－－－－确定－－－－－");
-                isDownPause=true;
+                isDownPause = true;
                 isDownPause = false;
                 gameDraw.pause.reset();
                 break;
             case KeyEvent.KEYCODE_BACK://返回
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－返回－－－－－");
                 gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
                 break;
             case KeyEvent.KEYCODE_HOME://房子
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－房子－－－－－");
                 break;
             case KeyEvent.KEYCODE_MENU://菜单
+                GameDraw.gameSound(1);
                 Log.e("jamie", "－－－－－菜单－－－－－");
                 gameDraw.canvasIndex = GameDraw.CANVAS_GAME;
                 break;

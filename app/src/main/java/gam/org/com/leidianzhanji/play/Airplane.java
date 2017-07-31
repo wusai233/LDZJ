@@ -554,8 +554,8 @@ public class Airplane {
                         gameDraw.gameWin.init(gameDraw.res);
                         gameDraw.gameWin.reset();
                     } else {
-//                        gameDraw.loading.init(gameDraw.res);
-//                        gameDraw.loading.reset(10);
+                        gameDraw.loading.init(gameDraw.res);
+                        gameDraw.loading.reset(10);
                     }
                 } else if (y < 0) {
                     if (Game.level <= GameWin.MAX_LEVEL) {

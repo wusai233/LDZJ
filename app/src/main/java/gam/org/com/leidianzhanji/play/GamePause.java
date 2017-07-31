@@ -369,7 +369,7 @@ public class GamePause {
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT://向左
                 Log.e("jamie", "－－－－－向左－－－－－");
-                switch (keyType){
+                switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
                         keyType = 4;
@@ -406,7 +406,7 @@ public class GamePause {
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT://向右
                 Log.e("jamie", "－－－－－向右－－－－－");
-                switch (keyType){
+                switch (keyType) {
                     case 0:
                         GameDraw.gameSound(1);
                         keyType = 5;
@@ -442,88 +442,49 @@ public class GamePause {
                 }
                 break;
             case 23://确定
-                Log.e("jamie", "－－－－－确定－－－－－");
-                GameDraw.gameSound(1);
-                switch (keyType) {
-                    case 0:
-                        GameDraw.gameSound(1);
-                        id = 0;
-                        t = 4;
-                        break;
-                    case 1:
-                        GameDraw.gameSound(1);
-                        id = 1;
-                        t = 4;
-                        break;
-                    case 2:
-                        GameDraw.gameSound(1);
-                        id = 2;
-                        t = 4;
-                        break;
-                    case 3:
-                        GameDraw.gameSound(1);
-                        id = 3;
-                        t = 4;
-                        break;
-                    case 4:
-                        gameDraw.billingDialog.reset(40, 20);
-                        break;
-                    case 5:
-                        GameDraw.gameSound(1);
-                        id = 3;
-                        t = 4;
-                        break;
-                    case 6:
-                        id = 1;
-                        t = 4;
-                        gameDraw.game.touchDown(240,920);
-                        break;
-                    case 7:
-                        // 护盾
-//                        id = 1;
-//                        t = 4;
-                        gameDraw.game.touchDown(1667,915);
-                        break;
-                }
-                break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
-                GameDraw.gameSound(1);
                 switch (keyType) {
                     case 0:
+                        GameDraw.gameSound(1);
                         id = 0;
                         t = 4;
                         break;
                     case 1:
+                        GameDraw.gameSound(1);
                         id = 1;
                         t = 4;
                         break;
                     case 2:
+                        GameDraw.gameSound(1);
                         id = 2;
                         t = 4;
                         break;
                     case 3:
+                        GameDraw.gameSound(1);
                         id = 3;
                         t = 4;
                         break;
                     case 4:
+                        GameDraw.gameSound(1);
                         // 购买战斗礼包
-//                        id = 0;
-//                        t = 4;
-                        gameDraw.game.touchDown(199,199);
+                        gameDraw.game.touchDown(199, 199);
                         break;
                     case 5:
+                        GameDraw.gameSound(1);
                         // 暂停
                         id = 0;
                         t = 4;
                         break;
                     case 6:
+                        GameDraw.gameSound(1);
                         // 必杀
-                        gameDraw.game.touchDown(240,920);
+                        gameDraw.game.touchDown(240, 920);
                         break;
                     case 7:
+                        GameDraw.gameSound(1);
                         // 护盾
-                        gameDraw.game.touchDown(1667,915);
+                        gameDraw.game.touchDown(1667, 915);
                         break;
                 }
                 break;
