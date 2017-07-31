@@ -239,16 +239,6 @@ public class MainActivity extends Activity {
                 gameDraw.pause.t = 0;
                 break;
         }
-
-        // if(mc.canvasIndex != 20 && mc.canvasIndex != 25)
-        // {
-        // if(!isAppForeground){//从后台切到前台，打开91SDK暂停页
-        // // TODO Auto-generated method stub
-        // //调用pause方法
-        // PaymentJoy.pause(this) ;
-        // isAppForeground = true;
-        // }
-        // }
     }
 
     public void onResume() {

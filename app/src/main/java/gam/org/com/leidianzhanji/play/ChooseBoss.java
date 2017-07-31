@@ -652,84 +652,6 @@ public class ChooseBoss {
                 }
                 break;
             case 23://确定
-                Log.e("jamie", "－－－－－确定－－－－－");
-                switch (keyType) {
-                    case 0:
-                        Log.e("case", "－－－－－0－－－－－");
-                        GameDraw.gameSound(1);
-                        if (jd[id] > 0) {
-                            mode = 20;
-                            t = 10;
-                        }
-                        break;
-//                case 0:
-//                    isDownReturn = true;
-//                    GameDraw.gameSound(1);
-//                    isDownReturn = false;
-//                    mode = 20;
-//                    t = 10;
-//                    break;
-                    case 1:
-                        Log.e("case", "－－－－－1－－－－－");
-                        if (jd[id] > 0) {
-                            isDownPK = true;
-                            isDownPK = false;
-                            mode = 10;
-                            t = 0;
-                            keyType = 4;
-                            GameDraw.gameSound(1);
-                        }
-                        break;
-                    case 2:
-                        Log.e("case", "－－－－－2－－－－－");
-                        GameDraw.gameSound(1);
-                        dx = 0;
-                        vx = 50;
-                        mode = 2;
-                        break;
-                    case 3:
-                        Log.e("case", "－－－－－3－－－－－");
-                        GameDraw.gameSound(1);
-                        dx = 0;
-                        vx = -50;
-                        mode = 2;
-                        break;
-                    case 4:
-                        Log.e("case", "－－－－－4－－－－－");
-                        GameDraw.gameSound(1);
-                        isPKDown[0] = true;
-                        isPKDown[0] = false;
-                        if (1 < jd[id]) {
-                            t = 4;
-                            anid = 0 + 1;
-                            keyType = 1;
-                        }
-
-                        break;
-                    case 5:
-                        Log.e("case", "－－－－－5－－－－－");
-                        GameDraw.gameSound(1);
-                        isPKDown[1] = true;
-                        isPKDown[1] = false;
-                        if (2 < jd[id]) {
-                            t = 4;
-                            anid = 1 + 1;
-                            keyType = 1;
-                        }
-                        break;
-                    case 6:
-                        Log.e("case", "－－－－－6－－－－－");
-                        GameDraw.gameSound(1);
-                        isPKDown[2] = true;
-                        isPKDown[2] = false;
-                        if (3 < jd[id]) {
-                            t = 4;
-                            anid = 2 + 1;
-                            keyType = 1;
-                        }
-                        break;
-                }
-                break;
             case KeyEvent.KEYCODE_ENTER://确定
                 Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
@@ -741,15 +663,12 @@ public class ChooseBoss {
                         }
                         break;
                     case 1:
-                        GameDraw.gameSound(1);
                         if (jd[id] > 0) {
-                            isDownPK = true;
-                            isDownPK = false;
+                            GameDraw.gameSound(1);
                             mode = 10;
                             t = 0;
                             keyType = 4;
                         }
-
                         break;
                     case 2:
                         GameDraw.gameSound(1);
@@ -766,35 +685,29 @@ public class ChooseBoss {
                     case 4:
                         Log.e("case", "－－－－－4－－－－－");
                         GameDraw.gameSound(1);
-                        isPKDown[0] = true;
-                        isPKDown[0] = false;
-                        for (int i = 0; i < 4; i++) {
-                            if (i < jd[id]) {
-                                t = 4;
-                                anid = 0 + 1;
-                                keyType = 1;
-                            }
+
+                        if (jd[id] > 0) {
+                            t = 4;
+                            anid = 1;
+                            keyType = 1;
                         }
+
                         break;
                     case 5:
                         Log.e("case", "－－－－－5－－－－－");
                         GameDraw.gameSound(1);
-                        isPKDown[1] = true;
-                        isPKDown[1] = false;
-                        for (int i = 0; i < 4; i++) {
+                        if (jd[id] > 1) {
                             t = 4;
-                            anid = 1 + 1;
+                            anid = 2;
                             keyType = 1;
                         }
                         break;
                     case 6:
                         Log.e("case", "－－－－－6－－－－－");
                         GameDraw.gameSound(1);
-                        isPKDown[2] = true;
-                        isPKDown[2] = false;
-                        for (int i = 0; i < 4; i++) {
+                        if (jd[id] > 2) {
                             t = 4;
-                            anid = 2 + 1;
+                            anid = 3;
                             keyType = 1;
                         }
                         break;

@@ -179,7 +179,7 @@ public class Menu {
         time2 = 10;
         gameDraw.airplaneUpgrade.resetData();
         alp = 255;
-        av = 15;
+//        av = 15;
         gameDraw.canvasIndex = GameDraw.CANVAS_MENU;
     }
 
@@ -191,13 +191,12 @@ public class Menu {
 
         GameDraw.gameSound(2);
         alp = 255;
-        av = 15;
+//        av = 15;
 
         gameDraw.canvasIndex = GameDraw.CANVAS_MENU;
     }
 
     public void render(Canvas g, Paint paint) {
-
         Log.i("Menu", "----------render----------------" + mode);
         switch (mode) {
             case 0:// 静态
@@ -597,71 +596,9 @@ public class Menu {
         GameDraw.gameSound(1);
         switch (k) {
             case KeyEvent.KEYCODE_ENTER:
-                switch (keyType) {
-                    case 0://挑战Bss
-                        if (s[0]) {
-                            isDownBoss = false;
-                            isLevelOrBoss = 2;
-                            index = BOSS;
-                            mode = 6;
-                            time = -1;
-                        } else {
-                            gameDraw.smallDialog.reset(1, 240, 380, 10);
-                        }
-                        isDownBoss = false;
-                        break;
-                    case 1://战斗升级
-                        if (s[0]) {
-                            isDownUpgrade = false;
-                            index = UPGRADE;
-                            mode = 6;
-                            time = -1;
-                            isDownUpgrade = false;
-                        } else {
-                            gameDraw.smallDialog.reset(1, 240, 380, 10);
-                        }
-                        break;
-                    case 2: //帮助关于
-//                        isDownHelp = false;
-//                        index = HELP;
-//                        mode = 6;
-//                        time = -1;
-                        break;
-                    case 3: //开始按钮
-                        isDownStart = false;
-                        isLevelOrBoss = 1;
-                        index = PLAYGAME;
-                        mode = 6;
-                        time = -1;
-                        break;
-                    case 4:  //成就
-                        isDownAchieve = false;
-                        index = ACHIEVE;
-                        mode = 6;
-                        time = -1;
-                        break;
-                    case 5: //设置
-                        isDownSetting = false;
-                        index = SETTING;
-                        break;
-                    case 6:
-                        mode = 5;
-                        break;
-                    case 7:
-                        isDownExit = true;
-                        break;
-//                    case 8:
-//                        mode = 5;
-//                        keyType = 3;
-//                        break;
-//                    case 9:
-//                        GameDraw.isRun = false;
-//                        MainActivity.main.finish();
-//                        break;
-                }
-                break;
             case 23:
                 Log.e("jamie", "－－－－－23按钮－－－－－");
+                Log.e("jamie", "－－－－－确定－－－－－");
                 switch (keyType) {
                     case 0://挑战Bss
                         if (s[0]) {
@@ -687,10 +624,10 @@ public class Menu {
                         }
                         break;
                     case 2: //帮助关于
-//                        isDownHelp = false;
-//                        index = HELP;
-//                        mode = 6;
-//                        time = -1;
+                        isDownHelp = false;
+                        index = HELP;
+                        mode = 6;
+                        time = -1;
                         break;
                     case 3: //开始按钮
                         isDownStart = false;
