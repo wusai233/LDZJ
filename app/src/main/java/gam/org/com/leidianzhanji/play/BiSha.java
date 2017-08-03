@@ -68,7 +68,7 @@ public class BiSha {
 			}
 			for (int i = 0; i < 3; i++) {
 				Tools.paintScaleImage(g, im[0], x, y - i * 287 - high - 10,
-						127, 287, fd, 1, paint);
+						127, 1080, fd, 1, paint);
 			}
 			if (m == 1) {
 				if (t % 4 < 2)
@@ -87,7 +87,7 @@ public class BiSha {
 				high = 0;
 			// Tools.paintImage(g, im[0], x-151, y-high, 0, 0, 302, high, paint)
 			// ;
-			Tools.paintScaleImage(g, im[0], x, y - high + 30, 151, 847, fd, 1,
+			Tools.paintScaleImage(g, im[0], x, y - high + 30, 151, 1080, fd, 1,
 					paint);
 			if (m == 1) {
 				if (t % 4 < 2)

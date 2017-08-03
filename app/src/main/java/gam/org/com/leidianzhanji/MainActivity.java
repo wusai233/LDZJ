@@ -50,16 +50,16 @@ public class MainActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.main);
+        //setContentView(R.layout.main);
         EventBus.getDefault().register(this);
         LTGameAgent.setDebugMode(true);// 设置输出运⾏行行时⽇日志
         LTGameAgent.init(this);
-//findViewById(R.id.tv_button).setOnClickListener(new View.OnClickListener() {
-//    @Override
-//    public void onClick(View v) {
-//        EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
-//    }
-//});
+        //findViewById(R.id.tv_button).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        EventBus.getDefault().post(new EventMessage(EventMessage.TAG1));
+        //    }
+        //});
         // 去掉标题
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 去掉状态栏
@@ -112,6 +112,14 @@ public class MainActivity extends Activity {
                 break;
             }
             case EventMessage.TAG7: {//
+                payCode = "201707170002001";
+                break;
+            }
+            case EventMessage.TAG8: {//
+                payCode = "201707170002001";
+                break;
+            }
+            case EventMessage.TAG9: {//
                 payCode = "201707170002001";
                 break;
             }
@@ -184,6 +192,14 @@ public class MainActivity extends Activity {
                                 Game.baohu += 5;
                                 gameDraw.game.addShuijing(5000);
                                 Data.save();
+                                break;
+                            }
+                            case EventMessage.TAG8: {//  红色飞机
+                                haveAirplane[0] = true;
+                                break;
+                            }
+                            case EventMessage.TAG9: {//  黄色飞机
+                                haveAirplane[1] = true;
                                 break;
                             }
                         }

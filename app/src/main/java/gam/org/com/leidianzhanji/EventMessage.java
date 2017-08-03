@@ -33,6 +33,14 @@ public class EventMessage {
      * 战斗礼包 4元
      */
     public static final int TAG7 = 10007;
+    /**
+     * 红色战机 6元
+     */
+    public static final int TAG8 = 10008;
+    /**
+     * 黄色战机 8元
+     */
+    public static final int TAG9 = 10009;
 
     private int tag;
     private Object content;
@@ -51,7 +59,6 @@ public class EventMessage {
     public EventMessage(int tag, int sj) {
         this.tag = tag;
         this.sj = sj;
-
     }
 
     public int getTag() {
@@ -77,6 +84,4 @@ public class EventMessage {
     public void setSj(int sj) {
         this.sj = sj;
     }
-
-
 }
